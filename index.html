@@ -4,12 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Festival Wishes Maker — Dussehra &amp; Diwali Greeting Cards</title>
-<meta name="description" content="Create beautiful personalised Dussehra and Diwali greeting cards with your name in seconds. Download the card as a PNG or share it on WhatsApp — free, no sign-up.">
+<meta name="description" content="Create beautiful personalised Dussehra and Diwali greeting cards with your name in seconds. Over 1.15 crore design combinations — pick a theme, background, frame and motif, or hit Surprise Me. Download as PNG or share on WhatsApp — free, no sign-up.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Festival Wishes Maker — Dussehra & Diwali Greeting Cards">
-<meta property="og:description" content="Pick a design, add your name, and share a festive greeting card with family and friends.">
+<meta property="og:description" content="Pick a design, add your name, and share a festive greeting card with family and friends. 1,15,20,000+ design combinations!">
 <meta property="og:url" content="https://festival-wishes-maker.vercel.app/">
 <meta name="theme-color" content="#7b0d0d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --maroon:#7b0d0d; --deep:#4a0606; --gold:#d98a16; --gold2:#f0c040;
@@ -64,7 +67,7 @@
     border-radius:18px;padding:16px 14px 18px;margin-top:16px;box-shadow:0 6px 18px rgba(123,13,13,.10);
   }
   section.panel h2{margin:0 0 12px;font-family:Georgia,serif;font-size:21px;color:var(--maroon);}
-  label.flabel{display:block;font-weight:700;font-size:14px;margin:12px 0 6px;color:#5c1a08;}
+  label.flabel{display:block;font-weight:700;font-size:14px;margin:13px 0 6px;color:#5c1a08;}
   input[type="text"], select{
     width:100%;padding:12px 13px;font-size:16.5px;border:1.8px solid #e0b26a;border-radius:12px;
     background:#fff;color:var(--ink);outline:none;
@@ -72,14 +75,43 @@
   input[type="text"]:focus, select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,138,22,.25);}
   .checkrow{display:flex;align-items:center;gap:9px;margin-top:11px;font-size:15px;font-weight:600;color:#5c1a08;}
   .checkrow input{width:19px;height:19px;accent-color:var(--maroon);}
-  .designs{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:6px;}
-  .designs figure{margin:0;text-align:center;cursor:pointer;}
-  .designs canvas{
+  .comboBanner{
+    text-align:center;background:linear-gradient(90deg,#7b0d0d,#a31616,#7b0d0d);
+    color:#ffe9b0;border-radius:14px;padding:12px 10px;margin-bottom:12px;
+    box-shadow:0 4px 12px rgba(123,13,13,.25);
+  }
+  .comboBanner .num{font-size:clamp(24px,6vw,34px);font-weight:800;color:#ffd54f;line-height:1.1;}
+  .comboBanner .cap{font-size:13.5px;font-weight:600;color:#ffe9b0;}
+  .comboBanner .brk{font-size:11.5px;color:#f5cf8f;margin-top:3px;line-height:1.5;}
+  .btnSurprise{
+    width:100%;padding:15px 10px;font-size:18.5px;font-weight:800;border:none;border-radius:14px;cursor:pointer;
+    background:linear-gradient(90deg,#c1272d,#e2703a,#d98a16);color:#fff;
+    box-shadow:0 5px 14px rgba(193,39,45,.35);letter-spacing:.2px;
+  }
+  .btnSurprise:active{transform:scale(.985);}
+  .chips{display:flex;gap:7px;overflow-x:auto;padding:3px 2px 9px;scrollbar-width:thin;-webkit-overflow-scrolling:touch;}
+  .chip{
+    flex:0 0 auto;padding:8px 13px;border-radius:20px;border:1.8px solid #e0b26a;background:#fff;
+    font-size:13.5px;font-weight:700;color:#5c1a08;cursor:pointer;display:inline-flex;align-items:center;gap:7px;
+    font-family:"Segoe UI", system-ui, sans-serif;
+  }
+  .chip.sel{background:linear-gradient(180deg,#a31616,#7b0d0d);color:#ffe9b0;border-color:#a31616;}
+  .chip .swatch{width:18px;height:18px;border-radius:50%;border:2px solid rgba(0,0,0,.18);flex:0 0 auto;}
+  .ideasHead{display:flex;align-items:center;justify-content:space-between;margin-top:13px;}
+  .ideasHead .flabel{margin:0;}
+  .btnMini{
+    padding:7px 13px;font-size:13px;font-weight:800;border-radius:18px;cursor:pointer;
+    border:1.8px solid var(--gold);background:#fff8e6;color:#8f1212;
+  }
+  .btnMini:active{transform:scale(.97);}
+  .ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:8px;}
+  .ideas figure{margin:0;text-align:center;cursor:pointer;}
+  .ideas canvas{
     width:100%;height:auto;border-radius:12px;border:3px solid transparent;display:block;
     box-shadow:0 3px 9px rgba(0,0,0,.18);
   }
-  .designs figcaption{font-size:12px;font-weight:700;color:#7a3c10;margin-top:4px;}
-  .designs figure.sel canvas{border-color:var(--gold);}
+  .ideas figcaption{font-size:11.5px;font-weight:700;color:#7a3c10;margin-top:3px;}
+  .ideas figure:hover canvas{border-color:var(--gold2);}
   .stage{margin-top:16px;text-align:center;}
   #cardCanvas{
     width:100%;max-width:520px;height:auto;border-radius:16px;display:block;margin:0 auto;
@@ -105,10 +137,10 @@
   footer{text-align:center;margin-top:26px;color:#7a3c10;font-size:14px;line-height:1.6;}
   footer .big{font-size:16px;}
   @media (max-width:420px){
-    .designs{grid-template-columns:repeat(4,1fr);gap:6px;}
     .days-strip{grid-template-columns:repeat(5,1fr);gap:5px;}
     .day b{font-size:11.5px;} .day span{font-size:10px;}
     .actions{flex-direction:column;}
+    .ideas{gap:6px;}
   }
 </style>
 </head>
@@ -117,7 +149,7 @@
 
   <header class="hero">
     <h1>🎉 Festival Wishes Maker</h1>
-    <p>Create a beautiful greeting card with <b>your name</b> for Dussehra &amp; Diwali — pick a design, type your name, download or share on WhatsApp. Free, no sign-up!</p>
+    <p>Create a beautiful greeting card with <b>your name</b> for Dussehra &amp; Diwali — mix and match from <b>over 1.15 crore design combinations</b>, or hit <b>Surprise Me</b> and let luck design your card. Free, no sign-up!</p>
   </header>
 
   <div class="festtabs" role="tablist">
@@ -141,6 +173,14 @@
   <section class="panel">
     <h2>✨ Make your card</h2>
 
+    <div class="comboBanner">
+      <div class="num" id="comboNum">1,15,20,000+</div>
+      <div class="cap">design combinations — <span id="comboFestName">for Dussehra alone!</span></div>
+      <div class="brk" id="comboBreak"></div>
+    </div>
+
+    <button class="btnSurprise" id="btnSurprise" type="button">🎲 Surprise Me — Random Design</button>
+
     <label class="flabel" for="toName">Wishing to (recipient's name) — optional</label>
     <input type="text" id="toName" placeholder="e.g. Sharma Family" maxlength="40" autocomplete="off">
 
@@ -152,11 +192,38 @@
       <label for="andFamily">Add “&amp; Family” after my name</label>
     </div>
 
-    <label class="flabel" for="msgSelect">Choose a wish</label>
+    <label class="flabel" for="msgSelect">💌 Choose a wish</label>
     <select id="msgSelect"></select>
 
-    <label class="flabel">Choose a design</label>
-    <div class="designs" id="designRow"></div>
+    <label class="flabel">🎨 Colour theme</label>
+    <div class="chips" id="pickTheme"></div>
+
+    <label class="flabel">🖼️ Background style</label>
+    <div class="chips" id="pickBg"></div>
+
+    <label class="flabel">🖼️ Frame / border</label>
+    <div class="chips" id="pickBorder"></div>
+
+    <label class="flabel">🎭 Hero motif</label>
+    <div class="chips" id="pickMotif"></div>
+
+    <label class="flabel">📐 Motif arrangement</label>
+    <div class="chips" id="pickArrange"></div>
+
+    <label class="flabel">✨ Pattern overlay</label>
+    <div class="chips" id="pickOverlay"></div>
+
+    <label class="flabel">🔤 Headline style</label>
+    <div class="chips" id="pickHfont"></div>
+
+    <label class="flabel">✍️ Your name style</label>
+    <div class="chips" id="pickNfont"></div>
+
+    <div class="ideasHead">
+      <label class="flabel">💡 Fresh ideas — tap one to use it</label>
+      <button class="btnMini" id="btnIdeas" type="button">↻ New ideas</button>
+    </div>
+    <div class="ideas" id="ideaRow"></div>
 
     <div class="stage">
       <canvas id="cardCanvas" width="1080" height="1080"></canvas>
@@ -195,38 +262,154 @@ var SITE_URL = "https://festival-wishes-maker.vercel.app/";
 var FESTIVALS = {
   dussehra: {
     key: "dussehra",
+    label: "Dussehra",
     headline: "Happy Dussehra",
     sub: "Vijayadashami — Victory of Good over Evil",
     date: [2026, 9, 20], /* Oct 20 2026 */
     messages: [
       "May good always triumph over evil in your life. Wishing you victory, courage and happiness on this Dussehra!",
       "On this Vijayadashami, may every trouble in your life burn away like the effigy of Ravana. Happy Dussehra!",
-      "May Lord Rama bless you with the strength and courage to always walk the path of truth. Happy Dussehra!"
-    ],
-    designs: [
-      { id: "golden-victory", name: "Golden Victory" },
-      { id: "marigold-arch",  name: "Marigold Arch" },
-      { id: "sunset-triumph", name: "Sunset Triumph" }
+      "May Lord Rama bless you with the strength and courage to always walk the path of truth. Happy Dussehra!",
+      "Wishing you the courage to conquer every challenge and the wisdom to choose what is right. Shubh Vijayadashami!",
+      "Like the triumph of light over darkness, may success and joy always find their way to you. Happy Dussehra!"
     ]
   },
   diwali: {
     key: "diwali",
+    label: "Diwali",
     headline: "Happy Diwali",
     sub: "Shubh Deepavali",
     date: [2026, 10, 8], /* Nov 8 2026 */
     messages: [
       "May the light of the diyas guide you towards health, wealth and happiness. Wishing you and your family a very Happy Diwali!",
       "May Goddess Lakshmi bless your home with prosperity, and may every diya light up a brand new dream. Shubh Deepavali!",
-      "Wishing you a Diwali full of light, laughter and sweet moments with the people you love most. Happy Diwali!"
-    ],
-    designs: [
-      { id: "classic-diya",  name: "Classic Diya" },
-      { id: "golden-glow",   name: "Golden Glow" },
-      { id: "rangoli-rang",  name: "Rangoli Rang" },
-      { id: "fireworks-sky", name: "Fireworks Sky" }
+      "Wishing you a Diwali full of light, laughter and sweet moments with the people you love most. Happy Diwali!",
+      "From our family to yours — may your Diwali sparkle with joy, prosperity and endless sweetness. Happy Diwali!",
+      "May the glow of a thousand diyas fill your heart with peace and your home with abundance. Shubh Deepavali!"
     ]
   }
 };
+
+/* ---- Axis 1: colour themes (20) ---- */
+var PALETTES = [
+  { id: "royal-gold",    name: "Royal Gold",    stops: [[0,"#5c0707"],[0.5,"#a31616"],[1,"#d35400"]], accent: "#f0c040", accent2: "#e67e22", head: "#ffe082", sub: "#ffd54f", body: "#fff3d6", frame: "#f0c040", spark: "#ffe9a8" },
+  { id: "sunset-orange", name: "Sunset Orange", stops: [[0,"#6d1500"],[0.5,"#c1440e"],[1,"#f0761e"]], accent: "#ffca28", accent2: "#ff8a50", head: "#ffe9b0", sub: "#ffd54f", body: "#fff2dc", frame: "#ffca28", spark: "#ffe9a8" },
+  { id: "midnight-blue", name: "Midnight Blue", stops: [[0,"#070d2b"],[0.55,"#12245e"],[1,"#1d3a8a"]], accent: "#f0c040", accent2: "#4dd0e1", head: "#ffd54f", sub: "#ffe9a8", body: "#eef2ff", frame: "#f0c040", spark: "#ffe9a8" },
+  { id: "rose-pink",     name: "Rose Pink",     stops: [[0,"#42041f"],[0.55,"#8e0e4e"],[1,"#d6336c"]], accent: "#ffb3cd", accent2: "#f0c040", head: "#ffd9e8", sub: "#ffb3cd", body: "#fff0f5", frame: "#ffb3cd", spark: "#ffd9e8" },
+  { id: "emerald",       name: "Emerald Green", stops: [[0,"#02231a"],[0.55,"#065f46"],[1,"#0d9668"]], accent: "#fbbf24", accent2: "#6ee7b7", head: "#fde68a", sub: "#a7f3d0", body: "#e6fffa", frame: "#fbbf24", spark: "#fef08a" },
+  { id: "royal-purple",  name: "Royal Purple",  stops: [[0,"#1b0533"],[0.55,"#4c1d95"],[1,"#7c3aed"]], accent: "#f0c040", accent2: "#c4b5fd", head: "#fcd34d", sub: "#ddd6fe", body: "#f3efff", frame: "#f0c040", spark: "#e9d5ff" },
+  { id: "crimson",       name: "Crimson Red",   stops: [[0,"#2b0208"],[0.55,"#8f1212"],[1,"#dc2645"]], accent: "#f0c040", accent2: "#fca5a5", head: "#fecdd3", sub: "#fda4af", body: "#fff1f2", frame: "#f0c040", spark: "#ffe4e6" },
+  { id: "teal-glow",     name: "Teal Glow",     stops: [[0,"#01222b"],[0.55,"#065a60"],[1,"#0e9594"]], accent: "#fde68a", accent2: "#5eead4", head: "#fde68a", sub: "#99f6e4", body: "#e0fffa", frame: "#fde68a", spark: "#ccfbf1" },
+  { id: "peach-cream",   name: "Peach Cream",   stops: [[0,"#fff6dd"],[0.55,"#ffe6b8"],[1,"#ffd9a0"]], accent: "#d98a16", accent2: "#c2571b", head: "#8f1212", sub: "#b3540a", body: "#5c2410", frame: "#b3540a", spark: "#e8a33d" },
+  { id: "silver-moon",   name: "Silver Moon",   stops: [[0,"#0d1220"],[0.55,"#26324d"],[1,"#43598a"]], accent: "#dbe7ff", accent2: "#93c5fd", head: "#f1f5f9", sub: "#bcd2f5", body: "#e8eefc", frame: "#dbe7ff", spark: "#e2e8f0" },
+  { id: "classic-maroon",name: "Classic Maroon",stops: [[0,"#260404"],[0.55,"#6d0a0a"],[1,"#9c1a1a"]], accent: "#f0c040", accent2: "#e2703a", head: "#ffe082", sub: "#ffd54f", body: "#ffeecf", frame: "#f0c040", spark: "#ffe9a8" },
+  { id: "rainbow-fest",  name: "Rainbow Fest",  stops: [[0,"#2a1160"],[0.38,"#8e0e4e"],[0.7,"#e2703a"],[1,"#f0c040"]], accent: "#ffd54f", accent2: "#ff8fab", head: "#fff3c4", sub: "#ffd54f", body: "#fff8e1", frame: "#ffd54f", spark: "#ffffff" },
+  { id: "magenta-fest",  name: "Magenta Fest",  stops: [[0,"#2d0531"],[0.55,"#7b1e7a"],[1,"#c2189e"]], accent: "#ffd54f", accent2: "#f0abfc", head: "#ffe4fb", sub: "#f5d0fe", body: "#fdf0ff", frame: "#ffd54f", spark: "#fae8ff" },
+  { id: "peacock",       name: "Peacock Blue",  stops: [[0,"#02203a"],[0.55,"#045a7a"],[1,"#0a9396"]], accent: "#f0c040", accent2: "#2ec4b6", head: "#fcd34d", sub: "#a5f3fc", body: "#e0fbff", frame: "#f0c040", spark: "#cffafe" },
+  { id: "choco-gold",    name: "Chocolate Gold",stops: [[0,"#1f0d02"],[0.55,"#5b2a06"],[1,"#96620f"]], accent: "#ffd54f", accent2: "#e8a33d", head: "#ffe9b0", sub: "#ffd54f", body: "#fff3d6", frame: "#ffd54f", spark: "#ffe9a8" },
+  { id: "ruby-wine",     name: "Ruby Wine",     stops: [[0,"#30060f"],[0.55,"#6d0f2b"],[1,"#a4133c"]], accent: "#f0c040", accent2: "#fb7185", head: "#ffe0e6", sub: "#fda4af", body: "#fff0f3", frame: "#f0c040", spark: "#ffe4e6" },
+  { id: "indigo-night",  name: "Indigo Night",  stops: [[0,"#0a0a2e"],[0.55,"#232368"],[1,"#3f3fa0"]], accent: "#f0c040", accent2: "#a5b4fc", head: "#e0e7ff", sub: "#c7d2fe", body: "#eef0ff", frame: "#f0c040", spark: "#e0e7ff" },
+  { id: "lemon-lime",    name: "Lemon Lime",    stops: [[0,"#1e2b02"],[0.55,"#556b02"],[1,"#8aa80e"]], accent: "#fde047", accent2: "#bef264", head: "#fef9c3", sub: "#fde047", body: "#f7fee7", frame: "#fde047", spark: "#fef9c3" },
+  { id: "coral-sunset",  name: "Coral Sunset",  stops: [[0,"#330d1f"],[0.45,"#7a1e3f"],[0.75,"#e05b4b"],[1,"#f28c5a"]], accent: "#ffd166", accent2: "#ffb3a7", head: "#ffe8d6", sub: "#ffd166", body: "#fff1e6", frame: "#ffd166", spark: "#ffe9a8" },
+  { id: "ivory-rose",    name: "Ivory Rose",    stops: [[0,"#fdf3e7"],[0.55,"#fbe3cf"],[1,"#f6cf9f"]], accent: "#c2571b", accent2: "#b3540a", head: "#7c2d12", sub: "#9a3412", body: "#571f08", frame: "#b3540a", spark: "#e8a33d" }
+];
+
+/* ---- Axis 2: background styles (8) ---- */
+var BACKGROUNDS = [
+  { id: "radial-glow", name: "Radial Glow" },
+  { id: "sunburst", name: "Sunburst Rays" },
+  { id: "night-sky", name: "Night Sky" },
+  { id: "diagonal-shine", name: "Diagonal Shine" },
+  { id: "soft-waves", name: "Soft Waves" },
+  { id: "mandala-backdrop", name: "Mandala Backdrop" },
+  { id: "vignette", name: "Vignette Glow" },
+  { id: "dual-split", name: "Dual Tone Split" }
+];
+
+/* ---- Axis 3: borders / frames (10) ---- */
+var BORDERS = [
+  { id: "toran", name: "Toran Garland" },
+  { id: "marigold-strands", name: "Marigold Strands" },
+  { id: "gold-frame", name: "Double Gold Frame" },
+  { id: "rangoli-corners", name: "Rangoli Corners" },
+  { id: "diya-row", name: "Diya Row" },
+  { id: "sparkle-frame", name: "Sparkle Scatter" },
+  { id: "temple-arch", name: "Temple Arch" },
+  { id: "dot-border", name: "Dot Border" },
+  { id: "leaf-vine", name: "Leaf Vine" },
+  { id: "none", name: "No Border (Clean)" }
+];
+
+/* ---- Axis 4: hero motifs (10) ---- */
+var MOTIFS = [
+  { id: "diya-pair", name: "Diya Pair" },
+  { id: "big-rangoli", name: "Big Rangoli" },
+  { id: "bow-arrow", name: "Bow & Arrow" },
+  { id: "kalash", name: "Kalash" },
+  { id: "lotus", name: "Lotus" },
+  { id: "fireworks", name: "Fireworks" },
+  { id: "lamp-string", name: "Hanging Lamps" },
+  { id: "sun-medallion", name: "Sun Medallion" },
+  { id: "peacock-feather", name: "Peacock Feather" },
+  { id: "temple-bells", name: "Temple Bells" }
+];
+
+/* ---- Axis 5: motif arrangement (4) ---- */
+var ARRANGES = [
+  { id: "centre", name: "Centre — Large" },
+  { id: "top", name: "Top — Small" },
+  { id: "sides", name: "Paired Sides" },
+  { id: "scatter", name: "Scattered Trio" }
+];
+
+/* ---- Axis 6: pattern overlay (6) ---- */
+var OVERLAYS = [
+  { id: "none", name: "None" },
+  { id: "sparkle-dust", name: "Sparkle Dust" },
+  { id: "tiny-dots", name: "Tiny Dots" },
+  { id: "fine-rays", name: "Fine Rays" },
+  { id: "falling-petals", name: "Falling Petals" },
+  { id: "bokeh-glow", name: "Bokeh Glow" }
+];
+
+/* ---- Axis 7: headline font styles (5) ---- */
+var SERIF = 'Georgia, "Times New Roman", serif';
+var SANS = '"Segoe UI", Tahoma, Arial, sans-serif';
+var HFONTS = [
+  { id: "elegant-serif", name: "Elegant Serif", stack: SERIF, weight: "bold", boost: 1 },
+  { id: "royal-display", name: "Royal Display", stack: '"Cinzel Decorative", Georgia, serif', weight: "700", boost: 0.92 },
+  { id: "festive-script", name: "Festive Script", stack: '"Great Vibes", cursive', weight: "400", boost: 1.28 },
+  { id: "modern-bold", name: "Modern Bold", stack: 'Poppins, "Segoe UI", sans-serif', weight: "800", boost: 0.94 },
+  { id: "classic", name: "Classic", stack: '"Playfair Display", Georgia, serif', weight: "900", boost: 1 }
+];
+
+/* ---- Axis 8: name font styles (6) ---- */
+var NFONTS = [
+  { id: "elegant-serif", name: "Elegant Serif", stack: SERIF, weight: "bold", boost: 1 },
+  { id: "script", name: "Script", stack: '"Great Vibes", cursive', weight: "400", boost: 1.35 },
+  { id: "bold-display", name: "Bold Display", stack: '"Cinzel Decorative", Georgia, serif', weight: "700", boost: 0.9 },
+  { id: "outline-gold", name: "Outline Gold", stack: SERIF, weight: "bold", boost: 1, outline: true },
+  { id: "classic-italic", name: "Classic Italic", stack: '"Playfair Display", Georgia, serif', weight: "600", boost: 1, italic: true },
+  { id: "modern", name: "Modern", stack: 'Poppins, "Segoe UI", sans-serif', weight: "600", boost: 0.95 }
+];
+
+/* The honest total: product of every visual axis (messages come on top) */
+function totalCombos() {
+  return PALETTES.length * BACKGROUNDS.length * BORDERS.length * MOTIFS.length *
+    ARRANGES.length * OVERLAYS.length * HFONTS.length * NFONTS.length;
+}
+function indianFormat(n) {
+  var s = String(n);
+  if (s.length <= 3) return s;
+  var last3 = s.slice(-3), rest = s.slice(0, -3), parts = [];
+  while (rest.length > 2) { parts.unshift(rest.slice(-2)); rest = rest.slice(0, -2); }
+  if (rest) parts.unshift(rest);
+  return parts.join(",") + "," + last3;
+}
+function byId(list, id) {
+  for (var i = 0; i < list.length; i++) if (list[i].id === id) return list[i];
+  return list[0];
+}
 
 /* ============================== CANVAS HELPERS ============================== */
 function lg(ctx, x0, y0, x1, y1, stops) {
@@ -239,18 +422,25 @@ function rg(ctx, x, y, r, stops) {
   for (var i = 0; i < stops.length; i++) g.addColorStop(stops[i][0], stops[i][1]);
   return g;
 }
+function palGradient(ctx, x0, y0, x1, y1, pal) {
+  var g = ctx.createLinearGradient(x0, y0, x1, y1);
+  for (var i = 0; i < pal.stops.length; i++) g.addColorStop(pal.stops[i][0], pal.stops[i][1]);
+  return g;
+}
 function circle(ctx, x, y, r, fill) {
   ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
   if (fill) { ctx.fillStyle = fill; ctx.fill(); }
 }
-function rr(ctx, x, y, w, h, rad) {
-  ctx.beginPath();
-  ctx.moveTo(x + rad, y);
-  ctx.arcTo(x + w, y, x + w, y + h, rad);
-  ctx.arcTo(x + w, y + h, x, y + h, rad);
-  ctx.arcTo(x, y + h, x, y, rad);
-  ctx.arcTo(x, y, x + w, y, rad);
-  ctx.closePath();
+/* darken (f<0) or lighten (f>0) a #rrggbb colour by fraction f */
+function shade(hex, f) {
+  var n = parseInt(hex.slice(1), 16);
+  var r = (n >> 16) & 255, g = (n >> 8) & 255, b = n & 255;
+  if (f < 0) { r = Math.round(r * (1 + f)); g = Math.round(g * (1 + f)); b = Math.round(b * (1 + f)); }
+  else { r = Math.round(r + (255 - r) * f); g = Math.round(g + (255 - g) * f); b = Math.round(b + (255 - b) * f); }
+  return "rgb(" + r + "," + g + "," + b + ")";
+}
+function shadeStops(pal, f) {
+  return pal.stops.map(function (s) { return [s[0], shade(s[1], f)]; });
 }
 /* deterministic pseudo-random so previews match the final card */
 function seededRand(seed) {
@@ -270,40 +460,33 @@ function wrapLines(ctx, text, maxWidth) {
   if (cur) lines.push(cur);
   return lines;
 }
-function fitSize(ctx, text, weight, family, maxWidth, start) {
+function fontSpec(weight, size, stack, italic) {
+  return (italic ? "italic " : "") + weight + " " + Math.round(size) + "px " + stack;
+}
+function fitSize(ctx, text, weight, stack, maxWidth, start, italic) {
   var s = start;
-  ctx.font = weight + " " + s + "px " + family;
+  ctx.font = fontSpec(weight, s, stack, italic);
   while (ctx.measureText(text).width > maxWidth && s > 12) {
-    s -= 3; ctx.font = weight + " " + s + "px " + family;
+    s -= 3; ctx.font = fontSpec(weight, s, stack, italic);
   }
   return s;
 }
-
-/* ============================== MOTIFS (all drawn in code) ============================== */
-/* Hanging marigold + mango-leaf garland (toran) across the top */
-function drawToran(ctx, S, u) {
-  var rnd = seededRand(42);
-  var n = 15, gap = S / n;
+/* Small scattered 4-point stars / sparkles */
+function drawSparkles(ctx, S, u, n, seed, area, color) {
+  var rnd = seededRand(seed);
+  color = color || "#ffe9a8";
   for (var i = 0; i < n; i++) {
-    var x = gap * i + gap / 2;
-    var drop = 26 * u + (i % 2) * 14 * u;
-    /* leaf */
+    var x = rnd() * S, y = area ? rnd() * area : rnd() * S;
+    var r = (1.6 + rnd() * 2.6) * u;
     ctx.save();
-    ctx.translate(x, 0);
+    ctx.globalAlpha = 0.35 + rnd() * 0.55;
+    ctx.fillStyle = color;
     ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.quadraticCurveTo(13 * u, drop * 0.55, 0, drop + 26 * u);
-    ctx.quadraticCurveTo(-13 * u, drop * 0.55, 0, 0);
-    ctx.fillStyle = i % 2 ? "#2e7d32" : "#388e3c";
-    ctx.fill();
+    ctx.moveTo(x, y - r * 2.2); ctx.lineTo(x + r * 0.55, y - r * 0.55); ctx.lineTo(x + r * 2.2, y);
+    ctx.lineTo(x + r * 0.55, y + r * 0.55); ctx.lineTo(x, y + r * 2.2); ctx.lineTo(x - r * 0.55, y + r * 0.55);
+    ctx.lineTo(x - r * 2.2, y); ctx.lineTo(x - r * 0.55, y - r * 0.55);
+    ctx.closePath(); ctx.fill();
     ctx.restore();
-    /* marigold cluster */
-    var cols = ["#ff9800", "#ffb300", "#fb8c00", "#ffca28"];
-    for (var k = 0; k < 5; k++) {
-      var a = (k / 5) * Math.PI * 2 + rnd() * 0.5;
-      circle(ctx, x + Math.cos(a) * 11 * u, drop + 30 * u + Math.sin(a) * 9 * u, 10.5 * u, cols[(i + k) % 4]);
-    }
-    circle(ctx, x, drop + 30 * u, 9 * u, "#ff7043");
   }
 }
 /* A clay diya (oil lamp) centred at x, rim line at y, scale s */
@@ -314,7 +497,6 @@ function drawDiya(ctx, x, y, s, glow) {
     circle(ctx, x, y - 26 * s, 95 * s, rg(ctx, x, y - 26 * s, 95 * s, [[0, "rgba(255,190,60,0.85)"], [1, "rgba(255,190,60,0)"]]));
     ctx.restore();
   }
-  /* bowl */
   ctx.beginPath();
   ctx.moveTo(x - 72 * s, y);
   ctx.quadraticCurveTo(x - 60 * s, y + 42 * s, x, y + 46 * s);
@@ -322,14 +504,12 @@ function drawDiya(ctx, x, y, s, glow) {
   ctx.closePath();
   ctx.fillStyle = lg(ctx, x, y, x, y + 46 * s, [[0, "#d2691e"], [1, "#7a2d0c"]]);
   ctx.fill();
-  /* rim */
   ctx.beginPath();
   ctx.ellipse(x, y, 72 * s, 13 * s, 0, 0, Math.PI * 2);
   ctx.fillStyle = "#8a3b12"; ctx.fill();
   ctx.beginPath();
   ctx.ellipse(x, y, 58 * s, 9 * s, 0, 0, Math.PI * 2);
   ctx.fillStyle = "#3d1a05"; ctx.fill();
-  /* flame */
   ctx.beginPath();
   ctx.moveTo(x, y - 62 * s);
   ctx.bezierCurveTo(x + 17 * s, y - 30 * s, x + 13 * s, y - 12 * s, x, y - 6 * s);
@@ -342,31 +522,25 @@ function drawDiya(ctx, x, y, s, glow) {
 function drawBowArrow(ctx, cx, cy, s, ang) {
   ctx.save();
   ctx.translate(cx, cy); ctx.rotate(ang || 0);
-  /* bow */
   ctx.beginPath();
   ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
   ctx.strokeStyle = "#8a4b08"; ctx.lineWidth = 11 * s; ctx.lineCap = "round"; ctx.stroke();
   ctx.beginPath();
   ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
   ctx.strokeStyle = "#c77b1e"; ctx.lineWidth = 5 * s; ctx.stroke();
-  /* gold tips */
   var a1 = -1.12, a2 = 1.12;
   var tx1 = -18 * s + 118 * s * Math.cos(a1), ty1 = 118 * s * Math.sin(a1);
   var tx2 = -18 * s + 118 * s * Math.cos(a2), ty2 = 118 * s * Math.sin(a2);
   circle(ctx, tx1, ty1, 8 * s, "#f0c040");
   circle(ctx, tx2, ty2, 8 * s, "#f0c040");
-  /* string */
   ctx.beginPath(); ctx.moveTo(tx1, ty1); ctx.lineTo(28 * s, 0); ctx.lineTo(tx2, ty2);
   ctx.strokeStyle = "rgba(255,240,200,0.9)"; ctx.lineWidth = 2.6 * s; ctx.stroke();
-  /* arrow shaft */
   ctx.beginPath(); ctx.moveTo(-128 * s, 0); ctx.lineTo(138 * s, 0);
   ctx.strokeStyle = "#e8a33d"; ctx.lineWidth = 8 * s; ctx.stroke();
-  /* arrow head */
   ctx.beginPath();
   ctx.moveTo(196 * s, 0); ctx.lineTo(132 * s, -17 * s); ctx.lineTo(146 * s, 0); ctx.lineTo(132 * s, 17 * s);
   ctx.closePath(); ctx.fillStyle = "#f5f5f5"; ctx.fill();
   ctx.strokeStyle = "#9e9e9e"; ctx.lineWidth = 2 * s; ctx.stroke();
-  /* fletching */
   ctx.beginPath();
   ctx.moveTo(-128 * s, 0); ctx.lineTo(-162 * s, -22 * s); ctx.lineTo(-104 * s, -4 * s);
   ctx.closePath(); ctx.fillStyle = "#c1272d"; ctx.fill();
@@ -375,14 +549,12 @@ function drawBowArrow(ctx, cx, cy, s, ang) {
   ctx.closePath(); ctx.fillStyle = "#f0c040"; ctx.fill();
   ctx.restore();
 }
-/* Concentric rangoli / mandala medallion */
+/* Concentric rangoli / mandala medallion; colors = [disc, petalA, petalB, dot] */
 function drawMandala(ctx, cx, cy, R, colors) {
   var i, a;
   circle(ctx, cx, cy, R, colors[0]);
-  circle(ctx, cx, cy, R * 0.97, null);
   ctx.beginPath(); ctx.arc(cx, cy, R * 0.97, 0, Math.PI * 2);
   ctx.strokeStyle = colors[3]; ctx.lineWidth = R * 0.02; ctx.stroke();
-  /* petal ring */
   for (i = 0; i < 16; i++) {
     a = (i / 16) * Math.PI * 2;
     ctx.save();
@@ -392,12 +564,10 @@ function drawMandala(ctx, cx, cy, R, colors) {
     ctx.fillStyle = i % 2 ? colors[1] : colors[2]; ctx.fill();
     ctx.restore();
   }
-  /* dot ring */
   for (i = 0; i < 24; i++) {
     a = (i / 24) * Math.PI * 2;
     circle(ctx, cx + Math.cos(a) * R * 0.6, cy + Math.sin(a) * R * 0.6, R * 0.028, colors[3]);
   }
-  /* inner petals */
   for (i = 0; i < 8; i++) {
     a = (i / 8) * Math.PI * 2;
     ctx.save();
@@ -410,6 +580,7 @@ function drawMandala(ctx, cx, cy, R, colors) {
   circle(ctx, cx, cy, R * 0.2, colors[1]);
   circle(ctx, cx, cy, R * 0.1, colors[3]);
 }
+function palMandala(pal) { return [pal.stops[1][1], pal.accent, pal.accent2, pal.head]; }
 /* Firework burst */
 function drawFirework(ctx, cx, cy, R, color) {
   ctx.save();
@@ -427,319 +598,643 @@ function drawFirework(ctx, cx, cy, R, color) {
   circle(ctx, cx, cy, R * 0.06, "#ffffff");
   ctx.restore();
 }
-/* Dotted rangoli-style border inside the card edges */
-function drawDotBorder(ctx, S, u, color, inset) {
-  var ins = (inset || 40) * u, step = 46 * u, r = 5.5 * u, x, y;
-  ctx.fillStyle = color;
-  for (x = ins; x <= S - ins + 1; x += step) {
-    circle(ctx, x, ins, r, color); circle(ctx, x, S - ins, r, color);
-  }
-  for (y = ins + step; y <= S - ins - step + 1; y += step) {
-    circle(ctx, ins, y, r, color); circle(ctx, S - ins, y, r, color);
-  }
-}
-/* Small scattered stars / sparkles */
-function drawSparkles(ctx, S, u, n, seed, area) {
-  var rnd = seededRand(seed);
-  for (var i = 0; i < n; i++) {
-    var x = rnd() * S, y = area ? rnd() * area : rnd() * S;
-    var r = (1.6 + rnd() * 2.6) * u;
+
+/* ============================== BACKGROUNDS (8) ============================== */
+function drawBackground(ctx, S, u, pal, bgId) {
+  var cx = S / 2, i, a;
+  if (bgId === "radial-glow") {
+    var g = ctx.createRadialGradient(cx, 330 * u, 0, cx, 330 * u, 980 * u);
+    for (i = 0; i < pal.stops.length; i++) g.addColorStop(pal.stops[i][0], pal.stops[i][1]);
+    ctx.fillStyle = g; ctx.fillRect(0, 0, S, S);
+  } else if (bgId === "sunburst") {
+    ctx.fillStyle = palGradient(ctx, 0, 0, 0, S, pal); ctx.fillRect(0, 0, S, S);
+    ctx.save(); ctx.globalAlpha = 0.13; ctx.fillStyle = pal.accent;
+    for (i = 0; i < 28; i++) {
+      if (i % 2) continue;
+      a = (i / 28) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.moveTo(cx, 300 * u);
+      ctx.lineTo(cx + Math.cos(a - 0.045) * 980 * u, 300 * u + Math.sin(a - 0.045) * 980 * u);
+      ctx.lineTo(cx + Math.cos(a + 0.045) * 980 * u, 300 * u + Math.sin(a + 0.045) * 980 * u);
+      ctx.closePath(); ctx.fill();
+    }
+    ctx.restore();
+  } else if (bgId === "night-sky") {
+    ctx.fillStyle = lg(ctx, 0, 0, 0, S, shadeStops(pal, -0.55)); ctx.fillRect(0, 0, S, S);
+    drawSparkles(ctx, S, u, 120, 97, null, pal.spark);
+    /* moon */
+    ctx.save(); ctx.globalAlpha = 0.9;
+    circle(ctx, S - 150 * u, 138 * u, 74 * u, rg(ctx, S - 150 * u, 138 * u, 74 * u, [[0, "rgba(255,246,200,0.95)"], [0.8, "rgba(255,236,170,0.85)"], [1, "rgba(255,236,170,0)"]]));
+    circle(ctx, S - 150 * u, 138 * u, 44 * u, "#fff6c9");
+    ctx.restore();
+  } else if (bgId === "diagonal-shine") {
+    ctx.fillStyle = palGradient(ctx, 0, 0, S, S, pal); ctx.fillRect(0, 0, S, S);
     ctx.save();
-    ctx.globalAlpha = 0.35 + rnd() * 0.55;
-    ctx.fillStyle = "#ffe9a8";
+    ctx.translate(cx, cx); ctx.rotate(-0.6);
+    ctx.fillStyle = "rgba(255,255,255,0.07)"; ctx.fillRect(-S, -160 * u, S * 2, 190 * u);
+    ctx.fillStyle = "rgba(255,255,255,0.05)"; ctx.fillRect(-S, 90 * u, S * 2, 120 * u);
+    ctx.fillStyle = "rgba(255,255,255,0.04)"; ctx.fillRect(-S, 300 * u, S * 2, 260 * u);
+    ctx.restore();
+  } else if (bgId === "soft-waves") {
+    ctx.fillStyle = palGradient(ctx, 0, 0, 0, S, pal); ctx.fillRect(0, 0, S, S);
+    var waves = [
+      { base: S - 60 * u, amp: 26 * u, col: pal.accent, alpha: 0.16 },
+      { base: S - 26 * u, amp: 20 * u, col: pal.accent2, alpha: 0.22 },
+      { base: S + 6 * u, amp: 16 * u, col: pal.accent, alpha: 0.3 }
+    ];
+    for (var w = 0; w < waves.length; w++) {
+      ctx.save(); ctx.globalAlpha = waves[w].alpha; ctx.fillStyle = waves[w].col;
+      ctx.beginPath(); ctx.moveTo(0, S);
+      for (var x = 0; x <= S; x += 30 * u) {
+        ctx.lineTo(x, waves[w].base + Math.sin((x / S) * Math.PI * 3 + w * 1.7) * waves[w].amp);
+      }
+      ctx.lineTo(S, S); ctx.closePath(); ctx.fill();
+      ctx.restore();
+    }
+  } else if (bgId === "mandala-backdrop") {
+    ctx.fillStyle = palGradient(ctx, 0, 0, 0, S, pal); ctx.fillRect(0, 0, S, S);
+    ctx.save(); ctx.globalAlpha = 0.16;
+    drawMandala(ctx, cx, 330 * u, 470 * u, palMandala(pal));
+    ctx.restore();
+    ctx.save(); ctx.globalAlpha = 0.1;
+    drawMandala(ctx, S - 40 * u, S - 40 * u, 230 * u, palMandala(pal));
+    drawMandala(ctx, 40 * u, S - 40 * u, 230 * u, palMandala(pal));
+    ctx.restore();
+  } else if (bgId === "vignette") {
+    ctx.fillStyle = palGradient(ctx, 0, 0, 0, S, pal); ctx.fillRect(0, 0, S, S);
+    ctx.fillStyle = rg(ctx, cx, 470 * u, 860 * u, [[0, "rgba(0,0,0,0)"], [0.62, "rgba(0,0,0,0)"], [1, "rgba(0,0,0,0.5)"]]);
+    ctx.fillRect(0, 0, S, S);
+    ctx.save(); ctx.globalAlpha = 0.5;
+    circle(ctx, cx, 300 * u, 320 * u, rg(ctx, cx, 300 * u, 320 * u, [[0, "rgba(255,220,130,0.35)"], [1, "rgba(255,220,130,0)"]]));
+    ctx.restore();
+  } else { /* dual-split */
+    ctx.fillStyle = lg(ctx, 0, 0, 0, S * 0.52, shadeStops(pal, 0.06)); ctx.fillRect(0, 0, S, S * 0.52 + 2);
+    ctx.fillStyle = lg(ctx, 0, S * 0.48, 0, S, shadeStops(pal, -0.4)); ctx.fillRect(0, S * 0.48, S, S * 0.52);
+    ctx.save();
+    ctx.strokeStyle = pal.accent; ctx.lineWidth = 5 * u; ctx.globalAlpha = 0.9;
     ctx.beginPath();
-    ctx.moveTo(x, y - r * 2.2); ctx.lineTo(x + r * 0.55, y - r * 0.55); ctx.lineTo(x + r * 2.2, y);
-    ctx.lineTo(x + r * 0.55, y + r * 0.55); ctx.lineTo(x, y + r * 2.2); ctx.lineTo(x - r * 0.55, y + r * 0.55);
-    ctx.lineTo(x - r * 2.2, y); ctx.lineTo(x - r * 0.55, y - r * 0.55);
-    ctx.closePath(); ctx.fill();
+    for (var x2 = 0; x2 <= S; x2 += 24 * u) {
+      var y2 = S * 0.5 + Math.sin((x2 / S) * Math.PI * 4) * 12 * u;
+      if (x2 === 0) ctx.moveTo(x2, y2); else ctx.lineTo(x2, y2);
+    }
+    ctx.stroke();
     ctx.restore();
   }
 }
-/* Abstract flame silhouettes along the bottom (effigy-fire motif) */
-function drawFlames(ctx, S, u) {
-  var rnd = seededRand(7);
-  var layers = [
-    { col: "#8f1212", min: 44, max: 92 },
-    { col: "#d35400", min: 30, max: 64 },
-    { col: "#f39c12", min: 16, max: 40 }
-  ];
-  for (var L = 0; L < layers.length; L++) {
-    var step = 74 * u;
-    ctx.beginPath();
-    ctx.moveTo(-step, S);
-    for (var bx = -step; bx <= S + step; bx += step) {
-      var peak = (layers[L].min + rnd() * (layers[L].max - layers[L].min)) * u;
-      ctx.lineTo(bx + step / 2, S - peak);
-      ctx.lineTo(bx + step, S);
+
+/* ============================== OVERLAYS (6) ============================== */
+function drawOverlay(ctx, S, u, pal, ovId) {
+  var i, x, y;
+  if (ovId === "none") return;
+  if (ovId === "sparkle-dust") {
+    drawSparkles(ctx, S, u, 85, 1234, null, pal.spark);
+  } else if (ovId === "tiny-dots") {
+    ctx.save(); ctx.globalAlpha = 0.1; ctx.fillStyle = pal.accent;
+    var step = 48 * u, row = 0;
+    for (y = step / 2; y < S; y += step, row++) {
+      for (x = step / 2 + (row % 2 ? step / 2 : 0); x < S; x += step) {
+        circle(ctx, x, y, 3.2 * u, pal.accent);
+      }
     }
+    ctx.restore();
+  } else if (ovId === "fine-rays") {
+    ctx.save(); ctx.globalAlpha = 0.05; ctx.fillStyle = pal.accent;
+    for (i = 0; i < 44; i++) {
+      var a = (i / 44) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.moveTo(S / 2, -80 * u);
+      ctx.lineTo(S / 2 + Math.cos(a) * 1500 * u, -80 * u + Math.sin(a) * 1500 * u + 760 * u);
+      ctx.lineTo(S / 2 + Math.cos(a + 0.012) * 1500 * u, -80 * u + Math.sin(a + 0.012) * 1500 * u + 760 * u);
+      ctx.closePath(); ctx.fill();
+    }
+    ctx.restore();
+  } else if (ovId === "falling-petals") {
+    var rnd = seededRand(555);
+    var cols = ["#ff8fab", "#ffb703", "#fb8500", "#ff70a6", "#ffd166"];
+    for (i = 0; i < 26; i++) {
+      x = rnd() * S; y = rnd() * S;
+      ctx.save();
+      ctx.translate(x, y); ctx.rotate(rnd() * Math.PI * 2);
+      ctx.globalAlpha = 0.3 + rnd() * 0.3;
+      ctx.beginPath(); ctx.ellipse(0, 0, 17 * u, 8.5 * u, 0, 0, Math.PI * 2);
+      ctx.fillStyle = cols[i % cols.length]; ctx.fill();
+      ctx.restore();
+    }
+  } else if (ovId === "bokeh-glow") {
+    var rnd2 = seededRand(777);
+    for (i = 0; i < 14; i++) {
+      x = rnd2() * S; y = rnd2() * S;
+      var r = (40 + rnd2() * 90) * u;
+      ctx.save(); ctx.globalAlpha = 0.5;
+      circle(ctx, x, y, r, rg(ctx, x, y, r, [[0, "rgba(255,214,120,0.22)"], [1, "rgba(255,214,120,0)"]]));
+      ctx.restore();
+    }
+  }
+}
+
+/* ============================== BORDERS (10) ============================== */
+/* Hanging marigold + mango-leaf garland (toran) across the top */
+function drawToran(ctx, S, u) {
+  var rnd = seededRand(42);
+  var n = 15, gap = S / n;
+  for (var i = 0; i < n; i++) {
+    var x = gap * i + gap / 2;
+    var drop = 26 * u + (i % 2) * 14 * u;
+    ctx.save();
+    ctx.translate(x, 0);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(13 * u, drop * 0.55, 0, drop + 26 * u);
+    ctx.quadraticCurveTo(-13 * u, drop * 0.55, 0, 0);
+    ctx.fillStyle = i % 2 ? "#2e7d32" : "#388e3c";
+    ctx.fill();
+    ctx.restore();
+    var cols = ["#ff9800", "#ffb300", "#fb8c00", "#ffca28"];
+    for (var k = 0; k < 5; k++) {
+      var a = (k / 5) * Math.PI * 2 + rnd() * 0.5;
+      circle(ctx, x + Math.cos(a) * 11 * u, drop + 30 * u + Math.sin(a) * 9 * u, 10.5 * u, cols[(i + k) % 4]);
+    }
+    circle(ctx, x, drop + 30 * u, 9 * u, "#ff7043");
+  }
+}
+function archPath(ctx, S, u, ins) {
+  ctx.beginPath();
+  ctx.moveTo(ins * u, S - 30 * u);
+  ctx.lineTo(ins * u, 424 * u);
+  ctx.bezierCurveTo(ins * u, 205 * u, 300 * u, (ins + 30) * u, S / 2, (ins + 30) * u);
+  ctx.bezierCurveTo(S - 300 * u, (ins + 30) * u, S - ins * u, 205 * u, S - ins * u, 424 * u);
+  ctx.lineTo(S - ins * u, S - 30 * u);
+}
+function drawBorder(ctx, S, u, pal, bId) {
+  var i, x, y;
+  if (bId === "none") return;
+  if (bId === "toran") { drawToran(ctx, S, u); return; }
+  if (bId === "marigold-strands") {
+    for (var side = 0; side < 2; side++) {
+      x = side ? S - 46 * u : 46 * u;
+      var k = 0;
+      for (y = 120 * u; y < S - 96 * u; y += 54 * u, k++) {
+        circle(ctx, x, y, 15.5 * u, (k % 2) ? "#ffb300" : "#fb8c00");
+        circle(ctx, x, y, 7 * u, "#ff7043");
+      }
+    }
+    for (x = 88 * u; x < S - 60 * u; x += 64 * u) {
+      circle(ctx, x, S - 44 * u, 13 * u, (Math.round(x / (64 * u)) % 2) ? "#fb8c00" : "#ffb300");
+      circle(ctx, x, S - 44 * u, 6 * u, "#ff7043");
+    }
+    return;
+  }
+  if (bId === "gold-frame") {
+    ctx.strokeStyle = pal.frame; ctx.lineWidth = 5 * u;
+    ctx.strokeRect(26 * u, 26 * u, S - 52 * u, S - 52 * u);
+    ctx.lineWidth = 1.6 * u;
+    ctx.strokeRect(42 * u, 42 * u, S - 84 * u, S - 84 * u);
+    return;
+  }
+  if (bId === "rangoli-corners") {
+    var cols = palMandala(pal);
+    drawMandala(ctx, 96 * u, 96 * u, 74 * u, cols);
+    drawMandala(ctx, S - 96 * u, 96 * u, 74 * u, cols);
+    drawMandala(ctx, 96 * u, S - 96 * u, 74 * u, cols);
+    drawMandala(ctx, S - 96 * u, S - 96 * u, 74 * u, cols);
+    return;
+  }
+  if (bId === "diya-row") {
+    var left = [74, 158, 242], right = [S / u - 242, S / u - 158, S / u - 74];
+    for (i = 0; i < 3; i++) {
+      drawDiya(ctx, left[i] * u, S - 66 * u, 0.4 * u, false);
+      drawDiya(ctx, right[i] * u, S - 66 * u, 0.4 * u, false);
+    }
+    return;
+  }
+  if (bId === "sparkle-frame") {
+    var rnd = seededRand(314);
+    ctx.save();
+    for (i = 0; i < 90; i++) {
+      var edge = Math.floor(rnd() * 4), t = rnd();
+      if (edge === 0) { x = t * S; y = rnd() * 130 * u; }
+      else if (edge === 1) { x = t * S; y = S - rnd() * 130 * u; }
+      else if (edge === 2) { x = rnd() * 130 * u; y = t * S; }
+      else { x = S - rnd() * 130 * u; y = t * S; }
+      var r = (1.8 + rnd() * 3) * u;
+      ctx.globalAlpha = 0.4 + rnd() * 0.6;
+      ctx.fillStyle = pal.spark;
+      ctx.beginPath();
+      ctx.moveTo(x, y - r * 2.2); ctx.lineTo(x + r * 0.55, y - r * 0.55); ctx.lineTo(x + r * 2.2, y);
+      ctx.lineTo(x + r * 0.55, y + r * 0.55); ctx.lineTo(x, y + r * 2.2); ctx.lineTo(x - r * 0.55, y + r * 0.55);
+      ctx.lineTo(x - r * 2.2, y); ctx.lineTo(x - r * 0.55, y - r * 0.55);
+      ctx.closePath(); ctx.fill();
+    }
+    ctx.restore();
+    return;
+  }
+  if (bId === "temple-arch") {
+    archPath(ctx, S, u, 52);
+    ctx.strokeStyle = pal.frame; ctx.lineWidth = 6.5 * u; ctx.stroke();
+    archPath(ctx, S, u, 78);
+    ctx.strokeStyle = pal.accent; ctx.lineWidth = 2.2 * u; ctx.stroke();
+    return;
+  }
+  if (bId === "dot-border") {
+    var ins = 38 * u, step = 46 * u, r2 = 5.5 * u;
+    ctx.fillStyle = pal.accent;
+    for (x = ins; x <= S - ins + 1; x += step) { circle(ctx, x, ins, r2, pal.accent); circle(ctx, x, S - ins, r2, pal.accent); }
+    for (y = ins + step; y <= S - ins - step + 1; y += step) { circle(ctx, ins, y, r2, pal.accent); circle(ctx, S - ins, y, r2, pal.accent); }
+    return;
+  }
+  if (bId === "leaf-vine") {
+    var stepL = 58 * u;
+    function leaf(x, y, ang, col) {
+      ctx.save(); ctx.translate(x, y); ctx.rotate(ang);
+      ctx.beginPath();
+      ctx.moveTo(0, -15 * u);
+      ctx.quadraticCurveTo(11 * u, 0, 0, 15 * u);
+      ctx.quadraticCurveTo(-11 * u, 0, 0, -15 * u);
+      ctx.fillStyle = col; ctx.fill();
+      ctx.restore();
+    }
+    var cnt = 0;
+    for (x = stepL; x < S - 20 * u; x += stepL, cnt++) {
+      leaf(x, 34 * u, Math.PI / 2 + (cnt % 2 ? 0.35 : -0.35), cnt % 2 ? "#2e7d32" : "#43a047");
+      leaf(x, S - 34 * u, -Math.PI / 2 + (cnt % 2 ? 0.35 : -0.35), cnt % 2 ? "#43a047" : "#2e7d32");
+      if (cnt % 4 === 2) { circle(ctx, x, 34 * u, 6.5 * u, "#ffb300"); circle(ctx, x, S - 34 * u, 6.5 * u, "#ffb300"); }
+    }
+    cnt = 0;
+    for (y = stepL * 2; y < S - stepL - 10 * u; y += stepL, cnt++) {
+      leaf(34 * u, y, (cnt % 2 ? 0.35 : -0.35), cnt % 2 ? "#2e7d32" : "#43a047");
+      leaf(S - 34 * u, y, Math.PI + (cnt % 2 ? 0.35 : -0.35), cnt % 2 ? "#43a047" : "#2e7d32");
+    }
+    return;
+  }
+}
+
+/* ============================== MOTIFS (10) — drawn in local space, origin = centre ============================== */
+function drawLeafShape(ctx, len, wid, col) {
+  ctx.beginPath();
+  ctx.moveTo(0, 0);
+  ctx.quadraticCurveTo(wid, -len * 0.45, 0, -len);
+  ctx.quadraticCurveTo(-wid, -len * 0.45, 0, 0);
+  ctx.fillStyle = col; ctx.fill();
+}
+function motifDiyaPair(ctx, pal) {
+  circle(ctx, 0, 10, 300, rg(ctx, 0, 10, 300, [[0, "rgba(255,196,64,0.30)"], [1, "rgba(255,196,64,0)"]]));
+  drawDiya(ctx, -132, 26, 1.08);
+  drawDiya(ctx, 132, 26, 1.08);
+  drawDiya(ctx, 0, 66, 0.72);
+}
+function motifBigRangoli(ctx, pal) {
+  drawMandala(ctx, 0, 0, 222, palMandala(pal));
+  drawDiya(ctx, 0, 8, 0.95);
+}
+function motifBowArrow(ctx) {
+  drawBowArrow(ctx, 0, 0, 1.32, -0.05);
+}
+function motifKalash(ctx, pal) {
+  var i;
+  /* mango leaves fan */
+  var leafCols = ["#2e7d32", "#388e3c", "#43a047", "#2e7d32", "#388e3c"];
+  for (i = -2; i <= 2; i++) {
+    ctx.save();
+    ctx.translate(0, -34);
+    ctx.rotate(i * 0.42);
+    drawLeafShape(ctx, 108, 27, leafCols[i + 2]);
+    ctx.restore();
+  }
+  /* coconut */
+  circle(ctx, 0, -46, 33, "#6d3b12");
+  circle(ctx, -8, -56, 10, "rgba(255,255,255,0.18)");
+  ctx.strokeStyle = "#4a2608"; ctx.lineWidth = 3;
+  ctx.beginPath(); ctx.moveTo(-14, -76); ctx.lineTo(-8, -88); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(0, -79); ctx.lineTo(2, -92); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(14, -76); ctx.lineTo(20, -86); ctx.stroke();
+  /* neck band */
+  ctx.fillStyle = "#c99700";
+  ctx.fillRect(-40, -30, 80, 17);
+  ctx.fillStyle = "#f0c040";
+  ctx.fillRect(-40, -26, 80, 3);
+  /* pot body */
+  ctx.beginPath();
+  ctx.moveTo(-40, -13);
+  ctx.bezierCurveTo(-96, 22, -86, 78, -52, 116);
+  ctx.bezierCurveTo(-26, 144, 26, 144, 52, 116);
+  ctx.bezierCurveTo(86, 78, 96, 22, 40, -13);
+  ctx.closePath();
+  ctx.fillStyle = lg(ctx, 0, -13, 0, 140, [[0, "#c05a17"], [1, "#7a2d0c"]]);
+  ctx.fill();
+  ctx.strokeStyle = "#f0c040"; ctx.lineWidth = 2.4;
+  ctx.beginPath();
+  ctx.moveTo(-78, 48); ctx.quadraticCurveTo(0, 66, 78, 48); ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(-72, 84); ctx.quadraticCurveTo(0, 100, 72, 84); ctx.stroke();
+  for (i = -2; i <= 2; i++) circle(ctx, i * 26, 66, 5, "#f0c040");
+  /* base */
+  ctx.beginPath(); ctx.ellipse(0, 140, 56, 10, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "#8a3b12"; ctx.fill();
+}
+function motifLotus(ctx) {
+  function petal(ang, len, wid, col) {
+    ctx.save();
+    ctx.translate(0, 52); ctx.rotate(ang);
+    ctx.beginPath();
+    ctx.moveTo(0, 6);
+    ctx.quadraticCurveTo(wid, -len * 0.42, 0, -len);
+    ctx.quadraticCurveTo(-wid, -len * 0.42, 0, 6);
+    ctx.fillStyle = col; ctx.fill();
+    ctx.restore();
+  }
+  petal(-1.05, 128, 42, "#c2185b");
+  petal(-0.55, 148, 46, "#d6336c");
+  petal(0, 158, 48, "#e75480");
+  petal(0.55, 148, 46, "#d6336c");
+  petal(1.05, 128, 42, "#c2185b");
+  petal(-0.28, 104, 38, "#ff8fab");
+  petal(0.28, 104, 38, "#ff8fab");
+  petal(0, 96, 36, "#ffb3c6");
+  circle(ctx, 0, 34, 21, "#f0c040");
+  circle(ctx, 0, 34, 12, "#ffb300");
+  ctx.strokeStyle = "rgba(94,234,212,0.55)"; ctx.lineWidth = 4;
+  ctx.beginPath(); ctx.ellipse(0, 96, 120, 20, 0, 0.15, Math.PI - 0.15); ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(0, 108, 165, 26, 0, 0.15, Math.PI - 0.15); ctx.stroke();
+}
+function motifFireworks(ctx, pal) {
+  drawFirework(ctx, -152, -48, 122, pal.accent);
+  drawFirework(ctx, 152, -78, 96, pal.spark);
+  drawFirework(ctx, 16, 66, 82, pal.head);
+  drawFirework(ctx, -60, -150, 60, pal.accent2);
+  drawFirework(ctx, 120, 110, 55, pal.accent);
+}
+function motifLampString(ctx, pal) {
+  var lamps = [
+    { x: -158, len: 118 },
+    { x: 0, len: 178 },
+    { x: 158, len: 118 }
+  ];
+  for (var i = 0; i < lamps.length; i++) {
+    var L = lamps[i];
+    ctx.strokeStyle = pal.frame; ctx.lineWidth = 2.6;
+    ctx.beginPath(); ctx.moveTo(L.x, -215); ctx.lineTo(L.x, -215 + L.len); ctx.stroke();
+    circle(ctx, L.x, -215 + L.len + 4, 52, rg(ctx, L.x, -215 + L.len + 4, 52, [[0, "rgba(255,196,64,0.4)"], [1, "rgba(255,196,64,0)"]]));
+    drawDiya(ctx, L.x, -215 + L.len + 10, 0.55);
+  }
+  drawSparkles(ctx, 460, 1, 10, 88, null, pal.spark);
+}
+function motifSunMedallion(ctx, pal) {
+  var i, a;
+  ctx.fillStyle = pal.accent;
+  for (i = 0; i < 16; i++) {
+    a = (i / 16) * Math.PI * 2;
+    ctx.save();
+    ctx.rotate(a);
+    ctx.beginPath();
+    ctx.moveTo(-17, -148); ctx.lineTo(17, -148); ctx.lineTo(0, -208);
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+  circle(ctx, 0, 0, 150, rg(ctx, 0, 0, 150, [[0, pal.head], [0.75, pal.accent], [1, pal.accent2]]));
+  ctx.beginPath(); ctx.arc(0, 0, 116, 0, Math.PI * 2);
+  ctx.fillStyle = pal.stops[1][1]; ctx.fill();
+  ctx.beginPath(); ctx.arc(0, 0, 116, 0, Math.PI * 2);
+  ctx.strokeStyle = pal.head; ctx.lineWidth = 3; ctx.stroke();
+  drawDiya(ctx, 0, 14, 0.85);
+}
+function motifPeacock(ctx) {
+  var i;
+  /* barbs */
+  ctx.strokeStyle = "rgba(46,125,50,0.6)"; ctx.lineWidth = 3;
+  for (i = 0; i < 13; i++) {
+    var t = i / 12, y0 = 96 - t * 150;
+    ctx.beginPath(); ctx.moveTo(3, y0); ctx.quadraticCurveTo(-52 - t * 22, y0 - 26, -84 - t * 10, y0 - 66); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(3, y0); ctx.quadraticCurveTo(58 + t * 22, y0 - 26, 90 + t * 10, y0 - 66); ctx.stroke();
+  }
+  /* shaft */
+  ctx.beginPath(); ctx.moveTo(0, 196); ctx.quadraticCurveTo(10, 40, 4, -52);
+  ctx.strokeStyle = "#8a6d1f"; ctx.lineWidth = 6; ctx.stroke();
+  /* eye */
+  function eye(rx, ry, col) {
+    ctx.beginPath(); ctx.ellipse(4, -98, rx, ry, 0, 0, Math.PI * 2);
+    ctx.fillStyle = col; ctx.fill();
+  }
+  eye(64, 90, "#0a9396");
+  eye(48, 70, "#2e9e4f");
+  eye(34, 52, "#1d4ed8");
+  eye(20, 32, "#7c2d12");
+  eye(11, 18, "#f0c040");
+  ctx.beginPath(); ctx.ellipse(4, -98, 64, 90, 0, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(240,192,64,0.8)"; ctx.lineWidth = 3; ctx.stroke();
+}
+function motifBells(ctx, pal) {
+  var dark = shade(pal.stops[1][1], -0.25);
+  /* beam */
+  ctx.fillStyle = dark;
+  ctx.fillRect(-196, -128, 392, 26);
+  ctx.strokeStyle = pal.accent; ctx.lineWidth = 2.4;
+  ctx.strokeRect(-196, -128, 392, 26);
+  circle(ctx, -196, -115, 9, pal.accent);
+  circle(ctx, 196, -115, 9, pal.accent);
+  function bell(x, s) {
+    ctx.strokeStyle = pal.frame; ctx.lineWidth = 3 * s;
+    ctx.beginPath(); ctx.moveTo(x, -102); ctx.lineTo(x, -52 * s - 20); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(x - 38 * s, 34 * s);
+    ctx.lineTo(x - 32 * s, -8 * s);
+    ctx.quadraticCurveTo(x - 30 * s, -44 * s, x, -46 * s);
+    ctx.quadraticCurveTo(x + 30 * s, -44 * s, x + 32 * s, -8 * s);
+    ctx.lineTo(x + 38 * s, 34 * s);
     ctx.closePath();
-    ctx.fillStyle = layers[L].col; ctx.fill();
+    ctx.fillStyle = lg(ctx, x, -46 * s, x, 40 * s, [[0, "#ffd54f"], [1, "#c99700"]]);
+    ctx.fill();
+    ctx.fillStyle = "#a87b00";
+    ctx.fillRect(x - 38 * s, 24 * s, 76 * s, 10 * s);
+    circle(ctx, x, 48 * s, 9 * s, "#6d4c00");
+  }
+  bell(-132, 0.88);
+  bell(0, 1.1);
+  bell(132, 0.88);
+}
+var MOTIF_PAINT = {
+  "diya-pair": motifDiyaPair,
+  "big-rangoli": motifBigRangoli,
+  "bow-arrow": motifBowArrow,
+  "kalash": motifKalash,
+  "lotus": motifLotus,
+  "fireworks": motifFireworks,
+  "lamp-string": motifLampString,
+  "sun-medallion": motifSunMedallion,
+  "peacock-feather": motifPeacock,
+  "temple-bells": motifBells
+};
+/* arrangement: list of [cx, cy, scale, rotation] in design px */
+var ARRANGE_SPOTS = {
+  "centre": [[540, 282, 1, 0]],
+  "top": [[540, 208, 0.6, 0]],
+  "sides": [[178, 282, 0.55, 0], [902, 282, 0.55, 0]],
+  "scatter": [[540, 296, 0.72, 0], [200, 172, 0.42, -0.12], [880, 172, 0.42, 0.12]]
+};
+function drawMotifArranged(ctx, S, u, pal, motifId, arrangeId) {
+  var paint = MOTIF_PAINT[motifId] || motifDiyaPair;
+  var spots = ARRANGE_SPOTS[arrangeId] || ARRANGE_SPOTS.centre;
+  for (var i = 0; i < spots.length; i++) {
+    ctx.save();
+    ctx.translate(spots[i][0] * u, spots[i][1] * u);
+    ctx.scale(u * spots[i][2], u * spots[i][2]);
+    ctx.rotate(spots[i][3]);
+    paint(ctx, pal);
+    ctx.restore();
   }
 }
 
 /* ============================== CARD TEXT ============================== */
-var SERIF = 'Georgia, "Times New Roman", serif';
-var SANS = '"Segoe UI", Tahoma, Arial, sans-serif';
-function drawCardText(ctx, S, u, fest, data, theme) {
+function drawCardText(ctx, S, u, fest, data, pal, combo) {
   var cx = S / 2;
+  var hf = byId(HFONTS, combo.hfont), nf = byId(NFONTS, combo.nfont);
   ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
-  var y = 428 * u;
+  var y = 472 * u;
   if (data.to) {
-    ctx.fillStyle = theme.body;
-    ctx.font = "italic 600 " + Math.round(43 * u) + "px " + SERIF;
+    ctx.fillStyle = pal.body;
     var greet = "Dear " + data.to + ",";
-    fitSize(ctx, greet, "italic 600", SERIF, S - 180 * u, 43 * u);
+    fitSize(ctx, greet, "italic 600", SERIF, S - 180 * u, 43 * u, true);
     ctx.fillText(greet, cx, y);
-    y += 78 * u;
-  } else { y += 26 * u; }
+    y += 76 * u;
+  } else { y += 24 * u; }
   /* headline */
-  ctx.fillStyle = theme.headline;
-  fitSize(ctx, fest.headline, "bold", SERIF, S - 130 * u, 99 * u);
+  ctx.fillStyle = pal.head;
+  fitSize(ctx, fest.headline, hf.weight, hf.stack, S - 120 * u, 99 * u * (hf.boost || 1), hf.italic);
   ctx.shadowColor = "rgba(0,0,0,0.25)"; ctx.shadowBlur = 6 * u; ctx.shadowOffsetY = 3 * u;
   ctx.fillText(fest.headline, cx, y);
   ctx.shadowColor = "transparent"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
-  y += 64 * u;
+  y += 62 * u;
   /* subheading */
-  ctx.fillStyle = theme.accent;
-  fitSize(ctx, fest.sub, "600", SERIF, S - 160 * u, 44 * u);
+  ctx.fillStyle = pal.sub;
+  fitSize(ctx, fest.sub, "600", SERIF, S - 150 * u, 42 * u);
   ctx.fillText(fest.sub, cx, y);
-  y += 44 * u;
+  y += 42 * u;
   /* ornament divider */
-  ctx.strokeStyle = theme.accent; ctx.lineWidth = 2.4 * u;
+  ctx.strokeStyle = pal.accent; ctx.lineWidth = 2.4 * u;
   ctx.beginPath(); ctx.moveTo(cx - 130 * u, y); ctx.lineTo(cx - 26 * u, y); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(cx + 26 * u, y); ctx.lineTo(cx + 130 * u, y); ctx.stroke();
   ctx.save(); ctx.translate(cx, y); ctx.rotate(Math.PI / 4);
-  ctx.fillStyle = theme.accent; ctx.fillRect(-9 * u, -9 * u, 18 * u, 18 * u);
+  ctx.fillStyle = pal.accent; ctx.fillRect(-9 * u, -9 * u, 18 * u, 18 * u);
   ctx.restore();
-  y += 58 * u;
+  y += 56 * u;
   /* wish message */
-  ctx.fillStyle = theme.body;
-  ctx.font = "400 " + Math.round(39 * u) + "px " + SANS;
-  var lines = wrapLines(ctx, data.message, S - 210 * u);
-  var lh = 55 * u;
+  ctx.fillStyle = pal.body;
+  ctx.font = fontSpec("400", 38 * u, SANS);
+  var lines = wrapLines(ctx, data.message, S - 200 * u);
+  var lh = 53 * u;
   for (var i = 0; i < lines.length && i < 5; i++) {
     ctx.fillText(lines[i], cx, y); y += lh;
   }
-  /* signature */
+  /* signature — the visitor's name, in the chosen name style */
   var from = data.from || "Your Name";
   var sig = "— " + from + (data.andFamily ? " & Family" : "");
-  ctx.fillStyle = theme.headline;
-  fitSize(ctx, sig, "bold", SERIF, S - 150 * u, 52 * u);
-  ctx.fillText(sig, cx, 952 * u);
+  var sigSize = fitSize(ctx, sig, nf.weight, nf.stack, S - 140 * u, 54 * u * (nf.boost || 1), nf.italic);
+  if (nf.outline) {
+    ctx.font = fontSpec(nf.weight, sigSize, nf.stack, nf.italic);
+    ctx.lineWidth = Math.max(1.2, 1.7 * u);
+    ctx.strokeStyle = pal.accent;
+    ctx.strokeText(sig, cx, 952 * u);
+    ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = pal.head;
+    ctx.fillText(sig, cx, 952 * u);
+    ctx.restore();
+  } else {
+    ctx.fillStyle = pal.head;
+    ctx.fillText(sig, cx, 952 * u);
+  }
   /* tiny credit line on the card */
-  ctx.fillStyle = theme.accent;
-  ctx.font = "600 " + Math.round(21 * u) + "px " + SANS;
+  ctx.fillStyle = pal.accent;
+  ctx.font = fontSpec("600", 21 * u, SANS);
   ctx.globalAlpha = 0.75;
   ctx.fillText("festival-wishes-maker.vercel.app", cx, 1016 * u);
   ctx.globalAlpha = 1;
 }
 
-/* ============================== DESIGN PAINTERS ============================== */
-/* ---- DUSSEHRA 1: Golden Victory ---- */
-function bgGoldenVictory(ctx, S, u) {
-  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#5c0707"], [0.45, "#a31616"], [0.78, "#d35400"], [1, "#e67e22"]]);
-  ctx.fillRect(0, 0, S, S);
-  /* sunburst behind centre */
-  ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = "#ffd54f";
-  for (var i = 0; i < 24; i++) {
-    var a = (i / 24) * Math.PI * 2;
-    ctx.beginPath();
-    ctx.moveTo(S / 2, 300 * u);
-    ctx.lineTo(S / 2 + Math.cos(a - 0.05) * 620 * u, 300 * u + Math.sin(a - 0.05) * 620 * u);
-    ctx.lineTo(S / 2 + Math.cos(a + 0.05) * 620 * u, 300 * u + Math.sin(a + 0.05) * 620 * u);
-    ctx.closePath(); ctx.fill();
-  }
-  ctx.restore();
-  drawToran(ctx, S, u);
-  /* gold frame */
-  ctx.strokeStyle = "#f0c040"; ctx.lineWidth = 5 * u;
-  ctx.strokeRect(26 * u, 26 * u, S - 52 * u, S - 52 * u);
-  ctx.lineWidth = 1.6 * u;
-  ctx.strokeRect(42 * u, 42 * u, S - 84 * u, S - 84 * u);
-  drawBowArrow(ctx, S / 2, 268 * u, 1.05 * u, -0.06);
-  /* corner mandalas */
-  drawMandala(ctx, 108 * u, S - 108 * u, 62 * u, ["rgba(123,13,13,0.55)", "#e67e22", "#f0c040", "#ffe9a8"]);
-  drawMandala(ctx, S - 108 * u, S - 108 * u, 62 * u, ["rgba(123,13,13,0.55)", "#e67e22", "#f0c040", "#ffe9a8"]);
-}
-/* ---- DUSSEHRA 2: Marigold Arch ---- */
-function bgMarigoldArch(ctx, S, u) {
-  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#fff6dd"], [1, "#ffe1ae"]]);
-  ctx.fillRect(0, 0, S, S);
-  /* temple arch */
-  ctx.beginPath();
-  ctx.moveTo(70 * u, S - 40 * u);
-  ctx.lineTo(70 * u, 420 * u);
-  ctx.bezierCurveTo(70 * u, 180 * u, 300 * u, 92 * u, S / 2, 92 * u);
-  ctx.bezierCurveTo(S - 300 * u, 92 * u, S - 70 * u, 180 * u, S - 70 * u, 420 * u);
-  ctx.lineTo(S - 70 * u, S - 40 * u);
-  ctx.closePath();
-  ctx.fillStyle = "#fffdf4"; ctx.fill();
-  ctx.strokeStyle = "#d98a16"; ctx.lineWidth = 7 * u; ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(96 * u, S - 40 * u);
-  ctx.lineTo(96 * u, 424 * u);
-  ctx.bezierCurveTo(96 * u, 205 * u, 310 * u, 122 * u, S / 2, 122 * u);
-  ctx.bezierCurveTo(S - 310 * u, 122 * u, S - 96 * u, 205 * u, S - 96 * u, 424 * u);
-  ctx.lineTo(S - 96 * u, S - 40 * u);
-  ctx.closePath();
-  ctx.strokeStyle = "#c1272d"; ctx.lineWidth = 2.6 * u; ctx.stroke();
-  /* marigold strands down both sides */
-  for (var side = 0; side < 2; side++) {
-    var x = side ? S - 52 * u : 52 * u;
-    for (var y = 130 * u; y < S - 120 * u; y += 52 * u) {
-      circle(ctx, x, y, 15 * u, (Math.round(y / (52 * u)) % 2) ? "#ffb300" : "#fb8c00");
-      circle(ctx, x, y, 7 * u, "#ff7043");
-    }
-  }
-  drawToran(ctx, S, u);
-  /* medallion with bow & arrow */
-  circle(ctx, S / 2, 252 * u, 104 * u, rg(ctx, S / 2, 252 * u, 104 * u, [[0, "#ffe082"], [1, "#f0a030"]]));
-  ctx.beginPath(); ctx.arc(S / 2, 252 * u, 104 * u, 0, Math.PI * 2);
-  ctx.strokeStyle = "#b3540a"; ctx.lineWidth = 3.4 * u; ctx.stroke();
-  drawBowArrow(ctx, S / 2, 252 * u, 0.62 * u, -0.05);
-}
-/* ---- DUSSEHRA 3: Sunset Triumph ---- */
-function bgSunsetTriumph(ctx, S, u) {
-  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#1d0b38"], [0.4, "#5b1b52"], [0.68, "#b23a48"], [0.88, "#e2703a"], [1, "#f39c12"]]);
-  ctx.fillRect(0, 0, S, S);
-  drawSparkles(ctx, S, u, 40, 11, 420 * u);
-  /* big setting sun */
-  circle(ctx, S / 2, 560 * u, 300 * u, rg(ctx, S / 2, 560 * u, 300 * u, [[0, "rgba(255,214,120,0.95)"], [0.75, "rgba(255,160,60,0.75)"], [1, "rgba(255,140,50,0)"]]));
-  /* bow & arrow across the sun */
-  drawBowArrow(ctx, S / 2, 300 * u, 1.25 * u, -0.04);
-  drawFlames(ctx, S, u);
-  ctx.strokeStyle = "rgba(240,192,64,0.85)"; ctx.lineWidth = 4 * u;
-  ctx.strokeRect(24 * u, 24 * u, S - 48 * u, S - 48 * u);
-}
-/* ---- DIWALI 1: Classic Diya Night ---- */
-function bgClassicDiya(ctx, S, u) {
-  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#070d2b"], [0.6, "#12245e"], [1, "#1d3a8a"]]);
-  ctx.fillRect(0, 0, S, S);
-  drawSparkles(ctx, S, u, 55, 23, null);
-  drawMandala(ctx, S / 2, 300 * u, 168 * u, ["rgba(240,192,64,0.16)", "#f0c040", "#ff9800", "#ffe9a8"]);
-  drawDiya(ctx, S / 2, 300 * u, 1.15 * u);
-  /* row of diyas at the bottom */
-  var xs = [0.14, 0.32, 0.5, 0.68, 0.86];
-  for (var i = 0; i < xs.length; i++) drawDiya(ctx, S * xs[i], 878 * u, 0.62 * u);
-  drawDotBorder(ctx, S, u, "rgba(240,192,64,0.9)", 36);
-}
-/* ---- DIWALI 2: Golden Glow ---- */
-function bgGoldenGlow(ctx, S, u) {
-  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#2e1200"], [0.5, "#7a3c05"], [1, "#b35c08"]]);
-  ctx.fillRect(0, 0, S, S);
-  /* hanging diya strings from top corners */
-  var rnd = seededRand(5);
-  for (var c = 0; c < 2; c++) {
-    var bx = c ? S - 90 * u : 90 * u;
-    for (var k = 0; k < 3; k++) {
-      var len = (120 + k * 78 + rnd() * 20) * u;
-      var hx = bx + (c ? -1 : 1) * k * 64 * u;
-      ctx.strokeStyle = "rgba(240,192,64,0.75)"; ctx.lineWidth = 2.2 * u;
-      ctx.beginPath(); ctx.moveTo(hx, 0); ctx.lineTo(hx, len); ctx.stroke();
-      drawDiya(ctx, hx, len + 8 * u, 0.42 * u);
-    }
-  }
-  drawMandala(ctx, S / 2, 292 * u, 150 * u, ["rgba(46,18,0,0.35)", "#ffb300", "#ff7043", "#ffe9a8"]);
-  drawDiya(ctx, S / 2, 296 * u, 1.35 * u);
-  drawDotBorder(ctx, S, u, "rgba(255,213,110,0.95)", 40);
-  drawSparkles(ctx, S, u, 22, 31, null);
-}
-/* ---- DIWALI 3: Rangoli Rang ---- */
-function bgRangoliRang(ctx, S, u) {
-  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#12062b"], [1, "#2a1160"]]);
-  ctx.fillRect(0, 0, S, S);
-  /* two overlapping rangoli mandalas */
-  drawMandala(ctx, S / 2, 330 * u, 265 * u, ["rgba(255,255,255,0.05)", "#e91e63", "#00bfa5", "#ffd54f"]);
-  drawMandala(ctx, 92 * u, 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#ff9800", "#e91e63", "#ffd54f"]);
-  drawMandala(ctx, S - 92 * u, 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#00bfa5", "#ff9800", "#ffd54f"]);
-  drawMandala(ctx, 92 * u, S - 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#00bfa5", "#ff9800", "#ffd54f"]);
-  drawMandala(ctx, S - 92 * u, S - 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#e91e63", "#00bfa5", "#ffd54f"]);
-  drawDiya(ctx, S / 2, 330 * u, 1.0 * u);
-  drawDiya(ctx, 130 * u, 878 * u, 0.55 * u);
-  drawDiya(ctx, S - 130 * u, 878 * u, 0.55 * u);
-}
-/* ---- DIWALI 4: Fireworks Sky ---- */
-function bgFireworksSky(ctx, S, u) {
-  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#03081a"], [0.7, "#0a1a3f"], [1, "#14306b"]]);
-  ctx.fillRect(0, 0, S, S);
-  drawSparkles(ctx, S, u, 45, 47, 500 * u);
-  drawFirework(ctx, 220 * u, 190 * u, 120 * u, "#ffd54f");
-  drawFirework(ctx, 850 * u, 150 * u, 95 * u, "#ff6e9a");
-  drawFirework(ctx, 700 * u, 330 * u, 75 * u, "#4dd0e1");
-  drawFirework(ctx, 150 * u, 420 * u, 65 * u, "#a5d6a7");
-  drawFirework(ctx, 950 * u, 470 * u, 58 * u, "#ffb74d");
-  var xs = [0.16, 0.38, 0.62, 0.84];
-  for (var i = 0; i < xs.length; i++) drawDiya(ctx, S * xs[i], 882 * u, 0.6 * u);
-  drawDotBorder(ctx, S, u, "rgba(255,213,110,0.85)", 36);
-}
-
 /* ============================== CARD ASSEMBLY ============================== */
-var PAINTERS = {
-  "golden-victory": { bg: bgGoldenVictory, theme: { headline: "#ffe082", sub: "#ffd54f", accent: "#f0c040", body: "#fff3d6" } },
-  "marigold-arch":  { bg: bgMarigoldArch,  theme: { headline: "#8f1212", sub: "#b3540a", accent: "#d98a16", body: "#5c2410" } },
-  "sunset-triumph": { bg: bgSunsetTriumph, theme: { headline: "#ffe082", sub: "#ffd54f", accent: "#ffb74d", body: "#fff3d6" } },
-  "classic-diya":   { bg: bgClassicDiya,   theme: { headline: "#ffd54f", sub: "#ffe9a8", accent: "#f0c040", body: "#eef2ff" } },
-  "golden-glow":    { bg: bgGoldenGlow,    theme: { headline: "#ffe082", sub: "#ffd54f", accent: "#ffca28", body: "#fff6dd" } },
-  "rangoli-rang":   { bg: bgRangoliRang,   theme: { headline: "#ffd54f", sub: "#80cbc4", accent: "#ff9800", body: "#f3efff" } },
-  "fireworks-sky":  { bg: bgFireworksSky,  theme: { headline: "#ffd54f", sub: "#ffe9a8", accent: "#f0c040", body: "#e8eeff" } }
-};
-/* Text sits a little lower on the light arch design's tall top area */
-var TEXT_DY = { "marigold-arch": 26, "sunset-triumph": 6 };
-
-function drawCard(ctx, S, festKey, designId, data) {
+function drawCard(ctx, S, festKey, combo, data) {
   var fest = FESTIVALS[festKey];
-  var p = PAINTERS[designId] || PAINTERS[fest.designs[0].id];
+  var pal = byId(PALETTES, combo.theme);
   var u = S / 1080;
   ctx.save();
-  p.bg(ctx, S, u);
-  var dy = (TEXT_DY[designId] || 0) * u;
-  if (dy) ctx.translate(0, dy);
-  drawCardText(ctx, S, u, fest, data, p.theme);
+  drawBackground(ctx, S, u, pal, combo.bg);
+  drawOverlay(ctx, S, u, pal, combo.overlay);
+  drawMotifArranged(ctx, S, u, pal, combo.motif, combo.arrange);
+  drawBorder(ctx, S, u, pal, combo.border);
+  drawCardText(ctx, S, u, fest, data, pal, combo);
   ctx.restore();
 }
 
 /* ============================== UI WIRING ============================== */
-var state = { fest: "dussehra", design: { dussehra: 0, diwali: 0 }, msg: { dussehra: 0, diwali: 0 } };
+var DEFAULT_COMBOS = {
+  dussehra: { theme: "royal-gold", bg: "sunburst", border: "toran", motif: "bow-arrow", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", msg: 0 },
+  diwali: { theme: "midnight-blue", bg: "radial-glow", border: "diya-row", motif: "diya-pair", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", msg: 0 }
+};
+var state = {
+  fest: "dussehra",
+  combo: {
+    dussehra: JSON.parse(JSON.stringify(DEFAULT_COMBOS.dussehra)),
+    diwali: JSON.parse(JSON.stringify(DEFAULT_COMBOS.diwali))
+  },
+  ideas: []
+};
 function el(id) { return document.getElementById(id); }
+function combo() { return state.combo[state.fest]; }
 function currentData() {
   var fest = FESTIVALS[state.fest];
+  var c = combo();
   return {
     to: el("toName").value.trim(),
     from: el("fromName").value.trim(),
     andFamily: !!el("andFamily").checked,
-    message: fest.messages[state.msg[state.fest]] || fest.messages[0]
+    message: fest.messages[c.msg] || fest.messages[0]
   };
-}
-function currentDesignId() {
-  var fest = FESTIVALS[state.fest];
-  return fest.designs[state.design[state.fest]].id;
 }
 function renderMain() {
   var canvas = el("cardCanvas");
-  var ctx = canvas.getContext("2d");
-  drawCard(ctx, canvas.width, state.fest, currentDesignId(), currentData());
+  drawCard(canvas.getContext("2d"), canvas.width, state.fest, combo(), currentData());
 }
-function renderThumbs() {
-  var row = el("designRow");
-  row.innerHTML = "";
-  var fest = FESTIVALS[state.fest];
-  fest.designs.forEach(function (d, idx) {
-    var fig = document.createElement("figure");
-    if (idx === state.design[state.fest]) fig.className = "sel";
-    var c = document.createElement("canvas");
-    c.width = 270; c.height = 270;
-    var data = currentData();
-    if (!data.from) data.from = "Your Name";
-    drawCard(c.getContext("2d"), 270, state.fest, d.id, data);
-    var cap = document.createElement("figcaption");
-    cap.textContent = d.name;
-    fig.appendChild(c); fig.appendChild(cap);
-    fig.addEventListener("click", function () {
-      state.design[state.fest] = idx;
-      renderThumbs(); renderMain();
+function renderComboBanner() {
+  var total = totalCombos();
+  el("comboNum").textContent = indianFormat(total) + "+";
+  el("comboFestName").textContent = "for " + FESTIVALS[state.fest].label + " alone!";
+  el("comboBreak").textContent =
+    PALETTES.length + " colour themes × " + BACKGROUNDS.length + " backgrounds × " + BORDERS.length + " frames × " +
+    MOTIFS.length + " motifs × " + ARRANGES.length + " arrangements × " + OVERLAYS.length + " overlays × " +
+    HFONTS.length + " headline styles × " + NFONTS.length + " name styles — plus " +
+    FESTIVALS[state.fest].messages.length + " wishes to choose from!";
+}
+/* ---- generic chip picker ---- */
+function buildChips(containerId, list, key, decorate) {
+  var box = el(containerId);
+  box.innerHTML = "";
+  var c = combo();
+  list.forEach(function (item) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "chip" + (c[key] === item.id ? " sel" : "");
+    if (decorate) decorate(b, item);
+    var label = document.createElement("span");
+    label.textContent = item.name;
+    b.appendChild(label);
+    b.addEventListener("click", function () {
+      combo()[key] = item.id;
+      renderPickers(); renderMain();
     });
-    row.appendChild(fig);
+    box.appendChild(b);
   });
+}
+function renderPickers() {
+  buildChips("pickTheme", PALETTES, "theme", function (b, item) {
+    var sw = document.createElement("span");
+    sw.className = "swatch";
+    sw.style.background = "linear-gradient(135deg," + item.stops[0][1] + "," + item.stops[item.stops.length - 1][1] + ")";
+    b.appendChild(sw);
+  });
+  buildChips("pickBg", BACKGROUNDS, "bg");
+  buildChips("pickBorder", BORDERS, "border");
+  buildChips("pickMotif", MOTIFS, "motif");
+  buildChips("pickArrange", ARRANGES, "arrange");
+  buildChips("pickOverlay", OVERLAYS, "overlay");
+  buildChips("pickHfont", HFONTS, "hfont", function (b, item) { b.style.fontFamily = item.stack; });
+  buildChips("pickNfont", NFONTS, "nfont", function (b, item) { b.style.fontFamily = item.stack; });
 }
 function renderMessages() {
   var sel = el("msgSelect");
@@ -750,13 +1245,50 @@ function renderMessages() {
     o.textContent = (i + 1) + ". " + (m.length > 72 ? m.slice(0, 72) + "…" : m);
     sel.appendChild(o);
   });
-  sel.value = state.msg[state.fest];
+  sel.value = combo().msg;
+}
+/* ---- random combos & idea thumbnails ---- */
+function randOf(list) { return list[Math.floor(Math.random() * list.length)].id; }
+function randomCombo() {
+  return {
+    theme: randOf(PALETTES), bg: randOf(BACKGROUNDS), border: randOf(BORDERS),
+    motif: randOf(MOTIFS), arrange: randOf(ARRANGES), overlay: randOf(OVERLAYS),
+    hfont: randOf(HFONTS), nfont: randOf(NFONTS),
+    msg: Math.floor(Math.random() * FESTIVALS[state.fest].messages.length)
+  };
+}
+function renderIdeas() {
+  var row = el("ideaRow");
+  row.innerHTML = "";
+  state.ideas = [];
+  for (var i = 0; i < 6; i++) state.ideas.push(randomCombo());
+  var data = currentData();
+  if (!data.from) data.from = "Your Name";
+  state.ideas.forEach(function (idea, idx) {
+    var fig = document.createElement("figure");
+    var c = document.createElement("canvas");
+    c.width = 216; c.height = 216;
+    var d = { to: data.to, from: data.from, andFamily: data.andFamily, message: FESTIVALS[state.fest].messages[idea.msg] };
+    drawCard(c.getContext("2d"), 216, state.fest, idea, d);
+    var cap = document.createElement("figcaption");
+    cap.textContent = "Idea " + (idx + 1) + " · tap to use";
+    fig.appendChild(c); fig.appendChild(cap);
+    fig.addEventListener("click", function () {
+      state.combo[state.fest] = JSON.parse(JSON.stringify(idea));
+      renderMessages(); renderPickers(); renderMain();
+    });
+    row.appendChild(fig);
+  });
+}
+function surprise() {
+  state.combo[state.fest] = randomCombo();
+  renderMessages(); renderPickers(); renderMain();
 }
 function setFest(key) {
   state.fest = key;
   el("tabDussehra").className = "festtab" + (key === "dussehra" ? " active" : "");
   el("tabDiwali").className = "festtab" + (key === "diwali" ? " active" : "");
-  renderMessages(); renderThumbs(); renderMain();
+  renderComboBanner(); renderMessages(); renderPickers(); renderIdeas(); renderMain();
 }
 /* Countdowns in IST */
 function istToday() {
@@ -814,7 +1346,7 @@ function downloadCard() {
 function shareWhatsApp() {
   var fest = FESTIVALS[state.fest];
   var from = el("fromName").value.trim();
-  var text = fest.headline + "! " + fest.messages[state.msg[state.fest]] +
+  var text = fest.headline + "! " + fest.messages[combo().msg] +
     (from ? " — " + from : "") + "\n\nCreate your own card here: " + SITE_URL;
   var canvas = el("cardCanvas");
   function waFallback() { window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank"); }
@@ -830,32 +1362,49 @@ function shareWhatsApp() {
     }, "image/png");
   } else { waFallback(); }
 }
+var ideaTimer = null;
+function renderIdeasSoft() {
+  if (ideaTimer) clearTimeout(ideaTimer);
+  ideaTimer = setTimeout(renderIdeas, 400);
+}
 function init() {
   el("tabDussehra").addEventListener("click", function () { setFest("dussehra"); });
   el("tabDiwali").addEventListener("click", function () { setFest("diwali"); });
   ["toName", "fromName"].forEach(function (id) {
-    el(id).addEventListener("input", function () { renderMain(); renderThumbsSoft(); });
+    el(id).addEventListener("input", function () { renderMain(); renderIdeasSoft(); });
   });
   el("andFamily").addEventListener("change", renderMain);
   el("msgSelect").addEventListener("change", function () {
-    state.msg[state.fest] = parseInt(el("msgSelect").value, 10) || 0;
+    combo().msg = parseInt(el("msgSelect").value, 10) || 0;
     renderMain();
   });
+  el("btnSurprise").addEventListener("click", surprise);
+  el("btnIdeas").addEventListener("click", renderIdeas);
   el("btnDownload").addEventListener("click", downloadCard);
   el("btnShare").addEventListener("click", shareWhatsApp);
   renderCountdowns();
   setFest("dussehra");
-}
-var thumbTimer = null;
-function renderThumbsSoft() {
-  if (thumbTimer) clearTimeout(thumbTimer);
-  thumbTimer = setTimeout(renderThumbs, 350);
+  /* redraw once webfonts arrive so script/display styles use the real fonts */
+  try {
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.load('700 60px "Cinzel Decorative"');
+      document.fonts.load('60px "Great Vibes"');
+      document.fonts.load('900 60px "Playfair Display"');
+      document.fonts.load('800 60px "Poppins"');
+      document.fonts.ready.then(function () { renderMain(); renderIdeas(); });
+    }
+  } catch (e) { /* fallback fonts already rendered */ }
 }
 if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
 else init();
 
 /* Small public hook (used for automated smoke tests) */
-window.FestivalMaker = { drawCard: drawCard, FESTIVALS: FESTIVALS, daysTo: daysTo };
+window.FestivalMaker = {
+  drawCard: drawCard, FESTIVALS: FESTIVALS, daysTo: daysTo,
+  PALETTES: PALETTES, BACKGROUNDS: BACKGROUNDS, BORDERS: BORDERS, MOTIFS: MOTIFS,
+  ARRANGES: ARRANGES, OVERLAYS: OVERLAYS, HFONTS: HFONTS, NFONTS: NFONTS,
+  totalCombos: totalCombos, indianFormat: indianFormat
+};
 </script>
 </body>
 </html>
