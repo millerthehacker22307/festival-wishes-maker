@@ -2336,11 +2336,14 @@ function drawCardText(ctx, S, u, fest, data, pal, combo) {
       ctx.fillStyle = pal.body;
       drawMessageBlock(ctx, S, u, cxS, data.message, yS + 46 * u, 876 * u, TW - 70 * u, null);
     } else {
-      drawHeadline(ctx, cxS, 472 * u, u, ft.headline, pal, hf, TW - 40 * u, 0.9);
-      drawSubLine(ctx, cxS, 528 * u, u, ft.sub, pal, TW - 30 * u, 38 * u);
-      drawDivider(ctx, cxS, 568 * u, u, pal, 100 * u);
+      /* no recipient; with no sender either, drop the block a touch so the
+         plain wish sits balanced instead of leaving a void above the credit */
+      var bS = data.from ? 0 : 30;
+      drawHeadline(ctx, cxS, (472 + bS) * u, u, ft.headline, pal, hf, TW - 40 * u, 0.9);
+      drawSubLine(ctx, cxS, (528 + bS) * u, u, ft.sub, pal, TW - 30 * u, 38 * u);
+      drawDivider(ctx, cxS, (568 + bS) * u, u, pal, 100 * u);
       ctx.fillStyle = pal.body;
-      drawPlainMessage(ctx, cxS, data.message, 620 * u, u, TW - 70 * u, 36 * u, 51 * u, 5);
+      drawPlainMessage(ctx, cxS, data.message, (620 + bS) * u, u, TW - 70 * u, 36 * u, 51 * u, 5);
     }
     drawSignature(ctx, S, u, data, pal, nf, cxS);
     return;
@@ -2356,11 +2359,12 @@ function drawCardText(ctx, S, u, fest, data, pal, combo) {
       ctx.fillStyle = pal.body;
       drawMessageBlock(ctx, S, u, S / 2, data.message, yM + 48 * u, 892 * u, S - 320 * u, [[35, 50], [32, 46], [29, 42]]);
     } else {
-      drawHeadline(ctx, S / 2, 598 * u, u, ft.headline, pal, hf, S - 120 * u, 1.28);
-      drawSubLine(ctx, S / 2, 666 * u, u, ft.sub, pal, S - 150 * u, 40 * u);
-      drawDivider(ctx, S / 2, 710 * u, u, pal, 130 * u);
+      var bM = data.from ? 0 : 24;
+      drawHeadline(ctx, S / 2, (598 + bM) * u, u, ft.headline, pal, hf, S - 120 * u, 1.28);
+      drawSubLine(ctx, S / 2, (666 + bM) * u, u, ft.sub, pal, S - 150 * u, 40 * u);
+      drawDivider(ctx, S / 2, (710 + bM) * u, u, pal, 130 * u);
       ctx.fillStyle = pal.body;
-      drawMessageBlock(ctx, S, u, S / 2, data.message, 760 * u, 892 * u, S - 320 * u, [[35, 52], [32, 48], [29, 44]]);
+      drawMessageBlock(ctx, S, u, S / 2, data.message, (760 + bM) * u, 892 * u, S - 320 * u, [[35, 52], [32, 48], [29, 44]]);
     }
     drawSignature(ctx, S, u, data, pal, nf, S / 2);
     return;
@@ -2375,7 +2379,9 @@ function drawCardText(ctx, S, u, fest, data, pal, combo) {
     ctx.fillStyle = pal.body;
     drawMessageBlock(ctx, S, u, S / 2, data.message, y + 50 * u, 876 * u, S - 200 * u, null);
   } else {
-    var y2 = 462 * u;
+    /* no recipient; with no sender either, drop the block a touch so the
+       plain wish sits balanced instead of leaving a void above the credit */
+    var y2 = (462 + (data.from ? 0 : 30)) * u;
     drawHeadline(ctx, S / 2, y2, u, ft.headline, pal, hf, S - 120 * u, 1);
     y2 += 62 * u; drawSubLine(ctx, S / 2, y2, u, ft.sub, pal, S - 150 * u, 42 * u);
     y2 += 42 * u; drawDivider(ctx, S / 2, y2, u, pal, 130 * u);
@@ -2389,27 +2395,30 @@ function drawSignature(ctx, S, u, data, pal, nf, sigCx) {
   var cx = S / 2;
   var scx = sigCx != null ? sigCx : cx;
   ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
-  /* signature — the visitor's name, in the chosen name style */
-  var from = data.from || "Your Name";
-  var sig = data.lang === "hi"
-    ? from + (data.andFamily ? " एवं परिवार" : "") + " की ओर से"
-    : "— " + from + (data.andFamily ? " & Family" : "");
-  var sigStack = stackFor(sig, nf.stack);
-  var sigSize = fitSize(ctx, sig, nf.weight, sigStack, S - 140 * u, 54 * u * (hasDev(sig) ? 1 : (nf.boost || 1)), nf.italic);
-  /* signature sits low on the card (970) so it never crowds the message */
-  if (nf.outline) {
-    ctx.font = fontSpec(nf.weight, sigSize, sigStack, nf.italic);
-    ctx.lineWidth = Math.max(1.2, 1.7 * u);
-    ctx.strokeStyle = pal.accent;
-    ctx.strokeText(sig, scx, 970 * u);
-    ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = pal.head;
-    ctx.fillText(sig, scx, 970 * u);
-    ctx.restore();
-  } else {
-    ctx.fillStyle = pal.head;
-    ctx.fillText(sig, scx, 970 * u);
+  /* signature — ONLY when the visitor actually typed a sender name; an
+     empty From means the card carries no signature line at all */
+  if (data.from) {
+    var from = data.from;
+    var sig = data.lang === "hi"
+      ? from + (data.andFamily ? " एवं परिवार" : "") + " की ओर से"
+      : "— " + from + (data.andFamily ? " & Family" : "");
+    var sigStack = stackFor(sig, nf.stack);
+    var sigSize = fitSize(ctx, sig, nf.weight, sigStack, S - 140 * u, 54 * u * (hasDev(sig) ? 1 : (nf.boost || 1)), nf.italic);
+    /* signature sits low on the card (970) so it never crowds the message */
+    if (nf.outline) {
+      ctx.font = fontSpec(nf.weight, sigSize, sigStack, nf.italic);
+      ctx.lineWidth = Math.max(1.2, 1.7 * u);
+      ctx.strokeStyle = pal.accent;
+      ctx.strokeText(sig, scx, 970 * u);
+      ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = pal.head;
+      ctx.fillText(sig, scx, 970 * u);
+      ctx.restore();
+    } else {
+      ctx.fillStyle = pal.head;
+      ctx.fillText(sig, scx, 970 * u);
+    }
   }
-  /* tiny credit line on the card */
+  /* tiny credit line on the card — always drawn, signature or not */
   ctx.fillStyle = pal.accent;
   ctx.font = fontSpec("600", 21 * u, SANS);
   ctx.globalAlpha = 0.75;
@@ -2773,15 +2782,11 @@ function rerollIdeas() {
   renderIdeas();
 }
 function galleryData() {
-  var data = currentData();
-  if (!data.to) data.to = "Mrityunjay";
-  if (!data.from) {
-    data.from = "Mishra Family";
-    /* the fallback name already ends in "Family" — never let the "& Family"
-       toggle append a second one on top of it in this path */
-    data.andFamily = false;
-  }
-  return data;
+  /* Miller's rule: an untouched form produces a PLAIN wish — no demo
+     recipient and no demo signature on the main card or the gallery
+     thumbnails. The demo names exist only as the input placeholders,
+     never as rendered card text. */
+  return currentData();
 }
 function applyIdea(idea) {
   var c = {};
