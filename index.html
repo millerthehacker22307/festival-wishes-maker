@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Festival Wishes Maker — Festive Season Greeting Cards (Dussehra, Diwali, Chhath &amp; More)</title>
-<meta name="description" content="Create beautiful personalised greeting cards with your name for the whole festive season — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath. Over 6.5 crore design combinations, with real photo backgrounds for every festival — pick a theme, background, frame and motif, or hit Surprise Me. Download as PNG or share on WhatsApp — free, no sign-up.">
+<meta name="description" content="Create beautiful personalised greeting cards with your name for the whole festive season — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath. Over 6.8 crore design combinations, with original illustrated artwork backgrounds for every festival — pick a theme, background, frame and motif, or hit Surprise Me. Download as PNG or share on WhatsApp — free, no sign-up.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Festival Wishes Maker — Festive Season Greeting Cards">
-<meta property="og:description" content="Pick a festival, choose a design, add your name, and share a greeting card with family and friends. 6,53,18,400+ design combinations — now with real photo backdrops!">
+<meta property="og:description" content="Pick a festival, choose a design, add your name, and share a greeting card with family and friends. 6,85,84,320+ design combinations — with original illustrated artwork backdrops!">
 <meta property="og:url" content="https://festival-wishes-maker.vercel.app/">
 <meta name="theme-color" content="#7b0d0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,7 +173,7 @@
 
   <header class="hero">
     <h1>🎉 Festival Wishes Maker</h1>
-    <p>Create a beautiful greeting card with <b>your name</b> for <b>every festival of the season</b> — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath — each with its own themes and wishes. Mix and match from <b>over 6.5 crore design combinations</b> — including <b>real photo backdrops</b> for every festival, or hit <b>Surprise Me</b> and let luck design your card. Free, no sign-up!</p>
+    <p>Create a beautiful greeting card with <b>your name</b> for <b>every festival of the season</b> — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath — each with its own themes and wishes. Mix and match from <b>over 6.8 crore design combinations</b> — including <b>original illustrated artwork backdrops</b> for every festival, or hit <b>Surprise Me</b> and let luck design your card. Free, no sign-up!</p>
   </header>
 
   <div class="festtabs" id="festRow" role="tablist"></div>
@@ -277,7 +277,7 @@
   <footer>
     <div class="big">Made with ❤️ in India</div>
     <div>Free forever · No sign-up · Your card is created right in your browser — nothing is uploaded.</div>
-    <div style="margin-top:6px;font-size:12.5px;">📷 Photo backdrops via Wikimedia Commons (free licences): Kalitgautam, Ministry of Culture, Tanuj_handa, Gannu03, Muhammad Mahdi Karim, Snehrashmi, KUMAR2912, Pete Birkinshaw, Pradeep Banavara from Bangalore, India, Abhishek Shirali, Fitindia, A S M Jobaer, Saral Shots, Athulvis, Anton Croos, Syed Sajidul Islam, Devilal, Hiart, Haripurkar, Scott Edmunds, Sumita Roy Dutta, humdingor, Benoy, NabaJyoti, siddarth varanasi, Ramakrishna Reddy y from Pune, India, PilotChicago, Sneha G Gupta, Praful Kharade, Slyronit, RashmiGhorpade, Dew kodu pagli, Abhijit S. Rehpade, Ashwin Kumar from Bangalore, India, Ashwin Kumar, Le Priyavrat, Moneysha26, Sriram Jagannathan, Sreeram R, Ekabhishek, Aliva Sahoo, DIPU1, Aman.arch, Bhupesh arya, aman sharma, Srinath chinmayee2230949, suketdedhia, Khushboo Goel, Papri Bora, Christgames, Vis M, Basheer Olakara, Nandhinikandhasamy, Naveengouda204, PJ.wikilovesfood, Nupur Das Gupta, Dilip Muralidaran, Devika, Satdeep Gill, Komal sah, Nkogbs, Rudolph.A.furtado, Philip Nalangan, Schwiki, Booktoaster, Biswarup Ganguly, Ninara from Helsinki, Finland, Shivaranisiddula, Jagisnowjughead. 🎨 Plus original artwork generated for this site. Every backdrop comes in 3 framings — full scene, zoom crop and warm grade.</div>
+    <div style="margin-top:6px;font-size:12.5px;">🎨 Backgrounds: original artwork created for this site. Every artwork comes in 3 framings — full scene, zoom crop and warm grade.</div>
   </footer>
 
 </div>
@@ -561,11 +561,10 @@ var OVERLAYS = [
 /* ---- Axis 9: card layouts (4) — modern composition variants ---- */
 var LAYOUTS = [
   { id: "classic", name: "Classic Centre" },
-  { id: "top-band", name: "Top Art Band" },
   { id: "split", name: "Split Modern" },
   { id: "minimal", name: "Minimal Premium" }
 ];
-var ALL_LAYOUT_IDS = ["classic", "top-band", "split", "minimal"];
+var ALL_LAYOUT_IDS = ["classic", "split", "minimal"];
 
 /* ---- Axis 7: headline font styles (5) ---- */
 var SERIF = 'Georgia, "Times New Roman", serif';
@@ -647,134 +646,65 @@ var FEST_POOLS = {
     arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   }
 };
-/* ================= PER-FESTIVAL PHOTO BACKGROUNDS =================
-   Real photographs (Wikimedia Commons, free licences) + original generated artwork — 14-15 per festival,
-   each in 3 framings (full / zoom / warm) on the backgrounds axis.
-   They join each festival's background pool; credits in the page footer. */
+/* ================= PER-FESTIVAL ART BACKGROUNDS =================
+   Original illustrated artwork created for this site — 5 scenes per festival,
+   each in 3 framings (full / zoom / warm) on the backgrounds axis. */
 var FEST_PHOTOS = {
   dussehra: [
-    { id: "photo-1", name: "📷 Ravana & the Himalayas", file: "assets/dussehra/dussehra-1.jpg", credit: "Kalitgautam / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-2", name: "📷 Effigy in Flames", file: "assets/dussehra/dussehra-2.jpg", credit: "Ministry of Culture / Wikimedia Commons (GODL-India)" },
-    { id: "photo-3", name: "📷 Ravana, Kumbhkaran & Meghnad", file: "assets/dussehra/dussehra-3.jpg", credit: "Tanuj_handa / Wikimedia Commons (CC0)" },
-    { id: "photo-4", name: "📷 Kullu Festival Lanterns", file: "assets/dussehra/dussehra-4.jpg", credit: "Gannu03 / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-5", name: "📷 Mysore Palace Lights", file: "assets/dussehra/dussehra-5.jpg", credit: "Muhammad Mahdi Karim / Wikimedia Commons (GFDL 1.2)" },
-    { id: "photo-6", name: "📷 Three Effigies", file: "assets/dussehra/dussehra-6.jpg", credit: "Snehrashmi / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-7", name: "📷 Effigies at Night", file: "assets/dussehra/dussehra-7.jpg", credit: "Kalitgautam / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-8", name: "📷 Patiala Effigies", file: "assets/dussehra/dussehra-8.jpg", credit: "KUMAR2912 / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-9", name: "📷 Golden Ravana Awaits", file: "assets/dussehra/dussehra-9.jpg", credit: "Pete Birkinshaw / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-10", name: "📷 Ravana Fizzles Gold", file: "assets/dussehra/dussehra-10.jpg", credit: "Pete Birkinshaw / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-11", name: "📷 Dasara Golu Display", file: "assets/dussehra/dussehra-11.jpg", credit: "Pradeep Banavara from Bangalore, India / Wikimedia Commons (CC BY-SA 2.0)" },
-    { id: "photo-12", name: "📷 Durga Idol", file: "assets/dussehra/dussehra-12.jpg", credit: "Abhishek Shirali / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-13", name: "📷 Ravana Dahan Flames", file: "assets/dussehra/dussehra-13.jpg", credit: "Ministry of Culture / Wikimedia Commons (GODL-India)" },
-    { id: "photo-14", name: "🎨 The Golden Bow (Artwork)", file: "assets/dussehra/dussehra-14.jpg", credit: "Original artwork generated for Festival Wishes Maker" },
-    { id: "photo-15", name: "🎨 Ravana at Dusk (Artwork)", file: "assets/dussehra/dussehra-15.jpg", credit: "Original artwork generated for Festival Wishes Maker" }
+    { id: "photo-1", name: "🎨 Ravana at Dusk", file: "assets/dussehra/dussehra-1.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-2", name: "🎨 The Golden Bow", file: "assets/dussehra/dussehra-2.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-3", name: "🎨 Temple at Sunset", file: "assets/dussehra/dussehra-3.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-4", name: "🎨 Kites over the Palace", file: "assets/dussehra/dussehra-4.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-5", name: "🎨 The Royal Gateway", file: "assets/dussehra/dussehra-5.jpg", credit: "Original artwork created for Festival Wishes Maker" }
   ],
   dhanteras: [
-    { id: "photo-1", name: "📷 Grand Diya Thali", file: "assets/dhanteras/dhanteras-1.jpg", credit: "Fitindia / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-2", name: "📷 Gold Bangle Treasure", file: "assets/dhanteras/dhanteras-2.jpg", credit: "A S M Jobaer / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-3", name: "📷 Traditional Brass Lamp", file: "assets/dhanteras/dhanteras-3.jpg", credit: "Saral Shots / Wikimedia Commons (CC0)" },
-    { id: "photo-4", name: "📷 Lakshmi Puja Lights", file: "assets/dhanteras/dhanteras-4.jpg", credit: "Athulvis / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-5", name: "📷 Gold Bangle on Silk", file: "assets/dhanteras/dhanteras-5.jpg", credit: "Anton Croos / Wikimedia Commons (CC BY-SA 3.0)" },
-    { id: "photo-6", name: "📷 Bridal Gold Box", file: "assets/dhanteras/dhanteras-6.jpg", credit: "Syed Sajidul Islam / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-7", name: "📷 Golden Bangle Stacks", file: "assets/dhanteras/dhanteras-7.jpg", credit: "A S M Jobaer / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-8", name: "📷 Golden Bangle Glow", file: "assets/dhanteras/dhanteras-8.jpg", credit: "A S M Jobaer / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-9", name: "📷 Nilavilakku Flame", file: "assets/dhanteras/dhanteras-9.jpg", credit: "Devilal / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-10", name: "📷 Golden Hair Ornaments", file: "assets/dhanteras/dhanteras-10.jpg", credit: "Hiart / Wikimedia Commons (CC0)" },
-    { id: "photo-11", name: "📷 Dhanvantari Pujan", file: "assets/dhanteras/dhanteras-11.jpg", credit: "Haripurkar / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-12", name: "📷 Bangle Shop Gold", file: "assets/dhanteras/dhanteras-12.jpg", credit: "Scott Edmunds / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-13", name: "📷 Lakshmi Puja Altar", file: "assets/dhanteras/dhanteras-13.jpg", credit: "Sumita Roy Dutta / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-14", name: "🎨 Coins & Diya (Artwork)", file: "assets/dhanteras/dhanteras-14.jpg", credit: "Original artwork generated for Festival Wishes Maker" }
+    { id: "photo-1", name: "🎨 Coins & Diya", file: "assets/dhanteras/dhanteras-1.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-2", name: "🎨 Lamps & Kalash", file: "assets/dhanteras/dhanteras-2.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-3", name: "🎨 Golden Footprints", file: "assets/dhanteras/dhanteras-3.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-4", name: "🎨 The Treasure Pot", file: "assets/dhanteras/dhanteras-4.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-5", name: "🎨 Thali of Diyas", file: "assets/dhanteras/dhanteras-5.jpg", credit: "Original artwork created for Festival Wishes Maker" }
   ],
   choti: [
-    { id: "photo-1", name: "📷 Rows of Diyas", file: "assets/choti/choti-1.jpg", credit: "humdingor / Wikimedia Commons (CC BY-SA 2.0)" },
-    { id: "photo-2", name: "📷 Lamps at Dusk", file: "assets/choti/choti-2.jpg", credit: "Benoy / Wikimedia Commons (CC BY-SA 3.0)" },
-    { id: "photo-3", name: "📷 Diya Decor", file: "assets/choti/choti-3.jpg", credit: "humdingor / Wikimedia Commons (CC BY-SA 2.0)" },
-    { id: "photo-4", name: "📷 Firework Wheel", file: "assets/choti/choti-4.jpg", credit: "Sumita Roy Dutta / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-5", name: "📷 Darjeeling Oil Lamps", file: "assets/choti/choti-5.jpg", credit: "Benoy / Wikimedia Commons (CC BY-SA 3.0)" },
-    { id: "photo-6", name: "📷 Festive Home Entrance", file: "assets/choti/choti-6.jpg", credit: "NabaJyoti / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-7", name: "📷 Painted Diya", file: "assets/choti/choti-7.jpg", credit: "siddarth varanasi / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-8", name: "📷 Diyas on the Ledge", file: "assets/choti/choti-8.jpg", credit: "siddarth varanasi / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-9", name: "📷 Rangoli of Diyas", file: "assets/choti/choti-9.jpg", credit: "siddarth varanasi / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-10", name: "📷 Balcony Diya Row", file: "assets/choti/choti-10.jpg", credit: "siddarth varanasi / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-11", name: "📷 Diya in the Dark", file: "assets/choti/choti-11.jpg", credit: "Ramakrishna Reddy y from Pune, India / Wikimedia Commons (CC BY-SA 2.0)" },
-    { id: "photo-12", name: "📷 Four Decorated Diyas", file: "assets/choti/choti-12.jpg", credit: "PilotChicago / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-13", name: "📷 Rows of Clay Diyas", file: "assets/choti/choti-13.jpg", credit: "Sneha G Gupta / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-14", name: "🎨 Ledge of Lights (Artwork)", file: "assets/choti/choti-14.jpg", credit: "Original artwork generated for Festival Wishes Maker" },
-    { id: "photo-15", name: "🎨 Courtyard Rangoli (Artwork)", file: "assets/choti/choti-15.jpg", credit: "Original artwork generated for Festival Wishes Maker" }
+    { id: "photo-1", name: "🎨 Steps of Light", file: "assets/choti/choti-1.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-2", name: "🎨 Ledge of Lights", file: "assets/choti/choti-2.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-3", name: "🎨 Courtyard Rangoli", file: "assets/choti/choti-3.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-4", name: "🎨 Hanging Diyas", file: "assets/choti/choti-4.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-5", name: "🎨 Row of Flames", file: "assets/choti/choti-5.jpg", credit: "Original artwork created for Festival Wishes Maker" }
   ],
   diwali: [
-    { id: "photo-1", name: "📷 Diya Close-Up", file: "assets/diwali/diwali-1.jpg", credit: "Praful Kharade / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-2", name: "📷 Fireworks Night", file: "assets/diwali/diwali-2.jpg", credit: "Slyronit / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-3", name: "📷 Rangoli & Diyas", file: "assets/diwali/diwali-3.jpg", credit: "RashmiGhorpade / Wikimedia Commons (CC0)" },
-    { id: "photo-4", name: "📷 House of Lights", file: "assets/diwali/diwali-4.jpg", credit: "Dew kodu pagli / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-5", name: "📷 Lamps on Rangoli", file: "assets/diwali/diwali-5.jpg", credit: "Abhijit S. Rehpade / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-6", name: "📷 Golden Diya Flame", file: "assets/diwali/diwali-6.jpg", credit: "Slyronit / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-7", name: "📷 Firework Burst", file: "assets/diwali/diwali-7.jpg", credit: "Ashwin Kumar from Bangalore, India / Wikimedia Commons (CC BY-SA 2.0)" },
-    { id: "photo-8", name: "📷 Rooftop Fireworks", file: "assets/diwali/diwali-8.jpg", credit: "Ashwin Kumar / Wikimedia Commons (CC BY-SA 2.0)" },
-    { id: "photo-9", name: "📷 Star Akash Kandil", file: "assets/diwali/diwali-9.jpg", credit: "Le Priyavrat / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-10", name: "📷 Triple Flame Diya", file: "assets/diwali/diwali-10.jpg", credit: "Moneysha26 / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-11", name: "📷 Row of Red Diyas", file: "assets/diwali/diwali-11.jpg", credit: "Slyronit / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-12", name: "📷 Fireworks over the Lake", file: "assets/diwali/diwali-12.jpg", credit: "Sriram Jagannathan / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-13", name: "📷 Building of Lights", file: "assets/diwali/diwali-13.jpg", credit: "Sreeram R / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-14", name: "📷 Rocket over Towers", file: "assets/diwali/diwali-14.jpg", credit: "Slyronit / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-15", name: "🎨 Terrace of Lights (Artwork)", file: "assets/diwali/diwali-15.jpg", credit: "Original artwork generated for Festival Wishes Maker" }
+    { id: "photo-1", name: "🎨 Diya Cluster", file: "assets/diwali/diwali-1.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-2", name: "🎨 Fireworks over the City", file: "assets/diwali/diwali-2.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-3", name: "🎨 Rangoli from Above", file: "assets/diwali/diwali-3.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-4", name: "🎨 Terrace of Lights", file: "assets/diwali/diwali-4.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-5", name: "🎨 Lanterns over the River", file: "assets/diwali/diwali-5.jpg", credit: "Original artwork created for Festival Wishes Maker" }
   ],
   govardhan: [
-    { id: "photo-1", name: "📷 Govardhan Hill", file: "assets/govardhan/govardhan-1.jpg", credit: "Ekabhishek / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-2", name: "📷 Radha Kund, Govardhan", file: "assets/govardhan/govardhan-2.jpg", credit: "Aliva Sahoo / Wikimedia Commons (CC BY-SA 3.0)" },
-    { id: "photo-3", name: "📷 Giriraj Parbat", file: "assets/govardhan/govardhan-3.jpg", credit: "DIPU1 / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-4", name: "📷 Kusum Sarovar", file: "assets/govardhan/govardhan-4.jpg", credit: "Aman.arch / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-5", name: "📷 Green Giriraj Slopes", file: "assets/govardhan/govardhan-5.jpg", credit: "Bhupesh arya / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-6", name: "📷 Sacred Grove", file: "assets/govardhan/govardhan-6.jpg", credit: "Bhupesh arya / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-7", name: "📷 Radha Kund Town", file: "assets/govardhan/govardhan-7.jpg", credit: "Bhupesh arya / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-8", name: "📷 Kusum Sarovar Chhatris", file: "assets/govardhan/govardhan-8.jpg", credit: "aman sharma / Wikimedia Commons (CC0)" },
-    { id: "photo-9", name: "📷 Carved Stone Corridor", file: "assets/govardhan/govardhan-9.jpg", credit: "aman sharma / Wikimedia Commons (CC0)" },
-    { id: "photo-10", name: "📷 Radha Kund at Sunset", file: "assets/govardhan/govardhan-10.jpg", credit: "Srinath chinmayee2230949 / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-11", name: "📷 Sarovar Reflections", file: "assets/govardhan/govardhan-11.jpg", credit: "Aman.arch / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-12", name: "📷 The Great Chhatri", file: "assets/govardhan/govardhan-12.jpg", credit: "Aman.arch / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-13", name: "📷 Sarovar Pier View", file: "assets/govardhan/govardhan-13.jpg", credit: "Aman.arch / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-14", name: "🎨 Govardhan at Golden Hour (Artwork)", file: "assets/govardhan/govardhan-14.jpg", credit: "Original artwork generated for Festival Wishes Maker" },
-    { id: "photo-15", name: "🎨 The Annakut Feast (Artwork)", file: "assets/govardhan/govardhan-15.jpg", credit: "Original artwork generated for Festival Wishes Maker" }
+    { id: "photo-1", name: "🎨 Govardhan at Golden Hour", file: "assets/govardhan/govardhan-1.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-2", name: "🎨 The Annakut Feast", file: "assets/govardhan/govardhan-2.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-3", name: "🎨 The Blessed Cow", file: "assets/govardhan/govardhan-3.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-4", name: "🎨 Pond at Dawn", file: "assets/govardhan/govardhan-4.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-5", name: "🎨 Path of Lamps", file: "assets/govardhan/govardhan-5.jpg", credit: "Original artwork created for Festival Wishes Maker" }
   ],
   bhaidooj: [
-    { id: "photo-1", name: "📷 Puja Thali", file: "assets/bhaidooj/bhaidooj-1.jpg", credit: "suketdedhia / Wikimedia Commons (CC0)" },
-    { id: "photo-2", name: "📷 Bhai Dooj Ceremony", file: "assets/bhaidooj/bhaidooj-2.jpg", credit: "Khushboo Goel / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-3", name: "📷 Bhai Dooj Thali", file: "assets/bhaidooj/bhaidooj-3.jpg", credit: "Papri Bora / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-4", name: "📷 Chocolate Laddus", file: "assets/bhaidooj/bhaidooj-4.jpg", credit: "Christgames / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-5", name: "📷 Laddu Tray", file: "assets/bhaidooj/bhaidooj-5.jpg", credit: "Vis M / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-6", name: "📷 Green Laddus", file: "assets/bhaidooj/bhaidooj-6.jpg", credit: "Basheer Olakara / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-7", name: "📷 Motichur Laddus", file: "assets/bhaidooj/bhaidooj-7.jpg", credit: "Nandhinikandhasamy / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-8", name: "📷 Rava Laddus", file: "assets/bhaidooj/bhaidooj-8.jpg", credit: "Naveengouda204 / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-9", name: "📷 Cashew Laddoos", file: "assets/bhaidooj/bhaidooj-9.jpg", credit: "PJ.wikilovesfood / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-10", name: "📷 Rosogolla Pot", file: "assets/bhaidooj/bhaidooj-10.jpg", credit: "Nupur Das Gupta / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-11", name: "📷 Golden Pedas", file: "assets/bhaidooj/bhaidooj-11.jpg", credit: "Dilip Muralidaran / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-12", name: "📷 Sandesh Sweets", file: "assets/bhaidooj/bhaidooj-12.jpg", credit: "Devika / Wikimedia Commons (CC BY-SA 2.0)" },
-    { id: "photo-13", name: "📷 Boondi Kadhai", file: "assets/bhaidooj/bhaidooj-13.jpg", credit: "Satdeep Gill / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-14", name: "📷 Fresh Laddus", file: "assets/bhaidooj/bhaidooj-14.jpg", credit: "Satdeep Gill / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-15", name: "🎨 Thali of Love (Artwork)", file: "assets/bhaidooj/bhaidooj-15.jpg", credit: "Original artwork generated for Festival Wishes Maker" }
+    { id: "photo-1", name: "🎨 Thali of Love", file: "assets/bhaidooj/bhaidooj-1.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-2", name: "🎨 Tilak & Threads", file: "assets/bhaidooj/bhaidooj-2.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-3", name: "🎨 The Puja Corner", file: "assets/bhaidooj/bhaidooj-3.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-4", name: "🎨 Sweets for Siblings", file: "assets/bhaidooj/bhaidooj-4.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-5", name: "🎨 Two Flames, One Bond", file: "assets/bhaidooj/bhaidooj-5.jpg", credit: "Original artwork created for Festival Wishes Maker" }
   ],
   chhath: [
-    { id: "photo-1", name: "📷 Chhath Dawn", file: "assets/chhath/chhath-1.jpg", credit: "Komal sah / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-2", name: "📷 Soop Offerings", file: "assets/chhath/chhath-2.jpg", credit: "Nkogbs / Wikimedia Commons (CC BY 4.0)" },
-    { id: "photo-3", name: "📷 Floating Diyas", file: "assets/chhath/chhath-3.jpg", credit: "Rudolph.A.furtado / Wikimedia Commons (CC0)" },
-    { id: "photo-4", name: "📷 Ghat Palace", file: "assets/chhath/chhath-4.jpg", credit: "Philip Nalangan / Wikimedia Commons (CC BY 4.0)" },
-    { id: "photo-5", name: "📷 Boats at Sunrise", file: "assets/chhath/chhath-5.jpg", credit: "Schwiki / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-6", name: "📷 Varanasi Ghat Steps", file: "assets/chhath/chhath-6.jpg", credit: "Philip Nalangan / Wikimedia Commons (CC BY 4.0)" },
-    { id: "photo-7", name: "📷 Offerings at Dusk", file: "assets/chhath/chhath-7.jpg", credit: "Booktoaster / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-8", name: "📷 Thekua Prasad", file: "assets/chhath/chhath-8.jpg", credit: "Biswarup Ganguly / Wikimedia Commons (CC BY 3.0)" },
-    { id: "photo-9", name: "📷 Ghats from the River", file: "assets/chhath/chhath-9.jpg", credit: "Ninara from Helsinki, Finland / Wikimedia Commons (CC BY 2.0)" },
-    { id: "photo-10", name: "📷 Sunset at the Ghat", file: "assets/chhath/chhath-10.jpg", credit: "Shivaranisiddula / Wikimedia Commons (CC BY 4.0)" },
-    { id: "photo-11", name: "📷 Thekuwa Bowl", file: "assets/chhath/chhath-11.jpg", credit: "Jagisnowjughead / Wikimedia Commons (CC BY-SA 4.0)" },
-    { id: "photo-12", name: "🎨 Sunrise Offerings (Artwork)", file: "assets/chhath/chhath-12.jpg", credit: "Original artwork generated for Festival Wishes Maker" },
-    { id: "photo-13", name: "🎨 Sugarcane Canopy (Artwork)", file: "assets/chhath/chhath-13.jpg", credit: "Original artwork generated for Festival Wishes Maker" },
-    { id: "photo-14", name: "🎨 Steps of Diyas (Artwork)", file: "assets/chhath/chhath-14.jpg", credit: "Original artwork generated for Festival Wishes Maker" }
-  ],
+    { id: "photo-1", name: "🎨 Sunrise Offerings", file: "assets/chhath/chhath-1.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-2", name: "🎨 Steps of Diyas", file: "assets/chhath/chhath-2.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-3", name: "🎨 Sugarcane Canopy", file: "assets/chhath/chhath-3.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-4", name: "🎨 Diyas on the River", file: "assets/chhath/chhath-4.jpg", credit: "Original artwork created for Festival Wishes Maker" },
+    { id: "photo-5", name: "🎨 The Offering Soop", file: "assets/chhath/chhath-5.jpg", credit: "Original artwork created for Festival Wishes Maker" }
+  ]
 };
 var PHOTO_DATA_FILES = {
-  dussehra: "assets/photos-dussehra.js?v=4", dhanteras: "assets/photos-dhanteras.js?v=4",
-  choti: "assets/photos-choti.js?v=4", diwali: "assets/photos-diwali.js?v=4",
-  govardhan: "assets/photos-govardhan.js?v=4", bhaidooj: "assets/photos-bhaidooj.js?v=4",
-  chhath: "assets/photos-chhath.js?v=4"
+  dussehra: "assets/photos-dussehra.js?v=5", dhanteras: "assets/photos-dhanteras.js?v=5",
+  choti: "assets/photos-choti.js?v=5", diwali: "assets/photos-diwali.js?v=5",
+  govardhan: "assets/photos-govardhan.js?v=5", bhaidooj: "assets/photos-bhaidooj.js?v=5",
+  chhath: "assets/photos-chhath.js?v=5"
 };
 function poolList(master, ids) {
   return ids.map(function (id) { return byId(master, id); });
@@ -1417,58 +1347,6 @@ function drawPremiumFinish(ctx, S, u, pal) {
   ctx.fillRect(0, S * 0.52, S, S * 0.48);
   ctx.restore();
 }
-/* Deep band tones derived from a palette: every stop is mixed toward
-   maroon-black and luminance-capped, so the Top Art Band can NEVER wash
-   out into a pale slab — for any palette, light ones included. */
-function bandStops(pal) {
-  return pal.stops.map(function (s) {
-    var n = parseInt(s[1].slice(1), 16);
-    var c = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map(function (v) {
-      return Math.round(v * 0.52 + 14 * 0.48);
-    });
-    var lum = (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255;
-    if (lum > 0.30) {
-      var k = 0.30 / lum;
-      c = c.map(function (v) { return Math.round(v * k); });
-    }
-    return [s[0], "rgb(" + c[0] + "," + c[1] + "," + c[2] + ")"];
-  });
-}
-/* glowing arch band across the top third (Top Art Band layout) */
-function drawTopBand(ctx, S, u, pal, isPhoto) {
-  var x0 = 54 * u, x1 = S - 54 * u, yT = 60 * u, yB = 376 * u;
-  function path() {
-    ctx.beginPath();
-    ctx.moveTo(x0, yB);
-    ctx.lineTo(x0, 250 * u);
-    ctx.quadraticCurveTo(x0, yT, S / 2, yT);
-    ctx.quadraticCurveTo(x1, yT, x1, 250 * u);
-    ctx.lineTo(x1, yB);
-    ctx.quadraticCurveTo(S / 2, yB - 34 * u, x0, yB);
-    ctx.closePath();
-  }
-  ctx.save();
-  path();
-  ctx.fillStyle = lg(ctx, 0, yT, 0, yB, bandStops(pal));
-  ctx.globalAlpha = 1;
-  ctx.fill();
-  /* warm glow at the band's heart, clipped so it stays inside the arch */
-  path();
-  ctx.clip();
-  circle(ctx, S / 2, 210 * u, 330 * u, rg(ctx, S / 2, 210 * u, 330 * u, [[0, "rgba(255,214,120,0.38)"], [1, "rgba(255,214,120,0)"]]));
-  ctx.restore();
-  /* gold edge: a glowing outer line plus a fine bright inner line */
-  ctx.save();
-  path();
-  ctx.strokeStyle = pal.frame; ctx.lineWidth = 3.4 * u; ctx.globalAlpha = 1;
-  ctx.shadowColor = "rgba(240,192,64,0.55)"; ctx.shadowBlur = 10 * u;
-  ctx.stroke();
-  ctx.shadowBlur = 0;
-  path();
-  ctx.strokeStyle = shade(pal.frame, 0.4); ctx.lineWidth = 1.2 * u; ctx.globalAlpha = 0.9; ctx.stroke();
-  ctx.restore();
-}
-
 /* ============================== BACKGROUNDS (8 drawn + photos) ============================== */
 function drawBackground(ctx, S, u, pal, bgId, festKey) {
   var cx = S / 2, i, a;
@@ -2282,12 +2160,6 @@ var ARRANGE_SPOTS = {
    own zone, clear of that layout's text block (verified in the harness). */
 var LAYOUT_SPOTS = {
   "classic": ARRANGE_SPOTS,
-  "top-band": {
-    "centre": [[540, 212, 0.62, 0]],
-    "top": [[540, 206, 0.46, 0]],
-    "sides": [[302, 212, 0.44, 0], [778, 212, 0.44, 0]],
-    "scatter": [[540, 224, 0.52, 0], [218, 166, 0.34, -0.12], [862, 166, 0.34, 0.12]]
-  },
   "split": {
     "centre": [[282, 440, 0.72, 0]],
     "top": [[282, 300, 0.55, 0]],
@@ -2493,10 +2365,9 @@ function drawCardText(ctx, S, u, fest, data, pal, combo) {
     drawSignature(ctx, S, u, data, pal, nf, S / 2);
     return;
   }
-  /* classic & top-band share the centred flow (top-band starts lower) */
-  var band = (L === "top-band");
+  /* classic centred flow */
   if (data.to) {
-    var fy = drawBigRecipient(ctx, S, u, data, pal, nf, { cx: S / 2, eyebrowY: (band ? 430 : 424) * u, startSize: band ? 100 : 108, twoStart: band ? 88 : 92, maxW: S - 140 * u });
+    var fy = drawBigRecipient(ctx, S, u, data, pal, nf, { cx: S / 2, eyebrowY: 424 * u, startSize: 108, twoStart: 92, maxW: S - 140 * u });
     var y = fy + 88 * u;
     drawHeadline(ctx, S / 2, y, u, ft.headline, pal, hf, S - 120 * u, 1);
     y += 54 * u; drawSubLine(ctx, S / 2, y, u, ft.sub, pal, S - 150 * u, 40 * u);
@@ -2504,7 +2375,7 @@ function drawCardText(ctx, S, u, fest, data, pal, combo) {
     ctx.fillStyle = pal.body;
     drawMessageBlock(ctx, S, u, S / 2, data.message, y + 50 * u, 876 * u, S - 200 * u, null);
   } else {
-    var y2 = (band ? 518 : 462) * u;
+    var y2 = 462 * u;
     drawHeadline(ctx, S / 2, y2, u, ft.headline, pal, hf, S - 120 * u, 1);
     y2 += 62 * u; drawSubLine(ctx, S / 2, y2, u, ft.sub, pal, S - 150 * u, 42 * u);
     y2 += 42 * u; drawDivider(ctx, S / 2, y2, u, pal, 130 * u);
@@ -2556,12 +2427,10 @@ function drawCard(ctx, S, festKey, combo, data) {
   ctx.save();
   drawBackground(ctx, S, u, pal, combo.bg, festKey);
   if (!isPhoto) drawPremiumFinish(ctx, S, u, pal);
-  if (layout === "top-band") drawTopBand(ctx, S, u, pal, isPhoto);
   drawOverlay(ctx, S, u, pal, combo.overlay);
   /* photo cards keep clean typography (no motif) — except Minimal, whose
-     small motif accent sits above the photo like a logo mark, and Top Art
-     Band, whose whole point is the motif displayed inside the arch band */
-  if (!isPhoto || layout === "minimal" || layout === "top-band") {
+     small motif accent sits above the photo like a logo mark */
+  if (!isPhoto || layout === "minimal") {
     drawMotifArranged(ctx, S, u, pal, combo.motif, combo.arrange, layout);
   }
   drawBorder(ctx, S, u, pal, combo.border);
@@ -2635,7 +2504,7 @@ function renderComboBanner() {
   el("comboBreak").textContent =
     FESTIVALS[state.fest].label + " alone has " + indianFormat(poolCombos(state.fest)) +
     " designs from its OWN theme family (" + p.themes.length + " colour themes × " +
-    (p.bgs.length + photoBgIds(state.fest).length) + " backgrounds (incl. real photo backdrops x3 framings each) × " + p.borders.length + " frames × " + p.motifs.length + " motifs × " +
+    (p.bgs.length + photoBgIds(state.fest).length) + " backgrounds (incl. original artwork backdrops x3 framings each) × " + p.borders.length + " frames × " + p.motifs.length + " motifs × " +
     p.arranges.length + " arrangements × " + p.overlays.length + " overlays × " + p.hfonts.length +
     " headline styles × " + p.nfonts.length + " name styles × " + p.layouts.length + " layouts). Every festival keeps its own designs — no mixing! All 7: " + perFest + ".";
   el("comboBreak").title = perFest;
@@ -2720,7 +2589,7 @@ function randomCombo(festKey) {
   var photos = FEST_PHOTOS[fest] || [];
   var c = null;
   for (var tries = 0; tries < 60; tries++) {
-    /* photo backdrops dominate (~3 of 4 draws), each in a random framing */
+    /* art backdrops dominate (~3 of 4 draws), each in a random framing */
     var bg;
     if (photos.length && Math.random() < 0.78) {
       var ph = photos[Math.floor(Math.random() * photos.length)];
@@ -2749,141 +2618,141 @@ var PRESETS = {
     preset("Royal Victory", "royal-gold", "photo-1", "toran", "bow-arrow", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", "classic", 0),
     preset("Saffron Victory", "sunset-orange", "photo-4z", "marigold-strands", "kalash", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
     preset("Crimson Victory", "crimson", "photo-3", "temple-arch", "bow-arrow", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
-    preset("Golden Victory", "saffron-glory", "photo-10", "toran", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Golden Victory", "saffron-glory", "photo-5", "toran", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "classic", 3),
     preset("Blazing Victory", "vermilion-flame", "photo-2", "sparkle-frame", "bow-arrow", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
     preset("Victorious Victory", "crimson", "photo-1w", "rangoli-corners", "kalash", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
     preset("Royal Glory", "vermilion-flame", "photo-1", "gold-frame", "bow-arrow", "sides", "none", "festive-script", "elegant-serif", "split", 1),
-    preset("Saffron Glory", "saffron-glory", "photo-7z", "marigold-strands", "kalash", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Saffron Glory", "saffron-glory", "photo-2z", "marigold-strands", "kalash", "top", "bokeh-glow", "classic", "modern", "classic", 2),
     preset("Crimson Glory", "classic-maroon", "photo-3", "temple-arch", "bow-arrow", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
-    preset("Golden Glory", "classic-maroon", "photo-13", "toran", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Golden Glory", "classic-maroon", "photo-3", "toran", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
     preset("Blazing Glory", "royal-gold", "photo-2", "sparkle-frame", "bow-arrow", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
-    preset("Victorious Glory", "sunset-orange", "photo-4w", "rangoli-corners", "kalash", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Victorious Glory", "sunset-orange", "photo-4w", "rangoli-corners", "kalash", "top", "sparkle-dust", "festive-script", "script", "classic", 1),
     preset("Royal Triumph", "crimson", "photo-1", "gold-frame", "bow-arrow", "centre", "none", "classic", "elegant-serif", "classic", 2),
-    preset("Saffron Triumph", "saffron-glory", "photo-10z", "marigold-strands", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Saffron Triumph", "saffron-glory", "photo-5z", "marigold-strands", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
     preset("Crimson Triumph", "vermilion-flame", "photo-3", "temple-arch", "bow-arrow", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
-    preset("Golden Triumph", "crimson", "photo-1", "toran", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Golden Triumph", "crimson", "photo-1", "toran", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "classic", 0),
     preset("Blazing Triumph", "vermilion-flame", "photo-2", "sparkle-frame", "bow-arrow", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
-    preset("Victorious Triumph", "saffron-glory", "photo-7w", "rangoli-corners", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
+    preset("Victorious Triumph", "saffron-glory", "photo-2w", "rangoli-corners", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   dhanteras: [
     preset("Golden Prosperity", "choco-gold", "photo-1", "gold-frame", "wealth-pot", "centre", "bokeh-glow", "royal-display", "classic-italic", "classic", 0),
     preset("Royal Prosperity", "choco-gold", "photo-4z", "rangoli-corners", "big-rangoli", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
     preset("Antique Prosperity", "royal-gold", "photo-3", "dot-border", "wealth-pot", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
-    preset("Copper Prosperity", "antique-gold", "photo-10", "gold-frame", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Copper Prosperity", "antique-gold", "photo-5", "gold-frame", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "classic", 3),
     preset("Molten Prosperity", "saffron-glory", "photo-2", "temple-arch", "wealth-pot", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
     preset("Shining Prosperity", "saffron-glory", "photo-2w", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
     preset("Golden Treasure", "copper-glow", "photo-1", "toran", "wealth-pot", "sides", "none", "festive-script", "elegant-serif", "split", 1),
-    preset("Royal Treasure", "molten-bronze", "photo-8z", "rangoli-corners", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Royal Treasure", "molten-bronze", "photo-3z", "rangoli-corners", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "classic", 2),
     preset("Antique Treasure", "copper-glow", "photo-3", "dot-border", "wealth-pot", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
-    preset("Copper Treasure", "molten-bronze", "photo-14", "gold-frame", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Copper Treasure", "molten-bronze", "photo-4", "gold-frame", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
     preset("Molten Treasure", "choco-gold", "photo-2", "temple-arch", "wealth-pot", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
-    preset("Shining Treasure", "choco-gold", "photo-6w", "marigold-strands", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Shining Treasure", "choco-gold", "photo-1w", "marigold-strands", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "classic", 1),
     preset("Golden Wealth", "royal-gold", "photo-1", "toran", "wealth-pot", "centre", "none", "classic", "elegant-serif", "classic", 2),
-    preset("Royal Wealth", "antique-gold", "photo-12z", "rangoli-corners", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Royal Wealth", "antique-gold", "photo-2z", "rangoli-corners", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
     preset("Antique Wealth", "saffron-glory", "photo-3", "dot-border", "wealth-pot", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
-    preset("Copper Wealth", "saffron-glory", "photo-4", "gold-frame", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Copper Wealth", "saffron-glory", "photo-4", "gold-frame", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "classic", 0),
     preset("Molten Wealth", "copper-glow", "photo-2", "temple-arch", "wealth-pot", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
-    preset("Shining Wealth", "molten-bronze", "photo-10w", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
+    preset("Shining Wealth", "molten-bronze", "photo-5w", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   choti: [
     preset("Amber Light", "sunset-orange", "photo-1", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", "classic", 0),
     preset("Warm Light", "crimson", "photo-4z", "marigold-strands", "fireworks", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
     preset("Little Light", "royal-gold", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
-    preset("Glowing Light", "vermilion-flame", "photo-10", "diya-row", "fireworks", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Glowing Light", "vermilion-flame", "photo-5", "diya-row", "fireworks", "top", "fine-rays", "royal-display", "outline-gold", "classic", 3),
     preset("First Light", "vermilion-flame", "photo-2", "toran", "diya-pair", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
     preset("Sweet Light", "crimson", "photo-1w", "dot-border", "fireworks", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
     preset("Amber Diya", "amber-honey", "photo-1", "gold-frame", "diya-pair", "sides", "none", "festive-script", "elegant-serif", "split", 1),
-    preset("Warm Diya", "copper-glow", "photo-7z", "marigold-strands", "fireworks", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Warm Diya", "copper-glow", "photo-2z", "marigold-strands", "fireworks", "top", "bokeh-glow", "classic", "modern", "classic", 2),
     preset("Little Diya", "sunset-orange", "photo-3", "sparkle-frame", "diya-pair", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
-    preset("Glowing Diya", "amber-honey", "photo-13", "diya-row", "fireworks", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Glowing Diya", "amber-honey", "photo-3", "diya-row", "fireworks", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
     preset("First Diya", "sunset-orange", "photo-2", "toran", "diya-pair", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
-    preset("Sweet Diya", "crimson", "photo-4w", "dot-border", "fireworks", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Sweet Diya", "crimson", "photo-4w", "dot-border", "fireworks", "top", "sparkle-dust", "festive-script", "script", "classic", 1),
     preset("Amber Glow", "royal-gold", "photo-1", "gold-frame", "diya-pair", "centre", "none", "classic", "elegant-serif", "classic", 2),
-    preset("Warm Glow", "vermilion-flame", "photo-10z", "marigold-strands", "fireworks", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Warm Glow", "vermilion-flame", "photo-5z", "marigold-strands", "fireworks", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
     preset("Little Glow", "vermilion-flame", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
-    preset("Glowing Glow", "crimson", "photo-1", "diya-row", "fireworks", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Glowing Glow", "crimson", "photo-1", "diya-row", "fireworks", "top", "fine-rays", "elegant-serif", "outline-gold", "classic", 0),
     preset("First Glow", "amber-honey", "photo-2", "toran", "diya-pair", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
-    preset("Sweet Glow", "copper-glow", "photo-7w", "dot-border", "fireworks", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
+    preset("Sweet Glow", "copper-glow", "photo-2w", "dot-border", "fireworks", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   diwali: [
     preset("Midnight Glow", "midnight-blue", "photo-1", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", "classic", 0),
     preset("Sparkling Glow", "silver-moon", "photo-4z", "gold-frame", "big-rangoli", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
     preset("Royal Glow", "royal-purple", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
-    preset("Golden Glow", "indigo-night", "photo-10", "diya-row", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Golden Glow", "indigo-night", "photo-5", "diya-row", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "classic", 3),
     preset("Radiant Glow", "peacock", "photo-2", "dot-border", "diya-pair", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
     preset("Starlit Glow", "peacock", "photo-1w", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
     preset("Midnight Sparkle", "indigo-night", "photo-1", "rangoli-corners", "diya-pair", "sides", "none", "festive-script", "elegant-serif", "split", 1),
-    preset("Sparkling Sparkle", "silver-moon", "photo-7z", "gold-frame", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Sparkling Sparkle", "silver-moon", "photo-2z", "gold-frame", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "classic", 2),
     preset("Royal Sparkle", "royal-gold", "photo-3", "sparkle-frame", "diya-pair", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
-    preset("Golden Sparkle", "royal-purple", "photo-13", "diya-row", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Golden Sparkle", "royal-purple", "photo-3", "diya-row", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
     preset("Radiant Sparkle", "midnight-blue", "photo-2", "dot-border", "diya-pair", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
-    preset("Starlit Sparkle", "silver-moon", "photo-4w", "marigold-strands", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Starlit Sparkle", "silver-moon", "photo-4w", "marigold-strands", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "classic", 1),
     preset("Midnight Shine", "royal-purple", "photo-1", "rangoli-corners", "diya-pair", "centre", "none", "classic", "elegant-serif", "classic", 2),
-    preset("Sparkling Shine", "indigo-night", "photo-10z", "gold-frame", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Sparkling Shine", "indigo-night", "photo-5z", "gold-frame", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
     preset("Royal Shine", "peacock", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
-    preset("Golden Shine", "peacock", "photo-1", "diya-row", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Golden Shine", "peacock", "photo-1", "diya-row", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "classic", 0),
     preset("Radiant Shine", "indigo-night", "photo-2", "dot-border", "diya-pair", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
-    preset("Starlit Shine", "silver-moon", "photo-7w", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
+    preset("Starlit Shine", "silver-moon", "photo-2w", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   govardhan: [
     preset("Emerald Hill", "emerald", "photo-1", "leaf-vine", "govardhan-hill", "centre", "falling-petals", "elegant-serif", "classic-italic", "classic", 0),
     preset("Verdant Hill", "teal-glow", "photo-4z", "marigold-strands", "kalash", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
     preset("Sacred Hill", "teal-glow", "photo-3", "toran", "govardhan-hill", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
-    preset("Golden Hill", "forest-deep", "photo-10", "leaf-vine", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Golden Hill", "forest-deep", "photo-5", "leaf-vine", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "classic", 3),
     preset("Gentle Hill", "peacock", "photo-2", "dot-border", "govardhan-hill", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
     preset("Divine Hill", "emerald", "photo-1w", "gold-frame", "kalash", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
     preset("Emerald Grove", "leaf-gold", "photo-1", "rangoli-corners", "govardhan-hill", "sides", "none", "festive-script", "elegant-serif", "split", 1),
-    preset("Verdant Grove", "royal-gold", "photo-7z", "marigold-strands", "kalash", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Verdant Grove", "royal-gold", "photo-2z", "marigold-strands", "kalash", "top", "bokeh-glow", "classic", "modern", "classic", 2),
     preset("Sacred Grove", "forest-deep", "photo-3", "toran", "govardhan-hill", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
-    preset("Golden Grove", "leaf-gold", "photo-13", "leaf-vine", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Golden Grove", "leaf-gold", "photo-3", "leaf-vine", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
     preset("Gentle Grove", "emerald", "photo-2", "dot-border", "govardhan-hill", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
-    preset("Divine Grove", "teal-glow", "photo-4w", "gold-frame", "kalash", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Divine Grove", "teal-glow", "photo-4w", "gold-frame", "kalash", "top", "sparkle-dust", "festive-script", "script", "classic", 1),
     preset("Emerald Blessing", "teal-glow", "photo-1", "rangoli-corners", "govardhan-hill", "centre", "none", "classic", "elegant-serif", "classic", 2),
-    preset("Verdant Blessing", "forest-deep", "photo-10z", "marigold-strands", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Verdant Blessing", "forest-deep", "photo-5z", "marigold-strands", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
     preset("Sacred Blessing", "peacock", "photo-3", "toran", "govardhan-hill", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
-    preset("Golden Blessing", "emerald", "photo-1", "leaf-vine", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Golden Blessing", "emerald", "photo-1", "leaf-vine", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "classic", 0),
     preset("Gentle Blessing", "leaf-gold", "photo-2", "dot-border", "govardhan-hill", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
-    preset("Divine Blessing", "royal-gold", "photo-7w", "gold-frame", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
+    preset("Divine Blessing", "royal-gold", "photo-2w", "gold-frame", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   bhaidooj: [
     preset("Rosy Bond", "rose-pink", "photo-1", "rangoli-corners", "puja-thali", "centre", "falling-petals", "festive-script", "script", "classic", 0),
     preset("Sweet Bond", "crimson", "photo-4z", "marigold-strands", "big-rangoli", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
     preset("Golden Bond", "rose-gold", "photo-3", "sparkle-frame", "puja-thali", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
-    preset("Blessed Bond", "rose-gold", "photo-10", "rangoli-corners", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Blessed Bond", "rose-gold", "photo-5", "rangoli-corners", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "classic", 3),
     preset("Tender Bond", "coral-sunset", "photo-2", "diya-row", "puja-thali", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
     preset("Festive Bond", "coral-sunset", "photo-1w", "gold-frame", "big-rangoli", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
     preset("Rosy Tilak", "ruby-wine", "photo-1", "dot-border", "puja-thali", "sides", "none", "festive-script", "elegant-serif", "split", 1),
-    preset("Sweet Tilak", "ruby-wine", "photo-7z", "marigold-strands", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Sweet Tilak", "ruby-wine", "photo-2z", "marigold-strands", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "classic", 2),
     preset("Golden Tilak", "royal-purple", "photo-3", "sparkle-frame", "puja-thali", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
-    preset("Blessed Tilak", "royal-purple", "photo-13", "rangoli-corners", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Blessed Tilak", "royal-purple", "photo-3", "rangoli-corners", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
     preset("Tender Tilak", "rose-pink", "photo-2", "diya-row", "puja-thali", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
-    preset("Festive Tilak", "crimson", "photo-4w", "gold-frame", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Festive Tilak", "crimson", "photo-4w", "gold-frame", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "classic", 1),
     preset("Rosy Love", "rose-gold", "photo-1", "dot-border", "puja-thali", "centre", "none", "classic", "elegant-serif", "classic", 2),
-    preset("Sweet Love", "rose-gold", "photo-10z", "marigold-strands", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Sweet Love", "rose-gold", "photo-5z", "marigold-strands", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
     preset("Golden Love", "coral-sunset", "photo-3", "sparkle-frame", "puja-thali", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
-    preset("Blessed Love", "coral-sunset", "photo-1", "rangoli-corners", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Blessed Love", "coral-sunset", "photo-1", "rangoli-corners", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "classic", 0),
     preset("Tender Love", "ruby-wine", "photo-2", "diya-row", "puja-thali", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
-    preset("Festive Love", "ruby-wine", "photo-7w", "gold-frame", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
+    preset("Festive Love", "ruby-wine", "photo-2w", "gold-frame", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   chhath: [
     preset("Golden Arghya", "coral-sunset", "photo-1", "marigold-strands", "sun-river", "centre", "none", "elegant-serif", "elegant-serif", "classic", 0),
     preset("Sacred Arghya", "saffron-glory", "photo-4z", "diya-row", "kalash", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
     preset("Morning Arghya", "dawn-blush", "photo-3", "toran", "sun-river", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
-    preset("Evening Arghya", "dawn-blush", "photo-10", "marigold-strands", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Evening Arghya", "dawn-blush", "photo-5", "marigold-strands", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "classic", 3),
     preset("Radiant Arghya", "sunset-orange", "photo-2", "gold-frame", "sun-river", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
     preset("River Arghya", "amber-honey", "photo-2w", "leaf-vine", "kalash", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
     preset("Golden Sunrise", "marigold-dawn", "photo-1", "dot-border", "sun-river", "sides", "none", "festive-script", "elegant-serif", "split", 1),
-    preset("Sacred Sunrise", "amber-honey", "photo-8z", "diya-row", "kalash", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Sacred Sunrise", "amber-honey", "photo-3z", "diya-row", "kalash", "top", "bokeh-glow", "classic", "modern", "classic", 2),
     preset("Morning Sunrise", "marigold-dawn", "photo-3", "toran", "sun-river", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
-    preset("Evening Sunrise", "sunset-orange", "photo-14", "marigold-strands", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Evening Sunrise", "sunset-orange", "photo-4", "marigold-strands", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
     preset("Radiant Sunrise", "coral-sunset", "photo-2", "gold-frame", "sun-river", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
-    preset("River Sunrise", "saffron-glory", "photo-6w", "leaf-vine", "kalash", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("River Sunrise", "saffron-glory", "photo-1w", "leaf-vine", "kalash", "top", "sparkle-dust", "festive-script", "script", "classic", 1),
     preset("Golden Ghat", "dawn-blush", "photo-1", "dot-border", "sun-river", "centre", "none", "classic", "elegant-serif", "classic", 2),
-    preset("Sacred Ghat", "dawn-blush", "photo-12z", "diya-row", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Sacred Ghat", "dawn-blush", "photo-2z", "diya-row", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
     preset("Morning Ghat", "sunset-orange", "photo-3", "toran", "sun-river", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
-    preset("Evening Ghat", "amber-honey", "photo-4", "marigold-strands", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Evening Ghat", "amber-honey", "photo-4", "marigold-strands", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "classic", 0),
     preset("Radiant Ghat", "marigold-dawn", "photo-2", "gold-frame", "sun-river", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
-    preset("River Ghat", "amber-honey", "photo-10w", "leaf-vine", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
+    preset("River Ghat", "amber-honey", "photo-5w", "leaf-vine", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ]
 };
 function loadCurated() {
@@ -3183,7 +3052,7 @@ window.FestivalMaker = {
   currentData: currentData, renderMain: renderMain,
   generateWish: generateWish, generateWishFresh: generateWishFresh, WISH_FRAGS: WISH_FRAGS,
   FEST_POOLS: FEST_POOLS, MOTIF_INDEX: MOTIF_INDEX, poolCombos: poolCombos,
-  PHOTO_VARIANTS: PHOTO_VARIANTS, photoBgIds: photoBgIds, bandStops: bandStops,
+  PHOTO_VARIANTS: PHOTO_VARIANTS, photoBgIds: photoBgIds,
   photoBaseId: photoBaseId, photoVariantOf: photoVariantOf,
   LAYOUTS: LAYOUTS, LAYOUT_SPOTS: LAYOUT_SPOTS, FEST_PHOTOS: FEST_PHOTOS,
   randomCombo: randomCombo, comboKey: comboKey, ARRANGE_SPOTS: ARRANGE_SPOTS, MOTIF_FIT: MOTIF_FIT,
