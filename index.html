@@ -12,7 +12,7 @@
 <meta name="theme-color" content="#7b0d0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Great+Vibes&family=Playfair+Display:ital,wght@0,700;0,900;1,600&family=Poppins:wght@600;800&family=Noto+Sans+Devanagari:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --maroon:#7b0d0d; --deep:#4a0606; --gold:#d98a16; --gold2:#f0c040;
@@ -68,11 +68,12 @@
   }
   section.panel h2{margin:0 0 12px;font-family:Georgia,serif;font-size:21px;color:var(--maroon);}
   label.flabel{display:block;font-weight:700;font-size:14px;margin:13px 0 6px;color:#5c1a08;}
-  input[type="text"], select{
+  input[type="text"], select, textarea{
     width:100%;padding:12px 13px;font-size:16.5px;border:1.8px solid #e0b26a;border-radius:12px;
     background:#fff;color:var(--ink);outline:none;
   }
-  input[type="text"]:focus, select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,138,22,.25);}
+  textarea{font-family:inherit;resize:vertical;line-height:1.45;min-height:74px;}
+  input[type="text"]:focus, select:focus, textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,138,22,.25);}
   .checkrow{display:flex;align-items:center;gap:9px;margin-top:11px;font-size:15px;font-weight:600;color:#5c1a08;}
   .checkrow input{width:19px;height:19px;accent-color:var(--maroon);}
   .comboBanner{
@@ -112,6 +113,13 @@
   }
   .ideas figcaption{font-size:11.5px;font-weight:700;color:#7a3c10;margin-top:3px;}
   .ideas figure:hover canvas{border-color:var(--gold2);}
+  .langToggle{display:flex;align-items:center;justify-content:center;gap:8px;margin:2px 0 6px;flex-wrap:wrap;}
+  .langToggle .lt-label{font-size:13px;font-weight:800;color:#8a5a1e;letter-spacing:.3px;}
+  .langToggle button{
+    padding:8px 20px;font-size:15px;font-weight:800;border-radius:20px;cursor:pointer;
+    border:1.8px solid var(--gold);background:#fffdf6;color:var(--maroon);
+  }
+  .langToggle button.active{background:linear-gradient(180deg,#a31616,#7b0d0d);color:#ffe9b0;border-color:#a31616;}
   .stage{margin-top:16px;text-align:center;}
   #cardCanvas{
     width:100%;max-width:520px;height:auto;border-radius:16px;display:block;margin:0 auto;
@@ -146,6 +154,12 @@
 </head>
 <body>
 <div class="wrap">
+
+  <div class="langToggle" role="group" aria-label="Card language">
+    <span class="lt-label">🗣️ Card language:</span>
+    <button type="button" id="langEn" class="active">English</button>
+    <button type="button" id="langHi">हिंदी</button>
+  </div>
 
   <header class="hero">
     <h1>🎉 Festival Wishes Maker</h1>
@@ -195,6 +209,10 @@
     <label class="flabel" for="msgSelect">💌 Choose a wish</label>
     <select id="msgSelect"></select>
 
+    <label class="flabel" for="customMsg">✍️ Or write your own message — optional</label>
+    <textarea id="customMsg" rows="3" maxlength="220" placeholder="Type your own wish here… / अपना संदेश लिखें…"></textarea>
+    <p class="tip" id="customMsgNote" style="display:none;margin-top:6px;text-align:left;">✅ Your message will be used instead of the selected one.</p>
+
     <label class="flabel">🎨 Colour theme</label>
     <div class="chips" id="pickTheme"></div>
 
@@ -220,10 +238,10 @@
     <div class="chips" id="pickNfont"></div>
 
     <div class="ideasHead">
-      <label class="flabel">💡 Fresh ideas — tap one to use it</label>
-      <button class="btnMini" id="btnIdeas" type="button">↻ New ideas</button>
+      <label class="flabel">🎨 Ready Designs — tap one to use it</label>
+      <button class="btnMini" id="btnIdeas" type="button">↻ More designs</button>
     </div>
-    <div class="ideas" id="ideaRow"></div>
+    <div class="ideas gallery" id="ideaRow"></div>
 
     <div class="stage">
       <canvas id="cardCanvas" width="1080" height="1080"></canvas>
@@ -272,6 +290,15 @@ var FESTIVALS = {
       "May Lord Rama bless you with the strength and courage to always walk the path of truth. Happy Dussehra!",
       "Wishing you the courage to conquer every challenge and the wisdom to choose what is right. Shubh Vijayadashami!",
       "Like the triumph of light over darkness, may success and joy always find their way to you. Happy Dussehra!"
+    ],
+    headlineHi: "शुभ दशहरा",
+    subHi: "विजयादशमी — बुराई पर अच्छाई की जीत",
+    messagesHi: [
+      "आपके जीवन में अच्छाई हमेशा बुराई पर विजय पाए। दशहरे पर आपको विजय, साहस और खुशियों की हार्दिक शुभकामनाएँ!",
+      "इस विजयादशमी पर आपके जीवन की हर परेशानी रावण के पुतले की तरह जलकर राख हो जाए। शुभ दशहरा!",
+      "भगवान श्रीराम आपको सत्य के मार्ग पर चलने की शक्ति और साहस प्रदान करें। शुभ दशहरा!",
+      "आपको हर चुनौती पर विजय पाने का साहस और सही मार्ग चुनने का विवेक प्राप्त हो। शुभ विजयादशमी!",
+      "जैसे अंधकार पर प्रकाश की जीत होती है, वैसे ही सफलता और खुशियाँ सदा आपके जीवन में आएँ। शुभ दशहरा!"
     ]
   },
   diwali: {
@@ -286,6 +313,15 @@ var FESTIVALS = {
       "Wishing you a Diwali full of light, laughter and sweet moments with the people you love most. Happy Diwali!",
       "From our family to yours — may your Diwali sparkle with joy, prosperity and endless sweetness. Happy Diwali!",
       "May the glow of a thousand diyas fill your heart with peace and your home with abundance. Shubh Deepavali!"
+    ],
+    headlineHi: "दीपावली की शुभकामनाएँ",
+    subHi: "शुभ दीपावली — प्रकाश का पर्व",
+    messagesHi: [
+      "दीयों की रोशनी आपके जीवन को स्वास्थ्य, समृद्धि और खुशियों की ओर ले जाए। आपको और आपके परिवार को दीपावली की हार्दिक शुभकामनाएँ!",
+      "माँ लक्ष्मी आपके घर को समृद्धि से भर दें और हर दीया एक नया सपना रोशन करे। शुभ दीपावली!",
+      "आपकी दीपावली रोशनी, हँसी और अपनों के साथ मीठे पलों से भरी हो। दीपावली की शुभकामनाएँ!",
+      "हमारे परिवार की ओर से आपके परिवार को — आपकी दीपावली खुशियों, समृद्धि और मिठास से जगमगाए। शुभ दीपावली!",
+      "हज़ारों दीयों की चमक आपके हृदय को शांति और आपके घर को समृद्धि से भर दे। शुभ दीपावली!"
     ]
   }
 };
@@ -460,6 +496,16 @@ function wrapLines(ctx, text, maxWidth) {
   if (cur) lines.push(cur);
   return lines;
 }
+/* wrap that preserves the user's own line breaks (custom messages) */
+function wrapText(ctx, text, maxWidth) {
+  var out = [];
+  var paras = String(text).split("\n");
+  for (var i = 0; i < paras.length; i++) {
+    if (!paras[i].trim()) { out.push(""); continue; }
+    out = out.concat(wrapLines(ctx, paras[i], maxWidth));
+  }
+  return out;
+}
 function fontSpec(weight, size, stack, italic) {
   return (italic ? "italic " : "") + weight + " " + Math.round(size) + "px " + stack;
 }
@@ -470,6 +516,19 @@ function fitSize(ctx, text, weight, stack, maxWidth, start, italic) {
     s -= 3; ctx.font = fontSpec(weight, s, stack, italic);
   }
   return s;
+}
+/* Devanagari-safe stack: the display Google Fonts have no Devanagari glyphs,
+   so Hindi text (and Hindi names) fall back to a system Devanagari font. */
+var DEV_STACK = '"Noto Sans Devanagari","Nirmala UI",Mangal,system-ui,sans-serif';
+function hasDev(t) { return /[\u0900-\u097F]/.test(t || ""); }
+function stackFor(text, stack) { return hasDev(text) ? DEV_STACK : stack; }
+function festText(fest, lang) {
+  return lang === "hi"
+    ? { headline: fest.headlineHi || fest.headline, sub: fest.subHi || fest.sub }
+    : { headline: fest.headline, sub: fest.sub };
+}
+function festMessages(fest, lang) {
+  return (lang === "hi" && fest.messagesHi) ? fest.messagesHi : fest.messages;
 }
 /* Small scattered 4-point stars / sparkles */
 function drawSparkles(ctx, S, u, n, seed, area, color) {
@@ -1084,52 +1143,158 @@ function drawMotifArranged(ctx, S, u, pal, motifId, arrangeId) {
 }
 
 /* ============================== CARD TEXT ============================== */
-function drawCardText(ctx, S, u, fest, data, pal, combo) {
-  var cx = S / 2;
-  var hf = byId(HFONTS, combo.hfont), nf = byId(NFONTS, combo.nfont);
-  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
-  var y = 472 * u;
-  if (data.to) {
-    ctx.fillStyle = pal.body;
-    var greet = "Dear " + data.to + ",";
-    fitSize(ctx, greet, "italic 600", SERIF, S - 180 * u, 43 * u, true);
-    ctx.fillText(greet, cx, y);
-    y += 76 * u;
-  } else { y += 24 * u; }
-  /* headline */
+function drawHeadline(ctx, cx, y, u, text, pal, hf, S) {
   ctx.fillStyle = pal.head;
-  fitSize(ctx, fest.headline, hf.weight, hf.stack, S - 120 * u, 99 * u * (hf.boost || 1), hf.italic);
+  var boost = hasDev(text) ? 0.9 : (hf.boost || 1);
+  fitSize(ctx, text, hf.weight, stackFor(text, hf.stack), S - 120 * u, 99 * u * boost, hf.italic);
   ctx.shadowColor = "rgba(0,0,0,0.25)"; ctx.shadowBlur = 6 * u; ctx.shadowOffsetY = 3 * u;
-  ctx.fillText(fest.headline, cx, y);
+  ctx.fillText(text, cx, y);
   ctx.shadowColor = "transparent"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
-  y += 62 * u;
-  /* subheading */
-  ctx.fillStyle = pal.sub;
-  fitSize(ctx, fest.sub, "600", SERIF, S - 150 * u, 42 * u);
-  ctx.fillText(fest.sub, cx, y);
-  y += 42 * u;
-  /* ornament divider */
+}
+function drawDivider(ctx, cx, y, u, pal) {
   ctx.strokeStyle = pal.accent; ctx.lineWidth = 2.4 * u;
   ctx.beginPath(); ctx.moveTo(cx - 130 * u, y); ctx.lineTo(cx - 26 * u, y); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(cx + 26 * u, y); ctx.lineTo(cx + 130 * u, y); ctx.stroke();
   ctx.save(); ctx.translate(cx, y); ctx.rotate(Math.PI / 4);
   ctx.fillStyle = pal.accent; ctx.fillRect(-9 * u, -9 * u, 18 * u, 18 * u);
   ctx.restore();
-  y += 56 * u;
-  /* wish message */
-  ctx.fillStyle = pal.body;
-  ctx.font = fontSpec("400", 38 * u, SANS);
-  var lines = wrapLines(ctx, data.message, S - 200 * u);
-  var lh = 53 * u;
-  for (var i = 0; i < lines.length && i < 5; i++) {
-    ctx.fillText(lines[i], cx, y); y += lh;
+}
+/* Split a long name into two roughly balanced lines */
+function splitNameTwoLines(ctx, name, nf, stack, maxW, startSize) {
+  var words = name.split(/\s+/);
+  if (words.length < 2) return null;
+  var best = null, bestScore = Infinity;
+  ctx.font = fontSpec(nf.weight, startSize, stack, nf.italic);
+  for (var i = 1; i < words.length; i++) {
+    var a = words.slice(0, i).join(" "), b = words.slice(i).join(" ");
+    var score = Math.abs(ctx.measureText(a).width - ctx.measureText(b).width);
+    if (score < bestScore) { bestScore = score; best = [a, b]; }
   }
+  if (!best) return null;
+  var size = startSize;
+  for (var j = 0; j < 2; j++) {
+    var fs = fitSize(ctx, best[j], nf.weight, stack, maxW, size, nf.italic);
+    if (fs < size) size = fs;
+  }
+  return { lines: best, size: size };
+}
+/* The recipient's name, BIG: palette-bright fill, soft gold glow, underline
+   flourish. Returns the y just under the flourish. */
+function drawBigRecipient(ctx, S, u, data, pal, nf) {
+  var cx = S / 2;
+  var name = data.to;
+  var stack = stackFor(name, nf.stack);
+  var boost = hasDev(name) ? 1 : (nf.boost || 1);
+  /* eyebrow label */
+  ctx.fillStyle = pal.accent;
+  var eb = data.lang === "hi" ? "शुभकामनाओं सहित, प्रिय" : "— WITH WARM WISHES TO —";
+  ctx.font = fontSpec("700", 25 * u, stackFor(eb, SANS));
+  ctx.fillText(eb, cx, 424 * u);
+  /* size: start large; drop to two lines when one line would shrink too far */
+  var maxW = S - 140 * u;
+  var size = fitSize(ctx, name, nf.weight, stack, maxW, 108 * u * boost, nf.italic);
+  var lines = [name];
+  if (size < 62 * u && name.indexOf(" ") > 0) {
+    var two = splitNameTwoLines(ctx, name, nf, stack, maxW, 92 * u * boost);
+    if (two) { lines = two.lines; size = two.size; }
+  }
+  ctx.font = fontSpec(nf.weight, size, stack, nf.italic);
+  var y = 424 * u + 30 * u + size;
+  ctx.fillStyle = pal.head;
+  ctx.shadowColor = pal.accent; ctx.shadowBlur = 15 * u;
+  var widest = 0;
+  for (var i = 0; i < lines.length; i++) {
+    if (nf.outline && !hasDev(lines[i])) {
+      ctx.lineWidth = Math.max(1.2, 2.4 * u); ctx.strokeStyle = pal.accent;
+      ctx.strokeText(lines[i], cx, y);
+    }
+    ctx.fillText(lines[i], cx, y);
+    widest = Math.max(widest, ctx.measureText(lines[i]).width);
+    y += size * 1.07;
+  }
+  ctx.shadowColor = "transparent"; ctx.shadowBlur = 0;
+  var lastBase = y - size * 1.07;
+  /* underline flourish: gold rule, centre diamond, end dots */
+  var half = Math.min(widest / 2 + 30 * u, S / 2 - 56 * u);
+  var fy = lastBase + 32 * u;
+  ctx.strokeStyle = pal.accent; ctx.lineWidth = 3.2 * u;
+  ctx.beginPath(); ctx.moveTo(cx - half, fy); ctx.lineTo(cx - 20 * u, fy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx + 20 * u, fy); ctx.lineTo(cx + half, fy); ctx.stroke();
+  ctx.save(); ctx.translate(cx, fy); ctx.rotate(Math.PI / 4);
+  ctx.fillStyle = pal.accent; ctx.fillRect(-8 * u, -8 * u, 16 * u, 16 * u);
+  ctx.restore();
+  circle(ctx, cx - half - 13 * u, fy, 4.5 * u, pal.accent);
+  circle(ctx, cx + half + 13 * u, fy, 4.5 * u, pal.accent);
+  return fy;
+}
+/* Wish message that steps its size down so it never runs into the signature */
+function drawMessageBlock(ctx, S, u, cx, text, startY, limitY) {
+  var sizes = [[36, 50], [33, 46], [30, 43]];
+  for (var k = 0; k < sizes.length; k++) {
+    var fs = sizes[k][0] * u, lh = sizes[k][1] * u;
+    ctx.font = fontSpec("400", fs, stackFor(text, SANS));
+    var lines = wrapText(ctx, text, S - 200 * u);
+    var maxLines = Math.max(1, Math.floor((limitY - startY) / lh) + 1);
+    if (lines.length <= maxLines || k === sizes.length - 1) {
+      var y = startY;
+      for (var i = 0; i < lines.length && i < maxLines; i++) {
+        ctx.fillText(lines[i], cx, y); y += lh;
+      }
+      return;
+    }
+  }
+}
+function drawCardText(ctx, S, u, fest, data, pal, combo) {
+  var cx = S / 2;
+  var hf = byId(HFONTS, combo.hfont), nf = byId(NFONTS, combo.nfont);
+  var ft = festText(fest, data.lang);
+  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+  if (data.to) {
+    /* ---- layout WITH recipient: the name, big and glowing, up top ---- */
+    var fy = drawBigRecipient(ctx, S, u, data, pal, nf);
+    var y = fy + 88 * u;
+    drawHeadline(ctx, cx, y, u, ft.headline, pal, hf, S);
+    y += 54 * u;
+    ctx.fillStyle = pal.sub;
+    fitSize(ctx, ft.sub, "600", stackFor(ft.sub, SERIF), S - 150 * u, 40 * u);
+    ctx.fillText(ft.sub, cx, y);
+    y += 32 * u;
+    drawDivider(ctx, cx, y, u, pal);
+    ctx.fillStyle = pal.body;
+    drawMessageBlock(ctx, S, u, cx, data.message, y + 50 * u, 918 * u);
+  } else {
+    /* ---- original layout (no recipient) ---- */
+    var y2 = 496 * u;
+    drawHeadline(ctx, cx, y2, u, ft.headline, pal, hf, S);
+    y2 += 62 * u;
+    ctx.fillStyle = pal.sub;
+    fitSize(ctx, ft.sub, "600", stackFor(ft.sub, SERIF), S - 150 * u, 42 * u);
+    ctx.fillText(ft.sub, cx, y2);
+    y2 += 42 * u;
+    drawDivider(ctx, cx, y2, u, pal);
+    y2 += 56 * u;
+    ctx.fillStyle = pal.body;
+    ctx.font = fontSpec("400", 38 * u, stackFor(data.message, SANS));
+    var lines = wrapText(ctx, data.message, S - 200 * u);
+    var lh = 53 * u;
+    for (var i = 0; i < lines.length && i < 5; i++) {
+      ctx.fillText(lines[i], cx, y2); y2 += lh;
+    }
+  }
+  drawSignature(ctx, S, u, data, pal, nf);
+}
+function drawSignature(ctx, S, u, data, pal, nf) {
+  var cx = S / 2;
+  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
   /* signature — the visitor's name, in the chosen name style */
   var from = data.from || "Your Name";
-  var sig = "— " + from + (data.andFamily ? " & Family" : "");
-  var sigSize = fitSize(ctx, sig, nf.weight, nf.stack, S - 140 * u, 54 * u * (nf.boost || 1), nf.italic);
+  var sig = data.lang === "hi"
+    ? from + (data.andFamily ? " एवं परिवार" : "") + " की ओर से"
+    : "— " + from + (data.andFamily ? " & Family" : "");
+  var sigStack = stackFor(sig, nf.stack);
+  var sigSize = fitSize(ctx, sig, nf.weight, sigStack, S - 140 * u, 54 * u * (hasDev(sig) ? 1 : (nf.boost || 1)), nf.italic);
   if (nf.outline) {
-    ctx.font = fontSpec(nf.weight, sigSize, nf.stack, nf.italic);
+    ctx.font = fontSpec(nf.weight, sigSize, sigStack, nf.italic);
     ctx.lineWidth = Math.max(1.2, 1.7 * u);
     ctx.strokeStyle = pal.accent;
     ctx.strokeText(sig, cx, 952 * u);
@@ -1169,23 +1334,36 @@ var DEFAULT_COMBOS = {
 };
 var state = {
   fest: "dussehra",
+  lang: "en",
   combo: {
     dussehra: JSON.parse(JSON.stringify(DEFAULT_COMBOS.dussehra)),
     diwali: JSON.parse(JSON.stringify(DEFAULT_COMBOS.diwali))
   },
-  ideas: []
+  ideas: [],
+  ideasMode: "curated"
 };
 function el(id) { return document.getElementById(id); }
 function combo() { return state.combo[state.fest]; }
 function currentData() {
   var fest = FESTIVALS[state.fest];
   var c = combo();
+  var msgs = festMessages(fest, state.lang);
+  var customEl = el("customMsg");
+  var custom = customEl ? customEl.value.trim() : "";
   return {
     to: el("toName").value.trim(),
     from: el("fromName").value.trim(),
     andFamily: !!el("andFamily").checked,
-    message: fest.messages[c.msg] || fest.messages[0]
+    lang: state.lang,
+    /* a typed custom message always wins over the selected template */
+    message: custom || msgs[c.msg] || msgs[0]
   };
+}
+function setLang(lang) {
+  state.lang = lang;
+  el("langEn").className = lang === "en" ? "active" : "";
+  el("langHi").className = lang === "hi" ? "active" : "";
+  renderMessages(); renderIdeas(); renderMain();
 }
 function renderMain() {
   var canvas = el("cardCanvas");
@@ -1239,7 +1417,7 @@ function renderPickers() {
 function renderMessages() {
   var sel = el("msgSelect");
   sel.innerHTML = "";
-  FESTIVALS[state.fest].messages.forEach(function (m, i) {
+  festMessages(FESTIVALS[state.fest], state.lang).forEach(function (m, i) {
     var o = document.createElement("option");
     o.value = i;
     o.textContent = (i + 1) + ". " + (m.length > 72 ? m.slice(0, 72) + "…" : m);
@@ -1247,7 +1425,7 @@ function renderMessages() {
   });
   sel.value = combo().msg;
 }
-/* ---- random combos & idea thumbnails ---- */
+/* ---- random combos & the Ready Designs gallery ---- */
 function randOf(list) { return list[Math.floor(Math.random() * list.length)].id; }
 function randomCombo() {
   return {
@@ -1257,28 +1435,112 @@ function randomCombo() {
     msg: Math.floor(Math.random() * FESTIVALS[state.fest].messages.length)
   };
 }
+/* Curated gallery: 18 ready designs per festival (preset axis combos) */
+function preset(name, theme, bg, border, motif, arrange, overlay, hfont, nfont, msg) {
+  return { name: name, theme: theme, bg: bg, border: border, motif: motif, arrange: arrange, overlay: overlay, hfont: hfont, nfont: nfont, msg: msg };
+}
+var PRESETS = {
+  dussehra: [
+    preset("Royal Victory", "royal-gold", "sunburst", "toran", "bow-arrow", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Marigold Arch", "sunset-orange", "radial-glow", "marigold-strands", "bow-arrow", "top", "falling-petals", "royal-display", "classic-italic", 1),
+    preset("Midnight Glory", "midnight-blue", "night-sky", "gold-frame", "sun-medallion", "centre", "sparkle-dust", "royal-display", "modern", 2),
+    preset("Rangoli Glory", "classic-maroon", "mandala-backdrop", "rangoli-corners", "big-rangoli", "centre", "tiny-dots", "elegant-serif", "script", 3),
+    preset("Peacock Pride", "peacock", "diagonal-shine", "leaf-vine", "peacock-feather", "sides", "bokeh-glow", "modern-bold", "modern", 4),
+    preset("Temple Bells", "choco-gold", "radial-glow", "temple-arch", "temple-bells", "top", "none", "classic", "classic-italic", 0),
+    preset("Crimson Conquest", "crimson", "vignette", "gold-frame", "bow-arrow", "scatter", "fine-rays", "royal-display", "bold-display", 1),
+    preset("Emerald Honour", "emerald", "soft-waves", "leaf-vine", "lotus", "centre", "falling-petals", "elegant-serif", "elegant-serif", 2),
+    preset("Kalash Blessings", "royal-gold", "radial-glow", "toran", "kalash", "centre", "sparkle-dust", "festive-script", "script", 3),
+    preset("Purple Reign", "royal-purple", "night-sky", "sparkle-frame", "sun-medallion", "top", "sparkle-dust", "modern-bold", "modern", 4),
+    preset("Sunset Triumph", "coral-sunset", "sunburst", "marigold-strands", "bow-arrow", "centre", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("Ivory Classic", "ivory-rose", "vignette", "gold-frame", "lotus", "top", "none", "classic", "classic-italic", 1),
+    preset("Teal Valor", "teal-glow", "dual-split", "dot-border", "bow-arrow", "sides", "tiny-dots", "modern-bold", "modern", 2),
+    preset("Ruby Radiance", "ruby-wine", "radial-glow", "rangoli-corners", "big-rangoli", "centre", "bokeh-glow", "festive-script", "script", 3),
+    preset("Lamp Parade", "magenta-fest", "night-sky", "diya-row", "lamp-string", "top", "sparkle-dust", "elegant-serif", "elegant-serif", 4),
+    preset("Golden Frame Hero", "classic-maroon", "sunburst", "gold-frame", "sun-medallion", "centre", "sparkle-dust", "royal-display", "outline-gold", 0),
+    preset("Indigo Night", "indigo-night", "night-sky", "sparkle-frame", "fireworks", "centre", "sparkle-dust", "modern-bold", "bold-display", 1),
+    preset("Peach Serenity", "peach-cream", "soft-waves", "dot-border", "lotus", "centre", "falling-petals", "classic", "classic-italic", 2)
+  ],
+  diwali: [
+    preset("Classic Diya Night", "midnight-blue", "radial-glow", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Golden Glow", "royal-gold", "radial-glow", "gold-frame", "lamp-string", "top", "sparkle-dust", "festive-script", "script", 1),
+    preset("Rangoli Dreams", "magenta-fest", "mandala-backdrop", "rangoli-corners", "big-rangoli", "centre", "tiny-dots", "elegant-serif", "script", 2),
+    preset("Fireworks Sky", "indigo-night", "night-sky", "sparkle-frame", "fireworks", "centre", "sparkle-dust", "modern-bold", "modern", 3),
+    preset("Lakshmi Kalash", "crimson", "radial-glow", "toran", "kalash", "centre", "bokeh-glow", "royal-display", "classic-italic", 4),
+    preset("Peacock Lights", "peacock", "diagonal-shine", "leaf-vine", "peacock-feather", "sides", "sparkle-dust", "elegant-serif", "modern", 0),
+    preset("Rose Glow", "rose-pink", "vignette", "marigold-strands", "diya-pair", "top", "falling-petals", "festive-script", "script", 1),
+    preset("Emerald Shine", "emerald", "night-sky", "diya-row", "lamp-string", "top", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Royal Purple Night", "royal-purple", "radial-glow", "gold-frame", "diya-pair", "centre", "bokeh-glow", "royal-display", "bold-display", 3),
+    preset("Sunset Diyas", "sunset-orange", "sunburst", "toran", "sun-medallion", "centre", "fine-rays", "elegant-serif", "classic-italic", 4),
+    preset("Silver Moonlight", "silver-moon", "night-sky", "dot-border", "diya-pair", "sides", "sparkle-dust", "modern-bold", "modern", 0),
+    preset("Marigold Morning", "coral-sunset", "soft-waves", "marigold-strands", "lotus", "centre", "falling-petals", "classic", "classic-italic", 1),
+    preset("Temple Bells Eve", "classic-maroon", "radial-glow", "temple-arch", "temple-bells", "top", "none", "elegant-serif", "elegant-serif", 2),
+    preset("Teal Twilight", "teal-glow", "dual-split", "sparkle-frame", "fireworks", "centre", "sparkle-dust", "modern-bold", "bold-display", 3),
+    preset("Ivory Elegance", "ivory-rose", "vignette", "gold-frame", "lotus", "top", "none", "classic", "classic-italic", 4),
+    preset("Rainbow Utsav", "rainbow-fest", "sunburst", "rangoli-corners", "big-rangoli", "centre", "sparkle-dust", "festive-script", "script", 0),
+    preset("Ruby Deepavali", "ruby-wine", "night-sky", "diya-row", "diya-pair", "centre", "bokeh-glow", "elegant-serif", "outline-gold", 1),
+    preset("Choco Gold Luxe", "choco-gold", "vignette", "gold-frame", "kalash", "centre", "fine-rays", "royal-display", "classic-italic", 2)
+  ]
+};
+function loadCurated() {
+  state.ideasMode = "curated";
+  state.ideas = PRESETS[state.fest].map(function (p) {
+    var o = {}; for (var k in p) o[k] = p[k]; return o;
+  });
+}
+function rerollIdeas() {
+  state.ideasMode = "random";
+  state.ideas = [];
+  for (var i = 0; i < 18; i++) {
+    var rc = randomCombo(); rc.name = "Surprise " + (i + 1);
+    state.ideas.push(rc);
+  }
+  renderIdeas();
+}
+function galleryData() {
+  var data = currentData();
+  if (!data.to) data.to = "Priya Sharma";
+  if (!data.from) data.from = "Rohan Gupta";
+  return data;
+}
+function applyIdea(idea) {
+  var c = {};
+  ["theme", "bg", "border", "motif", "arrange", "overlay", "hfont", "nfont", "msg"].forEach(function (k) { c[k] = idea[k]; });
+  state.combo[state.fest] = c;
+  renderMessages(); renderPickers(); renderMain();
+}
+var galleryToken = 0;
 function renderIdeas() {
   var row = el("ideaRow");
+  if (!row) return;
   row.innerHTML = "";
-  state.ideas = [];
-  for (var i = 0; i < 6; i++) state.ideas.push(randomCombo());
-  var data = currentData();
-  if (!data.from) data.from = "Your Name";
-  state.ideas.forEach(function (idea, idx) {
-    var fig = document.createElement("figure");
-    var c = document.createElement("canvas");
-    c.width = 216; c.height = 216;
-    var d = { to: data.to, from: data.from, andFamily: data.andFamily, message: FESTIVALS[state.fest].messages[idea.msg] };
-    drawCard(c.getContext("2d"), 216, state.fest, idea, d);
-    var cap = document.createElement("figcaption");
-    cap.textContent = "Idea " + (idx + 1) + " · tap to use";
-    fig.appendChild(c); fig.appendChild(cap);
-    fig.addEventListener("click", function () {
-      state.combo[state.fest] = JSON.parse(JSON.stringify(idea));
-      renderMessages(); renderPickers(); renderMain();
-    });
-    row.appendChild(fig);
-  });
+  if (!state.ideas.length) loadCurated();
+  var items = state.ideas;
+  var data = galleryData();
+  var fest = state.fest, lang = state.lang;
+  var token = ++galleryToken;
+  var idx = 0;
+  function chunk() {
+    if (token !== galleryToken) return; /* a newer render superseded this one */
+    var t0 = Date.now();
+    while (idx < items.length && Date.now() - t0 < 24) {
+      (function (idea) {
+        var fig = document.createElement("figure");
+        var c = document.createElement("canvas");
+        c.width = 216; c.height = 216;
+        var msgs = festMessages(FESTIVALS[fest], lang);
+        var d = { to: data.to, from: data.from, andFamily: data.andFamily, lang: lang, message: msgs[idea.msg] || msgs[0] };
+        drawCard(c.getContext("2d"), 216, fest, idea, d);
+        var cap = document.createElement("figcaption");
+        cap.textContent = idea.name || "Design";
+        fig.appendChild(c); fig.appendChild(cap);
+        fig.addEventListener("click", function () { applyIdea(idea); });
+        row.appendChild(fig);
+      })(items[idx]);
+      idx++;
+    }
+    if (idx < items.length) setTimeout(chunk, 30);
+  }
+  chunk();
 }
 function surprise() {
   state.combo[state.fest] = randomCombo();
@@ -1288,6 +1550,7 @@ function setFest(key) {
   state.fest = key;
   el("tabDussehra").className = "festtab" + (key === "dussehra" ? " active" : "");
   el("tabDiwali").className = "festtab" + (key === "diwali" ? " active" : "");
+  loadCurated();
   renderComboBanner(); renderMessages(); renderPickers(); renderIdeas(); renderMain();
 }
 /* Countdowns in IST */
@@ -1346,7 +1609,7 @@ function downloadCard() {
 function shareWhatsApp() {
   var fest = FESTIVALS[state.fest];
   var from = el("fromName").value.trim();
-  var text = fest.headline + "! " + fest.messages[combo().msg] +
+  var text = festText(fest, state.lang).headline + "! " + festMessages(fest, state.lang)[combo().msg] +
     (from ? " — " + from : "") + "\n\nCreate your own card here: " + SITE_URL;
   var canvas = el("cardCanvas");
   function waFallback() { window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank"); }
@@ -1379,7 +1642,13 @@ function init() {
     renderMain();
   });
   el("btnSurprise").addEventListener("click", surprise);
-  el("btnIdeas").addEventListener("click", renderIdeas);
+  el("btnIdeas").addEventListener("click", rerollIdeas);
+  el("langEn").addEventListener("click", function () { setLang("en"); });
+  el("langHi").addEventListener("click", function () { setLang("hi"); });
+  el("customMsg").addEventListener("input", function () {
+    el("customMsgNote").style.display = el("customMsg").value.trim() ? "block" : "none";
+    renderMain(); renderIdeasSoft();
+  });
   el("btnDownload").addEventListener("click", downloadCard);
   el("btnShare").addEventListener("click", shareWhatsApp);
   renderCountdowns();
@@ -1391,6 +1660,7 @@ function init() {
       document.fonts.load('60px "Great Vibes"');
       document.fonts.load('900 60px "Playfair Display"');
       document.fonts.load('800 60px "Poppins"');
+      document.fonts.load('700 60px "Noto Sans Devanagari"');
       document.fonts.ready.then(function () { renderMain(); renderIdeas(); });
     }
   } catch (e) { /* fallback fonts already rendered */ }
@@ -1403,7 +1673,11 @@ window.FestivalMaker = {
   drawCard: drawCard, FESTIVALS: FESTIVALS, daysTo: daysTo,
   PALETTES: PALETTES, BACKGROUNDS: BACKGROUNDS, BORDERS: BORDERS, MOTIFS: MOTIFS,
   ARRANGES: ARRANGES, OVERLAYS: OVERLAYS, HFONTS: HFONTS, NFONTS: NFONTS,
-  totalCombos: totalCombos, indianFormat: indianFormat
+  totalCombos: totalCombos, indianFormat: indianFormat,
+  PRESETS: PRESETS, festMessages: festMessages, festText: festText,
+  setLang: setLang, setFest: setFest, applyIdea: applyIdea, rerollIdeas: rerollIdeas,
+  currentData: currentData, renderMain: renderMain,
+  getState: function () { return state; }
 };
 </script>
 </body>
