@@ -203,10 +203,10 @@
     <button class="btnSurprise" id="btnSurprise" type="button">🎲 Surprise Me — Random Design</button>
 
     <label class="flabel" for="toName">Wishing to (recipient's name) — optional</label>
-    <input type="text" id="toName" placeholder="e.g. Sharma Family" maxlength="40" autocomplete="off">
+    <input type="text" id="toName" placeholder="e.g. Mrityunjay" maxlength="40" autocomplete="off">
 
     <label class="flabel" for="fromName">Your name (From)</label>
-    <input type="text" id="fromName" placeholder="e.g. Rohan Gupta" maxlength="40" autocomplete="off">
+    <input type="text" id="fromName" placeholder="e.g. Mishra Family" maxlength="40" autocomplete="off">
 
     <div class="checkrow">
       <input type="checkbox" id="andFamily" checked>
@@ -2775,7 +2775,12 @@ function rerollIdeas() {
 function galleryData() {
   var data = currentData();
   if (!data.to) data.to = "Mrityunjay";
-  if (!data.from) data.from = "Rohan Gupta";
+  if (!data.from) {
+    data.from = "Mishra Family";
+    /* the fallback name already ends in "Family" — never let the "& Family"
+       toggle append a second one on top of it in this path */
+    data.andFamily = false;
+  }
   return data;
 }
 function applyIdea(idea) {
