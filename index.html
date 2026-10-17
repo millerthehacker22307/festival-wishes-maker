@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Festival Wishes Maker — Dussehra &amp; Diwali Greeting Cards</title>
+<meta name="description" content="Create beautiful personalised Dussehra and Diwali greeting cards with your name in seconds. Download the card as a PNG or share it on WhatsApp — free, no sign-up.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Festival Wishes Maker — Dussehra & Diwali Greeting Cards">
+<meta property="og:description" content="Pick a design, add your name, and share a festive greeting card with family and friends.">
+<meta property="og:url" content="https://festival-wishes-maker.vercel.app/">
+<meta name="theme-color" content="#7b0d0d">
+<style>
+  :root{
+    --maroon:#7b0d0d; --deep:#4a0606; --gold:#d98a16; --gold2:#f0c040;
+    --cream:#fff8ec; --ink:#3a0d0d;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    color:var(--ink);
+    background:
+      radial-gradient(circle at 12% 18%, rgba(217,138,22,.14) 0 90px, transparent 91px),
+      radial-gradient(circle at 88% 82%, rgba(123,13,13,.10) 0 110px, transparent 111px),
+      radial-gradient(rgba(217,138,22,.16) 1.5px, transparent 1.6px) 0 0/26px 26px,
+      linear-gradient(180deg,#fff3da,#ffe6bd 55%,#ffd9a0);
+    min-height:100vh;
+  }
+  .wrap{max-width:720px;margin:0 auto;padding:18px 14px 40px;}
+  header.hero{text-align:center;padding:14px 6px 4px;}
+  header.hero h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:clamp(30px,7.4vw,46px); margin:0 0 6px; color:var(--maroon);
+    text-shadow:0 2px 0 rgba(240,192,64,.45);
+  }
+  header.hero p{margin:0 auto;max-width:560px;font-size:16px;line-height:1.45;color:#6b2a12;}
+  .festtabs{display:flex;gap:10px;justify-content:center;margin:20px 0 6px;}
+  .festtab{
+    flex:1;max-width:250px;padding:13px 8px;border-radius:14px;cursor:pointer;
+    border:2px solid var(--gold);background:#fffdf6;font-size:18px;font-weight:700;color:var(--maroon);
+    box-shadow:0 3px 10px rgba(123,13,13,.12);
+  }
+  .festtab small{display:block;font-weight:600;font-size:12.5px;color:#8a5a1e;margin-top:2px;}
+  .festtab.active{background:linear-gradient(180deg,#a31616,#7b0d0d);color:#ffe9b0;border-color:#a31616;}
+  .festtab.active small{color:#ffd98a;}
+  .countdowns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0 4px;}
+  .cd{
+    background:#fffdf6;border:1.5px solid rgba(217,138,22,.55);border-radius:14px;
+    padding:12px 12px 10px;text-align:center;position:relative;box-shadow:0 3px 10px rgba(123,13,13,.08);
+  }
+  .cd h3{margin:0 0 2px;font-size:16px;color:var(--maroon);font-family:Georgia,serif;}
+  .cd .date{font-size:12.5px;color:#8a5a1e;font-weight:600;}
+  .cd .days{font-size:30px;font-weight:800;color:#b3540a;line-height:1.15;margin-top:4px;}
+  .cd .days span{font-size:13px;font-weight:700;color:#8a5a1e;}
+  .cd .badge{
+    position:absolute;top:-10px;left:50%;transform:translateX(-50%);
+    background:var(--gold);color:#fff;font-size:11px;font-weight:800;letter-spacing:.4px;
+    padding:3px 10px;border-radius:20px;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.18);
+  }
+  .cd.soon{border-color:var(--gold);background:linear-gradient(180deg,#fff8e6,#ffedb8);}
+  section.panel{
+    background:rgba(255,253,246,.92);border:1.5px solid rgba(217,138,22,.5);
+    border-radius:18px;padding:16px 14px 18px;margin-top:16px;box-shadow:0 6px 18px rgba(123,13,13,.10);
+  }
+  section.panel h2{margin:0 0 12px;font-family:Georgia,serif;font-size:21px;color:var(--maroon);}
+  label.flabel{display:block;font-weight:700;font-size:14px;margin:12px 0 6px;color:#5c1a08;}
+  input[type="text"], select{
+    width:100%;padding:12px 13px;font-size:16.5px;border:1.8px solid #e0b26a;border-radius:12px;
+    background:#fff;color:var(--ink);outline:none;
+  }
+  input[type="text"]:focus, select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,138,22,.25);}
+  .checkrow{display:flex;align-items:center;gap:9px;margin-top:11px;font-size:15px;font-weight:600;color:#5c1a08;}
+  .checkrow input{width:19px;height:19px;accent-color:var(--maroon);}
+  .designs{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:6px;}
+  .designs figure{margin:0;text-align:center;cursor:pointer;}
+  .designs canvas{
+    width:100%;height:auto;border-radius:12px;border:3px solid transparent;display:block;
+    box-shadow:0 3px 9px rgba(0,0,0,.18);
+  }
+  .designs figcaption{font-size:12px;font-weight:700;color:#7a3c10;margin-top:4px;}
+  .designs figure.sel canvas{border-color:var(--gold);}
+  .stage{margin-top:16px;text-align:center;}
+  #cardCanvas{
+    width:100%;max-width:520px;height:auto;border-radius:16px;display:block;margin:0 auto;
+    box-shadow:0 12px 30px rgba(74,6,6,.35);
+  }
+  .actions{display:flex;gap:10px;margin-top:16px;}
+  .btn{
+    flex:1;padding:14px 8px;font-size:16.5px;font-weight:800;border:none;border-radius:13px;cursor:pointer;color:#fff;
+  }
+  .btn.dl{background:linear-gradient(180deg,#c1272d,#8f1212);}
+  .btn.wa{background:linear-gradient(180deg,#2ec35f,#1da851);}
+  .btn:active{transform:scale(.985);}
+  .tip{font-size:13px;color:#8a5a1e;text-align:center;margin:10px 4px 0;line-height:1.45;}
+  .days-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:6px;}
+  .day{
+    background:#fffdf6;border:1.3px solid rgba(217,138,22,.55);border-radius:12px;
+    padding:9px 4px 8px;text-align:center;
+  }
+  .day b{display:block;font-size:13px;color:var(--maroon);line-height:1.25;}
+  .day span{font-size:11px;color:#8a5a1e;font-weight:700;}
+  .day.main{background:linear-gradient(180deg,#a31616,#7b0d0d);}
+  .day.main b{color:#ffe9b0;} .day.main span{color:#ffd98a;}
+  footer{text-align:center;margin-top:26px;color:#7a3c10;font-size:14px;line-height:1.6;}
+  footer .big{font-size:16px;}
+  @media (max-width:420px){
+    .designs{grid-template-columns:repeat(4,1fr);gap:6px;}
+    .days-strip{grid-template-columns:repeat(5,1fr);gap:5px;}
+    .day b{font-size:11.5px;} .day span{font-size:10px;}
+    .actions{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <h1>🎉 Festival Wishes Maker</h1>
+    <p>Create a beautiful greeting card with <b>your name</b> for Dussehra &amp; Diwali — pick a design, type your name, download or share on WhatsApp. Free, no sign-up!</p>
+  </header>
+
+  <div class="festtabs" role="tablist">
+    <button class="festtab active" id="tabDussehra" type="button">🏹 Dussehra<small>Tue, 20 Oct 2026</small></button>
+    <button class="festtab" id="tabDiwali" type="button">🪔 Diwali<small>Sun, 8 Nov 2026</small></button>
+  </div>
+
+  <div class="countdowns">
+    <div class="cd" id="cdDussehra">
+      <h3>🏹 Dussehra</h3>
+      <div class="date">Tuesday, 20 October 2026</div>
+      <div class="days" id="cdDussehraDays">–</div>
+    </div>
+    <div class="cd" id="cdDiwali">
+      <h3>🪔 Diwali</h3>
+      <div class="date">Sunday, 8 November 2026</div>
+      <div class="days" id="cdDiwaliDays">–</div>
+    </div>
+  </div>
+
+  <section class="panel">
+    <h2>✨ Make your card</h2>
+
+    <label class="flabel" for="toName">Wishing to (recipient's name) — optional</label>
+    <input type="text" id="toName" placeholder="e.g. Sharma Family" maxlength="40" autocomplete="off">
+
+    <label class="flabel" for="fromName">Your name (From)</label>
+    <input type="text" id="fromName" placeholder="e.g. Rohan Gupta" maxlength="40" autocomplete="off">
+
+    <div class="checkrow">
+      <input type="checkbox" id="andFamily" checked>
+      <label for="andFamily">Add “&amp; Family” after my name</label>
+    </div>
+
+    <label class="flabel" for="msgSelect">Choose a wish</label>
+    <select id="msgSelect"></select>
+
+    <label class="flabel">Choose a design</label>
+    <div class="designs" id="designRow"></div>
+
+    <div class="stage">
+      <canvas id="cardCanvas" width="1080" height="1080"></canvas>
+    </div>
+
+    <div class="actions">
+      <button class="btn dl" id="btnDownload" type="button">⬇️ Download Card (PNG)</button>
+      <button class="btn wa" id="btnShare" type="button">💬 Share on WhatsApp</button>
+    </div>
+    <p class="tip" id="shareTip">Tip: on most phones, “Share on WhatsApp” attaches the card image directly. If it only shares text, download the card first and attach it in WhatsApp.</p>
+  </section>
+
+  <section class="panel">
+    <h2>🪔 The 5 Days of Diwali 2026</h2>
+    <div class="days-strip">
+      <div class="day"><b>Dhanteras</b><span>Fri, 6 Nov</span></div>
+      <div class="day"><b>Choti Diwali</b><span>Sat, 7 Nov</span></div>
+      <div class="day main"><b>Diwali · Lakshmi Puja</b><span>Sun, 8 Nov</span></div>
+      <div class="day"><b>Govardhan Puja</b><span>Mon, 9 Nov</span></div>
+      <div class="day"><b>Bhai Dooj</b><span>Tue, 10 Nov</span></div>
+    </div>
+    <p class="tip">Dussehra (Vijayadashami) is on <b>Tuesday, 20 October 2026</b> — the victory of good over evil, celebrated three weeks before Diwali.</p>
+  </section>
+
+  <footer>
+    <div class="big">Made with ❤️ in India</div>
+    <div>Free forever · No sign-up · Your card is created right in your browser — nothing is uploaded.</div>
+  </footer>
+
+</div>
+
+<script>
+"use strict";
+/* ============================== DATA ============================== */
+var SITE_URL = "https://festival-wishes-maker.vercel.app/";
+var FESTIVALS = {
+  dussehra: {
+    key: "dussehra",
+    headline: "Happy Dussehra",
+    sub: "Vijayadashami — Victory of Good over Evil",
+    date: [2026, 9, 20], /* Oct 20 2026 */
+    messages: [
+      "May good always triumph over evil in your life. Wishing you victory, courage and happiness on this Dussehra!",
+      "On this Vijayadashami, may every trouble in your life burn away like the effigy of Ravana. Happy Dussehra!",
+      "May Lord Rama bless you with the strength and courage to always walk the path of truth. Happy Dussehra!"
+    ],
+    designs: [
+      { id: "golden-victory", name: "Golden Victory" },
+      { id: "marigold-arch",  name: "Marigold Arch" },
+      { id: "sunset-triumph", name: "Sunset Triumph" }
+    ]
+  },
+  diwali: {
+    key: "diwali",
+    headline: "Happy Diwali",
+    sub: "Shubh Deepavali",
+    date: [2026, 10, 8], /* Nov 8 2026 */
+    messages: [
+      "May the light of the diyas guide you towards health, wealth and happiness. Wishing you and your family a very Happy Diwali!",
+      "May Goddess Lakshmi bless your home with prosperity, and may every diya light up a brand new dream. Shubh Deepavali!",
+      "Wishing you a Diwali full of light, laughter and sweet moments with the people you love most. Happy Diwali!"
+    ],
+    designs: [
+      { id: "classic-diya",  name: "Classic Diya" },
+      { id: "golden-glow",   name: "Golden Glow" },
+      { id: "rangoli-rang",  name: "Rangoli Rang" },
+      { id: "fireworks-sky", name: "Fireworks Sky" }
+    ]
+  }
+};
+
+/* ============================== CANVAS HELPERS ============================== */
+function lg(ctx, x0, y0, x1, y1, stops) {
+  var g = ctx.createLinearGradient(x0, y0, x1, y1);
+  for (var i = 0; i < stops.length; i++) g.addColorStop(stops[i][0], stops[i][1]);
+  return g;
+}
+function rg(ctx, x, y, r, stops) {
+  var g = ctx.createRadialGradient(x, y, 0, x, y, r);
+  for (var i = 0; i < stops.length; i++) g.addColorStop(stops[i][0], stops[i][1]);
+  return g;
+}
+function circle(ctx, x, y, r, fill) {
+  ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); }
+}
+function rr(ctx, x, y, w, h, rad) {
+  ctx.beginPath();
+  ctx.moveTo(x + rad, y);
+  ctx.arcTo(x + w, y, x + w, y + h, rad);
+  ctx.arcTo(x + w, y + h, x, y + h, rad);
+  ctx.arcTo(x, y + h, x, y, rad);
+  ctx.arcTo(x, y, x + w, y, rad);
+  ctx.closePath();
+}
+/* deterministic pseudo-random so previews match the final card */
+function seededRand(seed) {
+  var s = seed >>> 0;
+  return function () {
+    s = (s * 1664525 + 1013904223) >>> 0;
+    return s / 4294967296;
+  };
+}
+function wrapLines(ctx, text, maxWidth) {
+  var words = text.split(/\s+/), lines = [], cur = "";
+  for (var i = 0; i < words.length; i++) {
+    var test = cur ? cur + " " + words[i] : words[i];
+    if (ctx.measureText(test).width > maxWidth && cur) { lines.push(cur); cur = words[i]; }
+    else cur = test;
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+function fitSize(ctx, text, weight, family, maxWidth, start) {
+  var s = start;
+  ctx.font = weight + " " + s + "px " + family;
+  while (ctx.measureText(text).width > maxWidth && s > 12) {
+    s -= 3; ctx.font = weight + " " + s + "px " + family;
+  }
+  return s;
+}
+
+/* ============================== MOTIFS (all drawn in code) ============================== */
+/* Hanging marigold + mango-leaf garland (toran) across the top */
+function drawToran(ctx, S, u) {
+  var rnd = seededRand(42);
+  var n = 15, gap = S / n;
+  for (var i = 0; i < n; i++) {
+    var x = gap * i + gap / 2;
+    var drop = 26 * u + (i % 2) * 14 * u;
+    /* leaf */
+    ctx.save();
+    ctx.translate(x, 0);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(13 * u, drop * 0.55, 0, drop + 26 * u);
+    ctx.quadraticCurveTo(-13 * u, drop * 0.55, 0, 0);
+    ctx.fillStyle = i % 2 ? "#2e7d32" : "#388e3c";
+    ctx.fill();
+    ctx.restore();
+    /* marigold cluster */
+    var cols = ["#ff9800", "#ffb300", "#fb8c00", "#ffca28"];
+    for (var k = 0; k < 5; k++) {
+      var a = (k / 5) * Math.PI * 2 + rnd() * 0.5;
+      circle(ctx, x + Math.cos(a) * 11 * u, drop + 30 * u + Math.sin(a) * 9 * u, 10.5 * u, cols[(i + k) % 4]);
+    }
+    circle(ctx, x, drop + 30 * u, 9 * u, "#ff7043");
+  }
+}
+/* A clay diya (oil lamp) centred at x, rim line at y, scale s */
+function drawDiya(ctx, x, y, s, glow) {
+  if (glow !== false) {
+    ctx.save();
+    ctx.globalAlpha = 0.55;
+    circle(ctx, x, y - 26 * s, 95 * s, rg(ctx, x, y - 26 * s, 95 * s, [[0, "rgba(255,190,60,0.85)"], [1, "rgba(255,190,60,0)"]]));
+    ctx.restore();
+  }
+  /* bowl */
+  ctx.beginPath();
+  ctx.moveTo(x - 72 * s, y);
+  ctx.quadraticCurveTo(x - 60 * s, y + 42 * s, x, y + 46 * s);
+  ctx.quadraticCurveTo(x + 60 * s, y + 42 * s, x + 72 * s, y);
+  ctx.closePath();
+  ctx.fillStyle = lg(ctx, x, y, x, y + 46 * s, [[0, "#d2691e"], [1, "#7a2d0c"]]);
+  ctx.fill();
+  /* rim */
+  ctx.beginPath();
+  ctx.ellipse(x, y, 72 * s, 13 * s, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "#8a3b12"; ctx.fill();
+  ctx.beginPath();
+  ctx.ellipse(x, y, 58 * s, 9 * s, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "#3d1a05"; ctx.fill();
+  /* flame */
+  ctx.beginPath();
+  ctx.moveTo(x, y - 62 * s);
+  ctx.bezierCurveTo(x + 17 * s, y - 30 * s, x + 13 * s, y - 12 * s, x, y - 6 * s);
+  ctx.bezierCurveTo(x - 13 * s, y - 12 * s, x - 17 * s, y - 30 * s, x, y - 62 * s);
+  ctx.fillStyle = lg(ctx, x, y - 62 * s, x, y, [[0, "#fff6c9"], [0.45, "#ffca28"], [1, "#ff7d00"]]);
+  ctx.fill();
+  circle(ctx, x, y - 16 * s, 4.6 * s, "#fffde7");
+}
+/* Bow and arrow, centred at (cx, cy), scale s, rotated by ang radians */
+function drawBowArrow(ctx, cx, cy, s, ang) {
+  ctx.save();
+  ctx.translate(cx, cy); ctx.rotate(ang || 0);
+  /* bow */
+  ctx.beginPath();
+  ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
+  ctx.strokeStyle = "#8a4b08"; ctx.lineWidth = 11 * s; ctx.lineCap = "round"; ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
+  ctx.strokeStyle = "#c77b1e"; ctx.lineWidth = 5 * s; ctx.stroke();
+  /* gold tips */
+  var a1 = -1.12, a2 = 1.12;
+  var tx1 = -18 * s + 118 * s * Math.cos(a1), ty1 = 118 * s * Math.sin(a1);
+  var tx2 = -18 * s + 118 * s * Math.cos(a2), ty2 = 118 * s * Math.sin(a2);
+  circle(ctx, tx1, ty1, 8 * s, "#f0c040");
+  circle(ctx, tx2, ty2, 8 * s, "#f0c040");
+  /* string */
+  ctx.beginPath(); ctx.moveTo(tx1, ty1); ctx.lineTo(28 * s, 0); ctx.lineTo(tx2, ty2);
+  ctx.strokeStyle = "rgba(255,240,200,0.9)"; ctx.lineWidth = 2.6 * s; ctx.stroke();
+  /* arrow shaft */
+  ctx.beginPath(); ctx.moveTo(-128 * s, 0); ctx.lineTo(138 * s, 0);
+  ctx.strokeStyle = "#e8a33d"; ctx.lineWidth = 8 * s; ctx.stroke();
+  /* arrow head */
+  ctx.beginPath();
+  ctx.moveTo(196 * s, 0); ctx.lineTo(132 * s, -17 * s); ctx.lineTo(146 * s, 0); ctx.lineTo(132 * s, 17 * s);
+  ctx.closePath(); ctx.fillStyle = "#f5f5f5"; ctx.fill();
+  ctx.strokeStyle = "#9e9e9e"; ctx.lineWidth = 2 * s; ctx.stroke();
+  /* fletching */
+  ctx.beginPath();
+  ctx.moveTo(-128 * s, 0); ctx.lineTo(-162 * s, -22 * s); ctx.lineTo(-104 * s, -4 * s);
+  ctx.closePath(); ctx.fillStyle = "#c1272d"; ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(-128 * s, 0); ctx.lineTo(-162 * s, 22 * s); ctx.lineTo(-104 * s, 4 * s);
+  ctx.closePath(); ctx.fillStyle = "#f0c040"; ctx.fill();
+  ctx.restore();
+}
+/* Concentric rangoli / mandala medallion */
+function drawMandala(ctx, cx, cy, R, colors) {
+  var i, a;
+  circle(ctx, cx, cy, R, colors[0]);
+  circle(ctx, cx, cy, R * 0.97, null);
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.97, 0, Math.PI * 2);
+  ctx.strokeStyle = colors[3]; ctx.lineWidth = R * 0.02; ctx.stroke();
+  /* petal ring */
+  for (i = 0; i < 16; i++) {
+    a = (i / 16) * Math.PI * 2;
+    ctx.save();
+    ctx.translate(cx + Math.cos(a) * R * 0.8, cy + Math.sin(a) * R * 0.8);
+    ctx.rotate(a + Math.PI / 2);
+    ctx.beginPath(); ctx.ellipse(0, 0, R * 0.075, R * 0.16, 0, 0, Math.PI * 2);
+    ctx.fillStyle = i % 2 ? colors[1] : colors[2]; ctx.fill();
+    ctx.restore();
+  }
+  /* dot ring */
+  for (i = 0; i < 24; i++) {
+    a = (i / 24) * Math.PI * 2;
+    circle(ctx, cx + Math.cos(a) * R * 0.6, cy + Math.sin(a) * R * 0.6, R * 0.028, colors[3]);
+  }
+  /* inner petals */
+  for (i = 0; i < 8; i++) {
+    a = (i / 8) * Math.PI * 2;
+    ctx.save();
+    ctx.translate(cx + Math.cos(a) * R * 0.38, cy + Math.sin(a) * R * 0.38);
+    ctx.rotate(a + Math.PI / 2);
+    ctx.beginPath(); ctx.ellipse(0, 0, R * 0.06, R * 0.13, 0, 0, Math.PI * 2);
+    ctx.fillStyle = colors[2]; ctx.fill();
+    ctx.restore();
+  }
+  circle(ctx, cx, cy, R * 0.2, colors[1]);
+  circle(ctx, cx, cy, R * 0.1, colors[3]);
+}
+/* Firework burst */
+function drawFirework(ctx, cx, cy, R, color) {
+  ctx.save();
+  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = Math.max(2, R * 0.045); ctx.lineCap = "round";
+  var rnd = seededRand(Math.floor(cx + cy));
+  for (var i = 0; i < 14; i++) {
+    var a = (i / 14) * Math.PI * 2 + rnd() * 0.2;
+    var r1 = R * (0.35 + rnd() * 0.2), r2 = R * (0.8 + rnd() * 0.25);
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
+    ctx.lineTo(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2);
+    ctx.stroke();
+    circle(ctx, cx + Math.cos(a) * r2, cy + Math.sin(a) * r2, R * 0.05, color);
+  }
+  circle(ctx, cx, cy, R * 0.06, "#ffffff");
+  ctx.restore();
+}
+/* Dotted rangoli-style border inside the card edges */
+function drawDotBorder(ctx, S, u, color, inset) {
+  var ins = (inset || 40) * u, step = 46 * u, r = 5.5 * u, x, y;
+  ctx.fillStyle = color;
+  for (x = ins; x <= S - ins + 1; x += step) {
+    circle(ctx, x, ins, r, color); circle(ctx, x, S - ins, r, color);
+  }
+  for (y = ins + step; y <= S - ins - step + 1; y += step) {
+    circle(ctx, ins, y, r, color); circle(ctx, S - ins, y, r, color);
+  }
+}
+/* Small scattered stars / sparkles */
+function drawSparkles(ctx, S, u, n, seed, area) {
+  var rnd = seededRand(seed);
+  for (var i = 0; i < n; i++) {
+    var x = rnd() * S, y = area ? rnd() * area : rnd() * S;
+    var r = (1.6 + rnd() * 2.6) * u;
+    ctx.save();
+    ctx.globalAlpha = 0.35 + rnd() * 0.55;
+    ctx.fillStyle = "#ffe9a8";
+    ctx.beginPath();
+    ctx.moveTo(x, y - r * 2.2); ctx.lineTo(x + r * 0.55, y - r * 0.55); ctx.lineTo(x + r * 2.2, y);
+    ctx.lineTo(x + r * 0.55, y + r * 0.55); ctx.lineTo(x, y + r * 2.2); ctx.lineTo(x - r * 0.55, y + r * 0.55);
+    ctx.lineTo(x - r * 2.2, y); ctx.lineTo(x - r * 0.55, y - r * 0.55);
+    ctx.closePath(); ctx.fill();
+    ctx.restore();
+  }
+}
+/* Abstract flame silhouettes along the bottom (effigy-fire motif) */
+function drawFlames(ctx, S, u) {
+  var rnd = seededRand(7);
+  var layers = [
+    { col: "#8f1212", min: 44, max: 92 },
+    { col: "#d35400", min: 30, max: 64 },
+    { col: "#f39c12", min: 16, max: 40 }
+  ];
+  for (var L = 0; L < layers.length; L++) {
+    var step = 74 * u;
+    ctx.beginPath();
+    ctx.moveTo(-step, S);
+    for (var bx = -step; bx <= S + step; bx += step) {
+      var peak = (layers[L].min + rnd() * (layers[L].max - layers[L].min)) * u;
+      ctx.lineTo(bx + step / 2, S - peak);
+      ctx.lineTo(bx + step, S);
+    }
+    ctx.closePath();
+    ctx.fillStyle = layers[L].col; ctx.fill();
+  }
+}
+
+/* ============================== CARD TEXT ============================== */
+var SERIF = 'Georgia, "Times New Roman", serif';
+var SANS = '"Segoe UI", Tahoma, Arial, sans-serif';
+function drawCardText(ctx, S, u, fest, data, theme) {
+  var cx = S / 2;
+  ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+  var y = 428 * u;
+  if (data.to) {
+    ctx.fillStyle = theme.body;
+    ctx.font = "italic 600 " + Math.round(43 * u) + "px " + SERIF;
+    var greet = "Dear " + data.to + ",";
+    fitSize(ctx, greet, "italic 600", SERIF, S - 180 * u, 43 * u);
+    ctx.fillText(greet, cx, y);
+    y += 78 * u;
+  } else { y += 26 * u; }
+  /* headline */
+  ctx.fillStyle = theme.headline;
+  fitSize(ctx, fest.headline, "bold", SERIF, S - 130 * u, 99 * u);
+  ctx.shadowColor = "rgba(0,0,0,0.25)"; ctx.shadowBlur = 6 * u; ctx.shadowOffsetY = 3 * u;
+  ctx.fillText(fest.headline, cx, y);
+  ctx.shadowColor = "transparent"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
+  y += 64 * u;
+  /* subheading */
+  ctx.fillStyle = theme.accent;
+  fitSize(ctx, fest.sub, "600", SERIF, S - 160 * u, 44 * u);
+  ctx.fillText(fest.sub, cx, y);
+  y += 44 * u;
+  /* ornament divider */
+  ctx.strokeStyle = theme.accent; ctx.lineWidth = 2.4 * u;
+  ctx.beginPath(); ctx.moveTo(cx - 130 * u, y); ctx.lineTo(cx - 26 * u, y); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx + 26 * u, y); ctx.lineTo(cx + 130 * u, y); ctx.stroke();
+  ctx.save(); ctx.translate(cx, y); ctx.rotate(Math.PI / 4);
+  ctx.fillStyle = theme.accent; ctx.fillRect(-9 * u, -9 * u, 18 * u, 18 * u);
+  ctx.restore();
+  y += 58 * u;
+  /* wish message */
+  ctx.fillStyle = theme.body;
+  ctx.font = "400 " + Math.round(39 * u) + "px " + SANS;
+  var lines = wrapLines(ctx, data.message, S - 210 * u);
+  var lh = 55 * u;
+  for (var i = 0; i < lines.length && i < 5; i++) {
+    ctx.fillText(lines[i], cx, y); y += lh;
+  }
+  /* signature */
+  var from = data.from || "Your Name";
+  var sig = "— " + from + (data.andFamily ? " & Family" : "");
+  ctx.fillStyle = theme.headline;
+  fitSize(ctx, sig, "bold", SERIF, S - 150 * u, 52 * u);
+  ctx.fillText(sig, cx, 952 * u);
+  /* tiny credit line on the card */
+  ctx.fillStyle = theme.accent;
+  ctx.font = "600 " + Math.round(21 * u) + "px " + SANS;
+  ctx.globalAlpha = 0.75;
+  ctx.fillText("festival-wishes-maker.vercel.app", cx, 1016 * u);
+  ctx.globalAlpha = 1;
+}
+
+/* ============================== DESIGN PAINTERS ============================== */
+/* ---- DUSSEHRA 1: Golden Victory ---- */
+function bgGoldenVictory(ctx, S, u) {
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#5c0707"], [0.45, "#a31616"], [0.78, "#d35400"], [1, "#e67e22"]]);
+  ctx.fillRect(0, 0, S, S);
+  /* sunburst behind centre */
+  ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = "#ffd54f";
+  for (var i = 0; i < 24; i++) {
+    var a = (i / 24) * Math.PI * 2;
+    ctx.beginPath();
+    ctx.moveTo(S / 2, 300 * u);
+    ctx.lineTo(S / 2 + Math.cos(a - 0.05) * 620 * u, 300 * u + Math.sin(a - 0.05) * 620 * u);
+    ctx.lineTo(S / 2 + Math.cos(a + 0.05) * 620 * u, 300 * u + Math.sin(a + 0.05) * 620 * u);
+    ctx.closePath(); ctx.fill();
+  }
+  ctx.restore();
+  drawToran(ctx, S, u);
+  /* gold frame */
+  ctx.strokeStyle = "#f0c040"; ctx.lineWidth = 5 * u;
+  ctx.strokeRect(26 * u, 26 * u, S - 52 * u, S - 52 * u);
+  ctx.lineWidth = 1.6 * u;
+  ctx.strokeRect(42 * u, 42 * u, S - 84 * u, S - 84 * u);
+  drawBowArrow(ctx, S / 2, 268 * u, 1.05 * u, -0.06);
+  /* corner mandalas */
+  drawMandala(ctx, 108 * u, S - 108 * u, 62 * u, ["rgba(123,13,13,0.55)", "#e67e22", "#f0c040", "#ffe9a8"]);
+  drawMandala(ctx, S - 108 * u, S - 108 * u, 62 * u, ["rgba(123,13,13,0.55)", "#e67e22", "#f0c040", "#ffe9a8"]);
+}
+/* ---- DUSSEHRA 2: Marigold Arch ---- */
+function bgMarigoldArch(ctx, S, u) {
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#fff6dd"], [1, "#ffe1ae"]]);
+  ctx.fillRect(0, 0, S, S);
+  /* temple arch */
+  ctx.beginPath();
+  ctx.moveTo(70 * u, S - 40 * u);
+  ctx.lineTo(70 * u, 420 * u);
+  ctx.bezierCurveTo(70 * u, 180 * u, 300 * u, 92 * u, S / 2, 92 * u);
+  ctx.bezierCurveTo(S - 300 * u, 92 * u, S - 70 * u, 180 * u, S - 70 * u, 420 * u);
+  ctx.lineTo(S - 70 * u, S - 40 * u);
+  ctx.closePath();
+  ctx.fillStyle = "#fffdf4"; ctx.fill();
+  ctx.strokeStyle = "#d98a16"; ctx.lineWidth = 7 * u; ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(96 * u, S - 40 * u);
+  ctx.lineTo(96 * u, 424 * u);
+  ctx.bezierCurveTo(96 * u, 205 * u, 310 * u, 122 * u, S / 2, 122 * u);
+  ctx.bezierCurveTo(S - 310 * u, 122 * u, S - 96 * u, 205 * u, S - 96 * u, 424 * u);
+  ctx.lineTo(S - 96 * u, S - 40 * u);
+  ctx.closePath();
+  ctx.strokeStyle = "#c1272d"; ctx.lineWidth = 2.6 * u; ctx.stroke();
+  /* marigold strands down both sides */
+  for (var side = 0; side < 2; side++) {
+    var x = side ? S - 52 * u : 52 * u;
+    for (var y = 130 * u; y < S - 120 * u; y += 52 * u) {
+      circle(ctx, x, y, 15 * u, (Math.round(y / (52 * u)) % 2) ? "#ffb300" : "#fb8c00");
+      circle(ctx, x, y, 7 * u, "#ff7043");
+    }
+  }
+  drawToran(ctx, S, u);
+  /* medallion with bow & arrow */
+  circle(ctx, S / 2, 252 * u, 104 * u, rg(ctx, S / 2, 252 * u, 104 * u, [[0, "#ffe082"], [1, "#f0a030"]]));
+  ctx.beginPath(); ctx.arc(S / 2, 252 * u, 104 * u, 0, Math.PI * 2);
+  ctx.strokeStyle = "#b3540a"; ctx.lineWidth = 3.4 * u; ctx.stroke();
+  drawBowArrow(ctx, S / 2, 252 * u, 0.62 * u, -0.05);
+}
+/* ---- DUSSEHRA 3: Sunset Triumph ---- */
+function bgSunsetTriumph(ctx, S, u) {
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#1d0b38"], [0.4, "#5b1b52"], [0.68, "#b23a48"], [0.88, "#e2703a"], [1, "#f39c12"]]);
+  ctx.fillRect(0, 0, S, S);
+  drawSparkles(ctx, S, u, 40, 11, 420 * u);
+  /* big setting sun */
+  circle(ctx, S / 2, 560 * u, 300 * u, rg(ctx, S / 2, 560 * u, 300 * u, [[0, "rgba(255,214,120,0.95)"], [0.75, "rgba(255,160,60,0.75)"], [1, "rgba(255,140,50,0)"]]));
+  /* bow & arrow across the sun */
+  drawBowArrow(ctx, S / 2, 300 * u, 1.25 * u, -0.04);
+  drawFlames(ctx, S, u);
+  ctx.strokeStyle = "rgba(240,192,64,0.85)"; ctx.lineWidth = 4 * u;
+  ctx.strokeRect(24 * u, 24 * u, S - 48 * u, S - 48 * u);
+}
+/* ---- DIWALI 1: Classic Diya Night ---- */
+function bgClassicDiya(ctx, S, u) {
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#070d2b"], [0.6, "#12245e"], [1, "#1d3a8a"]]);
+  ctx.fillRect(0, 0, S, S);
+  drawSparkles(ctx, S, u, 55, 23, null);
+  drawMandala(ctx, S / 2, 300 * u, 168 * u, ["rgba(240,192,64,0.16)", "#f0c040", "#ff9800", "#ffe9a8"]);
+  drawDiya(ctx, S / 2, 300 * u, 1.15 * u);
+  /* row of diyas at the bottom */
+  var xs = [0.14, 0.32, 0.5, 0.68, 0.86];
+  for (var i = 0; i < xs.length; i++) drawDiya(ctx, S * xs[i], 878 * u, 0.62 * u);
+  drawDotBorder(ctx, S, u, "rgba(240,192,64,0.9)", 36);
+}
+/* ---- DIWALI 2: Golden Glow ---- */
+function bgGoldenGlow(ctx, S, u) {
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#2e1200"], [0.5, "#7a3c05"], [1, "#b35c08"]]);
+  ctx.fillRect(0, 0, S, S);
+  /* hanging diya strings from top corners */
+  var rnd = seededRand(5);
+  for (var c = 0; c < 2; c++) {
+    var bx = c ? S - 90 * u : 90 * u;
+    for (var k = 0; k < 3; k++) {
+      var len = (120 + k * 78 + rnd() * 20) * u;
+      var hx = bx + (c ? -1 : 1) * k * 64 * u;
+      ctx.strokeStyle = "rgba(240,192,64,0.75)"; ctx.lineWidth = 2.2 * u;
+      ctx.beginPath(); ctx.moveTo(hx, 0); ctx.lineTo(hx, len); ctx.stroke();
+      drawDiya(ctx, hx, len + 8 * u, 0.42 * u);
+    }
+  }
+  drawMandala(ctx, S / 2, 292 * u, 150 * u, ["rgba(46,18,0,0.35)", "#ffb300", "#ff7043", "#ffe9a8"]);
+  drawDiya(ctx, S / 2, 296 * u, 1.35 * u);
+  drawDotBorder(ctx, S, u, "rgba(255,213,110,0.95)", 40);
+  drawSparkles(ctx, S, u, 22, 31, null);
+}
+/* ---- DIWALI 3: Rangoli Rang ---- */
+function bgRangoliRang(ctx, S, u) {
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#12062b"], [1, "#2a1160"]]);
+  ctx.fillRect(0, 0, S, S);
+  /* two overlapping rangoli mandalas */
+  drawMandala(ctx, S / 2, 330 * u, 265 * u, ["rgba(255,255,255,0.05)", "#e91e63", "#00bfa5", "#ffd54f"]);
+  drawMandala(ctx, 92 * u, 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#ff9800", "#e91e63", "#ffd54f"]);
+  drawMandala(ctx, S - 92 * u, 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#00bfa5", "#ff9800", "#ffd54f"]);
+  drawMandala(ctx, 92 * u, S - 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#00bfa5", "#ff9800", "#ffd54f"]);
+  drawMandala(ctx, S - 92 * u, S - 92 * u, 105 * u, ["rgba(255,255,255,0.04)", "#e91e63", "#00bfa5", "#ffd54f"]);
+  drawDiya(ctx, S / 2, 330 * u, 1.0 * u);
+  drawDiya(ctx, 130 * u, 878 * u, 0.55 * u);
+  drawDiya(ctx, S - 130 * u, 878 * u, 0.55 * u);
+}
+/* ---- DIWALI 4: Fireworks Sky ---- */
+function bgFireworksSky(ctx, S, u) {
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "#03081a"], [0.7, "#0a1a3f"], [1, "#14306b"]]);
+  ctx.fillRect(0, 0, S, S);
+  drawSparkles(ctx, S, u, 45, 47, 500 * u);
+  drawFirework(ctx, 220 * u, 190 * u, 120 * u, "#ffd54f");
+  drawFirework(ctx, 850 * u, 150 * u, 95 * u, "#ff6e9a");
+  drawFirework(ctx, 700 * u, 330 * u, 75 * u, "#4dd0e1");
+  drawFirework(ctx, 150 * u, 420 * u, 65 * u, "#a5d6a7");
+  drawFirework(ctx, 950 * u, 470 * u, 58 * u, "#ffb74d");
+  var xs = [0.16, 0.38, 0.62, 0.84];
+  for (var i = 0; i < xs.length; i++) drawDiya(ctx, S * xs[i], 882 * u, 0.6 * u);
+  drawDotBorder(ctx, S, u, "rgba(255,213,110,0.85)", 36);
+}
+
+/* ============================== CARD ASSEMBLY ============================== */
+var PAINTERS = {
+  "golden-victory": { bg: bgGoldenVictory, theme: { headline: "#ffe082", sub: "#ffd54f", accent: "#f0c040", body: "#fff3d6" } },
+  "marigold-arch":  { bg: bgMarigoldArch,  theme: { headline: "#8f1212", sub: "#b3540a", accent: "#d98a16", body: "#5c2410" } },
+  "sunset-triumph": { bg: bgSunsetTriumph, theme: { headline: "#ffe082", sub: "#ffd54f", accent: "#ffb74d", body: "#fff3d6" } },
+  "classic-diya":   { bg: bgClassicDiya,   theme: { headline: "#ffd54f", sub: "#ffe9a8", accent: "#f0c040", body: "#eef2ff" } },
+  "golden-glow":    { bg: bgGoldenGlow,    theme: { headline: "#ffe082", sub: "#ffd54f", accent: "#ffca28", body: "#fff6dd" } },
+  "rangoli-rang":   { bg: bgRangoliRang,   theme: { headline: "#ffd54f", sub: "#80cbc4", accent: "#ff9800", body: "#f3efff" } },
+  "fireworks-sky":  { bg: bgFireworksSky,  theme: { headline: "#ffd54f", sub: "#ffe9a8", accent: "#f0c040", body: "#e8eeff" } }
+};
+/* Text sits a little lower on the light arch design's tall top area */
+var TEXT_DY = { "marigold-arch": 26, "sunset-triumph": 6 };
+
+function drawCard(ctx, S, festKey, designId, data) {
+  var fest = FESTIVALS[festKey];
+  var p = PAINTERS[designId] || PAINTERS[fest.designs[0].id];
+  var u = S / 1080;
+  ctx.save();
+  p.bg(ctx, S, u);
+  var dy = (TEXT_DY[designId] || 0) * u;
+  if (dy) ctx.translate(0, dy);
+  drawCardText(ctx, S, u, fest, data, p.theme);
+  ctx.restore();
+}
+
+/* ============================== UI WIRING ============================== */
+var state = { fest: "dussehra", design: { dussehra: 0, diwali: 0 }, msg: { dussehra: 0, diwali: 0 } };
+function el(id) { return document.getElementById(id); }
+function currentData() {
+  var fest = FESTIVALS[state.fest];
+  return {
+    to: el("toName").value.trim(),
+    from: el("fromName").value.trim(),
+    andFamily: !!el("andFamily").checked,
+    message: fest.messages[state.msg[state.fest]] || fest.messages[0]
+  };
+}
+function currentDesignId() {
+  var fest = FESTIVALS[state.fest];
+  return fest.designs[state.design[state.fest]].id;
+}
+function renderMain() {
+  var canvas = el("cardCanvas");
+  var ctx = canvas.getContext("2d");
+  drawCard(ctx, canvas.width, state.fest, currentDesignId(), currentData());
+}
+function renderThumbs() {
+  var row = el("designRow");
+  row.innerHTML = "";
+  var fest = FESTIVALS[state.fest];
+  fest.designs.forEach(function (d, idx) {
+    var fig = document.createElement("figure");
+    if (idx === state.design[state.fest]) fig.className = "sel";
+    var c = document.createElement("canvas");
+    c.width = 270; c.height = 270;
+    var data = currentData();
+    if (!data.from) data.from = "Your Name";
+    drawCard(c.getContext("2d"), 270, state.fest, d.id, data);
+    var cap = document.createElement("figcaption");
+    cap.textContent = d.name;
+    fig.appendChild(c); fig.appendChild(cap);
+    fig.addEventListener("click", function () {
+      state.design[state.fest] = idx;
+      renderThumbs(); renderMain();
+    });
+    row.appendChild(fig);
+  });
+}
+function renderMessages() {
+  var sel = el("msgSelect");
+  sel.innerHTML = "";
+  FESTIVALS[state.fest].messages.forEach(function (m, i) {
+    var o = document.createElement("option");
+    o.value = i;
+    o.textContent = (i + 1) + ". " + (m.length > 72 ? m.slice(0, 72) + "…" : m);
+    sel.appendChild(o);
+  });
+  sel.value = state.msg[state.fest];
+}
+function setFest(key) {
+  state.fest = key;
+  el("tabDussehra").className = "festtab" + (key === "dussehra" ? " active" : "");
+  el("tabDiwali").className = "festtab" + (key === "diwali" ? " active" : "");
+  renderMessages(); renderThumbs(); renderMain();
+}
+/* Countdowns in IST */
+function istToday() {
+  var now = new Date();
+  var ist = new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
+  return new Date(ist.getFullYear(), ist.getMonth(), ist.getDate());
+}
+function daysTo(arr) {
+  var target = new Date(arr[0], arr[1], arr[2]);
+  return Math.round((target - istToday()) / 86400000);
+}
+function renderCountdowns() {
+  var info = [
+    { key: "dussehra", daysEl: el("cdDussehraDays"), box: el("cdDussehra") },
+    { key: "diwali", daysEl: el("cdDiwaliDays"), box: el("cdDiwali") }
+  ];
+  var best = null, bestDays = Infinity;
+  info.forEach(function (it) {
+    var d = daysTo(FESTIVALS[it.key].date);
+    it.d = d;
+    if (d === 0) it.daysEl.innerHTML = "Today! 🎉";
+    else if (d > 0) it.daysEl.innerHTML = d + " <span>" + (d === 1 ? "day to go" : "days to go") + "</span>";
+    else it.daysEl.innerHTML = "<span>Celebrated ✓</span>";
+    if (d >= 0 && d < bestDays) { bestDays = d; best = it; }
+  });
+  info.forEach(function (it) {
+    it.box.className = "cd" + (it === best ? " soon" : "");
+    var old = it.box.querySelector(".badge");
+    if (old) old.parentNode.removeChild(old);
+    if (it === best) {
+      var b = document.createElement("div");
+      b.className = "badge"; b.textContent = "COMING UP FIRST";
+      it.box.appendChild(b);
+    }
+  });
+}
+/* Download + Share */
+function downloadCard() {
+  var canvas = el("cardCanvas");
+  if (canvas.toBlob) {
+    canvas.toBlob(function (blob) {
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = state.fest + "-wishes-card.png";
+      document.body.appendChild(a); a.click();
+      setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);
+    }, "image/png");
+  } else {
+    var a2 = document.createElement("a");
+    a2.href = canvas.toDataURL("image/png");
+    a2.download = state.fest + "-wishes-card.png";
+    document.body.appendChild(a2); a2.click(); a2.remove();
+  }
+}
+function shareWhatsApp() {
+  var fest = FESTIVALS[state.fest];
+  var from = el("fromName").value.trim();
+  var text = fest.headline + "! " + fest.messages[state.msg[state.fest]] +
+    (from ? " — " + from : "") + "\n\nCreate your own card here: " + SITE_URL;
+  var canvas = el("cardCanvas");
+  function waFallback() { window.open("https://wa.me/?text=" + encodeURIComponent(text), "_blank"); }
+  if (canvas.toBlob && navigator.canShare) {
+    canvas.toBlob(function (blob) {
+      var file = null;
+      try { file = new File([blob], state.fest + "-wishes-card.png", { type: "image/png" }); } catch (e) { file = null; }
+      if (file && navigator.canShare({ files: [file] })) {
+        navigator.share({ files: [file], text: text }).catch(function () { /* user cancelled */ });
+      } else if (navigator.share) {
+        navigator.share({ text: text }).catch(function () { waFallback(); });
+      } else { waFallback(); }
+    }, "image/png");
+  } else { waFallback(); }
+}
+function init() {
+  el("tabDussehra").addEventListener("click", function () { setFest("dussehra"); });
+  el("tabDiwali").addEventListener("click", function () { setFest("diwali"); });
+  ["toName", "fromName"].forEach(function (id) {
+    el(id).addEventListener("input", function () { renderMain(); renderThumbsSoft(); });
+  });
+  el("andFamily").addEventListener("change", renderMain);
+  el("msgSelect").addEventListener("change", function () {
+    state.msg[state.fest] = parseInt(el("msgSelect").value, 10) || 0;
+    renderMain();
+  });
+  el("btnDownload").addEventListener("click", downloadCard);
+  el("btnShare").addEventListener("click", shareWhatsApp);
+  renderCountdowns();
+  setFest("dussehra");
+}
+var thumbTimer = null;
+function renderThumbsSoft() {
+  if (thumbTimer) clearTimeout(thumbTimer);
+  thumbTimer = setTimeout(renderThumbs, 350);
+}
+if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+else init();
+
+/* Small public hook (used for automated smoke tests) */
+window.FestivalMaker = { drawCard: drawCard, FESTIVALS: FESTIVALS, daysTo: daysTo };
+</script>
+</body>
+</html>
