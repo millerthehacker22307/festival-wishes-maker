@@ -474,7 +474,19 @@ var PALETTES = [
   { id: "indigo-night",  name: "Indigo Night",  stops: [[0,"#0a0a2e"],[0.55,"#232368"],[1,"#3f3fa0"]], accent: "#f0c040", accent2: "#a5b4fc", head: "#e0e7ff", sub: "#c7d2fe", body: "#eef0ff", frame: "#f0c040", spark: "#e0e7ff" },
   { id: "lemon-lime",    name: "Lemon Lime",    stops: [[0,"#1e2b02"],[0.55,"#556b02"],[1,"#8aa80e"]], accent: "#fde047", accent2: "#bef264", head: "#fef9c3", sub: "#fde047", body: "#f7fee7", frame: "#fde047", spark: "#fef9c3" },
   { id: "coral-sunset",  name: "Coral Sunset",  stops: [[0,"#330d1f"],[0.45,"#7a1e3f"],[0.75,"#e05b4b"],[1,"#f28c5a"]], accent: "#ffd166", accent2: "#ffb3a7", head: "#ffe8d6", sub: "#ffd166", body: "#fff1e6", frame: "#ffd166", spark: "#ffe9a8" },
-  { id: "ivory-rose",    name: "Ivory Rose",    stops: [[0,"#fdf3e7"],[0.55,"#fbe3cf"],[1,"#f6cf9f"]], accent: "#c2571b", accent2: "#b3540a", head: "#7c2d12", sub: "#9a3412", body: "#571f08", frame: "#b3540a", spark: "#e8a33d" }
+  { id: "ivory-rose",    name: "Ivory Rose",    stops: [[0,"#fdf3e7"],[0.55,"#fbe3cf"],[1,"#f6cf9f"]], accent: "#c2571b", accent2: "#b3540a", head: "#7c2d12", sub: "#9a3412", body: "#571f08", frame: "#b3540a", spark: "#e8a33d" },
+  { id: "saffron-glory", name: "Saffron Glory", stops: [[0,"#3d1502"],[0.55,"#9a4a08"],[1,"#e07b1f"]], accent: "#ffd54f", accent2: "#ffb74d", head: "#ffe9b0", sub: "#ffcc80", body: "#fff3e0", frame: "#ffd54f", spark: "#ffe9a8" },
+  { id: "vermilion-flame", name: "Vermilion Flame", stops: [[0,"#330b02"],[0.55,"#8f1d04"],[1,"#d63c14"]], accent: "#ffb74d", accent2: "#ffd54f", head: "#ffe0b2", sub: "#ffcc80", body: "#fbe9e7", frame: "#ffb74d", spark: "#ffccbc" },
+  { id: "antique-gold",  name: "Antique Gold",  stops: [[0,"#241503"],[0.55,"#6b4a0e"],[1,"#a87e1c"]], accent: "#ffe082", accent2: "#d4af37", head: "#ffecb3", sub: "#ffe082", body: "#fff8e1", frame: "#ffe082", spark: "#ffecb3" },
+  { id: "copper-glow",   name: "Copper Glow",   stops: [[0,"#2b1206"],[0.55,"#7a3c14"],[1,"#b5651d"]], accent: "#ffcc80", accent2: "#f0c040", head: "#ffe0b2", sub: "#ffcc80", body: "#fff3e0", frame: "#ffcc80", spark: "#ffe0b2" },
+  { id: "molten-bronze", name: "Molten Bronze", stops: [[0,"#1c0f02"],[0.55,"#54400f"],[1,"#8a6d1f"]], accent: "#f0c040", accent2: "#c9a227", head: "#ffe9b0", sub: "#f0c040", body: "#faf3dc", frame: "#f0c040", spark: "#ffe9a8" },
+  { id: "amber-honey",   name: "Amber Honey",   stops: [[0,"#33200a"],[0.55,"#8a6414"],[1,"#c9930a"]], accent: "#ffe082", accent2: "#ffb300", head: "#fff3c4", sub: "#ffe082", body: "#fff8e1", frame: "#ffe082", spark: "#fff3c4" },
+  { id: "violet-night",  name: "Violet Night",  stops: [[0,"#0d0524"],[0.55,"#31135e"],[1,"#5b21b6"]], accent: "#f0c040", accent2: "#a78bfa", head: "#ede9fe", sub: "#c4b5fd", body: "#f5f3ff", frame: "#f0c040", spark: "#ddd6fe" },
+  { id: "dawn-blush",    name: "Dawn Blush",    stops: [[0,"#40202e"],[0.5,"#9c4a56"],[1,"#e88ca0"]], accent: "#ffd166", accent2: "#ffb3a7", head: "#fff1f2", sub: "#fecdd3", body: "#fff5f5", frame: "#ffd166", spark: "#ffe4e6" },
+  { id: "marigold-dawn", name: "Marigold Dawn", stops: [[0,"#3a1c04"],[0.55,"#a35c0a"],[1,"#e8a33d"]], accent: "#fff3c4", accent2: "#ffd54f", head: "#fff8e1", sub: "#ffe9b0", body: "#fffaf0", frame: "#fff3c4", spark: "#fff3c4" },
+  { id: "forest-deep",   name: "Forest Deep",   stops: [[0,"#03170f"],[0.55,"#0b3d2e"],[1,"#14684d"]], accent: "#fbbf24", accent2: "#34d399", head: "#d1fae5", sub: "#a7f3d0", body: "#ecfdf5", frame: "#fbbf24", spark: "#a7f3d0" },
+  { id: "leaf-gold",     name: "Leaf Gold",     stops: [[0,"#14260a"],[0.55,"#3f6212"],[1,"#65a30d"]], accent: "#fde047", accent2: "#f0c040", head: "#fef9c3", sub: "#fde047", body: "#f7fee7", frame: "#fde047", spark: "#fef08a" },
+  { id: "rose-gold",     name: "Rose Gold",     stops: [[0,"#33101d"],[0.55,"#83344d"],[1,"#c26d8a"]], accent: "#ffd9a0", accent2: "#f0c040", head: "#ffe4ec", sub: "#fbc2d4", body: "#fff0f5", frame: "#ffd9a0", spark: "#ffe4ec" }
 ];
 
 /* ---- Axis 2: background styles (8) ---- */
@@ -516,6 +528,13 @@ var MOTIFS = [
   { id: "peacock-feather", name: "Peacock Feather" },
   { id: "temple-bells", name: "Temple Bells" }
 ];
+/* All 14 paintable motifs (the 10 above + the 4 festival signatures) */
+var MOTIF_INDEX = MOTIFS.concat([
+  { id: "wealth-pot", name: "Wealth Pot" },
+  { id: "govardhan-hill", name: "Govardhan Hill" },
+  { id: "puja-thali", name: "Puja Thali" },
+  { id: "sun-river", name: "Sun over River" }
+]);
 
 /* ---- Axis 5: motif arrangement (4) ---- */
 var ARRANGES = [
@@ -556,10 +575,77 @@ var NFONTS = [
   { id: "modern", name: "Modern", stack: 'Poppins, "Segoe UI", sans-serif', weight: "600", boost: 0.95 }
 ];
 
-/* The honest total: product of every visual axis (messages come on top) */
+/* ================= PER-FESTIVAL DESIGN POOLS =================
+   Every festival has its OWN themed pool — pickers, the gallery and
+   Surprise Me draw ONLY from the selected festival's pool, so a
+   Dussehra card never wears a Diwali design and vice versa. */
+var ALL_ARRANGE_IDS = ["centre", "top", "sides", "scatter"];
+var ALL_OVERLAY_IDS = ["none", "sparkle-dust", "tiny-dots", "fine-rays", "falling-petals", "bokeh-glow"];
+var ALL_HFONT_IDS = ["elegant-serif", "royal-display", "festive-script", "modern-bold", "classic"];
+var ALL_NFONT_IDS = ["elegant-serif", "script", "bold-display", "outline-gold", "classic-italic", "modern"];
+var FEST_POOLS = {
+  dussehra: {
+    themes: ["royal-gold", "saffron-glory", "vermilion-flame", "classic-maroon", "crimson", "ruby-wine", "choco-gold", "sunset-orange", "magenta-fest", "antique-gold"],
+    bgs: ["sunburst", "radial-glow", "mandala-backdrop", "vignette", "diagonal-shine", "dual-split"],
+    borders: ["toran", "temple-arch", "marigold-strands", "gold-frame", "rangoli-corners", "sparkle-frame"],
+    motifs: ["bow-arrow", "sun-medallion", "temple-bells", "kalash", "big-rangoli", "peacock-feather"],
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+  },
+  dhanteras: {
+    themes: ["choco-gold", "antique-gold", "copper-glow", "molten-bronze", "royal-gold", "peach-cream", "ivory-rose", "classic-maroon", "saffron-glory", "ruby-wine"],
+    bgs: ["radial-glow", "vignette", "mandala-backdrop", "diagonal-shine", "dual-split", "sunburst"],
+    borders: ["gold-frame", "dot-border", "rangoli-corners", "toran", "marigold-strands", "temple-arch"],
+    motifs: ["wealth-pot", "kalash", "lotus", "big-rangoli", "temple-bells", "sun-medallion"],
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+  },
+  choti: {
+    themes: ["sunset-orange", "vermilion-flame", "amber-honey", "peach-cream", "royal-gold", "crimson", "coral-sunset", "magenta-fest", "saffron-glory", "copper-glow"],
+    bgs: ["radial-glow", "night-sky", "vignette", "sunburst", "diagonal-shine", "mandala-backdrop"],
+    borders: ["diya-row", "sparkle-frame", "marigold-strands", "gold-frame", "dot-border", "toran"],
+    motifs: ["diya-pair", "lamp-string", "kalash", "fireworks", "big-rangoli", "sun-medallion"],
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+  },
+  diwali: {
+    themes: ["midnight-blue", "indigo-night", "violet-night", "royal-purple", "magenta-fest", "peacock", "royal-gold", "silver-moon", "teal-glow", "ruby-wine"],
+    bgs: ["night-sky", "radial-glow", "vignette", "diagonal-shine", "dual-split", "mandala-backdrop"],
+    borders: ["diya-row", "sparkle-frame", "gold-frame", "rangoli-corners", "marigold-strands", "dot-border"],
+    motifs: ["diya-pair", "fireworks", "lamp-string", "big-rangoli", "kalash", "sun-medallion"],
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+  },
+  govardhan: {
+    themes: ["emerald", "forest-deep", "leaf-gold", "lemon-lime", "teal-glow", "classic-maroon", "choco-gold", "ivory-rose", "peacock", "royal-gold"],
+    bgs: ["soft-waves", "radial-glow", "mandala-backdrop", "vignette", "sunburst", "diagonal-shine"],
+    borders: ["leaf-vine", "toran", "marigold-strands", "rangoli-corners", "gold-frame", "dot-border"],
+    motifs: ["govardhan-hill", "lotus", "peacock-feather", "kalash", "big-rangoli", "temple-bells"],
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+  },
+  bhaidooj: {
+    themes: ["rose-pink", "ivory-rose", "ruby-wine", "magenta-fest", "rose-gold", "peach-cream", "royal-purple", "crimson", "coral-sunset", "royal-gold"],
+    bgs: ["radial-glow", "soft-waves", "vignette", "mandala-backdrop", "diagonal-shine", "sunburst"],
+    borders: ["rangoli-corners", "sparkle-frame", "marigold-strands", "dot-border", "gold-frame", "diya-row"],
+    motifs: ["puja-thali", "lotus", "diya-pair", "big-rangoli", "lamp-string", "kalash"],
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+  },
+  chhath: {
+    themes: ["coral-sunset", "dawn-blush", "marigold-dawn", "sunset-orange", "peach-cream", "royal-gold", "teal-glow", "saffron-glory", "vermilion-flame", "amber-honey"],
+    bgs: ["soft-waves", "sunburst", "radial-glow", "vignette", "dual-split", "diagonal-shine"],
+    borders: ["marigold-strands", "toran", "diya-row", "dot-border", "leaf-vine", "gold-frame"],
+    motifs: ["sun-river", "sun-medallion", "lotus", "kalash", "diya-pair", "lamp-string"],
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+  }
+};
+function poolList(master, ids) {
+  return ids.map(function (id) { return byId(master, id); });
+}
+/* Designs available for ONE festival = product of its own pool sizes */
+function poolCombos(key) {
+  var p = FEST_POOLS[key];
+  return p.themes.length * p.bgs.length * p.borders.length * p.motifs.length *
+    p.arranges.length * p.overlays.length * p.hfonts.length * p.nfonts.length;
+}
+/* The honest total: SUM of every festival's own pool (messages on top) */
 function totalCombos() {
-  return PALETTES.length * BACKGROUNDS.length * BORDERS.length * MOTIFS.length *
-    ARRANGES.length * OVERLAYS.length * HFONTS.length * NFONTS.length;
+  return festKeys().reduce(function (sum, k) { return sum + poolCombos(k); }, 0);
 }
 function indianFormat(n) {
   var s = String(n);
@@ -1490,13 +1576,13 @@ function motifWealthPot(ctx, pal) {
   ctx.beginPath();
   ctx.moveTo(-76, 84); ctx.quadraticCurveTo(0, 100, 76, 84); ctx.stroke();
   goldCoin(ctx, 0, 66, 21, true);
-  /* base + spilled coins */
-  ctx.beginPath(); ctx.ellipse(0, 142, 58, 10, 0, 0, Math.PI * 2);
+  /* base + spilled coins (kept high: lowest coin bottom = 153 local) */
+  ctx.beginPath(); ctx.ellipse(0, 136, 58, 10, 0, 0, Math.PI * 2);
   ctx.fillStyle = "#8a5a08"; ctx.fill();
-  goldCoin(ctx, -118, 132, 24, true);
-  goldCoin(ctx, -88, 146, 19, false);
-  goldCoin(ctx, 112, 136, 22, false);
-  goldCoin(ctx, 142, 148, 17, true);
+  goldCoin(ctx, -118, 124, 22, true);
+  goldCoin(ctx, -88, 136, 17, false);
+  goldCoin(ctx, 112, 126, 20, false);
+  goldCoin(ctx, 142, 138, 15, true);
 }
 function motifGovardhan(ctx, pal) {
   var i;
@@ -1685,20 +1771,30 @@ var MOTIF_PAINT = {
   "puja-thali": motifThali,
   "sun-river": motifSunRiver
 };
+/* Per-motif fit factors: tall motifs are scaled down a touch so the
+   motif's lowest element ALWAYS stays at or above y=360 (design px) —
+   clear of the headline zone (baseline 462, glyph top ≈384) and of the
+   recipient eyebrow (424). Verified geometrically in the test harness. */
+var MOTIF_FIT = {
+  "big-rangoli": 0.64, "bow-arrow": 0.90, "kalash": 0.94, "fireworks": 0.87,
+  "lamp-string": 0.41, "sun-medallion": 0.68, "peacock-feather": 0.72,
+  "wealth-pot": 0.92, "sun-river": 0.85
+};
 /* arrangement: list of [cx, cy, scale, rotation] in design px */
 var ARRANGE_SPOTS = {
-  "centre": [[540, 282, 1, 0]],
-  "top": [[540, 208, 0.6, 0]],
-  "sides": [[178, 282, 0.55, 0], [902, 282, 0.55, 0]],
-  "scatter": [[540, 296, 0.72, 0], [200, 172, 0.42, -0.12], [880, 172, 0.42, 0.12]]
+  "centre": [[540, 242, 0.80, 0]],
+  "top": [[540, 196, 0.52, 0]],
+  "sides": [[178, 252, 0.46, 0], [902, 252, 0.46, 0]],
+  "scatter": [[540, 252, 0.60, 0], [200, 158, 0.36, -0.12], [880, 158, 0.36, 0.12]]
 };
 function drawMotifArranged(ctx, S, u, pal, motifId, arrangeId) {
   var paint = MOTIF_PAINT[motifId] || motifDiyaPair;
   var spots = ARRANGE_SPOTS[arrangeId] || ARRANGE_SPOTS.centre;
+  var fit = MOTIF_FIT[motifId] || 1;
   for (var i = 0; i < spots.length; i++) {
     ctx.save();
     ctx.translate(spots[i][0] * u, spots[i][1] * u);
-    ctx.scale(u * spots[i][2], u * spots[i][2]);
+    ctx.scale(u * spots[i][2] * fit, u * spots[i][2] * fit);
     ctx.rotate(spots[i][3]);
     paint(ctx, pal);
     ctx.restore();
@@ -1943,12 +2039,18 @@ function renderMain() {
 function renderComboBanner() {
   var total = totalCombos();
   el("comboNum").textContent = indianFormat(total) + "+";
-  el("comboFestName").textContent = "for " + FESTIVALS[state.fest].label + " alone!";
+  el("comboFestName").textContent = "across all 7 festivals!";
+  var p = FEST_POOLS[state.fest];
+  var perFest = festKeys().map(function (k) {
+    return FESTIVALS[k].label + " " + indianFormat(poolCombos(k));
+  }).join("  ·  ");
   el("comboBreak").textContent =
-    PALETTES.length + " colour themes × " + BACKGROUNDS.length + " backgrounds × " + BORDERS.length + " frames × " +
-    MOTIFS.length + " motifs × " + ARRANGES.length + " arrangements × " + OVERLAYS.length + " overlays × " +
-    HFONTS.length + " headline styles × " + NFONTS.length + " name styles — plus " +
-    FESTIVALS[state.fest].messages.length + " wishes to choose from!";
+    FESTIVALS[state.fest].label + " alone has " + indianFormat(poolCombos(state.fest)) +
+    " designs from its OWN theme family (" + p.themes.length + " colour themes × " + p.bgs.length +
+    " backgrounds × " + p.borders.length + " frames × " + p.motifs.length + " motifs × " +
+    p.arranges.length + " arrangements × " + p.overlays.length + " overlays × " + p.hfonts.length +
+    " headline styles × " + p.nfonts.length + " name styles). Every festival keeps its own designs — no mixing! All 7: " + perFest + ".";
+  el("comboBreak").title = perFest;
 }
 /* ---- generic chip picker ---- */
 function buildChips(containerId, list, key, decorate) {
@@ -1971,19 +2073,21 @@ function buildChips(containerId, list, key, decorate) {
   });
 }
 function renderPickers() {
-  buildChips("pickTheme", PALETTES, "theme", function (b, item) {
+  /* ONLY the selected festival's own pool is offered — no mixing */
+  var p = FEST_POOLS[state.fest];
+  buildChips("pickTheme", poolList(PALETTES, p.themes), "theme", function (b, item) {
     var sw = document.createElement("span");
     sw.className = "swatch";
     sw.style.background = "linear-gradient(135deg," + item.stops[0][1] + "," + item.stops[item.stops.length - 1][1] + ")";
     b.appendChild(sw);
   });
-  buildChips("pickBg", BACKGROUNDS, "bg");
-  buildChips("pickBorder", BORDERS, "border");
-  buildChips("pickMotif", MOTIFS, "motif");
-  buildChips("pickArrange", ARRANGES, "arrange");
-  buildChips("pickOverlay", OVERLAYS, "overlay");
-  buildChips("pickHfont", HFONTS, "hfont", function (b, item) { b.style.fontFamily = item.stack; });
-  buildChips("pickNfont", NFONTS, "nfont", function (b, item) { b.style.fontFamily = item.stack; });
+  buildChips("pickBg", poolList(BACKGROUNDS, p.bgs), "bg");
+  buildChips("pickBorder", poolList(BORDERS, p.borders), "border");
+  buildChips("pickMotif", poolList(MOTIF_INDEX, p.motifs), "motif");
+  buildChips("pickArrange", poolList(ARRANGES, p.arranges), "arrange");
+  buildChips("pickOverlay", poolList(OVERLAYS, p.overlays), "overlay");
+  buildChips("pickHfont", poolList(HFONTS, p.hfonts), "hfont", function (b, item) { b.style.fontFamily = item.stack; });
+  buildChips("pickNfont", poolList(NFONTS, p.nfonts), "nfont", function (b, item) { b.style.fontFamily = item.stack; });
 }
 function renderMessages() {
   var sel = el("msgSelect");
@@ -1998,13 +2102,29 @@ function renderMessages() {
 }
 /* ---- random combos & the Ready Designs gallery ---- */
 function randOf(list) { return list[Math.floor(Math.random() * list.length)].id; }
-function randomCombo() {
-  return {
-    theme: randOf(PALETTES), bg: randOf(BACKGROUNDS), border: randOf(BORDERS),
-    motif: randOf(MOTIFS), arrange: randOf(ARRANGES), overlay: randOf(OVERLAYS),
-    hfont: randOf(HFONTS), nfont: randOf(NFONTS),
-    msg: Math.floor(Math.random() * FESTIVALS[state.fest].messages.length)
-  };
+function randId(ids) { return ids[Math.floor(Math.random() * ids.length)]; }
+function comboKey(fest, c) {
+  return fest + "|" + c.theme + "|" + c.bg + "|" + c.border + "|" + c.motif + "|" +
+    c.arrange + "|" + c.overlay + "|" + c.hfont + "|" + c.nfont + "|" + c.msg;
+}
+/* Combos already shown this session — random designs never repeat */
+var usedCombos = {};
+function markComboUsed(fest, c) { usedCombos[comboKey(fest, c)] = true; }
+function randomCombo(festKey) {
+  var fest = festKey || state.fest;
+  var p = FEST_POOLS[fest];
+  var c = null;
+  for (var tries = 0; tries < 60; tries++) {
+    c = {
+      theme: randId(p.themes), bg: randId(p.bgs), border: randId(p.borders),
+      motif: randId(p.motifs), arrange: randId(p.arranges), overlay: randId(p.overlays),
+      hfont: randId(p.hfonts), nfont: randId(p.nfonts),
+      msg: Math.floor(Math.random() * FESTIVALS[fest].messages.length)
+    };
+    if (!usedCombos[comboKey(fest, c)]) break;
+  }
+  markComboUsed(fest, c);
+  return c;
 }
 /* Curated gallery: 18 ready designs per festival (preset axis combos) */
 function preset(name, theme, bg, border, motif, arrange, overlay, hfont, nfont, msg) {
@@ -2012,144 +2132,144 @@ function preset(name, theme, bg, border, motif, arrange, overlay, hfont, nfont, 
 }
 var PRESETS = {
   dussehra: [
-    preset("Royal Victory", "royal-gold", "sunburst", "toran", "bow-arrow", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Marigold Arch", "sunset-orange", "radial-glow", "marigold-strands", "bow-arrow", "top", "falling-petals", "royal-display", "classic-italic", 1),
-    preset("Midnight Glory", "midnight-blue", "night-sky", "gold-frame", "sun-medallion", "centre", "sparkle-dust", "royal-display", "modern", 2),
-    preset("Rangoli Glory", "classic-maroon", "mandala-backdrop", "rangoli-corners", "big-rangoli", "centre", "tiny-dots", "elegant-serif", "script", 3),
-    preset("Peacock Pride", "peacock", "diagonal-shine", "leaf-vine", "peacock-feather", "sides", "bokeh-glow", "modern-bold", "modern", 4),
-    preset("Temple Bells", "choco-gold", "radial-glow", "temple-arch", "temple-bells", "top", "none", "classic", "classic-italic", 0),
-    preset("Crimson Conquest", "crimson", "vignette", "gold-frame", "bow-arrow", "scatter", "fine-rays", "royal-display", "bold-display", 1),
-    preset("Emerald Honour", "emerald", "soft-waves", "leaf-vine", "lotus", "centre", "falling-petals", "elegant-serif", "elegant-serif", 2),
-    preset("Kalash Blessings", "royal-gold", "radial-glow", "toran", "kalash", "centre", "sparkle-dust", "festive-script", "script", 3),
-    preset("Purple Reign", "royal-purple", "night-sky", "sparkle-frame", "sun-medallion", "top", "sparkle-dust", "modern-bold", "modern", 4),
-    preset("Sunset Triumph", "coral-sunset", "sunburst", "marigold-strands", "bow-arrow", "centre", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Ivory Classic", "ivory-rose", "vignette", "gold-frame", "lotus", "top", "none", "classic", "classic-italic", 1),
-    preset("Teal Valor", "teal-glow", "dual-split", "dot-border", "bow-arrow", "sides", "tiny-dots", "modern-bold", "modern", 2),
-    preset("Ruby Radiance", "ruby-wine", "radial-glow", "rangoli-corners", "big-rangoli", "centre", "bokeh-glow", "festive-script", "script", 3),
-    preset("Lamp Parade", "magenta-fest", "night-sky", "diya-row", "lamp-string", "top", "sparkle-dust", "elegant-serif", "elegant-serif", 4),
-    preset("Golden Frame Hero", "classic-maroon", "sunburst", "gold-frame", "sun-medallion", "centre", "sparkle-dust", "royal-display", "outline-gold", 0),
-    preset("Indigo Night", "indigo-night", "night-sky", "sparkle-frame", "fireworks", "centre", "sparkle-dust", "modern-bold", "bold-display", 1),
-    preset("Peach Serenity", "peach-cream", "soft-waves", "dot-border", "lotus", "centre", "falling-petals", "classic", "classic-italic", 2)
-  ],
-  diwali: [
-    preset("Classic Diya Night", "midnight-blue", "radial-glow", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Golden Glow", "royal-gold", "radial-glow", "gold-frame", "lamp-string", "top", "sparkle-dust", "festive-script", "script", 1),
-    preset("Rangoli Dreams", "magenta-fest", "mandala-backdrop", "rangoli-corners", "big-rangoli", "centre", "tiny-dots", "elegant-serif", "script", 2),
-    preset("Fireworks Sky", "indigo-night", "night-sky", "sparkle-frame", "fireworks", "centre", "sparkle-dust", "modern-bold", "modern", 3),
-    preset("Lakshmi Kalash", "crimson", "radial-glow", "toran", "kalash", "centre", "bokeh-glow", "royal-display", "classic-italic", 4),
-    preset("Peacock Lights", "peacock", "diagonal-shine", "leaf-vine", "peacock-feather", "sides", "sparkle-dust", "elegant-serif", "modern", 0),
-    preset("Rose Glow", "rose-pink", "vignette", "marigold-strands", "diya-pair", "top", "falling-petals", "festive-script", "script", 1),
-    preset("Emerald Shine", "emerald", "night-sky", "diya-row", "lamp-string", "top", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Royal Purple Night", "royal-purple", "radial-glow", "gold-frame", "diya-pair", "centre", "bokeh-glow", "royal-display", "bold-display", 3),
-    preset("Sunset Diyas", "sunset-orange", "sunburst", "toran", "sun-medallion", "centre", "fine-rays", "elegant-serif", "classic-italic", 4),
-    preset("Silver Moonlight", "silver-moon", "night-sky", "dot-border", "diya-pair", "sides", "sparkle-dust", "modern-bold", "modern", 0),
-    preset("Marigold Morning", "coral-sunset", "soft-waves", "marigold-strands", "lotus", "centre", "falling-petals", "classic", "classic-italic", 1),
-    preset("Temple Bells Eve", "classic-maroon", "radial-glow", "temple-arch", "temple-bells", "top", "none", "elegant-serif", "elegant-serif", 2),
-    preset("Teal Twilight", "teal-glow", "dual-split", "sparkle-frame", "fireworks", "centre", "sparkle-dust", "modern-bold", "bold-display", 3),
-    preset("Ivory Elegance", "ivory-rose", "vignette", "gold-frame", "lotus", "top", "none", "classic", "classic-italic", 4),
-    preset("Rainbow Utsav", "rainbow-fest", "sunburst", "rangoli-corners", "big-rangoli", "centre", "sparkle-dust", "festive-script", "script", 0),
-    preset("Ruby Deepavali", "ruby-wine", "night-sky", "diya-row", "diya-pair", "centre", "bokeh-glow", "elegant-serif", "outline-gold", 1),
-    preset("Choco Gold Luxe", "choco-gold", "vignette", "gold-frame", "kalash", "centre", "fine-rays", "royal-display", "classic-italic", 2)
+    preset("Royal Victory", "royal-gold", "sunburst", "gold-frame", "bow-arrow", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Saffron Victory", "saffron-glory", "dual-split", "marigold-strands", "peacock-feather", "top", "none", "festive-script", "modern", 1),
+    preset("Crimson Victory", "vermilion-flame", "diagonal-shine", "temple-arch", "big-rangoli", "sides", "bokeh-glow", "classic", "classic-italic", 2),
+    preset("Golden Victory", "classic-maroon", "vignette", "toran", "kalash", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
+    preset("Blazing Victory", "crimson", "mandala-backdrop", "sparkle-frame", "temple-bells", "centre", "fine-rays", "modern-bold", "bold-display", 4),
+    preset("Victorious Victory", "ruby-wine", "radial-glow", "rangoli-corners", "bow-arrow", "top", "tiny-dots", "elegant-serif", "script", 0),
+    preset("Royal Glory", "choco-gold", "sunburst", "gold-frame", "bow-arrow", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
+    preset("Saffron Glory", "sunset-orange", "dual-split", "marigold-strands", "peacock-feather", "scatter", "none", "classic", "modern", 2),
+    preset("Crimson Glory", "magenta-fest", "diagonal-shine", "temple-arch", "big-rangoli", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
+    preset("Golden Glory", "antique-gold", "vignette", "toran", "kalash", "top", "falling-petals", "modern-bold", "outline-gold", 4),
+    preset("Blazing Glory", "royal-gold", "mandala-backdrop", "sparkle-frame", "bow-arrow", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("Victorious Glory", "saffron-glory", "radial-glow", "rangoli-corners", "sun-medallion", "scatter", "tiny-dots", "festive-script", "script", 1),
+    preset("Royal Triumph", "vermilion-flame", "sunburst", "gold-frame", "bow-arrow", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Saffron Triumph", "classic-maroon", "dual-split", "marigold-strands", "peacock-feather", "top", "none", "royal-display", "modern", 3),
+    preset("Crimson Triumph", "crimson", "diagonal-shine", "temple-arch", "big-rangoli", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
+    preset("Golden Triumph", "ruby-wine", "vignette", "toran", "bow-arrow", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
+    preset("Blazing Triumph", "choco-gold", "mandala-backdrop", "sparkle-frame", "temple-bells", "centre", "fine-rays", "festive-script", "bold-display", 1),
+    preset("Victorious Triumph", "sunset-orange", "radial-glow", "rangoli-corners", "sun-medallion", "top", "tiny-dots", "classic", "script", 2)
   ],
   dhanteras: [
-    preset("Golden Treasure", "choco-gold", "radial-glow", "gold-frame", "wealth-pot", "centre", "bokeh-glow", "royal-display", "classic-italic", 0),
-    preset("Lakshmi's Vault", "royal-gold", "sunburst", "toran", "wealth-pot", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 1),
-    preset("Coin Cascade", "classic-maroon", "vignette", "gold-frame", "wealth-pot", "top", "fine-rays", "royal-display", "outline-gold", 2),
-    preset("Kalash of Plenty", "crimson", "radial-glow", "rangoli-corners", "kalash", "centre", "bokeh-glow", "festive-script", "script", 3),
-    preset("Emerald Fortune", "emerald", "soft-waves", "leaf-vine", "wealth-pot", "centre", "falling-petals", "elegant-serif", "classic-italic", 4),
-    preset("Midnight Riches", "midnight-blue", "night-sky", "sparkle-frame", "wealth-pot", "centre", "sparkle-dust", "modern-bold", "modern", 0),
-    preset("Ruby Prosperity", "ruby-wine", "radial-glow", "gold-frame", "wealth-pot", "sides", "bokeh-glow", "classic", "classic-italic", 1),
-    preset("Peacock Wealth", "peacock", "diagonal-shine", "dot-border", "wealth-pot", "centre", "tiny-dots", "modern-bold", "modern", 2),
-    preset("Sunset Gold Rush", "sunset-orange", "sunburst", "marigold-strands", "wealth-pot", "centre", "fine-rays", "elegant-serif", "bold-display", 3),
-    preset("Purple Treasury", "royal-purple", "radial-glow", "temple-arch", "wealth-pot", "top", "sparkle-dust", "royal-display", "modern", 4),
-    preset("Diya & Gold", "royal-gold", "radial-glow", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "script", 0),
-    preset("Ivory Opulence", "ivory-rose", "vignette", "gold-frame", "wealth-pot", "centre", "none", "classic", "classic-italic", 1),
-    preset("Magenta Millions", "magenta-fest", "mandala-backdrop", "rangoli-corners", "wealth-pot", "scatter", "tiny-dots", "festive-script", "script", 2),
-    preset("Teal Treasure Chest", "teal-glow", "dual-split", "dot-border", "wealth-pot", "sides", "sparkle-dust", "modern-bold", "bold-display", 3),
-    preset("Temple Gold", "choco-gold", "radial-glow", "temple-arch", "temple-bells", "top", "none", "elegant-serif", "elegant-serif", 4),
-    preset("Coral Fortune", "coral-sunset", "soft-waves", "marigold-strands", "wealth-pot", "centre", "falling-petals", "classic", "classic-italic", 0),
-    preset("Indigo Bullion", "indigo-night", "night-sky", "gold-frame", "wealth-pot", "centre", "bokeh-glow", "royal-display", "outline-gold", 1),
-    preset("Silver Hoard", "silver-moon", "vignette", "sparkle-frame", "wealth-pot", "top", "sparkle-dust", "modern-bold", "modern", 2)
+    preset("Golden Prosperity", "choco-gold", "radial-glow", "toran", "wealth-pot", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Royal Prosperity", "antique-gold", "sunburst", "rangoli-corners", "sun-medallion", "top", "none", "festive-script", "modern", 1),
+    preset("Antique Prosperity", "copper-glow", "dual-split", "dot-border", "temple-bells", "sides", "bokeh-glow", "classic", "classic-italic", 2),
+    preset("Copper Prosperity", "molten-bronze", "diagonal-shine", "gold-frame", "big-rangoli", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
+    preset("Molten Prosperity", "royal-gold", "mandala-backdrop", "temple-arch", "lotus", "centre", "fine-rays", "modern-bold", "bold-display", 4),
+    preset("Shining Prosperity", "peach-cream", "vignette", "marigold-strands", "wealth-pot", "top", "tiny-dots", "elegant-serif", "script", 0),
+    preset("Golden Treasure", "ivory-rose", "radial-glow", "toran", "wealth-pot", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
+    preset("Royal Treasure", "classic-maroon", "sunburst", "rangoli-corners", "sun-medallion", "scatter", "none", "classic", "modern", 2),
+    preset("Antique Treasure", "saffron-glory", "dual-split", "dot-border", "temple-bells", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
+    preset("Copper Treasure", "ruby-wine", "diagonal-shine", "gold-frame", "big-rangoli", "top", "falling-petals", "modern-bold", "outline-gold", 4),
+    preset("Molten Treasure", "choco-gold", "mandala-backdrop", "temple-arch", "wealth-pot", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("Shining Treasure", "antique-gold", "vignette", "marigold-strands", "kalash", "scatter", "tiny-dots", "festive-script", "script", 1),
+    preset("Golden Wealth", "copper-glow", "radial-glow", "toran", "wealth-pot", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Royal Wealth", "molten-bronze", "sunburst", "rangoli-corners", "sun-medallion", "top", "none", "royal-display", "modern", 3),
+    preset("Antique Wealth", "royal-gold", "dual-split", "dot-border", "temple-bells", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
+    preset("Copper Wealth", "peach-cream", "diagonal-shine", "gold-frame", "wealth-pot", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
+    preset("Molten Wealth", "ivory-rose", "mandala-backdrop", "temple-arch", "lotus", "centre", "fine-rays", "festive-script", "bold-display", 1),
+    preset("Shining Wealth", "classic-maroon", "vignette", "marigold-strands", "kalash", "top", "tiny-dots", "classic", "script", 2)
   ],
   choti: [
-    preset("First Diya Glow", "sunset-orange", "radial-glow", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Little Lamp Parade", "royal-gold", "night-sky", "diya-row", "lamp-string", "top", "sparkle-dust", "festive-script", "script", 1),
-    preset("Twilight Spark", "midnight-blue", "night-sky", "sparkle-frame", "diya-pair", "sides", "sparkle-dust", "modern-bold", "modern", 2),
-    preset("Marigold Eve", "classic-maroon", "radial-glow", "marigold-strands", "diya-pair", "centre", "falling-petals", "elegant-serif", "classic-italic", 3),
-    preset("Rose Little Light", "rose-pink", "vignette", "gold-frame", "diya-pair", "top", "bokeh-glow", "festive-script", "script", 4),
-    preset("Emerald Eve Glow", "emerald", "radial-glow", "leaf-vine", "lotus", "centre", "falling-petals", "classic", "classic-italic", 0),
-    preset("Sun Medallion Eve", "coral-sunset", "sunburst", "toran", "sun-medallion", "centre", "fine-rays", "royal-display", "bold-display", 1),
-    preset("Peacock Small Night", "peacock", "diagonal-shine", "leaf-vine", "peacock-feather", "sides", "bokeh-glow", "elegant-serif", "modern", 2),
-    preset("Crimson Little Diwali", "crimson", "mandala-backdrop", "rangoli-corners", "big-rangoli", "centre", "tiny-dots", "elegant-serif", "script", 3),
-    preset("Purple Prelude", "royal-purple", "night-sky", "diya-row", "diya-pair", "centre", "sparkle-dust", "modern-bold", "modern", 4),
-    preset("Golden Prelude", "choco-gold", "radial-glow", "gold-frame", "kalash", "centre", "bokeh-glow", "royal-display", "classic-italic", 0),
-    preset("Teal Tiny Flames", "teal-glow", "dual-split", "dot-border", "diya-pair", "scatter", "tiny-dots", "modern-bold", "bold-display", 1),
-    preset("Ivory First Light", "ivory-rose", "vignette", "dot-border", "diya-pair", "top", "none", "classic", "classic-italic", 2),
-    preset("Ruby Warm-Up", "ruby-wine", "radial-glow", "marigold-strands", "lamp-string", "top", "sparkle-dust", "elegant-serif", "outline-gold", 3),
-    preset("Magenta Mini Fest", "magenta-fest", "sunburst", "rangoli-corners", "fireworks", "centre", "sparkle-dust", "festive-script", "script", 4),
-    preset("Silver Small Hours", "silver-moon", "night-sky", "sparkle-frame", "diya-pair", "centre", "fine-rays", "modern-bold", "modern", 0),
-    preset("Peach Evening", "peach-cream", "soft-waves", "dot-border", "lotus", "centre", "falling-petals", "classic", "classic-italic", 1),
-    preset("Indigo First Flame", "indigo-night", "vignette", "gold-frame", "diya-pair", "centre", "bokeh-glow", "royal-display", "elegant-serif", 2)
+    preset("Amber Light", "sunset-orange", "radial-glow", "gold-frame", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Warm Light", "vermilion-flame", "mandala-backdrop", "marigold-strands", "sun-medallion", "top", "none", "festive-script", "modern", 1),
+    preset("Little Light", "amber-honey", "diagonal-shine", "sparkle-frame", "big-rangoli", "sides", "bokeh-glow", "classic", "classic-italic", 2),
+    preset("Glowing Light", "peach-cream", "sunburst", "diya-row", "fireworks", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
+    preset("First Light", "royal-gold", "vignette", "toran", "kalash", "centre", "fine-rays", "modern-bold", "bold-display", 4),
+    preset("Sweet Light", "crimson", "night-sky", "dot-border", "diya-pair", "top", "tiny-dots", "elegant-serif", "script", 0),
+    preset("Amber Diya", "coral-sunset", "radial-glow", "gold-frame", "diya-pair", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
+    preset("Warm Diya", "magenta-fest", "mandala-backdrop", "marigold-strands", "sun-medallion", "scatter", "none", "classic", "modern", 2),
+    preset("Little Diya", "saffron-glory", "diagonal-shine", "sparkle-frame", "big-rangoli", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
+    preset("Glowing Diya", "copper-glow", "sunburst", "diya-row", "fireworks", "top", "falling-petals", "modern-bold", "outline-gold", 4),
+    preset("First Diya", "sunset-orange", "vignette", "toran", "diya-pair", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("Sweet Diya", "vermilion-flame", "night-sky", "dot-border", "lamp-string", "scatter", "tiny-dots", "festive-script", "script", 1),
+    preset("Amber Glow", "amber-honey", "radial-glow", "gold-frame", "diya-pair", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Warm Glow", "peach-cream", "mandala-backdrop", "marigold-strands", "sun-medallion", "top", "none", "royal-display", "modern", 3),
+    preset("Little Glow", "royal-gold", "diagonal-shine", "sparkle-frame", "big-rangoli", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
+    preset("Glowing Glow", "crimson", "sunburst", "diya-row", "diya-pair", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
+    preset("First Glow", "coral-sunset", "vignette", "toran", "kalash", "centre", "fine-rays", "festive-script", "bold-display", 1),
+    preset("Sweet Glow", "magenta-fest", "night-sky", "dot-border", "lamp-string", "top", "tiny-dots", "classic", "script", 2)
+  ],
+  diwali: [
+    preset("Midnight Glow", "midnight-blue", "night-sky", "rangoli-corners", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Sparkling Glow", "indigo-night", "mandala-backdrop", "gold-frame", "sun-medallion", "top", "none", "festive-script", "modern", 1),
+    preset("Royal Glow", "violet-night", "dual-split", "sparkle-frame", "kalash", "sides", "bokeh-glow", "classic", "classic-italic", 2),
+    preset("Golden Glow", "royal-purple", "diagonal-shine", "diya-row", "big-rangoli", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
+    preset("Radiant Glow", "magenta-fest", "vignette", "dot-border", "lamp-string", "centre", "fine-rays", "modern-bold", "bold-display", 4),
+    preset("Starlit Glow", "peacock", "radial-glow", "marigold-strands", "diya-pair", "top", "tiny-dots", "elegant-serif", "script", 0),
+    preset("Midnight Sparkle", "royal-gold", "night-sky", "rangoli-corners", "diya-pair", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
+    preset("Sparkling Sparkle", "silver-moon", "mandala-backdrop", "gold-frame", "sun-medallion", "scatter", "none", "classic", "modern", 2),
+    preset("Royal Sparkle", "teal-glow", "dual-split", "sparkle-frame", "kalash", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
+    preset("Golden Sparkle", "ruby-wine", "diagonal-shine", "diya-row", "big-rangoli", "top", "falling-petals", "modern-bold", "outline-gold", 4),
+    preset("Radiant Sparkle", "midnight-blue", "vignette", "dot-border", "diya-pair", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("Starlit Sparkle", "indigo-night", "radial-glow", "marigold-strands", "fireworks", "scatter", "tiny-dots", "festive-script", "script", 1),
+    preset("Midnight Shine", "violet-night", "night-sky", "rangoli-corners", "diya-pair", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Sparkling Shine", "royal-purple", "mandala-backdrop", "gold-frame", "sun-medallion", "top", "none", "royal-display", "modern", 3),
+    preset("Royal Shine", "magenta-fest", "dual-split", "sparkle-frame", "kalash", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
+    preset("Golden Shine", "peacock", "diagonal-shine", "diya-row", "diya-pair", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
+    preset("Radiant Shine", "royal-gold", "vignette", "dot-border", "lamp-string", "centre", "fine-rays", "festive-script", "bold-display", 1),
+    preset("Starlit Shine", "silver-moon", "radial-glow", "marigold-strands", "fireworks", "top", "tiny-dots", "classic", "script", 2)
   ],
   govardhan: [
-    preset("Sacred Hill", "emerald", "soft-waves", "leaf-vine", "govardhan-hill", "centre", "falling-petals", "elegant-serif", "classic-italic", 0),
-    preset("Krishna's Shelter", "peacock", "radial-glow", "leaf-vine", "govardhan-hill", "centre", "bokeh-glow", "elegant-serif", "elegant-serif", 1),
-    preset("Vrindavan Greens", "lemon-lime", "sunburst", "leaf-vine", "govardhan-hill", "centre", "tiny-dots", "classic", "classic-italic", 2),
-    preset("Peacock Hill", "peacock", "diagonal-shine", "dot-border", "peacock-feather", "sides", "sparkle-dust", "modern-bold", "modern", 3),
-    preset("Golden Govardhan", "royal-gold", "radial-glow", "toran", "govardhan-hill", "top", "sparkle-dust", "royal-display", "outline-gold", 4),
-    preset("Hill at Dusk", "coral-sunset", "vignette", "gold-frame", "govardhan-hill", "centre", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Emerald Annakut", "emerald", "mandala-backdrop", "rangoli-corners", "govardhan-hill", "scatter", "falling-petals", "festive-script", "script", 1),
-    preset("Maroon Mountain", "classic-maroon", "radial-glow", "temple-arch", "govardhan-hill", "centre", "none", "classic", "classic-italic", 2),
-    preset("Teal Pastures", "teal-glow", "soft-waves", "leaf-vine", "govardhan-hill", "sides", "tiny-dots", "modern-bold", "modern", 3),
-    preset("Lotus Meadows", "rose-pink", "soft-waves", "marigold-strands", "lotus", "centre", "falling-petals", "festive-script", "script", 4),
-    preset("Purple Peaks", "royal-purple", "night-sky", "sparkle-frame", "govardhan-hill", "centre", "sparkle-dust", "modern-bold", "bold-display", 0),
-    preset("Choco Hilltop", "choco-gold", "vignette", "gold-frame", "govardhan-hill", "top", "bokeh-glow", "royal-display", "classic-italic", 1),
-    preset("Ruby Ridge", "ruby-wine", "radial-glow", "leaf-vine", "govardhan-hill", "centre", "fine-rays", "elegant-serif", "elegant-serif", 2),
-    preset("Ivory Pastoral", "ivory-rose", "soft-waves", "dot-border", "govardhan-hill", "centre", "none", "classic", "classic-italic", 3),
-    preset("Sunset Summit", "sunset-orange", "sunburst", "marigold-strands", "sun-medallion", "centre", "sparkle-dust", "elegant-serif", "bold-display", 4),
-    preset("Indigo Highlands", "indigo-night", "night-sky", "diya-row", "govardhan-hill", "top", "sparkle-dust", "royal-display", "modern", 0),
-    preset("Magenta Meadows", "magenta-fest", "radial-glow", "rangoli-corners", "govardhan-hill", "centre", "bokeh-glow", "festive-script", "script", 1),
-    preset("Silver Slopes", "silver-moon", "vignette", "sparkle-frame", "govardhan-hill", "centre", "fine-rays", "modern-bold", "modern", 2)
+    preset("Emerald Hill", "emerald", "soft-waves", "rangoli-corners", "govardhan-hill", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Verdant Hill", "forest-deep", "diagonal-shine", "marigold-strands", "temple-bells", "top", "none", "festive-script", "modern", 1),
+    preset("Sacred Hill", "leaf-gold", "sunburst", "toran", "big-rangoli", "sides", "bokeh-glow", "classic", "classic-italic", 2),
+    preset("Golden Hill", "lemon-lime", "vignette", "leaf-vine", "kalash", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
+    preset("Gentle Hill", "teal-glow", "mandala-backdrop", "dot-border", "peacock-feather", "centre", "fine-rays", "modern-bold", "bold-display", 4),
+    preset("Divine Hill", "classic-maroon", "radial-glow", "gold-frame", "govardhan-hill", "top", "tiny-dots", "elegant-serif", "script", 0),
+    preset("Emerald Grove", "choco-gold", "soft-waves", "rangoli-corners", "govardhan-hill", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
+    preset("Verdant Grove", "ivory-rose", "diagonal-shine", "marigold-strands", "temple-bells", "scatter", "none", "classic", "modern", 2),
+    preset("Sacred Grove", "peacock", "sunburst", "toran", "big-rangoli", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
+    preset("Golden Grove", "royal-gold", "vignette", "leaf-vine", "kalash", "top", "falling-petals", "modern-bold", "outline-gold", 4),
+    preset("Gentle Grove", "emerald", "mandala-backdrop", "dot-border", "govardhan-hill", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("Divine Grove", "forest-deep", "radial-glow", "gold-frame", "lotus", "scatter", "tiny-dots", "festive-script", "script", 1),
+    preset("Emerald Blessing", "leaf-gold", "soft-waves", "rangoli-corners", "govardhan-hill", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Verdant Blessing", "lemon-lime", "diagonal-shine", "marigold-strands", "temple-bells", "top", "none", "royal-display", "modern", 3),
+    preset("Sacred Blessing", "teal-glow", "sunburst", "toran", "big-rangoli", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
+    preset("Golden Blessing", "classic-maroon", "vignette", "leaf-vine", "govardhan-hill", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
+    preset("Gentle Blessing", "choco-gold", "mandala-backdrop", "dot-border", "peacock-feather", "centre", "fine-rays", "festive-script", "bold-display", 1),
+    preset("Divine Blessing", "ivory-rose", "radial-glow", "gold-frame", "lotus", "top", "tiny-dots", "classic", "script", 2)
   ],
   bhaidooj: [
-    preset("Tilak Thali", "rose-pink", "radial-glow", "rangoli-corners", "puja-thali", "centre", "falling-petals", "festive-script", "script", 0),
-    preset("Sister's Blessings", "royal-gold", "radial-glow", "toran", "puja-thali", "centre", "sparkle-dust", "elegant-serif", "classic-italic", 1),
-    preset("Crimson Bond", "crimson", "mandala-backdrop", "rangoli-corners", "puja-thali", "centre", "tiny-dots", "elegant-serif", "script", 2),
-    preset("Marigold Sibling", "sunset-orange", "soft-waves", "marigold-strands", "puja-thali", "top", "falling-petals", "classic", "classic-italic", 3),
-    preset("Lotus Love", "rose-pink", "vignette", "gold-frame", "lotus", "centre", "bokeh-glow", "festive-script", "script", 4),
-    preset("Emerald Promise", "emerald", "radial-glow", "leaf-vine", "puja-thali", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Purple Pyaar", "royal-purple", "night-sky", "sparkle-frame", "puja-thali", "sides", "sparkle-dust", "modern-bold", "modern", 1),
-    preset("Golden Tilak", "choco-gold", "radial-glow", "gold-frame", "puja-thali", "centre", "bokeh-glow", "royal-display", "outline-gold", 2),
-    preset("Peacock Sibling", "peacock", "diagonal-shine", "leaf-vine", "peacock-feather", "sides", "tiny-dots", "elegant-serif", "modern", 3),
-    preset("Ruby Raksha", "ruby-wine", "radial-glow", "temple-arch", "puja-thali", "top", "none", "classic", "classic-italic", 4),
-    preset("Ivory Affection", "ivory-rose", "vignette", "dot-border", "puja-thali", "centre", "none", "classic", "classic-italic", 0),
-    preset("Magenta Mithaas", "magenta-fest", "sunburst", "marigold-strands", "puja-thali", "scatter", "falling-petals", "festive-script", "script", 1),
-    preset("Teal Togetherness", "teal-glow", "dual-split", "dot-border", "puja-thali", "centre", "tiny-dots", "modern-bold", "bold-display", 2),
-    preset("Classic Dooj", "classic-maroon", "radial-glow", "gold-frame", "kalash", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 3),
-    preset("Coral Care", "coral-sunset", "soft-waves", "marigold-strands", "puja-thali", "centre", "falling-petals", "classic", "classic-italic", 4),
-    preset("Midnight Blessings", "midnight-blue", "night-sky", "diya-row", "diya-pair", "centre", "sparkle-dust", "royal-display", "modern", 0),
-    preset("Peach Pyaar", "peach-cream", "soft-waves", "dot-border", "puja-thali", "top", "falling-petals", "classic", "script", 1),
-    preset("Indigo Bandhan", "indigo-night", "vignette", "sparkle-frame", "puja-thali", "centre", "fine-rays", "royal-display", "bold-display", 2)
+    preset("Rosy Bond", "rose-pink", "radial-glow", "dot-border", "puja-thali", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Sweet Bond", "ivory-rose", "sunburst", "marigold-strands", "kalash", "top", "none", "festive-script", "modern", 1),
+    preset("Golden Bond", "ruby-wine", "diagonal-shine", "sparkle-frame", "lamp-string", "sides", "bokeh-glow", "classic", "classic-italic", 2),
+    preset("Blessed Bond", "magenta-fest", "mandala-backdrop", "rangoli-corners", "big-rangoli", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
+    preset("Tender Bond", "rose-gold", "vignette", "diya-row", "diya-pair", "centre", "fine-rays", "modern-bold", "bold-display", 4),
+    preset("Festive Bond", "peach-cream", "soft-waves", "gold-frame", "puja-thali", "top", "tiny-dots", "elegant-serif", "script", 0),
+    preset("Rosy Tilak", "royal-purple", "radial-glow", "dot-border", "puja-thali", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
+    preset("Sweet Tilak", "crimson", "sunburst", "marigold-strands", "kalash", "scatter", "none", "classic", "modern", 2),
+    preset("Golden Tilak", "coral-sunset", "diagonal-shine", "sparkle-frame", "lamp-string", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
+    preset("Blessed Tilak", "royal-gold", "mandala-backdrop", "rangoli-corners", "big-rangoli", "top", "falling-petals", "modern-bold", "outline-gold", 4),
+    preset("Tender Tilak", "rose-pink", "vignette", "diya-row", "puja-thali", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("Festive Tilak", "ivory-rose", "soft-waves", "gold-frame", "lotus", "scatter", "tiny-dots", "festive-script", "script", 1),
+    preset("Rosy Love", "ruby-wine", "radial-glow", "dot-border", "puja-thali", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Sweet Love", "magenta-fest", "sunburst", "marigold-strands", "kalash", "top", "none", "royal-display", "modern", 3),
+    preset("Golden Love", "rose-gold", "diagonal-shine", "sparkle-frame", "lamp-string", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
+    preset("Blessed Love", "peach-cream", "mandala-backdrop", "rangoli-corners", "puja-thali", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
+    preset("Tender Love", "royal-purple", "vignette", "diya-row", "diya-pair", "centre", "fine-rays", "festive-script", "bold-display", 1),
+    preset("Festive Love", "crimson", "soft-waves", "gold-frame", "lotus", "top", "tiny-dots", "classic", "script", 2)
   ],
   chhath: [
-    preset("Arghya Sunrise", "coral-sunset", "soft-waves", "marigold-strands", "sun-river", "centre", "none", "elegant-serif", "elegant-serif", 0),
-    preset("Golden Ghat", "sunset-orange", "sunburst", "toran", "sun-river", "centre", "fine-rays", "royal-display", "bold-display", 1),
-    preset("River Dawn", "royal-gold", "radial-glow", "gold-frame", "sun-river", "centre", "bokeh-glow", "elegant-serif", "classic-italic", 2),
-    preset("Surya Namaskar", "crimson", "sunburst", "temple-arch", "sun-medallion", "centre", "sparkle-dust", "royal-display", "outline-gold", 3),
-    preset("Dusk Arghya", "magenta-fest", "vignette", "marigold-strands", "sun-river", "centre", "falling-petals", "festive-script", "script", 4),
-    preset("Teal Waters", "teal-glow", "soft-waves", "dot-border", "sun-river", "sides", "tiny-dots", "modern-bold", "modern", 0),
-    preset("Emerald Banks", "emerald", "soft-waves", "leaf-vine", "sun-river", "centre", "sparkle-dust", "elegant-serif", "classic-italic", 1),
-    preset("Peacock River", "peacock", "diagonal-shine", "leaf-vine", "sun-river", "centre", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Midnight Ghat", "midnight-blue", "night-sky", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "modern", 3),
-    preset("Classic Chhath", "classic-maroon", "radial-glow", "toran", "sun-river", "top", "none", "classic", "classic-italic", 4),
-    preset("Ruby Riverside", "ruby-wine", "radial-glow", "rangoli-corners", "sun-river", "scatter", "fine-rays", "elegant-serif", "script", 0),
-    preset("Ivory Morning", "ivory-rose", "soft-waves", "dot-border", "sun-river", "centre", "none", "classic", "classic-italic", 1),
-    preset("Choco Ghat Glow", "choco-gold", "vignette", "gold-frame", "sun-river", "centre", "bokeh-glow", "royal-display", "classic-italic", 2),
-    preset("Indigo Usha", "indigo-night", "night-sky", "sparkle-frame", "sun-river", "top", "sparkle-dust", "modern-bold", "modern", 3),
-    preset("Purple Sandhya", "royal-purple", "dual-split", "marigold-strands", "sun-river", "centre", "falling-petals", "festive-script", "script", 4),
-    preset("Silver Stream", "silver-moon", "soft-waves", "sparkle-frame", "sun-river", "centre", "fine-rays", "modern-bold", "bold-display", 0),
-    preset("Peach Paran", "peach-cream", "soft-waves", "dot-border", "sun-river", "centre", "falling-petals", "classic", "classic-italic", 1),
-    preset("Lemon Light Ghat", "lemon-lime", "sunburst", "leaf-vine", "sun-river", "centre", "tiny-dots", "elegant-serif", "elegant-serif", 2)
+    preset("Golden Arghya", "coral-sunset", "soft-waves", "dot-border", "sun-river", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
+    preset("Sacred Arghya", "dawn-blush", "diagonal-shine", "diya-row", "lamp-string", "top", "none", "festive-script", "modern", 1),
+    preset("Morning Arghya", "marigold-dawn", "dual-split", "toran", "diya-pair", "sides", "bokeh-glow", "classic", "classic-italic", 2),
+    preset("Evening Arghya", "sunset-orange", "vignette", "marigold-strands", "kalash", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
+    preset("Radiant Arghya", "peach-cream", "radial-glow", "gold-frame", "lotus", "centre", "fine-rays", "modern-bold", "bold-display", 4),
+    preset("River Arghya", "royal-gold", "sunburst", "leaf-vine", "sun-river", "top", "tiny-dots", "elegant-serif", "script", 0),
+    preset("Golden Sunrise", "teal-glow", "soft-waves", "dot-border", "sun-river", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
+    preset("Sacred Sunrise", "saffron-glory", "diagonal-shine", "diya-row", "lamp-string", "scatter", "none", "classic", "modern", 2),
+    preset("Morning Sunrise", "vermilion-flame", "dual-split", "toran", "diya-pair", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
+    preset("Evening Sunrise", "amber-honey", "vignette", "marigold-strands", "kalash", "top", "falling-petals", "modern-bold", "outline-gold", 4),
+    preset("Radiant Sunrise", "coral-sunset", "radial-glow", "gold-frame", "sun-river", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
+    preset("River Sunrise", "dawn-blush", "sunburst", "leaf-vine", "sun-medallion", "scatter", "tiny-dots", "festive-script", "script", 1),
+    preset("Golden Ghat", "marigold-dawn", "soft-waves", "dot-border", "sun-river", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
+    preset("Sacred Ghat", "sunset-orange", "diagonal-shine", "diya-row", "lamp-string", "top", "none", "royal-display", "modern", 3),
+    preset("Morning Ghat", "peach-cream", "dual-split", "toran", "diya-pair", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
+    preset("Evening Ghat", "royal-gold", "vignette", "marigold-strands", "sun-river", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
+    preset("Radiant Ghat", "teal-glow", "radial-glow", "gold-frame", "lotus", "centre", "fine-rays", "festive-script", "bold-display", 1),
+    preset("River Ghat", "saffron-glory", "sunburst", "leaf-vine", "sun-medallion", "top", "tiny-dots", "classic", "script", 2)
   ]
 };
 function loadCurated() {
@@ -2157,6 +2277,8 @@ function loadCurated() {
   state.ideas = PRESETS[state.fest].map(function (p) {
     var o = {}; for (var k in p) o[k] = p[k]; return o;
   });
+  /* gallery designs count as "shown" — randoms will not repeat them */
+  state.ideas.forEach(function (c) { markComboUsed(state.fest, c); });
 }
 function rerollIdeas() {
   state.ideasMode = "random";
@@ -2286,6 +2408,9 @@ function renderSeasonStrip() {
 }
 function setFest(key) {
   state.fest = key;
+  /* every visit / every switch starts from a FRESH random design
+     drawn from this festival's own pool */
+  state.combo[key] = randomCombo(key);
   renderFestRow();
   loadCurated();
   renderComboBanner(); renderMessages(); renderPickers(); renderIdeas(); renderMain();
@@ -2442,6 +2567,8 @@ window.FestivalMaker = {
   setLang: setLang, setFest: setFest, applyIdea: applyIdea, rerollIdeas: rerollIdeas,
   currentData: currentData, renderMain: renderMain,
   generateWish: generateWish, generateWishFresh: generateWishFresh, WISH_FRAGS: WISH_FRAGS,
+  FEST_POOLS: FEST_POOLS, MOTIF_INDEX: MOTIF_INDEX, poolCombos: poolCombos,
+  randomCombo: randomCombo, comboKey: comboKey, ARRANGE_SPOTS: ARRANGE_SPOTS, MOTIF_FIT: MOTIF_FIT,
   getState: function () { return state; }
 };
 </script>
