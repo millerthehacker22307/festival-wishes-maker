@@ -105,6 +105,11 @@
     border:1.8px solid var(--gold);background:#fff8e6;color:#8f1212;
   }
   .btnMini:active{transform:scale(.97);}
+  .genBtn{
+    width:100%;padding:11px 13px;font-size:15px;border-radius:12px;
+    background:linear-gradient(180deg,#a31616,#7b0d0d);color:#ffe9b0;border:1.8px solid #a31616;
+  }
+  .genBtn:active{transform:scale(.985);}
   .ideas{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:8px;}
   .ideas figure{margin:0;text-align:center;cursor:pointer;}
   .ideas canvas{
@@ -214,6 +219,10 @@
     <label class="flabel" for="customMsg">✍️ Or write your own message — optional</label>
     <textarea id="customMsg" rows="3" maxlength="220" placeholder="Type your own wish here… / अपना संदेश लिखें…"></textarea>
     <p class="tip" id="customMsgNote" style="display:none;margin-top:6px;text-align:left;">✅ Your message will be used instead of the selected one.</p>
+
+    <label class="flabel">✨ Instant Wish Generator</label>
+    <button class="btnMini genBtn" id="btnGenerate" type="button">✨ Generate a Wish</button>
+    <p class="tip" style="margin-top:6px;text-align:left;">No need to pick or type — tap the button and a fresh wish is composed instantly for the selected festival (with the recipient's name, if added). It appears in the box above, ready to edit. Tap again for another one!</p>
 
     <label class="flabel">🎨 Colour theme</label>
     <div class="chips" id="pickTheme"></div>
@@ -647,6 +656,215 @@ function festText(fest, lang) {
 }
 function festMessages(fest, lang) {
   return (lang === "hi" && fest.messagesHi) ? fest.messagesHi : fest.messages;
+}
+/* ==================== INSTANT WISH GENERATOR ====================
+   Composes a FRESH wish on-device (no network, no AI) by combining
+   fragments: salutation × opening × festival line × blessing × closing.
+   {NAME} = recipient name (salutation used only when a name is typed),
+   {FEST} = festival name (oblique form), {FESTN} = nominative form. */
+var WISH_FRAGS = {
+  en: {
+    names: {
+      dussehra: { nom: "Dussehra", obl: "Dussehra" },
+      dhanteras: { nom: "Dhanteras", obl: "Dhanteras" },
+      choti: { nom: "Choti Diwali", obl: "Choti Diwali" },
+      diwali: { nom: "Diwali", obl: "Diwali" },
+      govardhan: { nom: "Govardhan Puja", obl: "Govardhan Puja" },
+      bhaidooj: { nom: "Bhai Dooj", obl: "Bhai Dooj" },
+      chhath: { nom: "Chhath Puja", obl: "Chhath Puja" }
+    },
+    salutations: [
+      "Dear {NAME}, ",
+      "For you, {NAME} — ",
+      "{NAME}, this one is for you — ",
+      "To dear {NAME}, "
+    ],
+    openings: [
+      "Wishing you a very happy {FEST}!",
+      "Heartfelt greetings on {FEST}!",
+      "May this {FEST} bring a smile to your face!",
+      "Warm wishes to you on {FEST}!",
+      "Here's wishing you a joyful {FEST}!"
+    ],
+    blessings: [
+      "May your home be filled with light, laughter and love.",
+      "May health, wealth and happiness always stay with you.",
+      "May every dream you hold dear come closer this year.",
+      "May your days ahead be bright, peaceful and full of joy.",
+      "May success and good fortune knock on your door often.",
+      "May your family be blessed with togetherness and cheer."
+    ],
+    closings: [
+      "Happy {FEST} once again!",
+      "With warm regards and best wishes.",
+      "Enjoy the celebrations with your loved ones!",
+      "Sending you lots of love this festive season."
+    ],
+    festLines: {
+      dussehra: [
+        "May good triumph over every evil in your life, just as it did on Vijayadashami.",
+        "May you find the courage of Shri Ram in every challenge you face.",
+        "Like Ravana's effigy, may every worry of yours burn away today.",
+        "May truth and goodness always win in your story."
+      ],
+      dhanteras: [
+        "May Maa Lakshmi fill your home with gold-like prosperity.",
+        "May Lord Dhanvantari bless you with strong health and long life.",
+        "May your wealth grow and your worries shrink from this day on.",
+        "May every coin of effort you spend return to you multiplied."
+      ],
+      choti: [
+        "May these first little diyas chase away every shadow around you.",
+        "Before the big night, may this small light spark big joy.",
+        "May good once again win over evil, as it did on Naraka Chaturdashi.",
+        "May your celebrations begin with warmth, sweets and laughter."
+      ],
+      diwali: [
+        "May every diya you light remove a darkness from your life.",
+        "May Maa Lakshmi and Lord Ganesha bless your home together.",
+        "May the festival of lights brighten every corner of your heart.",
+        "May this Diwali mark the start of your brightest year yet."
+      ],
+      govardhan: [
+        "May Shri Krishna shelter you like he sheltered Gokul under Govardhan.",
+        "May nature's blessings keep your home full of grain and gratitude.",
+        "May devotion and humility always protect you from every storm.",
+        "May your annakut of love grow bigger with every passing year."
+      ],
+      bhaidooj: [
+        "May the sacred tilak keep every brother safe and smiling.",
+        "May the brother–sister bond grow stronger with every Dooj.",
+        "May every sister's prayer become her brother's shield.",
+        "May this bond of love stay sweet today and always."
+      ],
+      chhath: [
+        "May Surya Dev bless you with energy, health and long life.",
+        "May Chhathi Maiya accept your arghya and fill your home with joy.",
+        "May the rising and setting sun both bring you good fortune.",
+        "May your fast, faith and devotion be rewarded in full."
+      ]
+    }
+  },
+  hi: {
+    names: {
+      dussehra: { nom: "दशहरा", obl: "दशहरे" },
+      dhanteras: { nom: "धनतेरस", obl: "धनतेरस" },
+      choti: { nom: "छोटी दिवाली", obl: "छोटी दिवाली" },
+      diwali: { nom: "दीपावली", obl: "दीपावली" },
+      govardhan: { nom: "गोवर्धन पूजा", obl: "गोवर्धन पूजा" },
+      bhaidooj: { nom: "भाई दूज", obl: "भाई दूज" },
+      chhath: { nom: "छठ पूजा", obl: "छठ पूजा" }
+    },
+    salutations: [
+      "प्रिय {NAME}, ",
+      "{NAME} जी, ",
+      "स्नेह सहित, {NAME} — ",
+      "मेरे प्रिय {NAME}, "
+    ],
+    openings: [
+      "{FEST} के पावन अवसर पर आपको हार्दिक शुभकामनाएँ!",
+      "{FEST} की आपको ढेर सारी बधाई!",
+      "इस {FEST} पर आपका जीवन खुशियों से भर जाए!",
+      "यह {FESTN} आपके लिए मंगलमय हो!",
+      "{FEST} पर दिल से आपको शुभकामनाएँ!"
+    ],
+    blessings: [
+      "आपका घर रोशनी, हँसी और प्रेम से सदा भरा रहे।",
+      "स्वास्थ्य, धन और सुख हमेशा आपका साथ दें।",
+      "आपके हर सपने इस वर्ष सच होने के और करीब आएँ।",
+      "आपके आने वाले दिन उज्ज्वल, शांत और आनंदमय हों।",
+      "सफलता और सौभाग्य बार-बार आपके द्वार आएँ।",
+      "आपका परिवार स्नेह और एकता से हमेशा जुड़ा रहे।"
+    ],
+    closings: [
+      "एक बार फिर {FEST} की शुभकामनाएँ!",
+      "सादर प्रणाम और हार्दिक शुभकामनाओं सहित।",
+      "अपनों के साथ त्योहार का आनंद लें!",
+      "ढेर सारा स्नेह और आशीर्वाद आपके लिए।"
+    ],
+    festLines: {
+      dussehra: [
+        "जैसे विजयादशमी पर अच्छाई जीती, वैसे ही आपके जीवन में भी सदा अच्छाई की जीत हो।",
+        "श्रीराम जैसा साहस आपको हर चुनौती में प्राप्त हो।",
+        "रावण के पुतले की तरह आपकी हर चिंता आज जलकर राख हो जाए।",
+        "सत्य का मार्ग आपको हमेशा विजय दिलाए।"
+      ],
+      dhanteras: [
+        "माँ लक्ष्मी आपके घर को धन-समृद्धि से भर दें।",
+        "भगवान धन्वंतरि आपको उत्तम स्वास्थ्य और दीर्घायु दें।",
+        "आज से आपका धन बढ़े और आपकी चिंताएँ घटें।",
+        "आपकी मेहनत का हर सिक्का कई गुना होकर लौटे।"
+      ],
+      choti: [
+        "ये पहले छोटे दीये आपके आसपास का हर अंधेरा दूर करें।",
+        "बड़ी रात से पहले यह छोटी रोशनी बड़ी खुशियाँ लाए।",
+        "नरक चतुर्दशी की तरह बुराई पर अच्छाई फिर से विजय पाए।",
+        "आपके उत्सव की शुरुआत मिठास और हँसी से हो।"
+      ],
+      diwali: [
+        "आपका जलाया हर दीया जीवन का एक अंधेरा दूर करे।",
+        "माँ लक्ष्मी और भगवान गणेश दोनों का आशीर्वाद आपके घर पर हो।",
+        "रोशनी का यह पर्व आपके मन के हर कोने को जगमगा दे।",
+        "यह दीपावली आपके सबसे उज्ज्वल वर्ष की शुरुआत हो।"
+      ],
+      govardhan: [
+        "श्रीकृष्ण गोवर्धन की तरह आपको हर संकट से बचाएँ।",
+        "प्रकृति का आशीर्वाद आपके घर को अन्न और कृतज्ञता से भरे।",
+        "भक्ति और विनम्रता आपको हर तूफ़ान से सुरक्षित रखें।",
+        "आपका प्रेम का अन्नकूट हर वर्ष बढ़ता रहे।"
+      ],
+      bhaidooj: [
+        "यह पवित्र तिलक हर भाई को सुरक्षा और मुस्कान दे।",
+        "भाई-बहन का यह बंधन हर दूज के साथ और मज़बूत हो।",
+        "हर बहन की दुआ उसके भाई की ढाल बने।",
+        "भाई-बहन का यह प्रेम सदा मीठा बना रहे।"
+      ],
+      chhath: [
+        "सूर्य देव आपको ऊर्जा, स्वास्थ्य और दीर्घायु दें।",
+        "छठी मैया आपका अर्घ्य स्वीकार कर घर को खुशियों से भरें।",
+        "उगता और डूबता सूर्य दोनों आपके लिए सौभाग्य लाएँ।",
+        "आपका व्रत, आस्था और भक्ति पूर्ण फल पाए।"
+      ]
+    }
+  }
+};
+function pickFrag(list) { return list[Math.floor(Math.random() * list.length)]; }
+function fillWishTokens(s, fest, lang, name) {
+  var names = (WISH_FRAGS[lang] && WISH_FRAGS[lang].names[fest.key]) || {};
+  return s.split("{NAME}").join(name || "")
+    .split("{FESTN}").join(names.nom || fest.label)
+    .split("{FEST}").join(names.obl || names.nom || fest.label);
+}
+/* Compose one fresh wish. Parts order:
+   [salutation?] opening, festival line, blessing, closing.
+   If the result would overflow the 220-char message box (very long
+   recipient names), trailing parts are dropped — closing first. */
+function generateWish(festKey, lang, name) {
+  var F = WISH_FRAGS[lang] || WISH_FRAGS.en;
+  var fest = FESTIVALS[festKey];
+  var parts = [];
+  if (name) parts.push(fillWishTokens(pickFrag(F.salutations), fest, lang, name));
+  parts.push(fillWishTokens(pickFrag(F.openings), fest, lang, name));
+  parts.push(fillWishTokens(pickFrag(F.festLines[festKey]), fest, lang, name));
+  parts.push(fillWishTokens(pickFrag(F.blessings), fest, lang, name));
+  parts.push(fillWishTokens(pickFrag(F.closings), fest, lang, name));
+  while (parts.length > 2 && parts.join(" ").length > 218) parts.pop();
+  return parts.join(" ").replace(/\s+/g, " ").trim();
+}
+var lastWish = "";
+/* Button handler: generate a fresh (never back-to-back identical) wish,
+   drop it into the custom-message box and redraw the card at once. */
+function generateWishFresh() {
+  var name = el("toName").value.trim();
+  var text = "";
+  for (var i = 0; i < 10; i++) {
+    text = generateWish(state.fest, state.lang, name);
+    if (text !== lastWish) break;
+  }
+  lastWish = text;
+  el("customMsg").value = text;
+  el("customMsgNote").style.display = "block";
+  renderMain(); renderIdeasSoft();
 }
 /* Small scattered 4-point stars / sparkles */
 function drawSparkles(ctx, S, u, n, seed, area, color) {
@@ -1606,10 +1824,12 @@ function drawCardText(ctx, S, u, fest, data, pal, combo) {
     y += 32 * u;
     drawDivider(ctx, cx, y, u, pal);
     ctx.fillStyle = pal.body;
-    drawMessageBlock(ctx, S, u, cx, data.message, y + 50 * u, 918 * u);
+    /* message must end well above the signature (limit 876, sig at 970):
+       clear breathing space between the wish and the From line */
+    drawMessageBlock(ctx, S, u, cx, data.message, y + 50 * u, 876 * u);
   } else {
     /* ---- original layout (no recipient) ---- */
-    var y2 = 496 * u;
+    var y2 = 462 * u;
     drawHeadline(ctx, cx, y2, u, ft.headline, pal, hf, S);
     y2 += 62 * u;
     ctx.fillStyle = pal.sub;
@@ -1638,23 +1858,24 @@ function drawSignature(ctx, S, u, data, pal, nf) {
     : "— " + from + (data.andFamily ? " & Family" : "");
   var sigStack = stackFor(sig, nf.stack);
   var sigSize = fitSize(ctx, sig, nf.weight, sigStack, S - 140 * u, 54 * u * (hasDev(sig) ? 1 : (nf.boost || 1)), nf.italic);
+  /* signature sits low on the card (970) so it never crowds the message */
   if (nf.outline) {
     ctx.font = fontSpec(nf.weight, sigSize, sigStack, nf.italic);
     ctx.lineWidth = Math.max(1.2, 1.7 * u);
     ctx.strokeStyle = pal.accent;
-    ctx.strokeText(sig, cx, 952 * u);
+    ctx.strokeText(sig, cx, 970 * u);
     ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = pal.head;
-    ctx.fillText(sig, cx, 952 * u);
+    ctx.fillText(sig, cx, 970 * u);
     ctx.restore();
   } else {
     ctx.fillStyle = pal.head;
-    ctx.fillText(sig, cx, 952 * u);
+    ctx.fillText(sig, cx, 970 * u);
   }
   /* tiny credit line on the card */
   ctx.fillStyle = pal.accent;
   ctx.font = fontSpec("600", 21 * u, SANS);
   ctx.globalAlpha = 0.75;
-  ctx.fillText("festival-wishes-maker.vercel.app", cx, 1016 * u);
+  ctx.fillText("festival-wishes-maker.vercel.app", cx, 1034 * u);
   ctx.globalAlpha = 1;
 }
 
@@ -2181,6 +2402,7 @@ function init() {
     renderMain();
   });
   el("btnSurprise").addEventListener("click", surprise);
+  el("btnGenerate").addEventListener("click", generateWishFresh);
   el("btnIdeas").addEventListener("click", rerollIdeas);
   el("langEn").addEventListener("click", function () { setLang("en"); });
   el("langHi").addEventListener("click", function () { setLang("hi"); });
@@ -2219,6 +2441,7 @@ window.FestivalMaker = {
   PRESETS: PRESETS, festMessages: festMessages, festText: festText,
   setLang: setLang, setFest: setFest, applyIdea: applyIdea, rerollIdeas: rerollIdeas,
   currentData: currentData, renderMain: renderMain,
+  generateWish: generateWish, generateWishFresh: generateWishFresh, WISH_FRAGS: WISH_FRAGS,
   getState: function () { return state; }
 };
 </script>
