@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Festival Wishes Maker — Festive Season Greeting Cards (Dussehra, Diwali, Chhath &amp; More)</title>
-<meta name="description" content="Create beautiful personalised greeting cards with your name for the whole festive season — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath. Over 1.15 crore design combinations — pick a theme, background, frame and motif, or hit Surprise Me. Download as PNG or share on WhatsApp — free, no sign-up.">
+<meta name="description" content="Create beautiful personalised greeting cards with your name for the whole festive season — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath. Over 6.5 crore design combinations, with real photo backgrounds for every festival — pick a theme, background, frame and motif, or hit Surprise Me. Download as PNG or share on WhatsApp — free, no sign-up.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Festival Wishes Maker — Festive Season Greeting Cards">
-<meta property="og:description" content="Pick a festival, choose a design, add your name, and share a greeting card with family and friends. 1,15,20,000+ design combinations!">
+<meta property="og:description" content="Pick a festival, choose a design, add your name, and share a greeting card with family and friends. 6,53,18,400+ design combinations — now with real photo backdrops!">
 <meta property="og:url" content="https://festival-wishes-maker.vercel.app/">
 <meta name="theme-color" content="#7b0d0d">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -173,7 +173,7 @@
 
   <header class="hero">
     <h1>🎉 Festival Wishes Maker</h1>
-    <p>Create a beautiful greeting card with <b>your name</b> for <b>every festival of the season</b> — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath — each with its own themes and wishes. Mix and match from <b>over 1.15 crore design combinations</b>, or hit <b>Surprise Me</b> and let luck design your card. Free, no sign-up!</p>
+    <p>Create a beautiful greeting card with <b>your name</b> for <b>every festival of the season</b> — Dussehra, Dhanteras, Choti Diwali, Diwali, Govardhan Puja, Bhai Dooj and Chhath — each with its own themes and wishes. Mix and match from <b>over 6.5 crore design combinations</b> — including <b>real photo backdrops</b> for every festival, or hit <b>Surprise Me</b> and let luck design your card. Free, no sign-up!</p>
   </header>
 
   <div class="festtabs" id="festRow" role="tablist"></div>
@@ -195,7 +195,7 @@
     <h2>✨ Make your card</h2>
 
     <div class="comboBanner">
-      <div class="num" id="comboNum">1,15,20,000+</div>
+      <div class="num" id="comboNum">6,53,18,400+</div>
       <div class="cap">design combinations — <span id="comboFestName">for Dussehra alone!</span></div>
       <div class="brk" id="comboBreak"></div>
     </div>
@@ -223,6 +223,9 @@
     <label class="flabel">✨ Instant Wish Generator</label>
     <button class="btnMini genBtn" id="btnGenerate" type="button">✨ Generate a Wish</button>
     <p class="tip" style="margin-top:6px;text-align:left;">No need to pick or type — tap the button and a fresh wish is composed instantly for the selected festival (with the recipient's name, if added). It appears in the box above, ready to edit. Tap again for another one!</p>
+
+    <label class="flabel">🖼️ Card layout</label>
+    <div class="chips" id="pickLayout"></div>
 
     <label class="flabel">🎨 Colour theme</label>
     <div class="chips" id="pickTheme"></div>
@@ -274,6 +277,7 @@
   <footer>
     <div class="big">Made with ❤️ in India</div>
     <div>Free forever · No sign-up · Your card is created right in your browser — nothing is uploaded.</div>
+    <div style="margin-top:6px;font-size:12.5px;">📷 Card photos via Wikimedia Commons (free licences): Hetavee, Ministry of Culture, Pete Birkinshaw, Billjones94, Unknown author, Saral Shots, humdingor, Benoy, Praful Kharade, Slyronit, RashmiGhorpade, Anjalimhr, Aliva Sahoo, Goutam1962, suketdedhia, Khushboo Goel, Wikilover90, AsliMaharaja, Coplanar, Shikhers.</div>
   </footer>
 
 </div>
@@ -554,6 +558,15 @@ var OVERLAYS = [
   { id: "bokeh-glow", name: "Bokeh Glow" }
 ];
 
+/* ---- Axis 9: card layouts (4) — modern composition variants ---- */
+var LAYOUTS = [
+  { id: "classic", name: "Classic Centre" },
+  { id: "top-band", name: "Top Art Band" },
+  { id: "split", name: "Split Modern" },
+  { id: "minimal", name: "Minimal Premium" }
+];
+var ALL_LAYOUT_IDS = ["classic", "top-band", "split", "minimal"];
+
 /* ---- Axis 7: headline font styles (5) ---- */
 var SERIF = 'Georgia, "Times New Roman", serif';
 var SANS = '"Segoe UI", Tahoma, Arial, sans-serif';
@@ -589,50 +602,96 @@ var FEST_POOLS = {
     bgs: ["sunburst", "radial-glow", "mandala-backdrop", "vignette", "diagonal-shine", "dual-split"],
     borders: ["toran", "temple-arch", "marigold-strands", "gold-frame", "rangoli-corners", "sparkle-frame"],
     motifs: ["bow-arrow", "sun-medallion", "temple-bells", "kalash", "big-rangoli", "peacock-feather"],
-    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   },
   dhanteras: {
     themes: ["choco-gold", "antique-gold", "copper-glow", "molten-bronze", "royal-gold", "peach-cream", "ivory-rose", "classic-maroon", "saffron-glory", "ruby-wine"],
     bgs: ["radial-glow", "vignette", "mandala-backdrop", "diagonal-shine", "dual-split", "sunburst"],
     borders: ["gold-frame", "dot-border", "rangoli-corners", "toran", "marigold-strands", "temple-arch"],
     motifs: ["wealth-pot", "kalash", "lotus", "big-rangoli", "temple-bells", "sun-medallion"],
-    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   },
   choti: {
     themes: ["sunset-orange", "vermilion-flame", "amber-honey", "peach-cream", "royal-gold", "crimson", "coral-sunset", "magenta-fest", "saffron-glory", "copper-glow"],
     bgs: ["radial-glow", "night-sky", "vignette", "sunburst", "diagonal-shine", "mandala-backdrop"],
     borders: ["diya-row", "sparkle-frame", "marigold-strands", "gold-frame", "dot-border", "toran"],
     motifs: ["diya-pair", "lamp-string", "kalash", "fireworks", "big-rangoli", "sun-medallion"],
-    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   },
   diwali: {
     themes: ["midnight-blue", "indigo-night", "violet-night", "royal-purple", "magenta-fest", "peacock", "royal-gold", "silver-moon", "teal-glow", "ruby-wine"],
     bgs: ["night-sky", "radial-glow", "vignette", "diagonal-shine", "dual-split", "mandala-backdrop"],
     borders: ["diya-row", "sparkle-frame", "gold-frame", "rangoli-corners", "marigold-strands", "dot-border"],
     motifs: ["diya-pair", "fireworks", "lamp-string", "big-rangoli", "kalash", "sun-medallion"],
-    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   },
   govardhan: {
     themes: ["emerald", "forest-deep", "leaf-gold", "lemon-lime", "teal-glow", "classic-maroon", "choco-gold", "ivory-rose", "peacock", "royal-gold"],
     bgs: ["soft-waves", "radial-glow", "mandala-backdrop", "vignette", "sunburst", "diagonal-shine"],
     borders: ["leaf-vine", "toran", "marigold-strands", "rangoli-corners", "gold-frame", "dot-border"],
     motifs: ["govardhan-hill", "lotus", "peacock-feather", "kalash", "big-rangoli", "temple-bells"],
-    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   },
   bhaidooj: {
     themes: ["rose-pink", "ivory-rose", "ruby-wine", "magenta-fest", "rose-gold", "peach-cream", "royal-purple", "crimson", "coral-sunset", "royal-gold"],
     bgs: ["radial-glow", "soft-waves", "vignette", "mandala-backdrop", "diagonal-shine", "sunburst"],
     borders: ["rangoli-corners", "sparkle-frame", "marigold-strands", "dot-border", "gold-frame", "diya-row"],
     motifs: ["puja-thali", "lotus", "diya-pair", "big-rangoli", "lamp-string", "kalash"],
-    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   },
   chhath: {
     themes: ["coral-sunset", "dawn-blush", "marigold-dawn", "sunset-orange", "peach-cream", "royal-gold", "teal-glow", "saffron-glory", "vermilion-flame", "amber-honey"],
     bgs: ["soft-waves", "sunburst", "radial-glow", "vignette", "dual-split", "diagonal-shine"],
     borders: ["marigold-strands", "toran", "diya-row", "dot-border", "leaf-vine", "gold-frame"],
     motifs: ["sun-river", "sun-medallion", "lotus", "kalash", "diya-pair", "lamp-string"],
-    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS
+    arranges: ALL_ARRANGE_IDS, overlays: ALL_OVERLAY_IDS, hfonts: ALL_HFONT_IDS, nfonts: ALL_NFONT_IDS, layouts: ALL_LAYOUT_IDS
   }
+};
+/* ================= PER-FESTIVAL PHOTO BACKGROUNDS =================
+   Real photographs (Wikimedia Commons, free licences) — 3 per festival.
+   They join each festival's background pool; credits in the page footer. */
+var FEST_PHOTOS = {
+  dussehra: [
+    { id: "photo-1", name: "📷 Ravana Dahan", file: "assets/dussehra/dussehra-1.jpg", credit: "Hetavee / Wikimedia Commons (CC0)" },
+    { id: "photo-2", name: "📷 Effigy in Flames", file: "assets/dussehra/dussehra-2.jpg", credit: "Ministry of Culture / Wikimedia Commons (GODL-India)" },
+    { id: "photo-3", name: "📷 Ravana at Dusk", file: "assets/dussehra/dussehra-3.jpg", credit: "Pete Birkinshaw / Wikimedia Commons (CC BY 2.0)" }
+  ],
+  dhanteras: [
+    { id: "photo-1", name: "📷 Lakshmi–Ganesha Coin", file: "assets/dhanteras/dhanteras-1.jpg", credit: "Billjones94 / Wikimedia Commons (CC BY-SA 4.0)" },
+    { id: "photo-2", name: "📷 Gold Jewellery", file: "assets/dhanteras/dhanteras-2.jpg", credit: "AnonymousUnknown author / Wikimedia Commons (Public domain)" },
+    { id: "photo-3", name: "📷 Traditional Brass Lamp", file: "assets/dhanteras/dhanteras-3.jpg", credit: "Saral Shots / Wikimedia Commons (CC0)" }
+  ],
+  choti: [
+    { id: "photo-1", name: "📷 Rows of Diyas", file: "assets/choti/choti-1.jpg", credit: "humdingor / Wikimedia Commons (CC BY-SA 2.0)" },
+    { id: "photo-2", name: "📷 Lamps at Dusk", file: "assets/choti/choti-2.jpg", credit: "Benoy / Wikimedia Commons (CC BY-SA 3.0)" },
+    { id: "photo-3", name: "📷 Diya Decor", file: "assets/choti/choti-3.jpg", credit: "humdingor / Wikimedia Commons (CC BY-SA 2.0)" }
+  ],
+  diwali: [
+    { id: "photo-1", name: "📷 Diya Close-Up", file: "assets/diwali/diwali-1.jpg", credit: "Praful Kharade / Wikimedia Commons (CC BY-SA 4.0)" },
+    { id: "photo-2", name: "📷 Fireworks Night", file: "assets/diwali/diwali-2.jpg", credit: "Slyronit / Wikimedia Commons (CC BY-SA 4.0)" },
+    { id: "photo-3", name: "📷 Rangoli & Diyas", file: "assets/diwali/diwali-3.jpg", credit: "RashmiGhorpade / Wikimedia Commons (CC0)" }
+  ],
+  govardhan: [
+    { id: "photo-1", name: "📷 Govardhan Puja", file: "assets/govardhan/govardhan-1.jpg", credit: "Anjalimhr / Wikimedia Commons (CC BY-SA 4.0)" },
+    { id: "photo-2", name: "📷 Radha Kund, Govardhan", file: "assets/govardhan/govardhan-2.jpg", credit: "Aliva Sahoo / Wikimedia Commons (CC BY-SA 3.0)" },
+    { id: "photo-3", name: "📷 Vrindavan Temple", file: "assets/govardhan/govardhan-3.jpg", credit: "Goutam1962 / Wikimedia Commons (CC BY-SA 4.0)" }
+  ],
+  bhaidooj: [
+    { id: "photo-1", name: "📷 Puja Thali", file: "assets/bhaidooj/bhaidooj-1.jpg", credit: "suketdedhia / Wikimedia Commons (CC0)" },
+    { id: "photo-2", name: "📷 Bhai Dooj Ceremony", file: "assets/bhaidooj/bhaidooj-2.jpg", credit: "Khushboo Goel, having username khushboo13391 on Wikimedia / Wikimedia Commons (CC BY-SA 4.0)" },
+    { id: "photo-3", name: "📷 Tilak Ceremony", file: "assets/bhaidooj/bhaidooj-3.jpg", credit: "Wikilover90 / Wikimedia Commons (CC BY-SA 4.0)" }
+  ],
+  chhath: [
+    { id: "photo-1", name: "📷 Chhath Arghya", file: "assets/chhath/chhath-1.jpg", credit: "AsliMaharaja / Wikimedia Commons (CC BY-SA 4.0)" },
+    { id: "photo-2", name: "📷 Varanasi Ghat", file: "assets/chhath/chhath-2.jpg", credit: "Coplanar / Wikimedia Commons (CC BY 4.0)" },
+    { id: "photo-3", name: "📷 Devotees at the River", file: "assets/chhath/chhath-3.jpg", credit: "Shikhers / Wikimedia Commons (CC BY-SA 4.0)" }
+  ]
+};
+var PHOTO_DATA_FILES = {
+  dussehra: "assets/photos-dussehra.js", dhanteras: "assets/photos-dhanteras.js",
+  choti: "assets/photos-choti.js", diwali: "assets/photos-diwali.js",
+  govardhan: "assets/photos-govardhan.js", bhaidooj: "assets/photos-bhaidooj.js",
+  chhath: "assets/photos-chhath.js"
 };
 function poolList(master, ids) {
   return ids.map(function (id) { return byId(master, id); });
@@ -640,8 +699,9 @@ function poolList(master, ids) {
 /* Designs available for ONE festival = product of its own pool sizes */
 function poolCombos(key) {
   var p = FEST_POOLS[key];
-  return p.themes.length * p.bgs.length * p.borders.length * p.motifs.length *
-    p.arranges.length * p.overlays.length * p.hfonts.length * p.nfonts.length;
+  var bgCount = p.bgs.length + (FEST_PHOTOS[key] ? FEST_PHOTOS[key].length : 0);
+  return p.themes.length * bgCount * p.borders.length * p.motifs.length *
+    p.arranges.length * p.overlays.length * p.hfonts.length * p.nfonts.length * p.layouts.length;
 }
 /* The honest total: SUM of every festival's own pool (messages on top) */
 function totalCombos() {
@@ -970,119 +1030,301 @@ function drawSparkles(ctx, S, u, n, seed, area, color) {
     ctx.restore();
   }
 }
-/* A clay diya (oil lamp) centred at x, rim line at y, scale s */
+/* A premium brass diya (oil lamp) centred at x, rim line at y, scale s:
+   layered flame with glow halo, gradient bowl, rim highlight, light pool */
 function drawDiya(ctx, x, y, s, glow) {
   if (glow !== false) {
     ctx.save();
-    ctx.globalAlpha = 0.55;
-    circle(ctx, x, y - 26 * s, 95 * s, rg(ctx, x, y - 26 * s, 95 * s, [[0, "rgba(255,190,60,0.85)"], [1, "rgba(255,190,60,0)"]]));
+    ctx.globalAlpha = 0.6;
+    circle(ctx, x, y - 24 * s, 100 * s, rg(ctx, x, y - 24 * s, 100 * s, [[0, "rgba(255,196,64,0.85)"], [0.55, "rgba(255,150,40,0.35)"], [1, "rgba(255,150,40,0)"]]));
     ctx.restore();
   }
+  /* pool of light beneath the bowl */
+  ctx.save(); ctx.globalAlpha = 0.35;
+  ctx.beginPath(); ctx.ellipse(x, y + 52 * s, 74 * s, 10 * s, 0, 0, Math.PI * 2);
+  ctx.fillStyle = rg(ctx, x, y + 52 * s, 74 * s, [[0, "rgba(255,180,60,0.8)"], [1, "rgba(255,180,60,0)"]]);
+  ctx.fill(); ctx.restore();
+  /* bowl: deep brass-to-copper gradient */
   ctx.beginPath();
   ctx.moveTo(x - 72 * s, y);
-  ctx.quadraticCurveTo(x - 60 * s, y + 42 * s, x, y + 46 * s);
-  ctx.quadraticCurveTo(x + 60 * s, y + 42 * s, x + 72 * s, y);
+  ctx.quadraticCurveTo(x - 62 * s, y + 40 * s, x, y + 46 * s);
+  ctx.quadraticCurveTo(x + 62 * s, y + 40 * s, x + 72 * s, y);
   ctx.closePath();
-  ctx.fillStyle = lg(ctx, x, y, x, y + 46 * s, [[0, "#d2691e"], [1, "#7a2d0c"]]);
+  ctx.fillStyle = lg(ctx, x - 72 * s, y, x + 72 * s, y + 46 * s, [[0, "#8a3b12"], [0.28, "#e08a2e"], [0.52, "#b85c14"], [1, "#5f2408"]]);
   ctx.fill();
-  ctx.beginPath();
-  ctx.ellipse(x, y, 72 * s, 13 * s, 0, 0, Math.PI * 2);
-  ctx.fillStyle = "#8a3b12"; ctx.fill();
-  ctx.beginPath();
-  ctx.ellipse(x, y, 58 * s, 9 * s, 0, 0, Math.PI * 2);
-  ctx.fillStyle = "#3d1a05"; ctx.fill();
-  ctx.beginPath();
-  ctx.moveTo(x, y - 62 * s);
-  ctx.bezierCurveTo(x + 17 * s, y - 30 * s, x + 13 * s, y - 12 * s, x, y - 6 * s);
-  ctx.bezierCurveTo(x - 13 * s, y - 12 * s, x - 17 * s, y - 30 * s, x, y - 62 * s);
-  ctx.fillStyle = lg(ctx, x, y - 62 * s, x, y, [[0, "#fff6c9"], [0.45, "#ffca28"], [1, "#ff7d00"]]);
+  /* rim: bright metallic band + glowing oil well */
+  ctx.beginPath(); ctx.ellipse(x, y, 72 * s, 13 * s, 0, 0, Math.PI * 2);
+  ctx.fillStyle = lg(ctx, x - 72 * s, y, x + 72 * s, y, [[0, "#a35a18"], [0.5, "#f2b64f"], [1, "#a35a18"]]);
   ctx.fill();
-  circle(ctx, x, y - 16 * s, 4.6 * s, "#fffde7");
+  ctx.beginPath(); ctx.ellipse(x, y, 57 * s, 9 * s, 0, 0, Math.PI * 2);
+  ctx.fillStyle = rg(ctx, x, y, 57 * s, [[0, "#ffb03a"], [0.7, "#8a3b12"], [1, "#4a1e05"]]);
+  ctx.fill();
+  /* wick */
+  ctx.fillStyle = "#2b1503";
+  ctx.fillRect(x - 2.4 * s, y - 9 * s, 4.8 * s, 9 * s);
+  /* flame: layered teardrops — glow body, orange, yellow core, white tip */
+  function teardrop(h, w, col) {
+    ctx.beginPath();
+    ctx.moveTo(x, y - h * s);
+    ctx.bezierCurveTo(x + w * s, y - h * 0.45 * s, x + w * 0.72 * s, y - h * 0.12 * s, x, y - 4 * s);
+    ctx.bezierCurveTo(x - w * 0.72 * s, y - h * 0.12 * s, x - w * s, y - h * 0.45 * s, x, y - h * s);
+    ctx.fillStyle = col; ctx.fill();
+  }
+  ctx.save(); ctx.shadowColor = "rgba(255,160,40,0.9)"; ctx.shadowBlur = 18 * s;
+  teardrop(64, 19, "#ff7d00");
+  ctx.restore();
+  teardrop(50, 14.5, "#ffab2e");
+  teardrop(36, 10, "#ffca28");
+  teardrop(22, 6, "#fff3b0");
+  circle(ctx, x, y - 12 * s, 3.4 * s, "#fffde7");
 }
-/* Bow and arrow, centred at (cx, cy), scale s, rotated by ang radians */
+/* Bow and arrow, centred at (cx, cy), scale s, rotated by ang radians —
+   wood-to-gold gradient limbs, wrapped grip, sheened string, metallic head */
 function drawBowArrow(ctx, cx, cy, s, ang) {
   ctx.save();
   ctx.translate(cx, cy); ctx.rotate(ang || 0);
-  ctx.beginPath();
-  ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
-  ctx.strokeStyle = "#8a4b08"; ctx.lineWidth = 11 * s; ctx.lineCap = "round"; ctx.stroke();
-  ctx.beginPath();
-  ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
-  ctx.strokeStyle = "#c77b1e"; ctx.lineWidth = 5 * s; ctx.stroke();
+  var limbGrad = lg(ctx, 0, -130 * s, 0, 130 * s, [[0, "#6d3a06"], [0.5, "#c77b1e"], [1, "#6d3a06"]]);
+  ctx.beginPath(); ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
+  ctx.strokeStyle = limbGrad; ctx.lineWidth = 12 * s; ctx.lineCap = "round"; ctx.stroke();
+  ctx.beginPath(); ctx.arc(-18 * s, 0, 118 * s, -1.12, 1.12);
+  ctx.strokeStyle = "rgba(255,214,120,0.55)"; ctx.lineWidth = 3.4 * s; ctx.stroke();
   var a1 = -1.12, a2 = 1.12;
   var tx1 = -18 * s + 118 * s * Math.cos(a1), ty1 = 118 * s * Math.sin(a1);
   var tx2 = -18 * s + 118 * s * Math.cos(a2), ty2 = 118 * s * Math.sin(a2);
-  circle(ctx, tx1, ty1, 8 * s, "#f0c040");
-  circle(ctx, tx2, ty2, 8 * s, "#f0c040");
+  circle(ctx, tx1, ty1, 9 * s, rg(ctx, tx1, ty1, 9 * s, [[0, "#ffe082"], [1, "#c99700"]]));
+  circle(ctx, tx2, ty2, 9 * s, rg(ctx, tx2, ty2, 9 * s, [[0, "#ffe082"], [1, "#c99700"]]));
+  /* string with a silk sheen */
   ctx.beginPath(); ctx.moveTo(tx1, ty1); ctx.lineTo(28 * s, 0); ctx.lineTo(tx2, ty2);
-  ctx.strokeStyle = "rgba(255,240,200,0.9)"; ctx.lineWidth = 2.6 * s; ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(-128 * s, 0); ctx.lineTo(138 * s, 0);
-  ctx.strokeStyle = "#e8a33d"; ctx.lineWidth = 8 * s; ctx.stroke();
+  ctx.strokeStyle = "rgba(255,244,214,0.95)"; ctx.lineWidth = 2.8 * s; ctx.stroke();
+  /* wrapped grip at the notch */
+  ctx.save(); ctx.translate(28 * s, 0); ctx.rotate(Math.PI / 2);
+  ctx.fillStyle = "#7c2d12"; ctx.fillRect(-4 * s, -13 * s, 8 * s, 26 * s);
+  ctx.strokeStyle = "#f0c040"; ctx.lineWidth = 1.6 * s;
+  for (var gI = -9; gI <= 9; gI += 6) { ctx.beginPath(); ctx.moveTo(-4 * s, gI * s); ctx.lineTo(4 * s, (gI + 3) * s); ctx.stroke(); }
+  ctx.restore();
+  /* arrow shaft with cylindrical shading */
+  ctx.beginPath(); ctx.moveTo(-128 * s, 0); ctx.lineTo(140 * s, 0);
+  ctx.strokeStyle = lg(ctx, 0, -4 * s, 0, 4 * s, [[0, "#8a4b08"], [0.5, "#f0b24a"], [1, "#8a4b08"]]);
+  ctx.lineWidth = 8 * s; ctx.stroke();
+  /* metallic arrowhead */
   ctx.beginPath();
-  ctx.moveTo(196 * s, 0); ctx.lineTo(132 * s, -17 * s); ctx.lineTo(146 * s, 0); ctx.lineTo(132 * s, 17 * s);
-  ctx.closePath(); ctx.fillStyle = "#f5f5f5"; ctx.fill();
-  ctx.strokeStyle = "#9e9e9e"; ctx.lineWidth = 2 * s; ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(-128 * s, 0); ctx.lineTo(-162 * s, -22 * s); ctx.lineTo(-104 * s, -4 * s);
-  ctx.closePath(); ctx.fillStyle = "#c1272d"; ctx.fill();
-  ctx.beginPath();
-  ctx.moveTo(-128 * s, 0); ctx.lineTo(-162 * s, 22 * s); ctx.lineTo(-104 * s, 4 * s);
-  ctx.closePath(); ctx.fillStyle = "#f0c040"; ctx.fill();
+  ctx.moveTo(198 * s, 0); ctx.lineTo(134 * s, -17 * s); ctx.lineTo(148 * s, 0); ctx.lineTo(134 * s, 17 * s);
+  ctx.closePath();
+  ctx.fillStyle = lg(ctx, 134 * s, 0, 198 * s, 0, [[0, "#9e9e9e"], [0.45, "#fafafa"], [1, "#757575"]]);
+  ctx.fill();
+  ctx.strokeStyle = "rgba(60,60,60,0.6)"; ctx.lineWidth = 1.6 * s; ctx.stroke();
+  /* layered fletching feathers */
+  function fletch(dir, colA, colB) {
+    ctx.beginPath();
+    ctx.moveTo(-126 * s, 0); ctx.lineTo(-168 * s, dir * 24 * s); ctx.lineTo(-104 * s, dir * 5 * s);
+    ctx.closePath(); ctx.fillStyle = colA; ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(-122 * s, dir * 2 * s); ctx.lineTo(-152 * s, dir * 19 * s); ctx.lineTo(-108 * s, dir * 5 * s);
+    ctx.closePath(); ctx.fillStyle = colB; ctx.fill();
+  }
+  fletch(-1, "#c1272d", "#e0503c");
+  fletch(1, "#d98a16", "#f0c040");
   ctx.restore();
 }
-/* Concentric rangoli / mandala medallion; colors = [disc, petalA, petalB, dot] */
+/* Concentric rangoli / mandala medallion; colors = [disc, petalA, petalB, dot].
+   Premium: gradient disc, two-tone petal rings, dot rings, an inner lotus
+   ring and tiny diyas resting on the rim (kept inside the disc). */
 function drawMandala(ctx, cx, cy, R, colors) {
   var i, a;
-  circle(ctx, cx, cy, R, colors[0]);
-  ctx.beginPath(); ctx.arc(cx, cy, R * 0.97, 0, Math.PI * 2);
-  ctx.strokeStyle = colors[3]; ctx.lineWidth = R * 0.02; ctx.stroke();
+  circle(ctx, cx, cy, R, rg(ctx, cx, cy, R, [[0, shade(colors[0], 0.22)], [0.75, colors[0]], [1, shade(colors[0], -0.25)]]));
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.985, 0, Math.PI * 2);
+  ctx.strokeStyle = colors[3]; ctx.lineWidth = R * 0.022; ctx.stroke();
+  ctx.beginPath(); ctx.arc(cx, cy, R * 0.9, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(255,255,255,0.35)"; ctx.lineWidth = R * 0.012; ctx.stroke();
   for (i = 0; i < 16; i++) {
     a = (i / 16) * Math.PI * 2;
     ctx.save();
-    ctx.translate(cx + Math.cos(a) * R * 0.8, cy + Math.sin(a) * R * 0.8);
+    ctx.translate(cx + Math.cos(a) * R * 0.78, cy + Math.sin(a) * R * 0.78);
     ctx.rotate(a + Math.PI / 2);
-    ctx.beginPath(); ctx.ellipse(0, 0, R * 0.075, R * 0.16, 0, 0, Math.PI * 2);
-    ctx.fillStyle = i % 2 ? colors[1] : colors[2]; ctx.fill();
+    ctx.beginPath(); ctx.ellipse(0, 0, R * 0.075, R * 0.155, 0, 0, Math.PI * 2);
+    ctx.fillStyle = lg(ctx, 0, -R * 0.155, 0, R * 0.155, [[0, shade(i % 2 ? colors[1] : colors[2], 0.3)], [1, i % 2 ? colors[1] : colors[2]]]);
+    ctx.fill();
     ctx.restore();
   }
   for (i = 0; i < 24; i++) {
     a = (i / 24) * Math.PI * 2;
-    circle(ctx, cx + Math.cos(a) * R * 0.6, cy + Math.sin(a) * R * 0.6, R * 0.028, colors[3]);
+    circle(ctx, cx + Math.cos(a) * R * 0.6, cy + Math.sin(a) * R * 0.6, R * 0.026, colors[3]);
   }
   for (i = 0; i < 8; i++) {
     a = (i / 8) * Math.PI * 2;
     ctx.save();
-    ctx.translate(cx + Math.cos(a) * R * 0.38, cy + Math.sin(a) * R * 0.38);
+    ctx.translate(cx + Math.cos(a) * R * 0.4, cy + Math.sin(a) * R * 0.4);
     ctx.rotate(a + Math.PI / 2);
-    ctx.beginPath(); ctx.ellipse(0, 0, R * 0.06, R * 0.13, 0, 0, Math.PI * 2);
-    ctx.fillStyle = colors[2]; ctx.fill();
+    ctx.beginPath(); ctx.ellipse(0, 0, R * 0.058, R * 0.125, 0, 0, Math.PI * 2);
+    ctx.fillStyle = lg(ctx, 0, -R * 0.125, 0, R * 0.125, [[0, shade(colors[2], 0.32)], [1, colors[2]]]);
+    ctx.fill();
     ctx.restore();
   }
-  circle(ctx, cx, cy, R * 0.2, colors[1]);
+  /* tiny diyas resting on the rim */
+  for (i = 0; i < 8; i++) {
+    a = (i / 8) * Math.PI * 2 + Math.PI / 8;
+    var dx = cx + Math.cos(a) * R * 0.88, dy = cy + Math.sin(a) * R * 0.88;
+    ctx.save(); ctx.globalAlpha = 0.95;
+    circle(ctx, dx, dy - R * 0.02, R * 0.075, rg(ctx, dx, dy - R * 0.02, R * 0.075, [[0, "rgba(255,190,60,0.9)"], [1, "rgba(255,190,60,0)"]]));
+    ctx.beginPath(); ctx.ellipse(dx, dy, R * 0.045, R * 0.02, 0, 0, Math.PI * 2);
+    ctx.fillStyle = "#8a3b12"; ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(dx, dy - R * 0.075);
+    ctx.quadraticCurveTo(dx + R * 0.02, dy - R * 0.03, dx, dy - R * 0.012);
+    ctx.quadraticCurveTo(dx - R * 0.02, dy - R * 0.03, dx, dy - R * 0.075);
+    ctx.fillStyle = "#ffca28"; ctx.fill();
+    ctx.restore();
+  }
+  circle(ctx, cx, cy, R * 0.21, rg(ctx, cx, cy, R * 0.21, [[0, shade(colors[1], 0.3)], [1, colors[1]]]));
   circle(ctx, cx, cy, R * 0.1, colors[3]);
+  circle(ctx, cx, cy, R * 0.045, shade(colors[3], 0.35));
 }
 function palMandala(pal) { return [pal.stops[1][1], pal.accent, pal.accent2, pal.head]; }
-/* Firework burst */
+/* Firework burst: multi-colour rays with trailing sparks and fading tails */
 function drawFirework(ctx, cx, cy, R, color) {
   ctx.save();
-  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = Math.max(2, R * 0.045); ctx.lineCap = "round";
-  var rnd = seededRand(Math.floor(cx + cy));
-  for (var i = 0; i < 14; i++) {
-    var a = (i / 14) * Math.PI * 2 + rnd() * 0.2;
-    var r1 = R * (0.35 + rnd() * 0.2), r2 = R * (0.8 + rnd() * 0.25);
-    ctx.beginPath();
-    ctx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
-    ctx.lineTo(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2);
-    ctx.stroke();
-    circle(ctx, cx + Math.cos(a) * r2, cy + Math.sin(a) * r2, R * 0.05, color);
+  ctx.lineCap = "round";
+  var rnd = seededRand(Math.floor(Math.abs(cx * 3 + cy * 7)) + 11);
+  var cols = [color, "#ffffff", "#ffd54f", color];
+  for (var i = 0; i < 16; i++) {
+    var a = (i / 16) * Math.PI * 2 + rnd() * 0.22;
+    var r1 = R * (0.3 + rnd() * 0.18), r2 = R * (0.78 + rnd() * 0.27);
+    var mx = cx + Math.cos(a) * r2, my = cy + Math.sin(a) * r2;
+    for (var seg = 0; seg < 3; seg++) {
+      var t0 = seg / 3, t1 = (seg + 1) / 3;
+      ctx.beginPath();
+      ctx.moveTo(cx + Math.cos(a) * (r1 + (r2 - r1) * t0), cy + Math.sin(a) * (r1 + (r2 - r1) * t0));
+      ctx.lineTo(cx + Math.cos(a) * (r1 + (r2 - r1) * t1), cy + Math.sin(a) * (r1 + (r2 - r1) * t1));
+      ctx.strokeStyle = cols[i % cols.length];
+      ctx.globalAlpha = 0.95 - seg * 0.3;
+      ctx.lineWidth = Math.max(1.2, R * 0.05 * (1 - seg * 0.28));
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+    circle(ctx, mx, my, R * 0.045, cols[(i + 1) % cols.length]);
+    circle(ctx, mx + R * 0.03, my + R * 0.09, R * 0.02, cols[i % cols.length]);
   }
-  circle(ctx, cx, cy, R * 0.06, "#ffffff");
+  for (var j = 0; j < 8; j++) {
+    var a2 = (j / 8) * Math.PI * 2 + 0.4;
+    ctx.beginPath();
+    ctx.moveTo(cx + Math.cos(a2) * R * 0.1, cy + Math.sin(a2) * R * 0.1);
+    ctx.lineTo(cx + Math.cos(a2) * R * 0.34, cy + Math.sin(a2) * R * 0.34);
+    ctx.strokeStyle = "#ffffff"; ctx.globalAlpha = 0.85; ctx.lineWidth = Math.max(1.2, R * 0.035);
+    ctx.stroke();
+  }
+  ctx.globalAlpha = 1;
+  circle(ctx, cx, cy, R * 0.07, rg(ctx, cx, cy, R * 0.07, [[0, "#ffffff"], [1, color]]));
+  ctx.restore();
+}
+/* ============================== PHOTO BACKGROUNDS ============================== */
+var IMG_CACHE = {};
+function photoEntry(festKey, photoId) {
+  var list = FEST_PHOTOS[festKey] || [];
+  for (var i = 0; i < list.length; i++) if (list[i].id === photoId) return list[i];
+  return list[0] || null;
+}
+function photoDataUri(festKey, photoId) {
+  var d = (typeof window !== "undefined" && window.FWM_PHOTOS) ||
+    (typeof FWM_PHOTOS !== "undefined" ? FWM_PHOTOS : null);
+  return d && d[festKey] ? (d[festKey][photoId] || null) : null;
+}
+function getPhotoImg(festKey, photoId) {
+  var key = festKey + "/" + photoId;
+  var uri = photoDataUri(festKey, photoId);
+  var cached = IMG_CACHE[key];
+  if (cached) {
+    /* upgrade a fallback-path image once the bundled data URI has loaded */
+    if (uri && cached.src !== uri) cached.src = uri;
+    return cached;
+  }
+  var entry = photoEntry(festKey, photoId);
+  if (!entry || typeof Image === "undefined") return null;
+  var img = new Image();
+  img.onload = function () { try { renderMain(); renderIdeasSoft(); } catch (e) {} };
+  img.src = uri || entry.file;
+  IMG_CACHE[key] = img;
+  return img;
+}
+var PHOTO_SCRIPT_TRIED = {};
+function preloadFestPhotos(festKey) {
+  var list = FEST_PHOTOS[festKey] || [];
+  function warm() {
+    list.forEach(function (p) { getPhotoImg(festKey, p.id); });
+    try { renderMain(); renderIdeasSoft(); } catch (e) {}
+  }
+  if (!list.length || photoDataUri(festKey, list[0].id)) { warm(); return; }
+  var file = PHOTO_DATA_FILES[festKey];
+  if (!file || PHOTO_SCRIPT_TRIED[festKey] || typeof document === "undefined" || !document.createElement) { warm(); return; }
+  PHOTO_SCRIPT_TRIED[festKey] = true;
+  var sc = document.createElement("script");
+  sc.src = file;
+  sc.onload = warm;
+  sc.onerror = warm;
+  (document.head || document.body).appendChild(sc);
+  warm(); /* gradient fallback shows instantly; photos swap in when loaded */
+}
+/* photo cards get light, warm text colours so type stays legible */
+function photoTextPal(pal) {
+  return { stops: pal.stops, accent: "#f5c542", accent2: pal.accent2, head: "#fff3c4", sub: "#ffd54f", body: "#fff8e1", frame: "#f0c040", spark: "#ffe9a8" };
+}
+function drawPhotoBackground(ctx, S, u, pal, festKey, photoId) {
+  var img = getPhotoImg(festKey, photoId);
+  var drawn = false;
+  if (img && img.complete && (img.width || img.naturalWidth)) {
+    var iw = img.width || img.naturalWidth, ih = img.height || img.naturalHeight || iw;
+    var sc = Math.max(S / iw, S / ih);
+    var dw = iw * sc, dh = ih * sc;
+    try { ctx.drawImage(img, (S - dw) / 2, (S - dh) / 2, dw, dh); drawn = true; } catch (e) { drawn = false; }
+  }
+  if (!drawn) { ctx.fillStyle = palGradient(ctx, 0, 0, 0, S, pal); ctx.fillRect(0, 0, S, S); }
+  /* legibility scrim: darker where the headline and signature sit */
+  ctx.fillStyle = lg(ctx, 0, 0, 0, S, [[0, "rgba(12,5,2,0.46)"], [0.32, "rgba(12,5,2,0.12)"], [0.6, "rgba(12,5,2,0.10)"], [1, "rgba(12,5,2,0.55)"]]);
+  ctx.fillRect(0, 0, S, S);
+  ctx.fillStyle = rg(ctx, S / 2, S / 2, S * 0.75, [[0, "rgba(0,0,0,0)"], [1, "rgba(0,0,0,0.28)"]]);
+  ctx.fillRect(0, 0, S, S);
+}
+
+/* ============================== PREMIUM FINISH ============================== */
+/* soft light source + depth vignette over drawn backgrounds */
+function drawPremiumFinish(ctx, S, u, pal) {
+  ctx.save();
+  circle(ctx, S / 2, 90 * u, 580 * u, rg(ctx, S / 2, 90 * u, 580 * u, [[0, "rgba(255,228,150,0.20)"], [1, "rgba(255,228,150,0)"]]));
+  ctx.fillStyle = lg(ctx, 0, S * 0.52, 0, S, [[0, "rgba(0,0,0,0)"], [1, "rgba(0,0,0,0.22)"]]);
+  ctx.fillRect(0, S * 0.52, S, S * 0.48);
+  ctx.restore();
+}
+/* glowing arch band across the top third (Top Art Band layout) */
+function drawTopBand(ctx, S, u, pal, isPhoto) {
+  var x0 = 54 * u, x1 = S - 54 * u, yT = 60 * u, yB = 376 * u;
+  function path() {
+    ctx.beginPath();
+    ctx.moveTo(x0, yB);
+    ctx.lineTo(x0, 250 * u);
+    ctx.quadraticCurveTo(x0, yT, S / 2, yT);
+    ctx.quadraticCurveTo(x1, yT, x1, 250 * u);
+    ctx.lineTo(x1, yB);
+    ctx.quadraticCurveTo(S / 2, yB - 34 * u, x0, yB);
+    ctx.closePath();
+  }
+  ctx.save();
+  path();
+  ctx.fillStyle = lg(ctx, 0, yT, 0, yB, shadeStops(pal, isPhoto ? -0.12 : 0.08));
+  ctx.globalAlpha = isPhoto ? 0.88 : 0.55;
+  ctx.fill();
+  ctx.globalAlpha = 1;
+  circle(ctx, S / 2, 210 * u, 330 * u, rg(ctx, S / 2, 210 * u, 330 * u, [[0, "rgba(255,210,110,0.30)"], [1, "rgba(255,210,110,0)"]]));
+  path();
+  ctx.strokeStyle = pal.frame; ctx.lineWidth = 2.6 * u; ctx.globalAlpha = 0.95; ctx.stroke();
   ctx.restore();
 }
 
-/* ============================== BACKGROUNDS (8) ============================== */
-function drawBackground(ctx, S, u, pal, bgId) {
+/* ============================== BACKGROUNDS (8 drawn + photos) ============================== */
+function drawBackground(ctx, S, u, pal, bgId, festKey) {
   var cx = S / 2, i, a;
+  if (typeof bgId === "string" && bgId.indexOf("photo-") === 0) {
+    drawPhotoBackground(ctx, S, u, pal, festKey, bgId);
+    return;
+  }
   if (bgId === "radial-glow") {
     var g = ctx.createRadialGradient(cx, 330 * u, 0, cx, 330 * u, 980 * u);
     for (i = 0; i < pal.stops.length; i++) g.addColorStop(pal.stops[i][0], pal.stops[i][1]);
@@ -1270,6 +1512,22 @@ function drawBorder(ctx, S, u, pal, bId) {
     ctx.strokeRect(26 * u, 26 * u, S - 52 * u, S - 52 * u);
     ctx.lineWidth = 1.6 * u;
     ctx.strokeRect(42 * u, 42 * u, S - 84 * u, S - 84 * u);
+    /* ornamental corner flourishes */
+    var corners = [[26, 26, 1, 1], [1080 - 26, 26, -1, 1], [26, 1080 - 26, 1, -1], [1080 - 26, 1080 - 26, -1, -1]];
+    for (var ci = 0; ci < 4; ci++) {
+      var cn = corners[ci];
+      ctx.save();
+      ctx.translate(cn[0] * u, cn[1] * u); ctx.scale(cn[2], cn[3]);
+      ctx.strokeStyle = pal.frame; ctx.lineWidth = 2.6 * u;
+      ctx.beginPath(); ctx.moveTo(2 * u, 46 * u); ctx.lineTo(2 * u, 16 * u); ctx.quadraticCurveTo(2 * u, 2 * u, 16 * u, 2 * u); ctx.lineTo(46 * u, 2 * u); ctx.stroke();
+      ctx.beginPath(); ctx.arc(30 * u, 30 * u, 13 * u, Math.PI, Math.PI * 1.5); ctx.stroke();
+      ctx.save(); ctx.translate(58 * u, 58 * u); ctx.rotate(Math.PI / 4);
+      ctx.fillStyle = pal.accent; ctx.fillRect(-6.5 * u, -6.5 * u, 13 * u, 13 * u);
+      ctx.restore();
+      circle(ctx, 84 * u, 14 * u, 4 * u, pal.accent);
+      circle(ctx, 14 * u, 84 * u, 4 * u, pal.accent);
+      ctx.restore();
+    }
     return;
   }
   if (bId === "rangoli-corners") {
@@ -1349,7 +1607,7 @@ function drawBorder(ctx, S, u, pal, bId) {
   }
 }
 
-/* ============================== MOTIFS (10) — drawn in local space, origin = centre ============================== */
+/* ============================== MOTIFS — premium painters, local space, origin = centre ============================== */
 function drawLeafShape(ctx, len, wid, col) {
   ctx.beginPath();
   ctx.moveTo(0, 0);
@@ -1372,70 +1630,88 @@ function motifBowArrow(ctx) {
 }
 function motifKalash(ctx, pal) {
   var i;
-  /* mango leaves fan */
-  var leafCols = ["#2e7d32", "#388e3c", "#43a047", "#2e7d32", "#388e3c"];
+  /* mango leaves fan with gradient greens */
+  var leafCols = [["#1b5e20", "#43a047"], ["#2e7d32", "#66bb6a"], ["#2e7d32", "#81c784"], ["#1b5e20", "#43a047"], ["#2e7d32", "#66bb6a"]];
   for (i = -2; i <= 2; i++) {
     ctx.save();
     ctx.translate(0, -34);
     ctx.rotate(i * 0.42);
-    drawLeafShape(ctx, 108, 27, leafCols[i + 2]);
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.quadraticCurveTo(27, -48, 0, -108);
+    ctx.quadraticCurveTo(-27, -48, 0, 0);
+    ctx.fillStyle = lg(ctx, 0, 0, 0, -108, [[0, leafCols[i + 2][0]], [1, leafCols[i + 2][1]]]);
+    ctx.fill();
     ctx.restore();
   }
-  /* coconut */
-  circle(ctx, 0, -46, 33, "#6d3b12");
-  circle(ctx, -8, -56, 10, "rgba(255,255,255,0.18)");
-  ctx.strokeStyle = "#4a2608"; ctx.lineWidth = 3;
+  /* coconut with fibre strokes + highlight */
+  circle(ctx, 0, -46, 33, rg(ctx, -10, -58, 40, [[0, "#a06a35"], [0.6, "#6d3b12"], [1, "#4a2608"]]));
+  circle(ctx, -9, -57, 9, "rgba(255,255,255,0.22)");
+  ctx.strokeStyle = "rgba(40,20,4,0.55)"; ctx.lineWidth = 2.4;
   ctx.beginPath(); ctx.moveTo(-14, -76); ctx.lineTo(-8, -88); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(0, -79); ctx.lineTo(2, -92); ctx.stroke();
   ctx.beginPath(); ctx.moveTo(14, -76); ctx.lineTo(20, -86); ctx.stroke();
-  /* neck band */
-  ctx.fillStyle = "#c99700";
+  /* neck band: polished gold */
+  ctx.fillStyle = lg(ctx, -40, 0, 40, 0, [[0, "#8a5a08"], [0.3, "#f0c040"], [0.55, "#c99700"], [1, "#8a5a08"]]);
   ctx.fillRect(-40, -30, 80, 17);
-  ctx.fillStyle = "#f0c040";
-  ctx.fillRect(-40, -26, 80, 3);
-  /* pot body */
+  ctx.fillStyle = "rgba(255,255,255,0.5)";
+  ctx.fillRect(-40, -27, 80, 2.4);
+  /* pot body: glossy copper with a vertical highlight streak */
   ctx.beginPath();
   ctx.moveTo(-40, -13);
   ctx.bezierCurveTo(-96, 22, -86, 78, -52, 116);
   ctx.bezierCurveTo(-26, 144, 26, 144, 52, 116);
   ctx.bezierCurveTo(86, 78, 96, 22, 40, -13);
   ctx.closePath();
-  ctx.fillStyle = lg(ctx, 0, -13, 0, 140, [[0, "#c05a17"], [1, "#7a2d0c"]]);
+  ctx.fillStyle = lg(ctx, -80, 0, 80, 0, [[0, "#6d2408"], [0.3, "#c05a17"], [0.52, "#e88a3a"], [0.75, "#a34a12"], [1, "#5f2408"]]);
   ctx.fill();
+  ctx.save(); ctx.globalAlpha = 0.20;
+  ctx.beginPath(); ctx.ellipse(-30, 55, 13, 52, 0.25, 0, Math.PI * 2);
+  ctx.fillStyle = "#ffffff"; ctx.fill();
+  ctx.restore();
+  /* engraved bands + dot row */
   ctx.strokeStyle = "#f0c040"; ctx.lineWidth = 2.4;
-  ctx.beginPath();
-  ctx.moveTo(-78, 48); ctx.quadraticCurveTo(0, 66, 78, 48); ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(-72, 84); ctx.quadraticCurveTo(0, 100, 72, 84); ctx.stroke();
-  for (i = -2; i <= 2; i++) circle(ctx, i * 26, 66, 5, "#f0c040");
-  /* base */
+  ctx.beginPath(); ctx.moveTo(-78, 48); ctx.quadraticCurveTo(0, 66, 78, 48); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-72, 84); ctx.quadraticCurveTo(0, 100, 72, 84); ctx.stroke();
+  for (i = -2; i <= 2; i++) circle(ctx, i * 26, 66, 5, rg(ctx, i * 26, 64, 5, [[0, "#ffe082"], [1, "#c99700"]]));
+  /* base shadow + rim */
   ctx.beginPath(); ctx.ellipse(0, 140, 56, 10, 0, 0, Math.PI * 2);
-  ctx.fillStyle = "#8a3b12"; ctx.fill();
+  ctx.fillStyle = lg(ctx, -56, 0, 56, 0, [[0, "#5f2408"], [0.5, "#a85a1e"], [1, "#5f2408"]]);
+  ctx.fill();
 }
 function motifLotus(ctx) {
-  function petal(ang, len, wid, col) {
+  function petal(ang, len, wid, colA, colB) {
     ctx.save();
     ctx.translate(0, 52); ctx.rotate(ang);
     ctx.beginPath();
     ctx.moveTo(0, 6);
     ctx.quadraticCurveTo(wid, -len * 0.42, 0, -len);
     ctx.quadraticCurveTo(-wid, -len * 0.42, 0, 6);
-    ctx.fillStyle = col; ctx.fill();
+    ctx.fillStyle = lg(ctx, 0, 6, 0, -len, [[0, colA], [1, colB]]);
+    ctx.fill();
+    /* centre vein */
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, -len * 0.82);
+    ctx.strokeStyle = "rgba(255,255,255,0.35)"; ctx.lineWidth = 2; ctx.stroke();
     ctx.restore();
   }
-  petal(-1.05, 128, 42, "#c2185b");
-  petal(-0.55, 148, 46, "#d6336c");
-  petal(0, 158, 48, "#e75480");
-  petal(0.55, 148, 46, "#d6336c");
-  petal(1.05, 128, 42, "#c2185b");
-  petal(-0.28, 104, 38, "#ff8fab");
-  petal(0.28, 104, 38, "#ff8fab");
-  petal(0, 96, 36, "#ffb3c6");
-  circle(ctx, 0, 34, 21, "#f0c040");
-  circle(ctx, 0, 34, 12, "#ffb300");
+  petal(-1.05, 128, 42, "#9c1450", "#e75480");
+  petal(-0.55, 148, 46, "#b81d63", "#f06a9c");
+  petal(0, 158, 48, "#c2185b", "#ff8fab");
+  petal(0.55, 148, 46, "#b81d63", "#f06a9c");
+  petal(1.05, 128, 42, "#9c1450", "#e75480");
+  petal(-0.28, 104, 38, "#d6336c", "#ffb3c6");
+  petal(0.28, 104, 38, "#d6336c", "#ffb3c6");
+  petal(0, 96, 36, "#e75480", "#ffd9e4");
+  /* golden seed pod */
+  circle(ctx, 0, 34, 21, rg(ctx, -6, 26, 26, [[0, "#ffe082"], [1, "#d99a17"]]));
+  var podDots = [[-8, 28], [0, 24], [8, 28], [-4, 38], [5, 38]];
+  for (var pd = 0; pd < podDots.length; pd++) circle(ctx, podDots[pd][0], podDots[pd][1], 2.6, "#a86f24");
+  /* water ripples */
   ctx.strokeStyle = "rgba(94,234,212,0.55)"; ctx.lineWidth = 4;
   ctx.beginPath(); ctx.ellipse(0, 96, 120, 20, 0, 0.15, Math.PI - 0.15); ctx.stroke();
   ctx.beginPath(); ctx.ellipse(0, 108, 165, 26, 0, 0.15, Math.PI - 0.15); ctx.stroke();
+  ctx.strokeStyle = "rgba(255,255,255,0.28)"; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.ellipse(0, 90, 88, 14, 0, 0.3, Math.PI - 0.6); ctx.stroke();
 }
 function motifFireworks(ctx, pal) {
   drawFirework(ctx, -152, -48, 122, pal.accent);
@@ -1445,74 +1721,99 @@ function motifFireworks(ctx, pal) {
   drawFirework(ctx, 120, 110, 55, pal.accent);
 }
 function motifLampString(ctx, pal) {
-  var lamps = [
-    { x: -158, len: 118 },
-    { x: 0, len: 178 },
-    { x: 158, len: 118 }
-  ];
-  for (var i = 0; i < lamps.length; i++) {
-    var L = lamps[i];
-    ctx.strokeStyle = pal.frame; ctx.lineWidth = 2.6;
-    ctx.beginPath(); ctx.moveTo(L.x, -215); ctx.lineTo(L.x, -215 + L.len); ctx.stroke();
-    circle(ctx, L.x, -215 + L.len + 4, 52, rg(ctx, L.x, -215 + L.len + 4, 52, [[0, "rgba(255,196,64,0.4)"], [1, "rgba(255,196,64,0)"]]));
-    drawDiya(ctx, L.x, -215 + L.len + 10, 0.55);
+  function wireRow(y0, sag, count, dropBase) {
+    ctx.beginPath();
+    ctx.moveTo(-238, y0);
+    ctx.quadraticCurveTo(0, y0 + sag * 2, 238, y0);
+    ctx.strokeStyle = "rgba(240,192,64,0.75)"; ctx.lineWidth = 2.4; ctx.stroke();
+    for (var i = 0; i < count; i++) {
+      var t = (i + 0.5) / count;
+      var wx = -238 + 476 * t;
+      var wy = (1 - t) * (1 - t) * y0 + 2 * (1 - t) * t * (y0 + sag * 2) + t * t * y0;
+      var drop = dropBase + (i % 2) * 8;
+      ctx.strokeStyle = pal.frame; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(wx, wy); ctx.lineTo(wx, wy + drop); ctx.stroke();
+      var by = wy + drop + 24;
+      circle(ctx, wx, by, 52, rg(ctx, wx, by, 52, [[0, "rgba(255,196,64,0.45)"], [1, "rgba(255,196,64,0)"]]));
+      circle(ctx, wx, by, 25, rg(ctx, wx - 7, by - 8, 30, [[0, "#fff6c9"], [0.45, "#ffca28"], [1, "#e07b1f"]]));
+      ctx.fillStyle = "#8a5a08";
+      ctx.fillRect(wx - 9, wy + drop - 4, 18, 7);
+      circle(ctx, wx - 8, by - 9, 6, "rgba(255,255,255,0.5)");
+    }
   }
-  drawSparkles(ctx, 460, 1, 10, 88, null, pal.spark);
+  wireRow(-168, 34, 5, 16);
+  wireRow(-58, 26, 4, 14);
 }
 function motifSunMedallion(ctx, pal) {
   var i, a;
-  ctx.fillStyle = pal.accent;
+  circle(ctx, 0, 0, 215, rg(ctx, 0, 0, 215, [[0, "rgba(255,196,64,0.28)"], [1, "rgba(255,196,64,0)"]]));
   for (i = 0; i < 16; i++) {
     a = (i / 16) * Math.PI * 2;
     ctx.save();
     ctx.rotate(a);
     ctx.beginPath();
-    ctx.moveTo(-17, -148); ctx.lineTo(17, -148); ctx.lineTo(0, -208);
-    ctx.closePath(); ctx.fill();
+    ctx.moveTo(-17, -146); ctx.lineTo(17, -146); ctx.lineTo(0, i % 2 ? -188 : -208);
+    ctx.closePath();
+    ctx.fillStyle = lg(ctx, 0, -140, 0, -208, [[0, pal.accent], [1, i % 2 ? pal.accent2 : shade(pal.accent, 0.35)]]);
+    ctx.fill();
     ctx.restore();
   }
-  circle(ctx, 0, 0, 150, rg(ctx, 0, 0, 150, [[0, pal.head], [0.75, pal.accent], [1, pal.accent2]]));
+  circle(ctx, 0, 0, 150, rg(ctx, -40, -50, 190, [[0, shade(pal.head, 0.25)], [0.55, pal.accent], [1, pal.accent2]]));
+  ctx.beginPath(); ctx.arc(0, 0, 128, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(255,255,255,0.4)"; ctx.lineWidth = 2.4; ctx.stroke();
   ctx.beginPath(); ctx.arc(0, 0, 116, 0, Math.PI * 2);
   ctx.fillStyle = pal.stops[1][1]; ctx.fill();
   ctx.beginPath(); ctx.arc(0, 0, 116, 0, Math.PI * 2);
   ctx.strokeStyle = pal.head; ctx.lineWidth = 3; ctx.stroke();
+  for (i = 0; i < 12; i++) {
+    a = (i / 12) * Math.PI * 2;
+    circle(ctx, Math.cos(a) * 98, Math.sin(a) * 98, 3.6, pal.head);
+  }
   drawDiya(ctx, 0, 14, 0.85);
 }
 function motifPeacock(ctx) {
   var i;
-  /* barbs */
-  ctx.strokeStyle = "rgba(46,125,50,0.6)"; ctx.lineWidth = 3;
-  for (i = 0; i < 13; i++) {
-    var t = i / 12, y0 = 96 - t * 150;
+  /* fine barbs, alternating greens with a teal sheen */
+  ctx.lineWidth = 2.2;
+  for (i = 0; i < 15; i++) {
+    var t = i / 14, y0 = 96 - t * 150;
+    ctx.strokeStyle = i % 2 ? "rgba(46,160,90,0.65)" : "rgba(20,130,110,0.6)";
     ctx.beginPath(); ctx.moveTo(3, y0); ctx.quadraticCurveTo(-52 - t * 22, y0 - 26, -84 - t * 10, y0 - 66); ctx.stroke();
     ctx.beginPath(); ctx.moveTo(3, y0); ctx.quadraticCurveTo(58 + t * 22, y0 - 26, 90 + t * 10, y0 - 66); ctx.stroke();
   }
-  /* shaft */
+  /* shaft with a golden gradient */
   ctx.beginPath(); ctx.moveTo(0, 196); ctx.quadraticCurveTo(10, 40, 4, -52);
-  ctx.strokeStyle = "#8a6d1f"; ctx.lineWidth = 6; ctx.stroke();
-  /* eye */
-  function eye(rx, ry, col) {
+  ctx.strokeStyle = lg(ctx, 0, 196, 0, -52, [[0, "#6d4c00"], [0.6, "#c9a227"], [1, "#8a6d1f"]]);
+  ctx.lineWidth = 6; ctx.stroke();
+  /* the eye: concentric gradient shells */
+  function eye(rx, ry, stops) {
     ctx.beginPath(); ctx.ellipse(4, -98, rx, ry, 0, 0, Math.PI * 2);
-    ctx.fillStyle = col; ctx.fill();
+    ctx.fillStyle = rg(ctx, 0, -120, ry * 1.5, stops); ctx.fill();
   }
-  eye(64, 90, "#0a9396");
-  eye(48, 70, "#2e9e4f");
-  eye(34, 52, "#1d4ed8");
-  eye(20, 32, "#7c2d12");
-  eye(11, 18, "#f0c040");
+  eye(64, 90, [[0, "#12b5a5"], [1, "#0a9396"]]);
+  eye(48, 70, [[0, "#4cc96f"], [1, "#2e9e4f"]]);
+  eye(34, 52, [[0, "#2f6fe4"], [1, "#1d4ed8"]]);
+  eye(20, 32, [[0, "#a8541e"], [1, "#7c2d12"]]);
+  eye(11, 18, [[0, "#ffe082"], [1, "#f0c040"]]);
+  circle(ctx, -2, -112, 5, "rgba(255,255,255,0.55)");
   ctx.beginPath(); ctx.ellipse(4, -98, 64, 90, 0, 0, Math.PI * 2);
-  ctx.strokeStyle = "rgba(240,192,64,0.8)"; ctx.lineWidth = 3; ctx.stroke();
+  ctx.strokeStyle = "rgba(240,192,64,0.85)"; ctx.lineWidth = 3; ctx.stroke();
 }
 function motifBells(ctx, pal) {
-  var dark = shade(pal.stops[1][1], -0.25);
-  /* beam */
-  ctx.fillStyle = dark;
+  var dark = shade(pal.stops[1][1], -0.3);
+  /* beam with a wood-metal gradient and finial studs */
+  ctx.fillStyle = lg(ctx, -196, -128, -196, -102, [[0, shade(pal.stops[1][1], 0.15)], [1, dark]]);
   ctx.fillRect(-196, -128, 392, 26);
   ctx.strokeStyle = pal.accent; ctx.lineWidth = 2.4;
   ctx.strokeRect(-196, -128, 392, 26);
-  circle(ctx, -196, -115, 9, pal.accent);
-  circle(ctx, 196, -115, 9, pal.accent);
+  circle(ctx, -196, -115, 9, rg(ctx, -199, -118, 10, [[0, "#ffe082"], [1, "#c99700"]]));
+  circle(ctx, 196, -115, 9, rg(ctx, 193, -118, 10, [[0, "#ffe082"], [1, "#c99700"]]));
   function bell(x, s) {
+    /* soft shadow under the bell */
+    ctx.save(); ctx.globalAlpha = 0.18;
+    ctx.beginPath(); ctx.ellipse(x, 64 * s, 40 * s, 7 * s, 0, 0, Math.PI * 2);
+    ctx.fillStyle = "#000000"; ctx.fill();
+    ctx.restore();
     ctx.strokeStyle = pal.frame; ctx.lineWidth = 3 * s;
     ctx.beginPath(); ctx.moveTo(x, -102); ctx.lineTo(x, -52 * s - 20); ctx.stroke();
     ctx.beginPath();
@@ -1522,29 +1823,37 @@ function motifBells(ctx, pal) {
     ctx.quadraticCurveTo(x + 30 * s, -44 * s, x + 32 * s, -8 * s);
     ctx.lineTo(x + 38 * s, 34 * s);
     ctx.closePath();
-    ctx.fillStyle = lg(ctx, x, -46 * s, x, 40 * s, [[0, "#ffd54f"], [1, "#c99700"]]);
+    ctx.fillStyle = lg(ctx, x - 38 * s, 0, x + 38 * s, 0, [[0, "#a87b00"], [0.3, "#ffd54f"], [0.5, "#ffecb3"], [0.75, "#e8b02a"], [1, "#a87b00"]]);
     ctx.fill();
-    ctx.fillStyle = "#a87b00";
+    ctx.save(); ctx.globalAlpha = 0.35;
+    ctx.beginPath(); ctx.ellipse(x - 14 * s, -6 * s, 7 * s, 30 * s, 0.15, 0, Math.PI * 2);
+    ctx.fillStyle = "#ffffff"; ctx.fill();
+    ctx.restore();
+    ctx.fillStyle = "#8a5a08";
     ctx.fillRect(x - 38 * s, 24 * s, 76 * s, 10 * s);
-    circle(ctx, x, 48 * s, 9 * s, "#6d4c00");
+    circle(ctx, x, 48 * s, 9 * s, rg(ctx, x - 3 * s, 45 * s, 10 * s, [[0, "#c99700"], [1, "#6d4c00"]]));
   }
   bell(-132, 0.88);
   bell(0, 1.1);
   bell(132, 0.88);
 }
-/* ---- Signature motifs for the new festivals (registered in MOTIF_PAINT,
-   used by festival defaults & gallery presets) ---- */
+/* ---- Signature motifs for the new festivals ---- */
 function goldCoin(ctx, x, y, r, symbol) {
-  circle(ctx, x, y, r, "#ffd54f");
+  circle(ctx, x, y, r, rg(ctx, x - r * 0.3, y - r * 0.35, r * 1.5, [[0, "#fff3b0"], [0.55, "#ffd54f"], [1, "#e0a916"]]));
   ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
   ctx.strokeStyle = "#b8860b"; ctx.lineWidth = Math.max(1.5, r * 0.14); ctx.stroke();
   ctx.beginPath(); ctx.arc(x, y, r * 0.66, 0, Math.PI * 2);
   ctx.strokeStyle = "rgba(184,134,11,0.75)"; ctx.lineWidth = Math.max(1, r * 0.09); ctx.stroke();
+  /* shine streak */
+  ctx.beginPath(); ctx.arc(x, y, r * 0.82, Math.PI * 1.05, Math.PI * 1.5);
+  ctx.strokeStyle = "rgba(255,255,255,0.75)"; ctx.lineWidth = Math.max(1.2, r * 0.12); ctx.stroke();
   if (symbol) {
-    ctx.fillStyle = "#8a5a08";
+    ctx.fillStyle = "rgba(255,246,200,0.8)";
     ctx.font = "bold " + Math.round(r * 1.05) + "px Georgia, serif";
     ctx.textAlign = "center"; ctx.textBaseline = "middle";
-    ctx.fillText("₹", x, y + r * 0.05);
+    ctx.fillText("₹", x, y + r * 0.02);
+    ctx.fillStyle = "#8a5a08";
+    ctx.fillText("₹", x, y + r * 0.07);
     ctx.textBaseline = "alphabetic";
   }
 }
@@ -1556,29 +1865,32 @@ function motifWealthPot(ctx, pal) {
   goldCoin(ctx, 54, -56, 29, false);
   goldCoin(ctx, -26, -92, 24, false);
   goldCoin(ctx, 28, -94, 23, false);
-  /* neck band */
-  ctx.fillStyle = "#c99700";
+  /* neck band: polished gold */
+  ctx.fillStyle = lg(ctx, -46, 0, 46, 0, [[0, "#8a5a08"], [0.3, "#f0c040"], [0.55, "#c99700"], [1, "#8a5a08"]]);
   ctx.fillRect(-46, -34, 92, 18);
-  ctx.fillStyle = "#f0c040";
-  ctx.fillRect(-46, -29, 92, 3);
-  /* pot body — golden urn */
+  ctx.fillStyle = "rgba(255,255,255,0.5)";
+  ctx.fillRect(-46, -30, 92, 2.6);
+  /* pot body: glossy golden urn */
   ctx.beginPath();
   ctx.moveTo(-46, -16);
   ctx.bezierCurveTo(-104, 20, -94, 80, -56, 118);
   ctx.bezierCurveTo(-28, 146, 28, 146, 56, 118);
   ctx.bezierCurveTo(94, 80, 104, 20, 46, -16);
   ctx.closePath();
-  ctx.fillStyle = lg(ctx, 0, -16, 0, 142, [[0, "#e8b02a"], [0.55, "#c07f10"], [1, "#8a5a08"]]);
+  ctx.fillStyle = lg(ctx, -90, 0, 90, 0, [[0, "#8a5a08"], [0.3, "#e8b02a"], [0.5, "#ffce54"], [0.75, "#c07f10"], [1, "#77500a"]]);
   ctx.fill();
+  ctx.save(); ctx.globalAlpha = 0.22;
+  ctx.beginPath(); ctx.ellipse(-32, 52, 14, 54, 0.25, 0, Math.PI * 2);
+  ctx.fillStyle = "#ffffff"; ctx.fill();
+  ctx.restore();
   ctx.strokeStyle = "#f0c040"; ctx.lineWidth = 2.4;
-  ctx.beginPath();
-  ctx.moveTo(-84, 46); ctx.quadraticCurveTo(0, 64, 84, 46); ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(-76, 84); ctx.quadraticCurveTo(0, 100, 76, 84); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-84, 46); ctx.quadraticCurveTo(0, 64, 84, 46); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(-76, 84); ctx.quadraticCurveTo(0, 100, 76, 84); ctx.stroke();
   goldCoin(ctx, 0, 66, 21, true);
-  /* base + spilled coins (kept high: lowest coin bottom = 153 local) */
+  /* base + spilled coins (lowest coin bottom = 153 local) */
   ctx.beginPath(); ctx.ellipse(0, 136, 58, 10, 0, 0, Math.PI * 2);
-  ctx.fillStyle = "#8a5a08"; ctx.fill();
+  ctx.fillStyle = lg(ctx, -58, 0, 58, 0, [[0, "#6d4c00"], [0.5, "#a87b00"], [1, "#6d4c00"]]);
+  ctx.fill();
   goldCoin(ctx, -118, 124, 22, true);
   goldCoin(ctx, -88, 136, 17, false);
   goldCoin(ctx, 112, 126, 20, false);
@@ -1586,26 +1898,32 @@ function motifWealthPot(ctx, pal) {
 }
 function motifGovardhan(ctx, pal) {
   var i;
-  /* the great hill */
+  /* the great hill: gradient rock-grass with speckle texture */
   ctx.beginPath();
   ctx.moveTo(-224, 138);
   ctx.bezierCurveTo(-190, 30, -130, -52, -52, -104);
   ctx.bezierCurveTo(-16, -128, 26, -128, 58, -100);
   ctx.bezierCurveTo(140, -40, 196, 40, 224, 138);
   ctx.closePath();
-  ctx.fillStyle = lg(ctx, 0, -128, 0, 140, [[0, "#5da24a"], [0.6, "#3d7a30"], [1, "#27591f"]]);
+  ctx.fillStyle = lg(ctx, 0, -128, 0, 140, [[0, "#79b657"], [0.45, "#4c8a3a"], [0.8, "#2f6624"], [1, "#27591f"]]);
   ctx.fill();
-  /* rocky shading + shrubs on the slopes */
+  ctx.save();
+  ctx.clip();
+  var speck = seededRand(9);
+  for (i = 0; i < 46; i++) {
+    var sx = -210 + speck() * 420, sy = -110 + speck() * 240;
+    circle(ctx, sx, sy, 2 + speck() * 3.4, speck() > 0.5 ? "rgba(255,255,220,0.20)" : "rgba(10,40,8,0.25)");
+  }
+  ctx.restore();
   var shrubs = [[-140, 8], [-84, -44], [24, -66], [104, -6], [156, 58], [-40, 44], [66, 40]];
   for (i = 0; i < shrubs.length; i++) {
     circle(ctx, shrubs[i][0], shrubs[i][1], 15, "rgba(20,60,16,0.35)");
-    circle(ctx, shrubs[i][0] - 8, shrubs[i][1] - 7, 9, "rgba(120,190,90,0.5)");
+    circle(ctx, shrubs[i][0] - 8, shrubs[i][1] - 7, 9, "rgba(140,205,105,0.55)");
   }
-  /* little trees */
   function tree(x, y, s) {
     ctx.fillStyle = "#5d3a12";
     ctx.fillRect(x - 3 * s, y, 6 * s, 20 * s);
-    circle(ctx, x, y - 12 * s, 17 * s, "#2e7d32");
+    circle(ctx, x, y - 12 * s, 17 * s, rg(ctx, x - 5 * s, y - 18 * s, 20 * s, [[0, "#66bb6a"], [1, "#2e7d32"]]));
     circle(ctx, x - 12 * s, y - 3 * s, 12 * s, "#388e3c");
     circle(ctx, x + 12 * s, y - 3 * s, 12 * s, "#43a047");
   }
@@ -1617,34 +1935,48 @@ function motifGovardhan(ctx, pal) {
   ctx.beginPath(); ctx.moveTo(4, -112); ctx.lineTo(4, -178); ctx.stroke();
   ctx.beginPath();
   ctx.moveTo(4, -178); ctx.lineTo(52, -164); ctx.lineTo(4, -150);
-  ctx.closePath(); ctx.fillStyle = "#ff7d00"; ctx.fill();
-  circle(ctx, 4, -182, 5, "#f0c040");
-  /* cow in front of the hill */
+  ctx.closePath();
+  ctx.fillStyle = lg(ctx, 4, -178, 52, -150, [[0, "#ff9a2e"], [1, "#f06400"]]);
+  ctx.fill();
+  circle(ctx, 4, -182, 5, rg(ctx, 2, -184, 6, [[0, "#ffe082"], [1, "#c99700"]]));
+  /* cow in front of the hill, softly shaded */
   ctx.save();
   ctx.translate(58, 96);
-  ctx.fillStyle = "#fff8ec";
+  ctx.save(); ctx.globalAlpha = 0.2;
+  ctx.beginPath(); ctx.ellipse(0, 40, 62, 6, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "#000000"; ctx.fill();
+  ctx.restore();
+  var cowGrad = lg(ctx, -60, -30, 40, 34, [[0, "#ffffff"], [0.6, "#fdf3da"], [1, "#e8d9b8"]]);
+  ctx.fillStyle = cowGrad;
   ctx.strokeStyle = "#d9cdb4"; ctx.lineWidth = 2.4;
   ctx.beginPath(); ctx.ellipse(0, 0, 58, 30, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
-  ctx.fillStyle = "#fff8ec";
+  ctx.save(); ctx.globalAlpha = 0.5;
+  ctx.beginPath(); ctx.ellipse(16, -6, 20, 13, 0.4, 0, Math.PI * 2);
+  ctx.fillStyle = "#e3cf9f"; ctx.fill();
+  ctx.restore();
+  ctx.fillStyle = cowGrad;
   ctx.fillRect(-46, 16, 10, 30); ctx.fillRect(30, 16, 10, 30);
   ctx.fillRect(-30, 16, 9, 30); ctx.fillRect(14, 16, 9, 30);
   ctx.beginPath(); ctx.ellipse(-66, -16, 20, 15, -0.35, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
   circle(ctx, -76, -22, 3.4, "#4a3220");
+  circle(ctx, -74, -23, 1.2, "#ffffff");
   ctx.beginPath(); ctx.ellipse(-50, -28, 10, 5, -0.7, 0, Math.PI * 2);
   ctx.fillStyle = "#f3e3c2"; ctx.fill();
   ctx.beginPath(); ctx.moveTo(56, -14);
   ctx.quadraticCurveTo(72, 8, 64, 34);
   ctx.strokeStyle = "#e8dcc2"; ctx.lineWidth = 4.5; ctx.stroke();
-  circle(ctx, -6, 8, 6, "#f0c040"); /* bell */
+  circle(ctx, -6, 8, 6, rg(ctx, -8, 6, 7, [[0, "#ffe082"], [1, "#c99700"]])); /* bell */
   ctx.restore();
 }
 function motifThali(ctx, pal) {
-  /* the great plate */
+  /* the great plate: glossy radial gold */
   ctx.beginPath(); ctx.ellipse(0, 52, 208, 86, 0, 0, Math.PI * 2);
-  ctx.fillStyle = lg(ctx, 0, -30, 0, 140, [[0, "#ffd54f"], [1, "#c07f10"]]);
+  ctx.fillStyle = rg(ctx, -40, 6, 240, [[0, "#ffe082"], [0.5, "#f0c040"], [1, "#b57f10"]]);
   ctx.fill();
   ctx.beginPath(); ctx.ellipse(0, 52, 208, 86, 0, 0, Math.PI * 2);
   ctx.strokeStyle = "#8a5a08"; ctx.lineWidth = 3; ctx.stroke();
+  ctx.beginPath(); ctx.ellipse(0, 40, 196, 78, 0, Math.PI * 1.08, Math.PI * 1.62);
+  ctx.strokeStyle = "rgba(255,255,255,0.5)"; ctx.lineWidth = 4; ctx.stroke();
   ctx.beginPath(); ctx.ellipse(0, 52, 172, 64, 0, 0, Math.PI * 2);
   ctx.fillStyle = lg(ctx, 0, -10, 0, 118, [[0, "#f7cd54"], [1, "#d99a17"]]);
   ctx.fill();
@@ -1658,12 +1990,13 @@ function motifThali(ctx, pal) {
   ctx.quadraticCurveTo(-132, 66, -104, 68);
   ctx.quadraticCurveTo(-76, 66, -68, 34);
   ctx.closePath();
-  ctx.fillStyle = lg(ctx, -104, 34, -104, 68, [[0, "#c99700"], [1, "#8a5a08"]]);
+  ctx.fillStyle = lg(ctx, -140, 0, -68, 0, [[0, "#8a5a08"], [0.4, "#e8b02a"], [1, "#8a5a08"]]);
   ctx.fill();
   ctx.beginPath(); ctx.ellipse(-104, 34, 36, 10, 0, 0, Math.PI * 2);
   ctx.fillStyle = "#8a5a08"; ctx.fill();
   ctx.beginPath(); ctx.ellipse(-104, 33, 30, 8, 0, 0, Math.PI * 2);
-  ctx.fillStyle = "#c1272d"; ctx.fill();
+  ctx.fillStyle = rg(ctx, -112, 30, 30, [[0, "#e0503c"], [1, "#a31616"]]);
+  ctx.fill();
   circle(ctx, -104, 26, 9, "#e0333d");
   /* haldi bowl (right-back) */
   ctx.beginPath();
@@ -1671,16 +2004,17 @@ function motifThali(ctx, pal) {
   ctx.quadraticCurveTo(82, 22, 102, 24);
   ctx.quadraticCurveTo(122, 22, 128, -2);
   ctx.closePath();
-  ctx.fillStyle = lg(ctx, 102, -2, 102, 24, [[0, "#c99700"], [1, "#8a5a08"]]);
+  ctx.fillStyle = lg(ctx, 76, 0, 128, 0, [[0, "#8a5a08"], [0.4, "#e8b02a"], [1, "#8a5a08"]]);
   ctx.fill();
   ctx.beginPath(); ctx.ellipse(102, -2, 26, 7.5, 0, 0, Math.PI * 2);
-  ctx.fillStyle = "#ffb300"; ctx.fill();
+  ctx.fillStyle = rg(ctx, 96, -5, 24, [[0, "#ffca28"], [1, "#e09c00"]]);
+  ctx.fill();
   /* ladoos (right-front) */
   function ladoo(x, y, r) {
-    circle(ctx, x, y, r, "#f59e0b");
-    circle(ctx, x - r * 0.3, y - r * 0.3, r * 0.22, "#fbbf24");
-    circle(ctx, x + r * 0.25, y + r * 0.1, r * 0.16, "#d97706");
-    circle(ctx, x + r * 0.05, y - r * 0.45, r * 0.13, "#d97706");
+    circle(ctx, x, y, r, rg(ctx, x - r * 0.35, y - r * 0.4, r * 1.5, [[0, "#fbbf24"], [1, "#d97706"]]));
+    circle(ctx, x - r * 0.3, y - r * 0.3, r * 0.22, "rgba(255,240,200,0.8)");
+    circle(ctx, x + r * 0.25, y + r * 0.1, r * 0.16, "#b45309");
+    circle(ctx, x + r * 0.05, y - r * 0.45, r * 0.13, "#b45309");
   }
   ladoo(112, 62, 21);
   ladoo(148, 74, 18);
@@ -1708,14 +2042,21 @@ function motifSunRiver(ctx, pal) {
     ctx.rotate(a + Math.PI / 2);
     ctx.beginPath();
     ctx.moveTo(-10, -14); ctx.lineTo(10, -14); ctx.lineTo(0, 16);
-    ctx.closePath(); ctx.fillStyle = pal.accent; ctx.fill();
+    ctx.closePath();
+    ctx.fillStyle = lg(ctx, 0, -14, 0, 16, [[0, shade(pal.accent, 0.3)], [1, pal.accent]]);
+    ctx.fill();
     ctx.restore();
   }
-  circle(ctx, 0, -34, 118, rg(ctx, 0, -60, 118, [[0, "#ffe082"], [0.65, "#ffb703"], [1, "#fb8500"]]));
+  circle(ctx, 0, -34, 118, rg(ctx, -30, -70, 140, [[0, "#ffecb3"], [0.5, "#ffb703"], [1, "#fb8500"]]));
   ctx.beginPath(); ctx.arc(0, -34, 118, 0, Math.PI * 2);
   ctx.strokeStyle = "rgba(255,240,200,0.85)"; ctx.lineWidth = 3; ctx.stroke();
-  /* river waves */
-  var waveCols = ["rgba(186,230,253,0.95)", "rgba(125,211,252,0.9)", "rgba(56,150,220,0.85)", "rgba(30,110,190,0.8)"];
+  /* sun reflection column on the water */
+  ctx.save(); ctx.globalAlpha = 0.5;
+  ctx.fillStyle = lg(ctx, 0, 52, 0, 158, [[0, "rgba(255,190,60,0.85)"], [1, "rgba(255,190,60,0)"]]);
+  ctx.fillRect(-38, 52, 76, 106);
+  ctx.restore();
+  /* river waves with a light-to-deep gradient */
+  var waveCols = ["rgba(224,242,254,0.95)", "rgba(125,211,252,0.9)", "rgba(56,150,220,0.85)", "rgba(30,110,190,0.8)"];
   for (var w = 0; w < 4; w++) {
     var baseY = 66 + w * 30;
     ctx.beginPath();
@@ -1727,7 +2068,7 @@ function motifSunRiver(ctx, pal) {
   }
   /* sun shimmer on the water */
   ctx.fillStyle = "rgba(255,205,80,0.75)";
-  var shim = [[-34, 78, 68], [-22, 106, 46], [-28, 134, 54], [-14, 160, 34]];
+  var shim = [[-34, 74, 68], [-22, 100, 46], [-28, 124, 54], [-14, 144, 34]];
   for (i = 0; i < shim.length; i++) ctx.fillRect(shim[i][0], shim[i][1], shim[i][2], 6);
   /* soop — the woven offering basket, front centre */
   ctx.save();
@@ -1735,7 +2076,7 @@ function motifSunRiver(ctx, pal) {
   ctx.beginPath();
   ctx.moveTo(-88, -16); ctx.lineTo(88, -16); ctx.lineTo(58, 46); ctx.lineTo(-58, 46);
   ctx.closePath();
-  ctx.fillStyle = lg(ctx, 0, -16, 0, 46, [[0, "#d9a44e"], [1, "#a86f24"]]);
+  ctx.fillStyle = lg(ctx, -80, 0, 80, 0, [[0, "#a86f24"], [0.35, "#e8b95e"], [0.7, "#c98f36"], [1, "#8a5a1a"]]);
   ctx.fill();
   ctx.strokeStyle = "rgba(110,66,10,0.65)"; ctx.lineWidth = 2;
   ctx.beginPath(); ctx.moveTo(-80, 2); ctx.lineTo(80, 2); ctx.stroke();
@@ -1746,11 +2087,9 @@ function motifSunRiver(ctx, pal) {
   ctx.beginPath(); ctx.ellipse(0, -16, 88, 15, 0, 0, Math.PI * 2);
   ctx.strokeStyle = "#7a4d10"; ctx.lineWidth = 2.4; ctx.stroke();
   /* offerings on the soop: fruits + marigold */
-  circle(ctx, -38, -34, 19, "#fb8c00");
-  circle(ctx, -44, -40, 6, "rgba(255,255,255,0.35)");
-  circle(ctx, 6, -40, 21, "#8bc34a");
-  circle(ctx, 0, -46, 6, "rgba(255,255,255,0.35)");
-  circle(ctx, 44, -32, 17, "#6d3b12");
+  circle(ctx, -38, -34, 19, rg(ctx, -45, -41, 22, [[0, "#ffb74d"], [1, "#ef6c00"]]));
+  circle(ctx, 6, -40, 21, rg(ctx, -1, -47, 24, [[0, "#aed581"], [1, "#689f38"]]));
+  circle(ctx, 44, -32, 17, rg(ctx, 38, -38, 19, [[0, "#8a5a2e"], [1, "#5d3a12"]]));
   circle(ctx, -4, -22, 11, "#ffb300");
   circle(ctx, -16, -16, 8, "#fb8c00");
   ctx.restore();
@@ -1777,7 +2116,7 @@ var MOTIF_PAINT = {
    recipient eyebrow (424). Verified geometrically in the test harness. */
 var MOTIF_FIT = {
   "big-rangoli": 0.64, "bow-arrow": 0.90, "kalash": 0.94, "fireworks": 0.87,
-  "lamp-string": 0.41, "sun-medallion": 0.68, "peacock-feather": 0.72,
+  "lamp-string": 0.90, "sun-medallion": 0.68, "peacock-feather": 0.72,
   "wealth-pot": 0.92, "sun-river": 0.85
 };
 /* arrangement: list of [cx, cy, scale, rotation] in design px */
@@ -1787,9 +2126,34 @@ var ARRANGE_SPOTS = {
   "sides": [[178, 252, 0.46, 0], [902, 252, 0.46, 0]],
   "scatter": [[540, 252, 0.60, 0], [200, 158, 0.36, -0.12], [880, 158, 0.36, 0.12]]
 };
-function drawMotifArranged(ctx, S, u, pal, motifId, arrangeId) {
+/* Motif placement per layout (design px): [cx, cy, scale, rotation].
+   Classic reuses ARRANGE_SPOTS. Every layout keeps the motif inside its
+   own zone, clear of that layout's text block (verified in the harness). */
+var LAYOUT_SPOTS = {
+  "classic": ARRANGE_SPOTS,
+  "top-band": {
+    "centre": [[540, 212, 0.62, 0]],
+    "top": [[540, 206, 0.46, 0]],
+    "sides": [[302, 212, 0.44, 0], [778, 212, 0.44, 0]],
+    "scatter": [[540, 224, 0.52, 0], [218, 166, 0.34, -0.12], [862, 166, 0.34, 0.12]]
+  },
+  "split": {
+    "centre": [[282, 440, 0.72, 0]],
+    "top": [[282, 300, 0.55, 0]],
+    "sides": [[282, 290, 0.5, 0], [282, 620, 0.5, 0]],
+    "scatter": [[282, 440, 0.6, 0], [140, 180, 0.32, -0.12], [170, 770, 0.32, 0.12]]
+  },
+  "minimal": {
+    "centre": [[540, 208, 0.44, 0]],
+    "top": [[540, 196, 0.36, 0]],
+    "sides": [[372, 208, 0.32, 0], [708, 208, 0.32, 0]],
+    "scatter": [[540, 222, 0.38, 0], [322, 170, 0.27, -0.12], [758, 170, 0.27, 0.12]]
+  }
+};
+function drawMotifArranged(ctx, S, u, pal, motifId, arrangeId, layoutId) {
   var paint = MOTIF_PAINT[motifId] || motifDiyaPair;
-  var spots = ARRANGE_SPOTS[arrangeId] || ARRANGE_SPOTS.centre;
+  var table = LAYOUT_SPOTS[layoutId || "classic"] || ARRANGE_SPOTS;
+  var spots = table[arrangeId] || ARRANGE_SPOTS[arrangeId] || ARRANGE_SPOTS.centre;
   var fit = MOTIF_FIT[motifId] || 1;
   for (var i = 0; i < spots.length; i++) {
     ctx.save();
@@ -1802,19 +2166,27 @@ function drawMotifArranged(ctx, S, u, pal, motifId, arrangeId) {
 }
 
 /* ============================== CARD TEXT ============================== */
-function drawHeadline(ctx, cx, y, u, text, pal, hf, S) {
-  ctx.fillStyle = pal.head;
+function drawHeadline(ctx, cx, y, u, text, pal, hf, maxW, scale) {
   var boost = hasDev(text) ? 0.9 : (hf.boost || 1);
-  fitSize(ctx, text, hf.weight, stackFor(text, hf.stack), S - 120 * u, 99 * u * boost, hf.italic);
-  ctx.shadowColor = "rgba(0,0,0,0.25)"; ctx.shadowBlur = 6 * u; ctx.shadowOffsetY = 3 * u;
+  var sz = fitSize(ctx, text, hf.weight, stackFor(text, hf.stack), maxW, 99 * u * boost * (scale || 1), hf.italic);
+  /* shimmering gold gradient with a soft drop shadow */
+  var g = ctx.createLinearGradient(0, y - sz * 0.95, 0, y + sz * 0.25);
+  g.addColorStop(0, shade(pal.head, 0.45));
+  g.addColorStop(0.5, pal.head);
+  g.addColorStop(1, pal.accent);
+  ctx.fillStyle = g;
+  ctx.shadowColor = "rgba(0,0,0,0.32)"; ctx.shadowBlur = 8 * u; ctx.shadowOffsetY = 3 * u;
   ctx.fillText(text, cx, y);
   ctx.shadowColor = "transparent"; ctx.shadowBlur = 0; ctx.shadowOffsetY = 0;
 }
-function drawDivider(ctx, cx, y, u, pal) {
+function drawDivider(ctx, cx, y, u, pal, half) {
+  half = half || 130 * u;
+  ctx.save();
+  ctx.shadowColor = pal.accent; ctx.shadowBlur = 7 * u;
   ctx.strokeStyle = pal.accent; ctx.lineWidth = 2.4 * u;
-  ctx.beginPath(); ctx.moveTo(cx - 130 * u, y); ctx.lineTo(cx - 26 * u, y); ctx.stroke();
-  ctx.beginPath(); ctx.moveTo(cx + 26 * u, y); ctx.lineTo(cx + 130 * u, y); ctx.stroke();
-  ctx.save(); ctx.translate(cx, y); ctx.rotate(Math.PI / 4);
+  ctx.beginPath(); ctx.moveTo(cx - half, y); ctx.lineTo(cx - 26 * u, y); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx + 26 * u, y); ctx.lineTo(cx + half, y); ctx.stroke();
+  ctx.translate(cx, y); ctx.rotate(Math.PI / 4);
   ctx.fillStyle = pal.accent; ctx.fillRect(-9 * u, -9 * u, 18 * u, 18 * u);
   ctx.restore();
 }
@@ -1838,9 +2210,15 @@ function splitNameTwoLines(ctx, name, nf, stack, maxW, startSize) {
   return { lines: best, size: size };
 }
 /* The recipient's name, BIG: palette-bright fill, soft gold glow, underline
-   flourish. Returns the y just under the flourish. */
-function drawBigRecipient(ctx, S, u, data, pal, nf) {
-  var cx = S / 2;
+   flourish. Geometry is parametrized per layout; classic values reproduce
+   the original card exactly. Returns the y just under the flourish. */
+function drawBigRecipient(ctx, S, u, data, pal, nf, o) {
+  o = o || {};
+  var cx = o.cx != null ? o.cx : S / 2;
+  var eyebrowY = o.eyebrowY != null ? o.eyebrowY : 424 * u;
+  var startPx = o.startSize != null ? o.startSize : 108;
+  var twoPx = o.twoStart != null ? o.twoStart : 92;
+  var maxW = o.maxW != null ? o.maxW : S - 140 * u;
   var name = data.to;
   var stack = stackFor(name, nf.stack);
   var boost = hasDev(name) ? 1 : (nf.boost || 1);
@@ -1848,17 +2226,16 @@ function drawBigRecipient(ctx, S, u, data, pal, nf) {
   ctx.fillStyle = pal.accent;
   var eb = data.lang === "hi" ? "शुभकामनाओं सहित, प्रिय" : "— WITH WARM WISHES TO —";
   ctx.font = fontSpec("700", 25 * u, stackFor(eb, SANS));
-  ctx.fillText(eb, cx, 424 * u);
+  ctx.fillText(eb, cx, eyebrowY);
   /* size: start large; drop to two lines when one line would shrink too far */
-  var maxW = S - 140 * u;
-  var size = fitSize(ctx, name, nf.weight, stack, maxW, 108 * u * boost, nf.italic);
+  var size = fitSize(ctx, name, nf.weight, stack, maxW, startPx * u * boost, nf.italic);
   var lines = [name];
   if (size < 62 * u && name.indexOf(" ") > 0) {
-    var two = splitNameTwoLines(ctx, name, nf, stack, maxW, 92 * u * boost);
+    var two = splitNameTwoLines(ctx, name, nf, stack, maxW, twoPx * u * boost);
     if (two) { lines = two.lines; size = two.size; }
   }
   ctx.font = fontSpec(nf.weight, size, stack, nf.italic);
-  var y = 424 * u + 30 * u + size;
+  var y = eyebrowY + 30 * u + size;
   ctx.fillStyle = pal.head;
   ctx.shadowColor = pal.accent; ctx.shadowBlur = 15 * u;
   var widest = 0;
@@ -1874,7 +2251,7 @@ function drawBigRecipient(ctx, S, u, data, pal, nf) {
   ctx.shadowColor = "transparent"; ctx.shadowBlur = 0;
   var lastBase = y - size * 1.07;
   /* underline flourish: gold rule, centre diamond, end dots */
-  var half = Math.min(widest / 2 + 30 * u, S / 2 - 56 * u);
+  var half = Math.min(widest / 2 + 30 * u, Math.min(cx, S - cx) - 56 * u);
   var fy = lastBase + 32 * u;
   ctx.strokeStyle = pal.accent; ctx.lineWidth = 3.2 * u;
   ctx.beginPath(); ctx.moveTo(cx - half, fy); ctx.lineTo(cx - 20 * u, fy); ctx.stroke();
@@ -1887,12 +2264,13 @@ function drawBigRecipient(ctx, S, u, data, pal, nf) {
   return fy;
 }
 /* Wish message that steps its size down so it never runs into the signature */
-function drawMessageBlock(ctx, S, u, cx, text, startY, limitY) {
-  var sizes = [[36, 50], [33, 46], [30, 43]];
+function drawMessageBlock(ctx, S, u, cx, text, startY, limitY, maxW, sizes) {
+  sizes = sizes || [[36, 50], [33, 46], [30, 43]];
+  maxW = maxW || (S - 200 * u);
   for (var k = 0; k < sizes.length; k++) {
     var fs = sizes[k][0] * u, lh = sizes[k][1] * u;
     ctx.font = fontSpec("400", fs, stackFor(text, SANS));
-    var lines = wrapText(ctx, text, S - 200 * u);
+    var lines = wrapText(ctx, text, maxW);
     var maxLines = Math.max(1, Math.floor((limitY - startY) / lh) + 1);
     if (lines.length <= maxLines || k === sizes.length - 1) {
       var y = startY;
@@ -1903,49 +2281,91 @@ function drawMessageBlock(ctx, S, u, cx, text, startY, limitY) {
     }
   }
 }
+/* Sub-line: letter-spaced small caps (Latin) for a modern type hierarchy */
+function drawSubLine(ctx, cx, y, u, text, pal, maxW, size) {
+  var disp = hasDev(text) ? text : text.toUpperCase();
+  ctx.fillStyle = pal.sub;
+  fitSize(ctx, disp, "600", stackFor(disp, SERIF), maxW, size);
+  try { ctx.letterSpacing = (2.2 * u) + "px"; } catch (e) {}
+  ctx.fillText(disp, cx, y);
+  try { ctx.letterSpacing = "0px"; } catch (e) {}
+}
+function drawPlainMessage(ctx, cx, text, startY, u, maxW, fontSize, lh, maxLines) {
+  ctx.font = fontSpec("400", fontSize, stackFor(text, SANS));
+  var lines = wrapText(ctx, text, maxW);
+  var y = startY;
+  for (var i = 0; i < lines.length && i < maxLines; i++) { ctx.fillText(lines[i], cx, y); y += lh; }
+}
 function drawCardText(ctx, S, u, fest, data, pal, combo) {
-  var cx = S / 2;
+  var L = combo.layout || "classic";
   var hf = byId(HFONTS, combo.hfont), nf = byId(NFONTS, combo.nfont);
   var ft = festText(fest, data.lang);
   ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
+  if (L === "split") {
+    /* Split Modern: motif owns the left column, text the right */
+    var cxS = 742 * u, TW = 556 * u;
+    if (data.to) {
+      var fyS = drawBigRecipient(ctx, S, u, data, pal, nf, { cx: cxS, eyebrowY: 398 * u, startSize: 94, twoStart: 84, maxW: TW - 40 * u });
+      var yS = fyS + 82 * u;
+      drawHeadline(ctx, cxS, yS, u, ft.headline, pal, hf, TW - 40 * u, 0.9);
+      yS += 50 * u; drawSubLine(ctx, cxS, yS, u, ft.sub, pal, TW - 30 * u, 36 * u);
+      yS += 30 * u; drawDivider(ctx, cxS, yS, u, pal, 100 * u);
+      ctx.fillStyle = pal.body;
+      drawMessageBlock(ctx, S, u, cxS, data.message, yS + 46 * u, 876 * u, TW - 70 * u, null);
+    } else {
+      drawHeadline(ctx, cxS, 472 * u, u, ft.headline, pal, hf, TW - 40 * u, 0.9);
+      drawSubLine(ctx, cxS, 528 * u, u, ft.sub, pal, TW - 30 * u, 38 * u);
+      drawDivider(ctx, cxS, 568 * u, u, pal, 100 * u);
+      ctx.fillStyle = pal.body;
+      drawPlainMessage(ctx, cxS, data.message, 620 * u, u, TW - 70 * u, 36 * u, 51 * u, 5);
+    }
+    drawSignature(ctx, S, u, data, pal, nf, cxS);
+    return;
+  }
+  if (L === "minimal") {
+    /* Minimal Premium: small motif, oversized headline, breathing room */
+    if (data.to) {
+      var fyM = drawBigRecipient(ctx, S, u, data, pal, nf, { cx: S / 2, eyebrowY: 452 * u, startSize: 104, twoStart: 90, maxW: S - 140 * u });
+      var yM = fyM + 92 * u;
+      drawHeadline(ctx, S / 2, yM, u, ft.headline, pal, hf, S - 120 * u, 1.28);
+      yM += 56 * u; drawSubLine(ctx, S / 2, yM, u, ft.sub, pal, S - 150 * u, 38 * u);
+      yM += 34 * u; drawDivider(ctx, S / 2, yM, u, pal, 130 * u);
+      ctx.fillStyle = pal.body;
+      drawMessageBlock(ctx, S, u, S / 2, data.message, yM + 48 * u, 892 * u, S - 320 * u, [[35, 50], [32, 46], [29, 42]]);
+    } else {
+      drawHeadline(ctx, S / 2, 598 * u, u, ft.headline, pal, hf, S - 120 * u, 1.28);
+      drawSubLine(ctx, S / 2, 666 * u, u, ft.sub, pal, S - 150 * u, 40 * u);
+      drawDivider(ctx, S / 2, 710 * u, u, pal, 130 * u);
+      ctx.fillStyle = pal.body;
+      drawMessageBlock(ctx, S, u, S / 2, data.message, 760 * u, 892 * u, S - 320 * u, [[35, 52], [32, 48], [29, 44]]);
+    }
+    drawSignature(ctx, S, u, data, pal, nf, S / 2);
+    return;
+  }
+  /* classic & top-band share the centred flow (top-band starts lower) */
+  var band = (L === "top-band");
   if (data.to) {
-    /* ---- layout WITH recipient: the name, big and glowing, up top ---- */
-    var fy = drawBigRecipient(ctx, S, u, data, pal, nf);
+    var fy = drawBigRecipient(ctx, S, u, data, pal, nf, { cx: S / 2, eyebrowY: (band ? 430 : 424) * u, startSize: band ? 100 : 108, twoStart: band ? 88 : 92, maxW: S - 140 * u });
     var y = fy + 88 * u;
-    drawHeadline(ctx, cx, y, u, ft.headline, pal, hf, S);
-    y += 54 * u;
-    ctx.fillStyle = pal.sub;
-    fitSize(ctx, ft.sub, "600", stackFor(ft.sub, SERIF), S - 150 * u, 40 * u);
-    ctx.fillText(ft.sub, cx, y);
-    y += 32 * u;
-    drawDivider(ctx, cx, y, u, pal);
+    drawHeadline(ctx, S / 2, y, u, ft.headline, pal, hf, S - 120 * u, 1);
+    y += 54 * u; drawSubLine(ctx, S / 2, y, u, ft.sub, pal, S - 150 * u, 40 * u);
+    y += 32 * u; drawDivider(ctx, S / 2, y, u, pal, 130 * u);
     ctx.fillStyle = pal.body;
-    /* message must end well above the signature (limit 876, sig at 970):
-       clear breathing space between the wish and the From line */
-    drawMessageBlock(ctx, S, u, cx, data.message, y + 50 * u, 876 * u);
+    drawMessageBlock(ctx, S, u, S / 2, data.message, y + 50 * u, 876 * u, S - 200 * u, null);
   } else {
-    /* ---- original layout (no recipient) ---- */
-    var y2 = 462 * u;
-    drawHeadline(ctx, cx, y2, u, ft.headline, pal, hf, S);
-    y2 += 62 * u;
-    ctx.fillStyle = pal.sub;
-    fitSize(ctx, ft.sub, "600", stackFor(ft.sub, SERIF), S - 150 * u, 42 * u);
-    ctx.fillText(ft.sub, cx, y2);
-    y2 += 42 * u;
-    drawDivider(ctx, cx, y2, u, pal);
+    var y2 = (band ? 518 : 462) * u;
+    drawHeadline(ctx, S / 2, y2, u, ft.headline, pal, hf, S - 120 * u, 1);
+    y2 += 62 * u; drawSubLine(ctx, S / 2, y2, u, ft.sub, pal, S - 150 * u, 42 * u);
+    y2 += 42 * u; drawDivider(ctx, S / 2, y2, u, pal, 130 * u);
     y2 += 56 * u;
     ctx.fillStyle = pal.body;
-    ctx.font = fontSpec("400", 38 * u, stackFor(data.message, SANS));
-    var lines = wrapText(ctx, data.message, S - 200 * u);
-    var lh = 53 * u;
-    for (var i = 0; i < lines.length && i < 5; i++) {
-      ctx.fillText(lines[i], cx, y2); y2 += lh;
-    }
+    drawPlainMessage(ctx, S / 2, data.message, y2, u, S - 200 * u, 38 * u, 53 * u, 5);
   }
-  drawSignature(ctx, S, u, data, pal, nf);
+  drawSignature(ctx, S, u, data, pal, nf, S / 2);
 }
-function drawSignature(ctx, S, u, data, pal, nf) {
+function drawSignature(ctx, S, u, data, pal, nf, sigCx) {
   var cx = S / 2;
+  var scx = sigCx != null ? sigCx : cx;
   ctx.textAlign = "center"; ctx.textBaseline = "alphabetic";
   /* signature — the visitor's name, in the chosen name style */
   var from = data.from || "Your Name";
@@ -1959,13 +2379,13 @@ function drawSignature(ctx, S, u, data, pal, nf) {
     ctx.font = fontSpec(nf.weight, sigSize, sigStack, nf.italic);
     ctx.lineWidth = Math.max(1.2, 1.7 * u);
     ctx.strokeStyle = pal.accent;
-    ctx.strokeText(sig, cx, 970 * u);
+    ctx.strokeText(sig, scx, 970 * u);
     ctx.save(); ctx.globalAlpha = 0.16; ctx.fillStyle = pal.head;
-    ctx.fillText(sig, cx, 970 * u);
+    ctx.fillText(sig, scx, 970 * u);
     ctx.restore();
   } else {
     ctx.fillStyle = pal.head;
-    ctx.fillText(sig, cx, 970 * u);
+    ctx.fillText(sig, scx, 970 * u);
   }
   /* tiny credit line on the card */
   ctx.fillStyle = pal.accent;
@@ -1980,24 +2400,40 @@ function drawCard(ctx, S, festKey, combo, data) {
   var fest = FESTIVALS[festKey];
   var pal = byId(PALETTES, combo.theme);
   var u = S / 1080;
+  var layout = combo.layout || "classic";
+  var isPhoto = typeof combo.bg === "string" && combo.bg.indexOf("photo-") === 0;
   ctx.save();
-  drawBackground(ctx, S, u, pal, combo.bg);
+  drawBackground(ctx, S, u, pal, combo.bg, festKey);
+  if (!isPhoto) drawPremiumFinish(ctx, S, u, pal);
+  if (layout === "top-band") drawTopBand(ctx, S, u, pal, isPhoto);
   drawOverlay(ctx, S, u, pal, combo.overlay);
-  drawMotifArranged(ctx, S, u, pal, combo.motif, combo.arrange);
+  /* photo cards keep clean typography (no motif) — except Minimal, whose
+     small motif accent sits above the photo like a logo mark */
+  if (!isPhoto || layout === "minimal") {
+    drawMotifArranged(ctx, S, u, pal, combo.motif, combo.arrange, layout);
+  }
   drawBorder(ctx, S, u, pal, combo.border);
-  drawCardText(ctx, S, u, fest, data, pal, combo);
+  if (layout === "minimal") {
+    ctx.save();
+    ctx.strokeStyle = pal.frame; ctx.globalAlpha = 0.85; ctx.lineWidth = 1.6 * u;
+    ctx.strokeRect(30 * u, 30 * u, S - 60 * u, S - 60 * u);
+    ctx.globalAlpha = 0.4;
+    ctx.strokeRect(40 * u, 40 * u, S - 80 * u, S - 80 * u);
+    ctx.restore();
+  }
+  drawCardText(ctx, S, u, fest, data, isPhoto ? photoTextPal(pal) : pal, combo);
   ctx.restore();
 }
 
 /* ============================== UI WIRING ============================== */
 var DEFAULT_COMBOS = {
-  dussehra: { theme: "royal-gold", bg: "sunburst", border: "toran", motif: "bow-arrow", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", msg: 0 },
-  dhanteras: { theme: "choco-gold", bg: "radial-glow", border: "gold-frame", motif: "wealth-pot", arrange: "centre", overlay: "bokeh-glow", hfont: "royal-display", nfont: "classic-italic", msg: 0 },
-  choti: { theme: "sunset-orange", bg: "radial-glow", border: "diya-row", motif: "diya-pair", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", msg: 0 },
-  diwali: { theme: "midnight-blue", bg: "radial-glow", border: "diya-row", motif: "diya-pair", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", msg: 0 },
-  govardhan: { theme: "emerald", bg: "soft-waves", border: "leaf-vine", motif: "govardhan-hill", arrange: "centre", overlay: "falling-petals", hfont: "elegant-serif", nfont: "classic-italic", msg: 0 },
-  bhaidooj: { theme: "rose-pink", bg: "radial-glow", border: "rangoli-corners", motif: "puja-thali", arrange: "centre", overlay: "falling-petals", hfont: "festive-script", nfont: "script", msg: 0 },
-  chhath: { theme: "coral-sunset", bg: "soft-waves", border: "marigold-strands", motif: "sun-river", arrange: "centre", overlay: "none", hfont: "elegant-serif", nfont: "elegant-serif", msg: 0 }
+  dussehra: { theme: "royal-gold", bg: "photo-1", border: "toran", motif: "bow-arrow", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", layout: "classic", msg: 0 },
+  dhanteras: { theme: "choco-gold", bg: "photo-1", border: "gold-frame", motif: "wealth-pot", arrange: "centre", overlay: "bokeh-glow", hfont: "royal-display", nfont: "classic-italic", layout: "classic", msg: 0 },
+  choti: { theme: "sunset-orange", bg: "photo-1", border: "diya-row", motif: "diya-pair", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", layout: "classic", msg: 0 },
+  diwali: { theme: "midnight-blue", bg: "photo-1", border: "diya-row", motif: "diya-pair", arrange: "centre", overlay: "sparkle-dust", hfont: "elegant-serif", nfont: "elegant-serif", layout: "classic", msg: 0 },
+  govardhan: { theme: "emerald", bg: "photo-1", border: "leaf-vine", motif: "govardhan-hill", arrange: "centre", overlay: "falling-petals", hfont: "elegant-serif", nfont: "classic-italic", layout: "classic", msg: 0 },
+  bhaidooj: { theme: "rose-pink", bg: "photo-1", border: "rangoli-corners", motif: "puja-thali", arrange: "centre", overlay: "falling-petals", hfont: "festive-script", nfont: "script", layout: "classic", msg: 0 },
+  chhath: { theme: "coral-sunset", bg: "photo-1", border: "marigold-strands", motif: "sun-river", arrange: "centre", overlay: "none", hfont: "elegant-serif", nfont: "elegant-serif", layout: "classic", msg: 0 }
 };
 var state = {
   fest: "dussehra",
@@ -2046,10 +2482,10 @@ function renderComboBanner() {
   }).join("  ·  ");
   el("comboBreak").textContent =
     FESTIVALS[state.fest].label + " alone has " + indianFormat(poolCombos(state.fest)) +
-    " designs from its OWN theme family (" + p.themes.length + " colour themes × " + p.bgs.length +
-    " backgrounds × " + p.borders.length + " frames × " + p.motifs.length + " motifs × " +
+    " designs from its OWN theme family (" + p.themes.length + " colour themes × " +
+    (p.bgs.length + (FEST_PHOTOS[state.fest] || []).length) + " backgrounds (incl. real photo backdrops) × " + p.borders.length + " frames × " + p.motifs.length + " motifs × " +
     p.arranges.length + " arrangements × " + p.overlays.length + " overlays × " + p.hfonts.length +
-    " headline styles × " + p.nfonts.length + " name styles). Every festival keeps its own designs — no mixing! All 7: " + perFest + ".";
+    " headline styles × " + p.nfonts.length + " name styles × " + p.layouts.length + " layouts). Every festival keeps its own designs — no mixing! All 7: " + perFest + ".";
   el("comboBreak").title = perFest;
 }
 /* ---- generic chip picker ---- */
@@ -2075,13 +2511,26 @@ function buildChips(containerId, list, key, decorate) {
 function renderPickers() {
   /* ONLY the selected festival's own pool is offered — no mixing */
   var p = FEST_POOLS[state.fest];
+  buildChips("pickLayout", poolList(LAYOUTS, p.layouts), "layout");
   buildChips("pickTheme", poolList(PALETTES, p.themes), "theme", function (b, item) {
     var sw = document.createElement("span");
     sw.className = "swatch";
     sw.style.background = "linear-gradient(135deg," + item.stops[0][1] + "," + item.stops[item.stops.length - 1][1] + ")";
     b.appendChild(sw);
   });
-  buildChips("pickBg", poolList(BACKGROUNDS, p.bgs), "bg");
+  var bgList = poolList(BACKGROUNDS, p.bgs).concat((FEST_PHOTOS[state.fest] || []).map(function (ph) {
+    return { id: ph.id, name: ph.name, photoFile: ph.file };
+  }));
+  buildChips("pickBg", bgList, "bg", function (b, item) {
+    if (item.photoFile) {
+      var sw = document.createElement("span");
+      sw.className = "swatch";
+      sw.style.backgroundImage = "url('" + (photoDataUri(state.fest, item.id) || item.photoFile) + "')";
+      sw.style.backgroundSize = "cover";
+      sw.style.backgroundPosition = "center";
+      b.appendChild(sw);
+    }
+  });
   buildChips("pickBorder", poolList(BORDERS, p.borders), "border");
   buildChips("pickMotif", poolList(MOTIF_INDEX, p.motifs), "motif");
   buildChips("pickArrange", poolList(ARRANGES, p.arranges), "arrange");
@@ -2105,7 +2554,7 @@ function randOf(list) { return list[Math.floor(Math.random() * list.length)].id;
 function randId(ids) { return ids[Math.floor(Math.random() * ids.length)]; }
 function comboKey(fest, c) {
   return fest + "|" + c.theme + "|" + c.bg + "|" + c.border + "|" + c.motif + "|" +
-    c.arrange + "|" + c.overlay + "|" + c.hfont + "|" + c.nfont + "|" + c.msg;
+    c.arrange + "|" + c.overlay + "|" + c.hfont + "|" + c.nfont + "|" + (c.layout || "classic") + "|" + c.msg;
 }
 /* Combos already shown this session — random designs never repeat */
 var usedCombos = {};
@@ -2113,12 +2562,17 @@ function markComboUsed(fest, c) { usedCombos[comboKey(fest, c)] = true; }
 function randomCombo(festKey) {
   var fest = festKey || state.fest;
   var p = FEST_POOLS[fest];
+  var photos = FEST_PHOTOS[fest] || [];
   var c = null;
   for (var tries = 0; tries < 60; tries++) {
+    /* real photo backdrops are the premium default look (~2 of 3 draws) */
+    var bg = (photos.length && Math.random() < 0.66)
+      ? photos[Math.floor(Math.random() * photos.length)].id
+      : randId(p.bgs);
     c = {
-      theme: randId(p.themes), bg: randId(p.bgs), border: randId(p.borders),
+      theme: randId(p.themes), bg: bg, border: randId(p.borders),
       motif: randId(p.motifs), arrange: randId(p.arranges), overlay: randId(p.overlays),
-      hfont: randId(p.hfonts), nfont: randId(p.nfonts),
+      hfont: randId(p.hfonts), nfont: randId(p.nfonts), layout: randId(p.layouts),
       msg: Math.floor(Math.random() * FESTIVALS[fest].messages.length)
     };
     if (!usedCombos[comboKey(fest, c)]) break;
@@ -2127,149 +2581,149 @@ function randomCombo(festKey) {
   return c;
 }
 /* Curated gallery: 18 ready designs per festival (preset axis combos) */
-function preset(name, theme, bg, border, motif, arrange, overlay, hfont, nfont, msg) {
-  return { name: name, theme: theme, bg: bg, border: border, motif: motif, arrange: arrange, overlay: overlay, hfont: hfont, nfont: nfont, msg: msg };
+function preset(name, theme, bg, border, motif, arrange, overlay, hfont, nfont, layout, msg) {
+  return { name: name, theme: theme, bg: bg, border: border, motif: motif, arrange: arrange, overlay: overlay, hfont: hfont, nfont: nfont, layout: layout, msg: msg };
 }
 var PRESETS = {
   dussehra: [
-    preset("Royal Victory", "royal-gold", "sunburst", "gold-frame", "bow-arrow", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Saffron Victory", "saffron-glory", "dual-split", "marigold-strands", "peacock-feather", "top", "none", "festive-script", "modern", 1),
-    preset("Crimson Victory", "vermilion-flame", "diagonal-shine", "temple-arch", "big-rangoli", "sides", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Golden Victory", "classic-maroon", "vignette", "toran", "kalash", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
-    preset("Blazing Victory", "crimson", "mandala-backdrop", "sparkle-frame", "temple-bells", "centre", "fine-rays", "modern-bold", "bold-display", 4),
-    preset("Victorious Victory", "ruby-wine", "radial-glow", "rangoli-corners", "bow-arrow", "top", "tiny-dots", "elegant-serif", "script", 0),
-    preset("Royal Glory", "choco-gold", "sunburst", "gold-frame", "bow-arrow", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
-    preset("Saffron Glory", "sunset-orange", "dual-split", "marigold-strands", "peacock-feather", "scatter", "none", "classic", "modern", 2),
-    preset("Crimson Glory", "magenta-fest", "diagonal-shine", "temple-arch", "big-rangoli", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
-    preset("Golden Glory", "antique-gold", "vignette", "toran", "kalash", "top", "falling-petals", "modern-bold", "outline-gold", 4),
-    preset("Blazing Glory", "royal-gold", "mandala-backdrop", "sparkle-frame", "bow-arrow", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Victorious Glory", "saffron-glory", "radial-glow", "rangoli-corners", "sun-medallion", "scatter", "tiny-dots", "festive-script", "script", 1),
-    preset("Royal Triumph", "vermilion-flame", "sunburst", "gold-frame", "bow-arrow", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Saffron Triumph", "classic-maroon", "dual-split", "marigold-strands", "peacock-feather", "top", "none", "royal-display", "modern", 3),
-    preset("Crimson Triumph", "crimson", "diagonal-shine", "temple-arch", "big-rangoli", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
-    preset("Golden Triumph", "ruby-wine", "vignette", "toran", "bow-arrow", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
-    preset("Blazing Triumph", "choco-gold", "mandala-backdrop", "sparkle-frame", "temple-bells", "centre", "fine-rays", "festive-script", "bold-display", 1),
-    preset("Victorious Triumph", "sunset-orange", "radial-glow", "rangoli-corners", "sun-medallion", "top", "tiny-dots", "classic", "script", 2)
+    preset("Royal Victory", "royal-gold", "photo-1", "toran", "bow-arrow", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", "classic", 0),
+    preset("Saffron Victory", "sunset-orange", "dual-split", "marigold-strands", "kalash", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
+    preset("Crimson Victory", "crimson", "photo-3", "temple-arch", "bow-arrow", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
+    preset("Golden Victory", "saffron-glory", "vignette", "toran", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Blazing Victory", "magenta-fest", "photo-2", "sparkle-frame", "bow-arrow", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
+    preset("Victorious Victory", "ruby-wine", "radial-glow", "rangoli-corners", "kalash", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
+    preset("Royal Glory", "vermilion-flame", "photo-1", "gold-frame", "bow-arrow", "sides", "none", "festive-script", "elegant-serif", "split", 1),
+    preset("Saffron Glory", "antique-gold", "dual-split", "marigold-strands", "kalash", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Crimson Glory", "choco-gold", "photo-3", "temple-arch", "bow-arrow", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
+    preset("Golden Glory", "classic-maroon", "vignette", "toran", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Blazing Glory", "royal-gold", "photo-2", "sparkle-frame", "bow-arrow", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
+    preset("Victorious Glory", "sunset-orange", "radial-glow", "rangoli-corners", "kalash", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Royal Triumph", "crimson", "photo-1", "gold-frame", "bow-arrow", "centre", "none", "classic", "elegant-serif", "classic", 2),
+    preset("Saffron Triumph", "saffron-glory", "dual-split", "marigold-strands", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Crimson Triumph", "magenta-fest", "photo-3", "temple-arch", "bow-arrow", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
+    preset("Golden Triumph", "ruby-wine", "vignette", "toran", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Blazing Triumph", "vermilion-flame", "photo-2", "sparkle-frame", "bow-arrow", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
+    preset("Victorious Triumph", "antique-gold", "radial-glow", "rangoli-corners", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   dhanteras: [
-    preset("Golden Prosperity", "choco-gold", "radial-glow", "toran", "wealth-pot", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Royal Prosperity", "antique-gold", "sunburst", "rangoli-corners", "sun-medallion", "top", "none", "festive-script", "modern", 1),
-    preset("Antique Prosperity", "copper-glow", "dual-split", "dot-border", "temple-bells", "sides", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Copper Prosperity", "molten-bronze", "diagonal-shine", "gold-frame", "big-rangoli", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
-    preset("Molten Prosperity", "royal-gold", "mandala-backdrop", "temple-arch", "lotus", "centre", "fine-rays", "modern-bold", "bold-display", 4),
-    preset("Shining Prosperity", "peach-cream", "vignette", "marigold-strands", "wealth-pot", "top", "tiny-dots", "elegant-serif", "script", 0),
-    preset("Golden Treasure", "ivory-rose", "radial-glow", "toran", "wealth-pot", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
-    preset("Royal Treasure", "classic-maroon", "sunburst", "rangoli-corners", "sun-medallion", "scatter", "none", "classic", "modern", 2),
-    preset("Antique Treasure", "saffron-glory", "dual-split", "dot-border", "temple-bells", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
-    preset("Copper Treasure", "ruby-wine", "diagonal-shine", "gold-frame", "big-rangoli", "top", "falling-petals", "modern-bold", "outline-gold", 4),
-    preset("Molten Treasure", "choco-gold", "mandala-backdrop", "temple-arch", "wealth-pot", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Shining Treasure", "antique-gold", "vignette", "marigold-strands", "kalash", "scatter", "tiny-dots", "festive-script", "script", 1),
-    preset("Golden Wealth", "copper-glow", "radial-glow", "toran", "wealth-pot", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Royal Wealth", "molten-bronze", "sunburst", "rangoli-corners", "sun-medallion", "top", "none", "royal-display", "modern", 3),
-    preset("Antique Wealth", "royal-gold", "dual-split", "dot-border", "temple-bells", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
-    preset("Copper Wealth", "peach-cream", "diagonal-shine", "gold-frame", "wealth-pot", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
-    preset("Molten Wealth", "ivory-rose", "mandala-backdrop", "temple-arch", "lotus", "centre", "fine-rays", "festive-script", "bold-display", 1),
-    preset("Shining Wealth", "classic-maroon", "vignette", "marigold-strands", "kalash", "top", "tiny-dots", "classic", "script", 2)
+    preset("Golden Prosperity", "choco-gold", "photo-1", "gold-frame", "wealth-pot", "centre", "bokeh-glow", "royal-display", "classic-italic", "classic", 0),
+    preset("Royal Prosperity", "classic-maroon", "sunburst", "rangoli-corners", "big-rangoli", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
+    preset("Antique Prosperity", "royal-gold", "photo-3", "dot-border", "wealth-pot", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
+    preset("Copper Prosperity", "antique-gold", "diagonal-shine", "gold-frame", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Molten Prosperity", "saffron-glory", "photo-2", "temple-arch", "wealth-pot", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
+    preset("Shining Prosperity", "peach-cream", "vignette", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
+    preset("Golden Treasure", "copper-glow", "photo-1", "toran", "wealth-pot", "sides", "none", "festive-script", "elegant-serif", "split", 1),
+    preset("Royal Treasure", "ruby-wine", "sunburst", "rangoli-corners", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Antique Treasure", "ivory-rose", "photo-3", "dot-border", "wealth-pot", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
+    preset("Copper Treasure", "molten-bronze", "diagonal-shine", "gold-frame", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Molten Treasure", "choco-gold", "photo-2", "temple-arch", "wealth-pot", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
+    preset("Shining Treasure", "classic-maroon", "vignette", "marigold-strands", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Golden Wealth", "royal-gold", "photo-1", "toran", "wealth-pot", "centre", "none", "classic", "elegant-serif", "classic", 2),
+    preset("Royal Wealth", "antique-gold", "sunburst", "rangoli-corners", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Antique Wealth", "saffron-glory", "photo-3", "dot-border", "wealth-pot", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
+    preset("Copper Wealth", "peach-cream", "diagonal-shine", "gold-frame", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Molten Wealth", "copper-glow", "photo-2", "temple-arch", "wealth-pot", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
+    preset("Shining Wealth", "ruby-wine", "vignette", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   choti: [
-    preset("Amber Light", "sunset-orange", "radial-glow", "gold-frame", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Warm Light", "vermilion-flame", "mandala-backdrop", "marigold-strands", "sun-medallion", "top", "none", "festive-script", "modern", 1),
-    preset("Little Light", "amber-honey", "diagonal-shine", "sparkle-frame", "big-rangoli", "sides", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Glowing Light", "peach-cream", "sunburst", "diya-row", "fireworks", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
-    preset("First Light", "royal-gold", "vignette", "toran", "kalash", "centre", "fine-rays", "modern-bold", "bold-display", 4),
-    preset("Sweet Light", "crimson", "night-sky", "dot-border", "diya-pair", "top", "tiny-dots", "elegant-serif", "script", 0),
-    preset("Amber Diya", "coral-sunset", "radial-glow", "gold-frame", "diya-pair", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
-    preset("Warm Diya", "magenta-fest", "mandala-backdrop", "marigold-strands", "sun-medallion", "scatter", "none", "classic", "modern", 2),
-    preset("Little Diya", "saffron-glory", "diagonal-shine", "sparkle-frame", "big-rangoli", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
-    preset("Glowing Diya", "copper-glow", "sunburst", "diya-row", "fireworks", "top", "falling-petals", "modern-bold", "outline-gold", 4),
-    preset("First Diya", "sunset-orange", "vignette", "toran", "diya-pair", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Sweet Diya", "vermilion-flame", "night-sky", "dot-border", "lamp-string", "scatter", "tiny-dots", "festive-script", "script", 1),
-    preset("Amber Glow", "amber-honey", "radial-glow", "gold-frame", "diya-pair", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Warm Glow", "peach-cream", "mandala-backdrop", "marigold-strands", "sun-medallion", "top", "none", "royal-display", "modern", 3),
-    preset("Little Glow", "royal-gold", "diagonal-shine", "sparkle-frame", "big-rangoli", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
-    preset("Glowing Glow", "crimson", "sunburst", "diya-row", "diya-pair", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
-    preset("First Glow", "coral-sunset", "vignette", "toran", "kalash", "centre", "fine-rays", "festive-script", "bold-display", 1),
-    preset("Sweet Glow", "magenta-fest", "night-sky", "dot-border", "lamp-string", "top", "tiny-dots", "classic", "script", 2)
+    preset("Amber Light", "sunset-orange", "photo-1", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", "classic", 0),
+    preset("Warm Light", "magenta-fest", "mandala-backdrop", "marigold-strands", "fireworks", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
+    preset("Little Light", "royal-gold", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
+    preset("Glowing Light", "vermilion-flame", "sunburst", "diya-row", "fireworks", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("First Light", "saffron-glory", "photo-2", "toran", "diya-pair", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
+    preset("Sweet Light", "crimson", "night-sky", "dot-border", "fireworks", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
+    preset("Amber Diya", "amber-honey", "photo-1", "gold-frame", "diya-pair", "sides", "none", "festive-script", "elegant-serif", "split", 1),
+    preset("Warm Diya", "copper-glow", "mandala-backdrop", "marigold-strands", "fireworks", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Little Diya", "coral-sunset", "photo-3", "sparkle-frame", "diya-pair", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
+    preset("Glowing Diya", "peach-cream", "sunburst", "diya-row", "fireworks", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("First Diya", "sunset-orange", "photo-2", "toran", "diya-pair", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
+    preset("Sweet Diya", "magenta-fest", "night-sky", "dot-border", "fireworks", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Amber Glow", "royal-gold", "photo-1", "gold-frame", "diya-pair", "centre", "none", "classic", "elegant-serif", "classic", 2),
+    preset("Warm Glow", "vermilion-flame", "mandala-backdrop", "marigold-strands", "fireworks", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Little Glow", "saffron-glory", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
+    preset("Glowing Glow", "crimson", "sunburst", "diya-row", "fireworks", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("First Glow", "amber-honey", "photo-2", "toran", "diya-pair", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
+    preset("Sweet Glow", "copper-glow", "night-sky", "dot-border", "fireworks", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   diwali: [
-    preset("Midnight Glow", "midnight-blue", "night-sky", "rangoli-corners", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Sparkling Glow", "indigo-night", "mandala-backdrop", "gold-frame", "sun-medallion", "top", "none", "festive-script", "modern", 1),
-    preset("Royal Glow", "violet-night", "dual-split", "sparkle-frame", "kalash", "sides", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Golden Glow", "royal-purple", "diagonal-shine", "diya-row", "big-rangoli", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
-    preset("Radiant Glow", "magenta-fest", "vignette", "dot-border", "lamp-string", "centre", "fine-rays", "modern-bold", "bold-display", 4),
-    preset("Starlit Glow", "peacock", "radial-glow", "marigold-strands", "diya-pair", "top", "tiny-dots", "elegant-serif", "script", 0),
-    preset("Midnight Sparkle", "royal-gold", "night-sky", "rangoli-corners", "diya-pair", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
-    preset("Sparkling Sparkle", "silver-moon", "mandala-backdrop", "gold-frame", "sun-medallion", "scatter", "none", "classic", "modern", 2),
-    preset("Royal Sparkle", "teal-glow", "dual-split", "sparkle-frame", "kalash", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
-    preset("Golden Sparkle", "ruby-wine", "diagonal-shine", "diya-row", "big-rangoli", "top", "falling-petals", "modern-bold", "outline-gold", 4),
-    preset("Radiant Sparkle", "midnight-blue", "vignette", "dot-border", "diya-pair", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Starlit Sparkle", "indigo-night", "radial-glow", "marigold-strands", "fireworks", "scatter", "tiny-dots", "festive-script", "script", 1),
-    preset("Midnight Shine", "violet-night", "night-sky", "rangoli-corners", "diya-pair", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Sparkling Shine", "royal-purple", "mandala-backdrop", "gold-frame", "sun-medallion", "top", "none", "royal-display", "modern", 3),
-    preset("Royal Shine", "magenta-fest", "dual-split", "sparkle-frame", "kalash", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
-    preset("Golden Shine", "peacock", "diagonal-shine", "diya-row", "diya-pair", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
-    preset("Radiant Shine", "royal-gold", "vignette", "dot-border", "lamp-string", "centre", "fine-rays", "festive-script", "bold-display", 1),
-    preset("Starlit Shine", "silver-moon", "radial-glow", "marigold-strands", "fireworks", "top", "tiny-dots", "classic", "script", 2)
+    preset("Midnight Glow", "midnight-blue", "photo-1", "diya-row", "diya-pair", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", "classic", 0),
+    preset("Sparkling Glow", "silver-moon", "mandala-backdrop", "gold-frame", "big-rangoli", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
+    preset("Royal Glow", "magenta-fest", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
+    preset("Golden Glow", "indigo-night", "diagonal-shine", "diya-row", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Radiant Glow", "teal-glow", "photo-2", "dot-border", "diya-pair", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
+    preset("Starlit Glow", "peacock", "radial-glow", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
+    preset("Midnight Sparkle", "violet-night", "photo-1", "rangoli-corners", "diya-pair", "sides", "none", "festive-script", "elegant-serif", "split", 1),
+    preset("Sparkling Sparkle", "ruby-wine", "mandala-backdrop", "gold-frame", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Royal Sparkle", "royal-gold", "photo-3", "sparkle-frame", "diya-pair", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
+    preset("Golden Sparkle", "royal-purple", "diagonal-shine", "diya-row", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Radiant Sparkle", "midnight-blue", "photo-2", "dot-border", "diya-pair", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
+    preset("Starlit Sparkle", "silver-moon", "radial-glow", "marigold-strands", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Midnight Shine", "magenta-fest", "photo-1", "rangoli-corners", "diya-pair", "centre", "none", "classic", "elegant-serif", "classic", 2),
+    preset("Sparkling Shine", "indigo-night", "mandala-backdrop", "gold-frame", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Royal Shine", "teal-glow", "photo-3", "sparkle-frame", "diya-pair", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
+    preset("Golden Shine", "peacock", "diagonal-shine", "diya-row", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Radiant Shine", "violet-night", "photo-2", "dot-border", "diya-pair", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
+    preset("Starlit Shine", "ruby-wine", "radial-glow", "marigold-strands", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   govardhan: [
-    preset("Emerald Hill", "emerald", "soft-waves", "rangoli-corners", "govardhan-hill", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Verdant Hill", "forest-deep", "diagonal-shine", "marigold-strands", "temple-bells", "top", "none", "festive-script", "modern", 1),
-    preset("Sacred Hill", "leaf-gold", "sunburst", "toran", "big-rangoli", "sides", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Golden Hill", "lemon-lime", "vignette", "leaf-vine", "kalash", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
-    preset("Gentle Hill", "teal-glow", "mandala-backdrop", "dot-border", "peacock-feather", "centre", "fine-rays", "modern-bold", "bold-display", 4),
-    preset("Divine Hill", "classic-maroon", "radial-glow", "gold-frame", "govardhan-hill", "top", "tiny-dots", "elegant-serif", "script", 0),
-    preset("Emerald Grove", "choco-gold", "soft-waves", "rangoli-corners", "govardhan-hill", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
-    preset("Verdant Grove", "ivory-rose", "diagonal-shine", "marigold-strands", "temple-bells", "scatter", "none", "classic", "modern", 2),
-    preset("Sacred Grove", "peacock", "sunburst", "toran", "big-rangoli", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
-    preset("Golden Grove", "royal-gold", "vignette", "leaf-vine", "kalash", "top", "falling-petals", "modern-bold", "outline-gold", 4),
-    preset("Gentle Grove", "emerald", "mandala-backdrop", "dot-border", "govardhan-hill", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Divine Grove", "forest-deep", "radial-glow", "gold-frame", "lotus", "scatter", "tiny-dots", "festive-script", "script", 1),
-    preset("Emerald Blessing", "leaf-gold", "soft-waves", "rangoli-corners", "govardhan-hill", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Verdant Blessing", "lemon-lime", "diagonal-shine", "marigold-strands", "temple-bells", "top", "none", "royal-display", "modern", 3),
-    preset("Sacred Blessing", "teal-glow", "sunburst", "toran", "big-rangoli", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
-    preset("Golden Blessing", "classic-maroon", "vignette", "leaf-vine", "govardhan-hill", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
-    preset("Gentle Blessing", "choco-gold", "mandala-backdrop", "dot-border", "peacock-feather", "centre", "fine-rays", "festive-script", "bold-display", 1),
-    preset("Divine Blessing", "ivory-rose", "radial-glow", "gold-frame", "lotus", "top", "tiny-dots", "classic", "script", 2)
+    preset("Emerald Hill", "emerald", "photo-1", "leaf-vine", "govardhan-hill", "centre", "falling-petals", "elegant-serif", "classic-italic", "classic", 0),
+    preset("Verdant Hill", "ivory-rose", "diagonal-shine", "marigold-strands", "kalash", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
+    preset("Sacred Hill", "teal-glow", "photo-3", "toran", "govardhan-hill", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
+    preset("Golden Hill", "forest-deep", "vignette", "leaf-vine", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Gentle Hill", "peacock", "photo-2", "dot-border", "govardhan-hill", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
+    preset("Divine Hill", "classic-maroon", "radial-glow", "gold-frame", "kalash", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
+    preset("Emerald Grove", "leaf-gold", "photo-1", "rangoli-corners", "govardhan-hill", "sides", "none", "festive-script", "elegant-serif", "split", 1),
+    preset("Verdant Grove", "royal-gold", "diagonal-shine", "marigold-strands", "kalash", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Sacred Grove", "choco-gold", "photo-3", "toran", "govardhan-hill", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
+    preset("Golden Grove", "lemon-lime", "vignette", "leaf-vine", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Gentle Grove", "emerald", "photo-2", "dot-border", "govardhan-hill", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
+    preset("Divine Grove", "ivory-rose", "radial-glow", "gold-frame", "kalash", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Emerald Blessing", "teal-glow", "photo-1", "rangoli-corners", "govardhan-hill", "centre", "none", "classic", "elegant-serif", "classic", 2),
+    preset("Verdant Blessing", "forest-deep", "diagonal-shine", "marigold-strands", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Sacred Blessing", "peacock", "photo-3", "toran", "govardhan-hill", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
+    preset("Golden Blessing", "classic-maroon", "vignette", "leaf-vine", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Gentle Blessing", "leaf-gold", "photo-2", "dot-border", "govardhan-hill", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
+    preset("Divine Blessing", "royal-gold", "radial-glow", "gold-frame", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   bhaidooj: [
-    preset("Rosy Bond", "rose-pink", "radial-glow", "dot-border", "puja-thali", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Sweet Bond", "ivory-rose", "sunburst", "marigold-strands", "kalash", "top", "none", "festive-script", "modern", 1),
-    preset("Golden Bond", "ruby-wine", "diagonal-shine", "sparkle-frame", "lamp-string", "sides", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Blessed Bond", "magenta-fest", "mandala-backdrop", "rangoli-corners", "big-rangoli", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
-    preset("Tender Bond", "rose-gold", "vignette", "diya-row", "diya-pair", "centre", "fine-rays", "modern-bold", "bold-display", 4),
-    preset("Festive Bond", "peach-cream", "soft-waves", "gold-frame", "puja-thali", "top", "tiny-dots", "elegant-serif", "script", 0),
-    preset("Rosy Tilak", "royal-purple", "radial-glow", "dot-border", "puja-thali", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
-    preset("Sweet Tilak", "crimson", "sunburst", "marigold-strands", "kalash", "scatter", "none", "classic", "modern", 2),
-    preset("Golden Tilak", "coral-sunset", "diagonal-shine", "sparkle-frame", "lamp-string", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
-    preset("Blessed Tilak", "royal-gold", "mandala-backdrop", "rangoli-corners", "big-rangoli", "top", "falling-petals", "modern-bold", "outline-gold", 4),
-    preset("Tender Tilak", "rose-pink", "vignette", "diya-row", "puja-thali", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("Festive Tilak", "ivory-rose", "soft-waves", "gold-frame", "lotus", "scatter", "tiny-dots", "festive-script", "script", 1),
-    preset("Rosy Love", "ruby-wine", "radial-glow", "dot-border", "puja-thali", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Sweet Love", "magenta-fest", "sunburst", "marigold-strands", "kalash", "top", "none", "royal-display", "modern", 3),
-    preset("Golden Love", "rose-gold", "diagonal-shine", "sparkle-frame", "lamp-string", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
-    preset("Blessed Love", "peach-cream", "mandala-backdrop", "rangoli-corners", "puja-thali", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
-    preset("Tender Love", "royal-purple", "vignette", "diya-row", "diya-pair", "centre", "fine-rays", "festive-script", "bold-display", 1),
-    preset("Festive Love", "crimson", "soft-waves", "gold-frame", "lotus", "top", "tiny-dots", "classic", "script", 2)
+    preset("Rosy Bond", "rose-pink", "photo-1", "rangoli-corners", "puja-thali", "centre", "falling-petals", "festive-script", "script", "classic", 0),
+    preset("Sweet Bond", "crimson", "sunburst", "marigold-strands", "big-rangoli", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
+    preset("Golden Bond", "rose-gold", "photo-3", "sparkle-frame", "puja-thali", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
+    preset("Blessed Bond", "ivory-rose", "mandala-backdrop", "rangoli-corners", "big-rangoli", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Tender Bond", "coral-sunset", "photo-2", "diya-row", "puja-thali", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
+    preset("Festive Bond", "peach-cream", "soft-waves", "gold-frame", "big-rangoli", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
+    preset("Rosy Tilak", "ruby-wine", "photo-1", "dot-border", "puja-thali", "sides", "none", "festive-script", "elegant-serif", "split", 1),
+    preset("Sweet Tilak", "royal-gold", "sunburst", "marigold-strands", "big-rangoli", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Golden Tilak", "royal-purple", "photo-3", "sparkle-frame", "puja-thali", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
+    preset("Blessed Tilak", "magenta-fest", "mandala-backdrop", "rangoli-corners", "big-rangoli", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Tender Tilak", "rose-pink", "photo-2", "diya-row", "puja-thali", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
+    preset("Festive Tilak", "crimson", "soft-waves", "gold-frame", "big-rangoli", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Rosy Love", "rose-gold", "photo-1", "dot-border", "puja-thali", "centre", "none", "classic", "elegant-serif", "classic", 2),
+    preset("Sweet Love", "ivory-rose", "sunburst", "marigold-strands", "big-rangoli", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Golden Love", "coral-sunset", "photo-3", "sparkle-frame", "puja-thali", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
+    preset("Blessed Love", "peach-cream", "mandala-backdrop", "rangoli-corners", "big-rangoli", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Tender Love", "ruby-wine", "photo-2", "diya-row", "puja-thali", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
+    preset("Festive Love", "royal-gold", "soft-waves", "gold-frame", "big-rangoli", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ],
   chhath: [
-    preset("Golden Arghya", "coral-sunset", "soft-waves", "dot-border", "sun-river", "centre", "sparkle-dust", "elegant-serif", "elegant-serif", 0),
-    preset("Sacred Arghya", "dawn-blush", "diagonal-shine", "diya-row", "lamp-string", "top", "none", "festive-script", "modern", 1),
-    preset("Morning Arghya", "marigold-dawn", "dual-split", "toran", "diya-pair", "sides", "bokeh-glow", "classic", "classic-italic", 2),
-    preset("Evening Arghya", "sunset-orange", "vignette", "marigold-strands", "kalash", "scatter", "falling-petals", "royal-display", "outline-gold", 3),
-    preset("Radiant Arghya", "peach-cream", "radial-glow", "gold-frame", "lotus", "centre", "fine-rays", "modern-bold", "bold-display", 4),
-    preset("River Arghya", "royal-gold", "sunburst", "leaf-vine", "sun-river", "top", "tiny-dots", "elegant-serif", "script", 0),
-    preset("Golden Sunrise", "teal-glow", "soft-waves", "dot-border", "sun-river", "sides", "sparkle-dust", "festive-script", "elegant-serif", 1),
-    preset("Sacred Sunrise", "saffron-glory", "diagonal-shine", "diya-row", "lamp-string", "scatter", "none", "classic", "modern", 2),
-    preset("Morning Sunrise", "vermilion-flame", "dual-split", "toran", "diya-pair", "centre", "bokeh-glow", "royal-display", "classic-italic", 3),
-    preset("Evening Sunrise", "amber-honey", "vignette", "marigold-strands", "kalash", "top", "falling-petals", "modern-bold", "outline-gold", 4),
-    preset("Radiant Sunrise", "coral-sunset", "radial-glow", "gold-frame", "sun-river", "sides", "fine-rays", "elegant-serif", "bold-display", 0),
-    preset("River Sunrise", "dawn-blush", "sunburst", "leaf-vine", "sun-medallion", "scatter", "tiny-dots", "festive-script", "script", 1),
-    preset("Golden Ghat", "marigold-dawn", "soft-waves", "dot-border", "sun-river", "centre", "sparkle-dust", "classic", "elegant-serif", 2),
-    preset("Sacred Ghat", "sunset-orange", "diagonal-shine", "diya-row", "lamp-string", "top", "none", "royal-display", "modern", 3),
-    preset("Morning Ghat", "peach-cream", "dual-split", "toran", "diya-pair", "sides", "bokeh-glow", "modern-bold", "classic-italic", 4),
-    preset("Evening Ghat", "royal-gold", "vignette", "marigold-strands", "sun-river", "scatter", "falling-petals", "elegant-serif", "outline-gold", 0),
-    preset("Radiant Ghat", "teal-glow", "radial-glow", "gold-frame", "lotus", "centre", "fine-rays", "festive-script", "bold-display", 1),
-    preset("River Ghat", "saffron-glory", "sunburst", "leaf-vine", "sun-medallion", "top", "tiny-dots", "classic", "script", 2)
+    preset("Golden Arghya", "coral-sunset", "photo-1", "marigold-strands", "sun-river", "centre", "none", "elegant-serif", "elegant-serif", "classic", 0),
+    preset("Sacred Arghya", "saffron-glory", "diagonal-shine", "diya-row", "kalash", "scatter", "bokeh-glow", "festive-script", "modern", "minimal", 1),
+    preset("Morning Arghya", "peach-cream", "photo-3", "toran", "sun-river", "sides", "falling-petals", "classic", "classic-italic", "split", 2),
+    preset("Evening Arghya", "dawn-blush", "vignette", "marigold-strands", "kalash", "top", "fine-rays", "royal-display", "outline-gold", "top-band", 3),
+    preset("Radiant Arghya", "vermilion-flame", "photo-2", "gold-frame", "sun-river", "centre", "tiny-dots", "modern-bold", "bold-display", "classic", 4),
+    preset("River Arghya", "royal-gold", "sunburst", "leaf-vine", "kalash", "scatter", "sparkle-dust", "elegant-serif", "script", "minimal", 0),
+    preset("Golden Sunrise", "marigold-dawn", "photo-1", "dot-border", "sun-river", "sides", "none", "festive-script", "elegant-serif", "split", 1),
+    preset("Sacred Sunrise", "amber-honey", "diagonal-shine", "diya-row", "kalash", "top", "bokeh-glow", "classic", "modern", "top-band", 2),
+    preset("Morning Sunrise", "teal-glow", "photo-3", "toran", "sun-river", "centre", "falling-petals", "royal-display", "classic-italic", "classic", 3),
+    preset("Evening Sunrise", "sunset-orange", "vignette", "marigold-strands", "kalash", "scatter", "fine-rays", "modern-bold", "outline-gold", "minimal", 4),
+    preset("Radiant Sunrise", "coral-sunset", "photo-2", "gold-frame", "sun-river", "sides", "tiny-dots", "elegant-serif", "bold-display", "split", 0),
+    preset("River Sunrise", "saffron-glory", "sunburst", "leaf-vine", "kalash", "top", "sparkle-dust", "festive-script", "script", "top-band", 1),
+    preset("Golden Ghat", "peach-cream", "photo-1", "dot-border", "sun-river", "centre", "none", "classic", "elegant-serif", "classic", 2),
+    preset("Sacred Ghat", "dawn-blush", "diagonal-shine", "diya-row", "kalash", "scatter", "bokeh-glow", "royal-display", "modern", "minimal", 3),
+    preset("Morning Ghat", "vermilion-flame", "photo-3", "toran", "sun-river", "sides", "falling-petals", "modern-bold", "classic-italic", "split", 4),
+    preset("Evening Ghat", "royal-gold", "vignette", "marigold-strands", "kalash", "top", "fine-rays", "elegant-serif", "outline-gold", "top-band", 0),
+    preset("Radiant Ghat", "marigold-dawn", "photo-2", "gold-frame", "sun-river", "centre", "tiny-dots", "festive-script", "bold-display", "classic", 1),
+    preset("River Ghat", "amber-honey", "sunburst", "leaf-vine", "kalash", "scatter", "sparkle-dust", "classic", "script", "minimal", 2)
   ]
 };
 function loadCurated() {
@@ -2297,7 +2751,7 @@ function galleryData() {
 }
 function applyIdea(idea) {
   var c = {};
-  ["theme", "bg", "border", "motif", "arrange", "overlay", "hfont", "nfont", "msg"].forEach(function (k) { c[k] = idea[k]; });
+  ["theme", "bg", "border", "motif", "arrange", "overlay", "hfont", "nfont", "layout", "msg"].forEach(function (k) { c[k] = idea[k]; });
   state.combo[state.fest] = c;
   renderMessages(); renderPickers(); renderMain();
 }
@@ -2408,6 +2862,7 @@ function renderSeasonStrip() {
 }
 function setFest(key) {
   state.fest = key;
+  preloadFestPhotos(key);
   /* every visit / every switch starts from a FRESH random design
      drawn from this festival's own pool */
   state.combo[key] = randomCombo(key);
@@ -2568,6 +3023,7 @@ window.FestivalMaker = {
   currentData: currentData, renderMain: renderMain,
   generateWish: generateWish, generateWishFresh: generateWishFresh, WISH_FRAGS: WISH_FRAGS,
   FEST_POOLS: FEST_POOLS, MOTIF_INDEX: MOTIF_INDEX, poolCombos: poolCombos,
+  LAYOUTS: LAYOUTS, LAYOUT_SPOTS: LAYOUT_SPOTS, FEST_PHOTOS: FEST_PHOTOS,
   randomCombo: randomCombo, comboKey: comboKey, ARRANGE_SPOTS: ARRANGE_SPOTS, MOTIF_FIT: MOTIF_FIT,
   getState: function () { return state; }
 };
